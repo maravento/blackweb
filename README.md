@@ -73,6 +73,10 @@ En la regla anterior hemos creado dos acls. blackdomains; que servirá para bloq
 - La acl blackweb está diseñada exclusivamente para bloquear dominios. Para los interesados en bloquear banners y otras modalidades publicitarias, visite el foro [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0)
 - Para convertir la acl a MS-DOS/Windows utilice las herramientas [Dos2Unix] (http://dos2unix.sourceforge.net/) o [FF Multiconverter] (https://sites.google.com/site/ffmulticonverter/download)
 
+### Blackweb Update
+
+Puede actualizar **blackweb** y/o agregarle sus propias listas, sin necesidad de esperar que publiquemos la nueva actualización, descargando el script [blackwebupdate.sh] (https://github.com/maravento/blackweb/raw/master/blackwebupdate.sh) (disponible en el repositorio), que es el encargado de crear **blackweb**. Se recomienda ejecutarlo desde **/etc/init.d** y verificar los enlaces antes de correr el script, ya que algunas conexiones eventualmente pueden pedir capcha.
+
 ### Contribuciones
 
 Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser incluidas en este proyecto. Estas deberán alojarse de forma permanente con acceso público (Ej: [Github] (https://github.com)), de fácil descarga, vía http/s, git, wget, etc, y de ser posible con control de versiones.
