@@ -14,14 +14,14 @@
 blpath=~/blackweb
 
 # DEL REPOSITORY
-if [ ! -d $blpath ]; then rm -rf $blpath; fi >/dev/null 2>&1
+if [ -d $blpath ]; then rm -rf $blpath; fi
 
 # GIT CLONE BLACLISTWEB
 git clone https://github.com/maravento/blackweb.git
 
 # CREATE DIR
-if [ ! -d $blpath/bl ]; then mkdir -p $blpath/bl; fi >/dev/null 2>&1
-if [ ! -d /etc/acl ]; then mkdir -p /etc/acl; fi >/dev/null 2>&1
+if [ -d $blpath/bl ]; then mkdir -p $blpath/bl; fi
+if [ -d /etc/acl ]; then mkdir -p /etc/acl; fi
 
 # DOWNLOAD BL
 echo "Downloading Public Bls..."
@@ -53,16 +53,16 @@ function blzip() {
 }
 	blzip 'http://www.malware-domains.com/files/domains.zip' && sleep 1
 function bltar() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && for F in *.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done
+    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && for F in *.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	bltar 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	bltar 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 function blbig() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" -O bigblacklist.tar.gz >/dev/null 2>&1 && for F in bigblacklist.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done
+    cd $blpath && wget -c --retry-connrefused -t 0 "$1" -O bigblacklist.tar.gz >/dev/null 2>&1 && for F in bigblacklist.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	blbig 'http://urlblacklist.com/cgi-bin/commercialdownload.pl?type=download&file=bigblacklist' && sleep 2
 function blgz() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && for F in *.tgz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done
+    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && for F in *.tgz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	blgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 echo "OK"
