@@ -2,19 +2,19 @@
 
 <a target="_blank" href=""><img src="https://img.shields.io/badge/Development-ALPHA-blue.svg"></a>
 
-En ocasiones hemos necesitado bloquear un sitio web, ya sea de porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc; y como son muchos, para ahorrar tiempo utilizamos las llamadas "listas negras" (blacklist). En Internet existen muchas "blacklist", tales como como [Shallalist] (http://www.shallalist.de/), [Urlblacklist] (http://urlblacklist.com/), [Capitole (Univ Toulouse)] (https://dsi.ut-capitole.fr/blacklists/), etc, sin embargo están plagadas de subdominios y falsos positivos.
+En ocasiones hemos necesitado bloquear un sitio web, ya sea de porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc; y como son muchos, para ahorrar tiempo utilizamos las llamadas "listas negras" (blacklist). En Internet existen muchas, tales como [Shallalist] (http://www.shallalist.de/), [Urlblacklist] (http://urlblacklist.com/), [Capitole (Univ Toulouse)] (https://dsi.ut-capitole.fr/blacklists/), etc, sin embargo están plagadas de subdominios y falsos positivos.
 
-Sumado a esto, no son compatibles con [Squid-Cache] (http://www.squid-cache.org/) y al internar correrlas, el proxy se detiene, generando el error: "ERROR: '.sub.example.com' is a subdomain of '.example.com'". Este problema, conocido como "overlapping domains",  [ha generado diversos debates] (https://stackoverflow.com/questions/33557298/remove-subdomains-from-blacklist-overlapping-domains), sin que a la fecha haya una solución. Lo anterior se debe a que estas listas negras fueron concebidas para Squid2x y Squidguard, y cuando ocurrió la migración de [Squid2x a 3x] (http://comments.gmane.org/gmane.comp.web.squid.general/98170), dejó de aceptar listas con subdominios, generando el error.
+Sumado a esto, no son compatibles con [Squid-Cache] (http://www.squid-cache.org/) y al internar correrlas, el proxy se detiene, generando el error: "ERROR: '.sub.example.com' is a subdomain of '.example.com'". Este problema, conocido como "overlapping domains", [ha generado diversos debates] (https://stackoverflow.com/questions/33557298/remove-subdomains-from-blacklist-overlapping-domains), sin que a la fecha haya una solución. Lo anterior se debe a que estas listas negras fueron concebidas para Squid2x y Squidguard, y cuando ocurrió la migración de [Squid2x a 3x] (http://comments.gmane.org/gmane.comp.web.squid.general/98170), este proxy dejó de aceptar listas con subdominios, generando el error.
 
 En un intento por evitarlo, muchos han optado por editar sus listas negras manualmente. Incluso algunos han propuesto [parchear squid3] (http://www.squid-cache.org/mail-archive/squid-users/201208/0360.html) para que tolere los subdominios, pero no ha funcionado bien con las versiones actuales y tampoco elimina completamente el error. 
 
-[Blackweb] (http://www.maravento.com/p/blacklistweb.html) pretende recopilar la mayor cantidad de listas negras públicas de dominios, con el objeto de unificarlas y hacerlas compatibles con [Squid-Cache] (http://www.squid-cache.org/). Para lograrlo, realizamos una rigurosa depuración, evitando duplicados, y las comparamos con lista de extensiones de dominios (ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), para detectar dominios inválidos, y finalmente las cotejamos con "listas blancas", externas y propias, para filtrar la mayor cantidad de falsos positivos, que se supone no deberían aparecer en estas blacklist (BLs), como correos electrónicos y dominios relacionados, como google, gmail, hotmail, yahoo, etc, páginas gubernamentales, bancos, universidades, etc, para obtener una sola mega lista de control (ACL), apta para correr en [Squid-Cache] (http://www.squid-cache.org/) y libre de "overlapping domains".
+[Blackweb] (http://www.maravento.com/p/blacklistweb.html) pretende recopilar la mayor cantidad de listas negras públicas de dominios, con el objeto de unificarlas y hacerlas compatibles con [Squid-Cache] (http://www.squid-cache.org/)(v3.5.x). Para lograrlo, realizamos una rigurosa depuración, evitando duplicados, y las comparamos con lista de extensiones de dominios (ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), para detectar dominios inválidos, y finalmente las cotejamos con "listas blancas" para filtrar la mayor cantidad de falsos positivos posibles (google, hotmail, yahoo, etc), para obtener una sola mega lista de control (ACL), apta para correr en [Squid-Cache] (http://www.squid-cache.org/) y libre de "overlapping domains".
 
 ### Descripción
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.006.715|
+|blackweb.txt|4.169.885|
 
 ### Dependencias
 
@@ -65,17 +65,17 @@ http_access allow whitedomains
 http_access deny blackdomains 
 http_access deny blackweb
 ```
-En la regla anterior hemos creado dos acls. blackdomains; que servirá para bloquear dominios no incluidos en blackweb (ej: .youtube.com .googlevideo.com, .ytimg.com, etc) y whitedomains para incluir los falsos positivos de blackweb y también para autorizar el subdominio accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios] (http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)
+En la regla anterior hemos creado dos acls. blackdomains; que servirá para bloquear dominios no incluidos en blackweb (ej: .youtube.com .googlevideo.com, .ytimg.com, etc) y whitedomains para incluir los falsos positivos de blackweb y también para autorizar el subdominio accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios] (http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube). Ambas listas entan disponibles en el repositorio.
 
 ### Importante
 
 - Por defecto la ruta de la acl blackweb es **/etc/acl** y del script de actualización **/etc/init.d**.
 - La acl blackweb está diseñada exclusivamente para bloquear dominios. Para los interesados en bloquear banners y otras modalidades publicitarias, visite el foro [Alterserv] (http://www.alterserv.com/foros/index.php?topic=1428.0)
-- Para convertir la acl a MS-DOS/Windows utilice las herramientas [Dos2Unix] (http://dos2unix.sourceforge.net/) o [FF Multiconverter] (https://sites.google.com/site/ffmulticonverter/download)
+- Para convertir la acl a MS-DOS/Windows utilice las herramientas [Dos2Unix] (http://dos2unix.sourceforge.net/) o [FF Multiconverter] (https://sites.google.com/site/ffmulticonverter/download), etc.
 
 ### Blackweb Update
 
-Puede actualizar **blackweb** y/o agregarle sus propias listas, sin necesidad de esperar que publiquemos la nueva actualización, descargando el script [blackwebupdate.sh] (https://github.com/maravento/blackweb/raw/master/blackwebupdate.sh) (disponible en el repositorio), que es el encargado de crear **blackweb**. Se recomienda ejecutarlo desde **/etc/init.d** y verificar los enlaces antes de correr el script, ya que algunas conexiones eventualmente pueden pedir capcha.
+Puede actualizar **blackweb** y/o agregarle sus listas propias, sin necesidad de esperar que publiquemos la nueva actualización, descargando el script [blupdate.sh] (https://github.com/maravento/blackweb/raw/master/blupdate.sh) (disponible en el repositorio), que es el encargado de crear **blackweb**. Se recomienda ejecutarlo con privilegios y verificar los enlaces antes de correr el script. Tenga presente que la captura y depuración de dominios consume gran cantidad de recursos de hardware durante el procesamiento.
 
 ### Contribuciones
 
@@ -138,8 +138,6 @@ Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser 
 
 #####Own lists (inside project)
 blackurls
-
-whitetlds
 
 whiteurls
 
