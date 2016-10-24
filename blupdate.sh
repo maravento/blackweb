@@ -10,7 +10,8 @@
 # Authors:		Maravento.com and Novatoz.com
 # script route:		/etc/init.d
 ### END INIT INFO ###
-
+clear
+echo
 blpath=~/blackweb
 
 # DEL REPOSITORY
@@ -20,10 +21,11 @@ if [ -d $blpath ]; then rm -rf $blpath; fi
 git clone https://github.com/maravento/blackweb.git
 
 # CREATE DIR
-if [ -d $blpath/bl ]; then mkdir -p $blpath/bl; fi
-if [ -d /etc/acl ]; then mkdir -p /etc/acl; fi
+if [ ! -d $blpath/bl ]; then mkdir -p $blpath/bl; fi
+if [ ! -d /etc/acl ]; then mkdir -p /etc/acl; fi
 
 # DOWNLOAD BL
+echo
 echo "Downloading Public Bls..."
 sed -e '/^#/d' $blpath/blackurls.txt | sort -u >> $blpath/bl/bls.txt
 function bldownload() {
@@ -97,7 +99,6 @@ cp -f {blackweb,blackdomains,whitedomains}.txt /etc/acl >/dev/null 2>&1
 cd
 echo "OK"
 rm -rf $blpath
-echo
 
 # LOG
 date=`date +%d/%m/%Y" "%H:%M:%S`

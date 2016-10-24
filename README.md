@@ -14,7 +14,7 @@ En un intento por evitarlo, muchos han optado por editar sus listas negras manua
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.169.885|
+|blackweb.txt|3.587.521|
 
 ### Dependencias
 
@@ -56,7 +56,7 @@ http_access deny blackweb
 ```
 ### Edición
 
-La ACL blackweb, al ser una "lista negra" con más de 4 millones de dominios bloqueados, editarla manualmente puede ser algo muy frustrante. Por esta razón, si detecta un falso positivo, recomendamos crear una "lista blanca" y poner ahí los dominios que quiera excluir de blackweb y reportarnos el incidente para corregirlo en la próxima actualización. (en el órden propuesto)
+La ACL blackweb, al ser una "lista negra" con más de 3 millones de dominios bloqueados, editarla manualmente puede ser algo muy frustrante. Por esta razón, si detecta un falso positivo, recomendamos crear una "lista blanca" y poner ahí los dominios que quiera excluir de blackweb y reportarnos el incidente para corregirlo en la próxima actualización. (en el órden propuesto)
 ```
 acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
 acl blackdomains dstdomain -i "/etc/acl/blackdomains.txt"
