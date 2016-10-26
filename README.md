@@ -52,7 +52,7 @@ Descarga incompleta/Incomplete download:
 ```
 Blackweb for Squid: Abort 14/06/2016 16:35:38 Check Internet Connection
 ```
-Edit /etc/squid3/squid.conf o /etc/squid/squid.conf:
+Edit /etc/squid3/squid.conf or /etc/squid/squid.conf:
 ```
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
@@ -166,8 +166,7 @@ This Project is educational purposes. Este proyecto es con fines educativos. Agr
 
 © 2016 [Gateproxy] (http://www.gateproxy.com) by [maravento] (http://www.maravento.com)
 
-## Disclaimer
+#### Disclaimer
 
 Este script puede dañar su sistema si se usa incorrectamente. Úselo bajo su propio riesgo. This script can damage your system if used incorrectly. Use it at your own risk. [HowTO Gateproxy] (https://goo.gl/ZT4LTi)
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
