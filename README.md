@@ -14,41 +14,41 @@ Added to this, are not compatible with Squid-Cache and when try run them, proxy 
 
 [Blackweb] (http://www.maravento.com/p/blacklistweb.html) aims to collect as many public blacklists of domains, in order to unify and compatible with Squid-Cache (v3.5.x). To achieve this, we conduct a thorough cleansing, avoiding duplicate, and compared with list of domain extensions (ccTLDs ccSLD, sTLD, uTLD, gSLD, gTLD, etc.) and "whitelist" domains to filter as many potential false positives (google, hotmail, yahoo, etc), and get a mega control list (ACL), optimized for [Squid-Cache] (http://www.squid-cache.org/) and free of "overlapping domains".
 
-### Descripción - Description
+### Descripción/Description
 
 |File|BLDomains|
 |----|---------|
 |blackweb.txt|3.587.521|
 
-### Dependencias - Dependencies
+### Dependencias/Dependencies
 
 ```
 sudo apt-get -y install git apt dpkg squid
 ```
 
-### Modo de uso - How to use
+### Modo de uso/How to use
 
-Descargue - Download:
+Descargue/Download:
 ```
 git clone https://github.com/maravento/blackweb.git
 ```
-Copie el script y ejecútelo - Copy the script and run:
+Copie el script y ejecútelo/Copy the script and run:
 ```
 sudo cp -f blackweb/blackweb.sh /etc/init.d
 sudo chown root:root /etc/init.d/blackweb.sh
 sudo chmod +x /etc/init.d/blackweb.sh
 sudo /etc/init.d/blackweb.sh
 ```
-cron task:
+Cron task:
 ```
 sudo crontab -e
 @weekly /etc/init.d/blackweb.sh
 ```
-Verifique su ejecución - Check execution: /var/log/syslog.log:
+Verifique su ejecución/Check execution: /var/log/syslog.log:
 ```
 Blackweb for Squid: 14/06/2016 15:47:14
 ```
-Descarga incompleta - Incomplete download:
+Descarga incompleta/Incomplete download:
 ```
 Blackweb for Squid: Abort 14/06/2016 16:35:38 Check Internet Connection
 ```
@@ -58,7 +58,7 @@ Edit /etc/squid3/squid.conf o /etc/squid/squid.conf:
 acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
 http_access deny blackweb
 ```
-### Edición - Edit
+### Edición/Edit
 
 Blackweb contiene más de 3 millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Eentonces, si detecta un falso positivo, utilice la ACL "whitedomains" y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en Blackweb, que quiera bloquear, puede incluirlos en "blackdomains"
 
