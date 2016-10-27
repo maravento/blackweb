@@ -18,7 +18,7 @@ Added to this, are not compatible with Squid-Cache and when try run them, proxy 
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|3.587.521|
+|blackweb.txt|4.181.679|
 
 ### Dependencias/Dependencies
 
@@ -60,9 +60,9 @@ http_access deny blackweb
 ```
 ### Edición/Edit
 
-Blackweb contiene más de 3 millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Eentonces, si detecta un falso positivo, utilice la ACL "whitedomains" y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en Blackweb, que quiera bloquear, puede incluirlos en "blackdomains"
+Blackweb contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Eentonces, si detecta un falso positivo, utilice la ACL "whitedomains" y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en Blackweb, que quiera bloquear, puede incluirlos en "blackdomains"
 
-Blackweb contains more than 3 million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL "whitedomains" and report the incident to correct it in the next update. The same applies for domains not included in Blackweb, you want to block, you can include them in "blackdomains"
+Blackweb contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL "whitedomains" and report the incident to correct it in the next update. The same applies for domains not included in Blackweb, you want to block, you can include them in "blackdomains"
 
 ```
 acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"

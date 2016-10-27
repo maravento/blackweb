@@ -29,7 +29,7 @@ echo
 echo "Downloading Public Bls..."
 sed -e '/^#/d' $blpath/blackurls.txt | sort -u >> $blpath/bl/bls.txt
 function bldownload() {
-    wget -c --retry-connrefused -t 0 "$1" -O - 2>/dev/null | sort -u >> $blpath/bl/bls.txt
+    wget -c --retry-connrefused -t 0 "$1" -O - >/dev/null 2>&1 | sort -u >> $blpath/bl/bls.txt
 }
 	bldownload 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	bldownload 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
