@@ -29,7 +29,7 @@ echo
 echo "Downloading Public Bls..."
 sed -e '/^#/d' $blpath/blackurls.txt | sort -u >> $blpath/bl/bls.txt
 function bldownload() {
-    wget -c --retry-connrefused -t 0 "$1" -O - >/dev/null 2>&1 | sort -u >> $blpath/bl/bls.txt
+    wget -q -c --retry-connrefused -t 0 "$1" -O - | sort -u >> $blpath/bl/bls.txt
 }
 	bldownload 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	bldownload 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
@@ -51,7 +51,7 @@ function bldownload() {
 	bldownload 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	bldownload 'http://hosts-file.net/download/hosts.txt' && sleep 1
 function blzip() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && unzip -p domains.zip >> bl/bls.txt
+    cd $blpath && wget -q -c --retry-connrefused -t 0 "$1" && unzip -p domains.zip >> bl/bls.txt
 }
 	blzip 'http://www.malware-domains.com/files/domains.zip' && sleep 1
 function bltar() {
@@ -60,11 +60,11 @@ function bltar() {
 	bltar 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	bltar 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 function blbig() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" -O bigblacklist.tar.gz >/dev/null 2>&1 && for F in bigblacklist.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
+    cd $blpath && wget -q -c --retry-connrefused -t 0 "$1" -O bigblacklist.tar.gz && for F in bigblacklist.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	blbig 'http://urlblacklist.com/cgi-bin/commercialdownload.pl?type=download&file=bigblacklist' && sleep 2
 function blgz() {
-    cd $blpath && wget -c --retry-connrefused -t 0 "$1" >/dev/null 2>&1 && for F in *.tgz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
+    cd $blpath && wget -q -c --retry-connrefused -t 0 "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	blgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 echo "OK"
@@ -72,11 +72,11 @@ echo "OK"
 # DOWNLOAD TLDS
 echo "Downloading Public TLDs..."
 function iana() {
-    wget -c --retry-connrefused -t 0 "$1" -O - >/dev/null 2>&1 | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed -e '/^#/d' | sed 's/^/./' | sort -u >> $blpath/ptlds.txt
+    wget -q -c --retry-connrefused -t 0 "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed -e '/^#/d' | sed 's/^/./' | sort -u >> $blpath/ptlds.txt
 }
 	iana 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
 function suffix() {
-    wget -c --retry-connrefused -t 0 "$1" -O - >/dev/null 2>&1 | grep -v "//" | grep -ve "^$" | sed 's:\(.*\):\.\1:g' | sort -u | grep -v -P "[^a-z0-9_.-]" >> $blpath/ptlds.txt
+    wget -q -c --retry-connrefused -t 0 "$1" -O - | grep -v "//" | grep -ve "^$" | sed 's:\(.*\):\.\1:g' | sort -u | grep -v -P "[^a-z0-9_.-]" >> $blpath/ptlds.txt
 }
 	suffix 'https://publicsuffix.org/list/public_suffix_list.dat'
 echo "OK"
@@ -92,7 +92,7 @@ cd $blpath
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
 find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|ftp\.\|/.*\)::g' > domains.txt
 echo "OK"
-echo
+
 echo "Delete Overlapping..."
 chmod +x parse_domain.py && python parse_domain.py | sort -u > blackweb.txt
 cp -f {blackweb,blackdomains,whitedomains}.txt /etc/acl >/dev/null 2>&1

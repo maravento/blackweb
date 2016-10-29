@@ -18,7 +18,7 @@ Added to this, are not compatible with Squid-Cache and when try run them, proxy 
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.181.679|
+|blackweb.txt|4.200.457|
 
 ### Dependencias/Dependencies
 
@@ -46,7 +46,7 @@ sudo crontab -e
 ```
 Verifique su ejecución/Check execution: /var/log/syslog.log:
 ```
-Blackweb for Squid: 14/06/2016 15:47:14
+Blackweb for Squid: 28/09/2016 15:47:14
 ```
 Descarga incompleta/Incomplete download:
 ```
