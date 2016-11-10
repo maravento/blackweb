@@ -18,7 +18,7 @@ Added to this, are not compatible with Squid-Cache and when try run them, proxy 
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.200.457|
+|blackweb.txt|4.199.686|
 
 ### Dependencias/Dependencies
 

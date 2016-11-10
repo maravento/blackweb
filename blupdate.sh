@@ -90,7 +90,7 @@ echo "OK"
 echo "Capture Domains..."
 cd $blpath
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|ftp\.\|/.*\)::g' > domains.txt
+find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|www1\.\|ftp\.\|/.*\)::g' > domains.txt
 echo "OK"
 
 echo "Delete Overlapping..."
