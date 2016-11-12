@@ -18,7 +18,7 @@ Added to this, are not compatible with Squid-Cache and when try run them, proxy 
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.199.686|
+|blackweb.txt|4.402.157|
 
 ### Dependencias/Dependencies
 
@@ -152,6 +152,8 @@ Those interested may contribute sending us new BLs links to be included in this 
 [IANA] (https://www.iana.org/domains/root/db)
 
 [Mozilla Public Suffix] (https://publicsuffix.org/list/public_suffix_list.dat)
+
+[Wikipedia Top Level Domains] (https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
 #####Own lists (inside project)
 blackurls
