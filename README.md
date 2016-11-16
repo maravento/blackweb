@@ -14,7 +14,7 @@ Sometimes we needed to block a website, like a porn, downloads, drugs, malware, 
 
 |File|BLDomains|
 |----|---------|
-|blackweb.txt|4.402.157|
+|blackweb.txt|4.402.150|
 
 ### Dependencias/Dependencies
 
@@ -143,6 +143,8 @@ Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser 
 blackurls
 
 whiteurls
+
+whitetlds
 
 ### Licence
 

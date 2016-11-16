@@ -83,7 +83,7 @@ echo "OK"
 
 # JOINT WHITELIST
 echo "Joint Whitelist..."
-sed -e '/^#/d' $blpath/{ptlds,whiteurls}.txt | sort -u > $blpath/tlds.txt
+sed -e '/^#/d' $blpath/{ptlds,whiteurls,whitetlds}.txt | sort -u > $blpath/tlds.txt
 echo "OK"
 
 # CAPTURE AND DELETE OVERLAPPING DOMAINS
