@@ -19,7 +19,7 @@ Sometimes we needed to block a website, like a porn, downloads, drugs, malware, 
 ### Dependencias/Dependencies
 
 ```
-sudo apt-get -y install git apt dpkg squid
+git squid
 ```
 
 ### Modo de uso/How to use
@@ -56,7 +56,7 @@ http_access deny blackweb
 ```
 ### Edición/Edit
 
-Blackweb contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Eentonces, si detecta un falso positivo, utilice la ACL "whitedomains" y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en Blackweb, que quiera bloquear, puede incluirlos en "blackdomains" / Blackweb contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL "whitedomains" and report the incident to correct it in the next update. The same applies for domains not included in Blackweb, you want to block, you can include them in "blackdomains"
+Blackweb contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL "whitedomains" y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en Blackweb, que quiera bloquear, puede incluirlos en "blackdomains" / Blackweb contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL "whitedomains" and report the incident to correct it in the next update. The same applies for domains not included in Blackweb, you want to block, you can include them in "blackdomains"
 
 ```
 acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
@@ -85,6 +85,7 @@ Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser 
 ### Data sheet (BLs including)
 
 ##### General Public and Malware BLs
+
 [Shallalist] (http://www.shallalist.de/Downloads/shallalist.tar.gz)
 
 [UrlBlacklist] (http://urlblacklist.com/?sec=download)
@@ -130,21 +131,24 @@ Los interesados pueden contribuir, enviándonos enlaces de nuevas BLs, para ser 
 [openphish] (https://openphish.com/feed.txt)
 
 #####Ransomware BL
+
 [Ransomware Abuse] (https://ransomwaretracker.abuse.ch/blocklist/)
 
 #####TLDs
+
 [IANA] (https://www.iana.org/domains/root/db)
 
 [Mozilla Public Suffix] (https://publicsuffix.org/list/public_suffix_list.dat)
 
 [Wikipedia Top Level Domains] (https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
+[whitetlds] (https://github.com/maravento/blackweb/raw/master/whitetlds.txt)
+
 #####Own lists (inside project)
-blackurls
 
-whiteurls
+[Blackurls] (https://github.com/maravento/blackweb/raw/master/blackurls.txt)
 
-whitetlds
+[Whiteurls] (https://github.com/maravento/blackweb/raw/master/whiteurls.txt)
 
 ### Licence
 
