@@ -37,7 +37,7 @@ def parse_domain(url, levels=2):
         
 tlds = set(d.strip() for d in open("tlds.txt").readlines())
 
-filename = 'domains.txt'
+filename = 'bldomains.txt'
 domains  = [d.strip('.\n') for d in file(filename).readlines()]
 
 D = dict()

@@ -12,14 +12,14 @@ Sometimes we needed to block a website, like a porn, downloads, drugs, malware, 
 
 ### Descripción/Description
 
-|File|BLDomains|
-|----|---------|
-|blackweb.txt|4.402.150|
+|File|BL Domains|
+|----|----------|
+|blackweb.txt|4.580.680|
 
 ### Dependencias/Dependencies
 
 ```
-git squid
+git squid bash tar zip wget
 ```
 
 ### Modo de uso/How to use
@@ -76,7 +76,7 @@ http_access deny blackweb
 
 ### Blackweb Update
 
-Puede actualizar **Blackweb** y/o agregarle sus listas propias, sin necesidad de esperar que publiquemos la nueva actualización, descargando el script [blupdate.sh] (https://github.com/maravento/blackweb/raw/master/blupdate.sh), que es el encargado de crear **blackweb**. Se recomienda ejecutarlo con privilegios y verificar los enlaces antes de correr el script. Tenga presente que la captura y depuración de dominios consume gran cantidad de recursos de hardware durante el procesamiento / You can update **Blackweb** and/or add your own lists, without waiting to publish the new update, downloading the script [blupdate.sh] (https://github.com/maravento/blackweb/raw/master/blupdate.sh), which is responsible for creating **blackweb**. It is recommended to run with privileges and check links before running the script. Note that the capture and debug domains consumes large amount of hardware resources during processing.
+Puede actualizar **blackweb.txt** sin necesidad de esperar que publiquemos la nueva actualización, descargando el script [bwupdate.sh] (https://github.com/maravento/blackweb/raw/master/bwupdate.sh), que es el encargado de crear **blackweb.txt**. Se recomienda ejecutarlo con privilegios y verificar los enlaces antes de correr el script. Tenga presente que la captura y depuración de dominios consume gran cantidad de recursos de hardware durante el procesamiento / You can update **blackweb.txt** and/or add your own lists, without waiting to publish the new update, downloading the script [bwupdate.sh] (https://github.com/maravento/blackweb/raw/master/bwupdate.sh), which is responsible for creating **blackweb.txt**. It is recommended to run with privileges and check links before running the script. Note that the capture and debug domains consumes large amount of hardware resources during processing.
 
 ### Contributions
 
