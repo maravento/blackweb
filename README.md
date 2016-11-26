@@ -14,7 +14,7 @@ Sometimes we needed to block a website, like a porn, downloads, drugs, malware, 
 
 |File|BL Domains|
 |----|----------|
-|blackweb.txt|4.580.680|
+|blackweb.txt|4.581.167|
 
 ### Dependencias/Dependencies
 

@@ -12,7 +12,7 @@
 ### END INIT INFO ###
 clear
 echo
-echo "Blackweb"
+echo "Blackweb Project"
 echo "This process can take a long time. Be patient..."
 echo "Este proceso puede tardar mucho tiempo. Sea paciente..."
 echo
@@ -22,7 +22,7 @@ bw=~/blackweb
 if [ -d $bw ]; then rm -rf $bw; fi
 
 # GIT CLONE BLACLISTWEB
-echo "Download Blackweb Project..."
+echo "Download Blackweb..."
 git clone https://github.com/maravento/blackweb.git
 echo "OK"
 
