@@ -1,14 +1,14 @@
 #!/bin/bash
 ### BEGIN INIT INFO ###
-# Provides:				Blackweb Update for Squid
-# Required-Start:		$remote_fs $syslog
-# Required-Stop:		$remote_fs $syslog
-# Default-Start:		2 3 4 5
-# Default-Stop:			0 1 6
+# Provides:		Blackweb Update for Squid
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
 # Short-Description:	Start daemon at boot time
-# Description:			Enable service provided by daemon.
-# Authors:				Maravento.com and Novatoz.com
-# script route:			/etc/init.d
+# Description:		Enable service provided by daemon.
+# Authors:		Maravento.com and Novatoz.com
+# script/acl route:	/etc/init.d /etc/acl
 ### END INIT INFO ###
 clear
 echo
