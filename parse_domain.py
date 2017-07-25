@@ -22,7 +22,7 @@ def parse_domain(url, levels=2):
     # Find the longest matching TLD, recording its index
     tld_idx = 0
     for idx, item in enumerate(partial_domains):
-        if item in tlds:
+        if item in clean:
             tld_idx = idx
         
     # Add the desired number of levels to the tld index,
@@ -35,9 +35,9 @@ def parse_domain(url, levels=2):
     # Remove the initial dot
     return domain[1:]
         
-tlds = set(d.strip() for d in open("tlds.txt").readlines())
+clean = set(d.strip() for d in open("clean.txt").readlines())
 
-filename = 'bldomains.txt'
+filename = 'urls.txt'
 domains  = [d.strip('.\n') for d in file(filename).readlines()]
 
 D = dict()
@@ -46,4 +46,4 @@ for domain in domains:
 
 for d in D:
  d = "."+d
- if d not in tlds: print d
+ if d not in clean: print d
