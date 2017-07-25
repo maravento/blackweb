@@ -21,18 +21,23 @@ echo
 echo "Blackweb Project"
 echo "${cm1[${es}]}"
 
+# DATE
+date=`date +%d/%m/%Y" "%H:%M:%S`
+
 # PATH
 bw=~/blackweb
 route=/etc/acl
 
 # DEL OLD REPOSITORY
 if [ -d $bw ]; then rm -rf $bw; fi
+rm -rf /etc/acl/{blackweb,blackdomains,whitedomains}.txt >/dev/null 2>&1
 
 # GIT CLONE BLACLISTWEB
+echo
 echo "Download Blackweb..."
-git clone --depth=1 https://github.com/maravento/blackweb.git
+git clone --depth=1 https://github.com/maravento/blackweb.git  >/dev/null 2>&1
 echo "OK"
-
+echo
 echo "Checking Sum..."
 cd $bw/bl
 cat blackweb.tar.gz* | tar xzf -
@@ -43,7 +48,7 @@ b=$(cat blackweb.md5 | awk '{print $1}')
 		echo "Sum Matches"
 		cd ..
 		sed -e '/^#/d' blackurls.txt | sort -u >> bl/bls.txt
-		rm bl/blackweb.md5 bl/blackweb.tar.gz*
+		rm -rf bl/blackweb.md5 bl/blackweb.tar.gz*
 		echo "OK"
 	else
 		echo "Bad Sum. Abort"
@@ -54,7 +59,8 @@ b=$(cat blackweb.md5 | awk '{print $1}')
 fi
 
 # DOWNLOAD BL
-echo "Download Public Bls..."
+echo
+echo "Download Public BLs..."
 
 function bldownload() {
     wget -q -c --retry-connrefused -t 0 "$1" -O - | sort -u >> bl/bls.txt
@@ -104,6 +110,7 @@ function blgz() {
 echo "OK"
 
 # DOWNLOAD WHITE TLDS-URLS
+echo
 echo "Download White TLDs-URLs..."
 
 function iana() {
@@ -124,27 +131,29 @@ function remoteurl() {
 echo "OK"
 
 # JOINT WHITELIST
+echo
 echo "Joint Whitelist..."
 sed -e '/^#/d' {whitetlds,whiteurls}.txt | sort -u > clean.txt
 echo "OK"
 
 # CAPTURE AND DELETE OVERLAPPING DOMAINS
+echo
 echo "Capture Domains..."
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
 find bl -type f -execdir egrep -oi "$regexd" {} \; | awk '{print "."$1}' | sort -u | sed 's:\(www\.\|WWW\.\|ftp\.\|/.*\)::g' > urls.txt
 echo "OK"
-
+echo
 echo "Delete Overlapping Domains..."
-chmod +x parse_domain.py && python parse_domain.py | sort -u > blackweb.txt
+chmod +x parse_domain.py
+python parse_domain.py | sort -u > blackweb.txt
 echo "OK"
-
+echo
 # COPY ACL TO PATH
-cp -f {blackweb,blackdomains,whitedomains}.txt $route >/dev/null 2>&1
-
+cp -f blackweb.txt $route >/dev/null 2>&1
+sed -e '/^#/d' blackdomains.txt >> $route/blackdomains.txt >/dev/null 2>&1 && sort -o $route/blackdomains.txt -u $route/blackdomains.txt >/dev/null 2>&1
+sed -e '/^#/d' whitedomains.txt >> $route/whitedomains.txt >/dev/null 2>&1 && sort -o $route/whitedomains.txt -u $route/whitedomains.txt >/dev/null 2>&1
 # LOG
-date=`date +%d/%m/%Y" "%H:%M:%S`
 echo "Blackweb for Squid: Done $date" >> /var/log/syslog
-
 # END
 cd
 rm -rf $bw

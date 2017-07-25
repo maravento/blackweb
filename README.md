@@ -11,7 +11,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|7.473.091|170,7 MB|
+|blackweb.txt|7.508.879|171,6 MB|
 
 ### Dependencias / Dependencies
 
