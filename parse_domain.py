@@ -1,4 +1,9 @@
+#!/usr/bin/env python
+# from https://github.com/lsemel/python-parse-domain/blob/master/parse_domain.py
+# modify by maravento.com and novatoz.com
+
 from urlparse import urlparse
+import re
 
 def parse_domain(url, levels=2):
     """
@@ -35,9 +40,13 @@ def parse_domain(url, levels=2):
     # Remove the initial dot
     return domain[1:]
         
-clean = set(d.strip() for d in open("clean.txt").readlines())
 
-filename = 'urls.txt'
+clean = set(d.strip() for d in open("tlds.txt").readlines())
+valid = '|'.join(set(d.strip() for d in open('urls.txt').readlines()))
+
+rvalid = re.compile('(' + valid.replace('.', '\.') + ')$',
+re.IGNORECASE);
+filename = 'bl.txt'
 domains  = [d.strip('.\n') for d in file(filename).readlines()]
 
 D = dict()
@@ -45,5 +54,6 @@ for domain in domains:
    D[parse_domain('http://'+domain)] = 0 
 
 for d in D:
- d = "."+d
- if d not in clean: print d
+ if not rvalid.search('.'+d):
+  d = "."+d
+  if d not in clean: print d
