@@ -35,6 +35,9 @@ regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
 # DEL OLD REPOSITORY AND FILES
 if [ -d $bw ]; then rm -rf $bw; fi
 
+# CREATE PATH
+if [ ! -d $route ]; then mkdir -p $route; fi
+
 # GIT CLONE BLACLISTWEB
 echo
 echo "Download Blackweb..."
