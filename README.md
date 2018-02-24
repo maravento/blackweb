@@ -11,33 +11,42 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|8.341.485|193,4 MB|
+|blackweb.txt|8.041.859|179,7 MB|
 
 ### Dependencias / Dependencies
 
 ```
 git squid bash tar zip wget subversion python
 ```
+### Descarga / Download
+
+```
+git clone --depth=1 https://github.com/maravento/blackweb.git
+```
+
 ### Modo de uso / How to use
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl** y del script **blackweb.sh** es **/etc/init.d** / The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl** and the script **blackweb.sh** is **/etc/init.d**
+La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl** y del script **blackweb.sh** es **/etc/init.d**
+
+The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl** and the script **blackweb.sh** is **/etc/init.d**
 
 ```
 wget https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.sh -O /etc/init.d/blackweb.sh
 sudo chown root:root /etc/init.d/blackweb.sh && sudo chmod +x /etc/init.d/blackweb.sh
 sudo /etc/init.d/blackweb.sh
 ```
-### Actualización BLs / Update BLs
+### Actualización Blackweb / Update Blackweb
 
-Puede descargar el proyecto Blackweb y actualizar la ACL **blackweb.txt** en dependencia de sus necesidades. Tenga en cuenta que la captura y depuración de dominios es un proceso lento y puede tardar horas / You can download the Blackweb project and update the ACL **blackweb.txt** depending on your needs. Note that capturing and debugging domains is a slow process and can take hours
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, ocasionando que Squid-Cache se detenga, por tanto deberá depurar los confíctos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
+
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, causing Squid-Cache to stop, therefore you must manually debug the conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days.
 
 ```
-git clone --depth=1 https://github.com/maravento/blackweb.git
-sudo cp -f blackweb/bwupdate.sh /etc/init.d
-sudo chown root:root /etc/init.d/bwupdate.sh
-sudo chmod +x /etc/init.d/bwupdate.sh
+wget https://raw.githubusercontent.com/maravento/blackweb/master/update/bwupdate.sh -O /etc/init.d/bwupdate.sh
+sudo chown root:root /etc/init.d/bwupdate.sh && sudo chmod +x /etc/init.d/bwupdate.sh
 sudo /etc/init.d/bwupdate.sh
 ```
+
 #####  Verifique su ejecución / Check execution (/var/log/syslog):
 
 Ejecución exitosa / Successful execution
@@ -60,7 +69,9 @@ http_access deny blackweb
 ```
 ### Edición / Edition
 
-**Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede incluirlos en **blackdomains** / **Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can include them in **blackdomains**
+**Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede incluirlos en **blackdomains**
+
+**Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can include them in **blackdomains**
 
 ```
 acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
@@ -71,23 +82,21 @@ http_access deny blackdomains
 http_access deny blackweb
 ```
 
-**blackdomains.txt** contiene dominios no incluidos en **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) y **whitedomains.txt** contiene el subdominio **accounts.youtube.com** [desde Feb 2014, Google utiliza el subdominio **accounts.youtube.com** para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube) / **blackdomains.txt** contains domains not included in **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) and **whitedomains.txt** contains subdomain **accounts.youtube.com** [since February 2014, Google uses the accounts subdomain .youtube.com to authenticate their services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
+**blackdomains.txt** contiene dominios no incluidos en **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) y **whitedomains.txt** contiene el subdominio **accounts.youtube.com** [desde Feb 2014, Google utiliza el subdominio **accounts.youtube.com** para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)
 
-### Data Sheet (Sources)
+**blackdomains.txt** contains domains not included in **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) and **whitedomains.txt** contains subdomain **accounts.youtube.com** [since February 2014, Google uses the accounts subdomain .youtube.com to authenticate their services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
 
-##### Blacklists
+### Data Sheet (Sources - Repositories)
+
+##### URLs Blacklists
 
 [Shallalist](http://www.shallalist.de/Downloads/shallalist.tar.gz)
-
-[UrlBlacklist](http://urlblacklist.com/?sec=download) ([Server Down since July 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
 [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
 
 [MESD blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 
 [Yoyo Serverlist](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
-
-[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt). Last Update included in [BlackURLs](https://github.com/maravento/blackweb/raw/master/blackurls.txt). [Mirror](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt))
 
 [Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 
@@ -125,23 +134,33 @@ http_access deny blackweb
 
 [Carl Spam](http://www.carl.net/spam/access.txt)
 
-[Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
-
 [StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts) (Replaces [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Someonewhocares](http://someonewhocares.org/hosts/hosts) and [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt))
 
-[Ultimate Super.Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
+[Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
 
-[Hacked-Malware-Web-Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt)
+[Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt)
 
-[NginxBadBotBlocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list)
+[Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list)
 
-[BlackURLs](https://github.com/maravento/blackweb/raw/master/blackurls.txt)
+[BlackURLs](https://github.com/maravento/blackweb/raw/master/update/blackurls.txt)
+
+[UrlBlacklist](http://urlblacklist.com/?sec=download) ([Server Down since July 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
+
+[Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
+
+[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt). Last Update included in [BlackURLs](https://github.com/maravento/blackweb/raw/master/update/blackurls.txt). [Mirror](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt))
+
+[The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list)
+
+##### Web Miner
+
+[Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 
 ##### Ransomware
 
 [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/)
 
-##### Domains Debugging
+##### Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
 [TLDs IANA](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 
@@ -149,31 +168,41 @@ http_access deny blackweb
 
 [Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
-[WhiteURLs](https://github.com/maravento/blackweb/raw/master/whiteurls.txt)
+[WhiteURLs](https://raw.githubusercontent.com/maravento/blackweb/master/update/whiteurls.txt)
 
-[Invalid Domains/TLDs](https://github.com/maravento/blackweb/raw/master/invalid.txt)
-
-[RemoteURLs](https://github.com/maravento/remoteip/raw/master/remoteurls.txt)
+[RemoteURLs](https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt)
 
 [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 
 [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (Partial)
 
-[Parse Domains](https://github.com/lsemel/python-parse-domain/raw/master/parse_domain.py) (modified)
-
 [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
+
+[Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/update/invalid.txt)
+
+[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt)
+
+##### Tools
+
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) (modified)
 
 [httpstatus](https://httpstatus.io/)
 
+[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/update/tools/httpstatus.sh)
+
+[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/update/tools/debug.py)
+
 ### Contributions
 
-Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas "Blacklist", para ser incluidas en este proyecto / We thank all those who contributed to this project. Those interested may contribute sending us new "Blacklist" links to be included in this project
+Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto
+
+We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project
 
 ### Licence
 
 [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-© 2017 [Maravento Studio](http://www.maravento.com)
+© 2018 [Maravento Studio](http://www.maravento.com)
 
 #### Disclaimer
 
