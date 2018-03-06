@@ -18,29 +18,29 @@
 ```
 git squid bash tar zip wget subversion python
 ```
-### Descarga / Download
 
+### Descarga / Download
 ```
 git clone --depth=1 https://github.com/maravento/blackweb.git
 ```
 
 ### Modo de uso / How to use
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl** y del script **blackweb.sh** es **/etc/init.d**. Ejemplo:
+La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl**. Ejemplo:
 
-The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl** and the script **blackweb.sh** is **/etc/init.d**. Example:
+The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl**. Example:
 
 ```
-user@user:~$ sudo wget https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.sh -O /etc/init.d/blackweb.sh && sudo chown root:root /etc/init.d/blackweb.sh && sudo chmod +x /etc/init.d/blackweb.sh && sudo /etc/init.d/blackweb.sh
+wget https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
 ```
 ### Actualización Blackweb / Update Blackweb
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, ocasionando que Squid-Cache se detenga, por tanto deberá depurar los confíctos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días. Ejemplo:
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
 
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, causing Squid-Cache to stop, therefore you must manually debug the conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days. Example:
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days.
 
 ```
-user@user:~$ sudo wget https://raw.githubusercontent.com/maravento/blackweb/master/update/bwupdate.sh -O /etc/init.d/bwupdate.sh && sudo chown root:root /etc/init.d/bwupdate.sh && sudo chmod +x /etc/init.d/bwupdate.sh && sudo /etc/init.d/bwupdate.sh
+wget https://github.com/maravento/blackweb/raw/master/update/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 
 #####  Verifique su ejecución / Check execution (/var/log/syslog):

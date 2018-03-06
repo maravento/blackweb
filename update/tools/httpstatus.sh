@@ -15,7 +15,7 @@
 # modified by:	maravento.com and novatoz.com
 
 # PATH FILE (change path to your list) (Optional)
-list=~/folder/list.txt
+list=$(pwd)/folder/list.txt
 # CLEAN LIST
 sed -e '/^#/d' $list | sed -r '/^.\W+/d' | sed 's/^.//g' | sed '/[A-Z]/d' | sort -u > tmp
 # HTTPSTATUS

@@ -39,7 +39,7 @@ echo "${cm1[${es}]}"
 date=`date +%d/%m/%Y" "%H:%M:%S`
 
 # PATH
-bw=~/blackweb
+bw=$(pwd)/blackweb
 upd=$bw/update
 route=/etc/acl
 
