@@ -40,7 +40,7 @@ date=`date +%d/%m/%Y" "%H:%M:%S`
 
 # PATH
 bw=$(pwd)/blackweb
-upd=$bw/update
+upd=$bw/bwupdate
 route=/etc/acl
 
 # REGEXD

@@ -7,24 +7,27 @@
 
 [Blackweb](http://www.maravento.com/p/blacklistweb.html) is a project that aims to collect as many public domain blacklists (to block porn, downloads, drugs, malware, spyware, trackers, Bots, social networks, warez, arms sales, etc.), in order to unify them and make them compatible with [Squid-Cache](http://www.squid-cache.org/) (Tested in v3.5.x ). To do this, we perform a debugging of urls, to avoid duplicates, invalid domains (validation, ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), and filter with white lists of domains (false positives such as google , hotmail, yahoo, etc.), to get a mega ACL, optimized for [Squid-Cache](http://www.squid-cache.org/), free of overlapping domains (eg: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
 
-### Descripción / Description
+### Ficha Técnica / Data Sheet
+---
 
 |File|BL Domains|File size|
 |----|----------|---------|
 |blackweb.txt|8.264.129|184,9 MB|
 
 ### Dependencias / Dependencies
-
+---
 ```
 git squid bash tar zip wget subversion python
 ```
 
 ### Descarga / Download
+---
 ```
 git clone --depth=1 https://github.com/maravento/blackweb.git
 ```
 
-### Modo de uso / How to use
+### Modo de Uso / How to Use
+---
 
 La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl**. Ejemplo:
 
@@ -33,14 +36,14 @@ The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid
 ```
 wget https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
 ```
-### Actualización Blackweb / Update Blackweb
+### Actualización / Update
+---
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
-
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days.
+- El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días / The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days.
+- La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción / The update must run on test equipment designed for this purpose. Never on servers in production
 
 ```
-wget https://github.com/maravento/blackweb/raw/master/update/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
+wget https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 
 #####  Verifique su ejecución / Check execution (/var/log/syslog):
@@ -56,6 +59,7 @@ Blackweb for Squid: Abort 06/05/2017 15:47:14 Check Internet Connection
 ```
 
 ### Regla de [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) Rule
+---
 
 Edit /etc/squid/squid.conf:
 ```
@@ -64,6 +68,7 @@ acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
 http_access deny blackweb
 ```
 ### Edición / Edition
+---
 
 **Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede incluirlos en **blackdomains**
 
@@ -82,7 +87,8 @@ http_access deny blackweb
 
 **blackdomains.txt** contains domains not included in **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) and **whitedomains.txt** contains subdomain **accounts.youtube.com** [since February 2014, Google uses the accounts subdomain .youtube.com to authenticate their services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
 
-### Data Sheet (Sources - Repositories)
+### Fuentes / Sources
+---
 
 ##### URLs Blacklists
 
@@ -189,10 +195,17 @@ http_access deny blackweb
 [Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/update/tools/debug.py)
 
 ### Contributions
+---
 
 Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto / We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project
 
+### Donate
+---
+
+BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
+
 ### Licence
+---
 
 [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
@@ -202,5 +215,6 @@ Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesado
 © 2018 [Maravento Studio](http://www.maravento.com)
 
 #### Disclaimer
+---
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
