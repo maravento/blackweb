@@ -175,8 +175,6 @@ function publicsuffix() {
 }
 	publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
 
-echo "OK"
-
 function centralrepo() {
     wget -q -c --retry-connrefused -t 0 "$1" -O - | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> invalid.txt
 }
