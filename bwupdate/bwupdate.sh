@@ -55,7 +55,7 @@ if [ ! -d $route ]; then mkdir -p $route; fi
 # GIT CLONE BLACKWEB
 echo
 echo "${cm2[${es}]}"
-git clone --depth=1 https://github.com/maravento/blackweb.git  >/dev/null 2>&1
+git clone --depth=1 https://github.com/maravento/blackweb.git >/dev/null 2>&1
 echo "OK"
 
 # CHECKING SUM
@@ -195,13 +195,14 @@ echo
 echo "${cm11[${es}]}"
 sed -e '/^#/d' whitetlds.txt | sort -u > tlds.txt
 sed -e '/^#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
-chmod +x tools/parse_domain.py
 python tools/parse_domain.py | sort -u > blackweb.txt
 
 # COPY ACL TO PATH
-cp -f blackweb.txt $route >/dev/null 2>&1
+cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
 sed -e '/^#/d' blackdomains.txt >> $route/blackdomains.txt >/dev/null 2>&1 && sed -i '/^#/d' $route/blackdomains.txt && sort -o $route/blackdomains.txt -u $route/blackdomains.txt >/dev/null 2>&1
 sed -e '/^#/d' whitedomains.txt >> $route/whitedomains.txt >/dev/null 2>&1 && sed -i '/^#/d' $route/whitedomains.txt && sort -o $route/whitedomains.txt -u $route/whitedomains.txt >/dev/null 2>&1
+
+echo "OK"
 
 # LOG
 echo "Blackweb for Squid: Done $date" >> /var/log/syslog

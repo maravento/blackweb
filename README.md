@@ -12,7 +12,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|8.264.129|184,9 MB|
+|blackweb.txt|8.346.556|187,1 MB|
 
 ### Dependencias / Dependencies
 ---
@@ -34,7 +34,7 @@ La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-
 The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl**. Example:
 
 ```
-wget https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
+wget -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
 ```
 ### Actualización / Update
 ---
@@ -43,7 +43,7 @@ wget https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod 
 - La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
  
 ```
-wget https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
+wget -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 #####  Verifique su ejecución / Check execution (/var/log/syslog):
 
@@ -184,13 +184,15 @@ http_access deny blackweb
 
 ##### Tools
 
-[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) (modified)
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/parse_domain.py))
 
 [httpstatus](https://httpstatus.io/)
 
-[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/update/tools/httpstatus.sh)
+[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/httpstatus.sh)
 
-[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/update/tools/debug.py)
+[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug.py)
+
+[CTFR](https://github.com/UnaPibaGeek/ctfr)
 
 ### Contributions
 ---
