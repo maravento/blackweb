@@ -27,7 +27,7 @@ cm10=("Capturando Dominios..." "Capturing Domains...")
 cm11=("Depurando Blackweb..." "Debugging Blackweb...")
 cm12=("Recargando Squid..." "Squid Reload...")
 cm13=("Terminado" "Done")
-cm14=("Verifique SquidError.txt en su Escritorio" "Check SquidError.txt on your Desktop")
+cm14=("Verifique en su Escritorio: SquidError.txt" "Check on your Desktop: SquidError.txt")
 
 test "${LANG:0:2}" == "es"
 es=$?
@@ -214,7 +214,7 @@ echo "OK"
 # RELOAD SQUID
 echo
 echo "${cm12[${es}]}"
-squid -k reconfigure 2> $xdesktop/SquidError.txt
+squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | egrep -oi "$regexd" | sed -r '/\.(log|conf|crl)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
 echo "Blackweb for Squid: Done $date" >> /var/log/syslog
 
 echo "OK"

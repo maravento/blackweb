@@ -34,7 +34,7 @@ La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-
 The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl**. Example:
 
 ```
-wget -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
+wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
 ```
 ### Actualización / Update
 ---
@@ -44,7 +44,7 @@ El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captu
 The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
  
 ```
-wget -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
+wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 #####  Verifique su ejecución / Check execution (/var/log/syslog):
 
