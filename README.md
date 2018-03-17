@@ -12,7 +12,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|8.346.556|187,1 MB|
+|blackweb.txt|8.417.250|188,7 MB|
 
 ### Dependencias / Dependencies
 ---
@@ -39,8 +39,9 @@ wget -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chm
 ### Actualización / Update
 ---
 
-- El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días. / The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days.
-- La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
+
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
  
 ```
 wget -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
@@ -56,6 +57,12 @@ Ejecución fallida / Execution failed
 ```
 Blackweb for Squid: Abort 06/05/2017 15:47:14 Check Internet Connection
 ```
+##### Importante Antes de Usar / Important Before Use
+
+- Puede incluir su propia Blacklist, que quiera bloquear y que no se encuentre en **blackweb.txt**, editando el script **bwupdate.sh** y descomentando en **ADD OWN LIST** la línea **/path/blackweb_own.txt** y reemplazandola por la ruta hacia su propia lista. / You can include your own Blacklist IPs, which you want to block, and that is not on **blackweb.txt**, editing **bwupdate.sh** script and uncommenting in **ADD OWN LIST** line **/path/blackweb_own.txt** and replacing it with the path to your own list.
+- Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/). / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**.
+- La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
+
 ### Regla de [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) Rule
 ---
 
