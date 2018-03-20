@@ -159,7 +159,7 @@ function remoteurl() {
 	remoteurl 'https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt'
 
 function univ() {
-    $wgetd "$1" -O - | egrep -oi "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
+    $wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
 }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
@@ -189,11 +189,11 @@ echo "OK"
 # CAPTURING DOMAINS
 echo
 echo "${cm10[${es}]}"
-# Capture domains with regex | delete lines with capital letters | delete lines with "0--" characters | delete lines that do not have letters or numbers | delete (www|ftp|xxx|wvw and dot) | put a dot at start line | delete lines that start with a dot and followed by characters that are not letters or numbers | sort and uniq
-find bl -type f -execdir egrep -oi "$regexd" {} \; | sed '/[A-Z]/d' | sed '/0--/d' | sed -r '/[^a-zA-Z0-9.-]/d' | sed -r  's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u >> blackurls.txt && sleep 1
+# Capture domains with regex into "bl" folder | delete lines with capital letters | delete lines with "0--" characters | delete lines that do not have letters or numbers | delete (www|ftp|xxx|wvw and dot) | put a dot at start line | delete lines that start with a dot and followed by characters that are not letters or numbers
+find bl -type f -execdir grep -oiE "$regexd" {} \; | sed '/[A-Z]/d' | sed '/0--/d' | sed -r '/[^a-zA-Z0-9.-]/d' | sed -r  's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' > bwcapture.txt && sleep 1
 # ADD OWN LIST
-#sed '/^$/d; / *#/d' /path/blackweb_own.txt >> blackurls.txt
-sed -e '/^#/d' blackurls.txt | sort -u >> bl.txt
+#sed '/^$/d; / *#/d' /path/blackweb_own.txt >> bwcapture.txt
+sed -e '/^#/d' blackurls.txt >> bwcapture.txt && sort -u bwcapture.txt > bl.txt
 
 echo "OK"
 
@@ -202,7 +202,7 @@ echo
 echo "${cm11[${es}]}"
 sed -e '/^#/d' whitetlds.txt | sort -u > tlds.txt
 sed -e '/^#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
-python tools/parse_domain.py | sort -u > blackweb.txt
+python parse_domain.py | grep -Pvi ".(\.adult|\.beer|\.comsex|\.onion|\.poker|\.porn|\.sex|\.sexy|\.vodka|\.webcamsex|\.whoswho|\.xxx)$" | sort -u > blackweb.txt
 
 # COPY ACL TO PATH
 cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
@@ -214,7 +214,7 @@ echo "OK"
 # RELOAD SQUID
 echo
 echo "${cm12[${es}]}"
-squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | egrep -oi "$regexd" | sed -r '/\.(log|conf|crl)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
+squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
 echo "Blackweb for Squid: Done $date" >> /var/log/syslog
 
 echo "OK"

@@ -12,7 +12,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|8.417.250|188,7 MB|
+|blackweb.txt|8.431.489|189,4 MB|
 
 ### Dependencias / Dependencies
 ---
@@ -39,9 +39,9 @@ wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo 
 ### Actualización / Update
 ---
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos, por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
 
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts, therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
  
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
@@ -191,13 +191,13 @@ http_access deny blackweb
 
 ##### Tools
 
-[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/parse_domain.py))
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/parse_domain.py))
 
 [httpstatus](https://httpstatus.io/)
 
-[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/httpstatus.sh)
+[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/httpstatus.sh)
 
-[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug.py)
+[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/debug.py)
 
 [CTFR](https://github.com/UnaPibaGeek/ctfr)
 
