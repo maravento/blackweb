@@ -15,11 +15,7 @@
 
 # Language spa-eng
 cm1=("Este proceso puede tardar mucho tiempo. Sea paciente..." "This process can take a long time. Be patient...")
-cm2=("Descargando Blackweb..." "Downloading Blackweb...")
-cm3=("Chequeando Suma" "Checking Sum...")
-cm4=("Suma Coincide" "Sum Matches")
-cm5=("Suma No Coincide. Abortado" "Bad Sum. Abort")
-cm6=("Verifique su conexion a internet" "Check your internet connection")
+cm2=("Descargando Blackweb Update..." "Downloading Blackweb Update...")
 cm7=("Descargando Listas Negras..." "Downloading Blacklists...")
 cm8=("Descargando Listas Blancas..." "Downloading Whitelist...")
 cm9=("Descargando Listas Blancas TLDs, Dominios Invalidos, etc..." "Downloading WhiteTLDs, Invalids Domains, etc...")
@@ -38,8 +34,7 @@ echo "Blackweb Project"
 echo "${cm1[${es}]}"
 
 # VARIABLES
-bw=$(pwd)/blackweb
-upd=$bw/bwupdate
+bwupdate=$(pwd)/bwupdate
 route=/etc/acl
 date=`date +%d/%m/%Y" "%H:%M:%S`
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
@@ -47,37 +42,16 @@ wgetd="wget -q -c --retry-connrefused -t 0"
 xdesktop=$(xdg-user-dir DESKTOP)
 
 # DELETE OLD REPOSITORY
-if [ -d $bw ]; then rm -rf $bw; fi
+if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
 
 # CREATE PATH
 if [ ! -d $route ]; then mkdir -p $route; fi
 
-# GIT CLONE BLACKWEB
+# DOWNLOAD BLACKWEB
 echo
 echo "${cm2[${es}]}"
-git clone --depth=1 https://github.com/maravento/blackweb.git >/dev/null 2>&1
-echo "OK"
-
-# CHECKING SUM
-echo
-echo "${cm3[${es}]}"
-cd $upd/bl
-cat blackweb.tar.gz* | tar xzf -
-a=$(md5sum blackweb.txt | awk '{print $1}')
-b=$(cat blackweb.md5 | awk '{print $1}')
-	if [ "$a" = "$b" ]
-	then
-		echo "${cm4[${es}]}"
-		cd ..
-		rm bl/blackweb.md5 bl/blackweb.tar.gz*
-		echo "OK"
-	else
-		echo "${cm5[${es}]}"
-		echo "${cm6[${es}]}"
-		cd
-		rm -rf $bw
-		exit
-fi
+svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
+cd $bwupdate && mkdir -p bwtmp >/dev/null 2>&1
 
 # DOWNLOADING BLACKURLS
 echo
@@ -85,7 +59,7 @@ echo "${cm7[${es}]}"
 
 # FILES
 function blurls() {
-    $wgetd "$1" -O - | sort -u >> bl/bltmp.txt
+    $wgetd "$1" -O - | perl -CS -ne '/[\p{Arabic}\p{Cyrillic}\p{CJK}]+/ || print' | sed '/^$/d; / *#/d' | sed '/^\//d' | sed '/::1/d' | sed '/--/d' | sed 's/^127.0.0.1	//g' | sed '/^[0-9]/d' | sed 's/,Domain.*//' | sed 's/"  {type.*//' | sed 's/^zone "//g' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | sed 's/^.//g' | sed '/^-/d' | sort -u > bwtmp/bw.txt
 }
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
@@ -101,10 +75,7 @@ function blurls() {
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
-	blurls 'http://hosts-file.net/download/hosts.txt' && sleep 1
-	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'https://db.aa419.org/fakebankslist.php' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
 	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
@@ -112,33 +83,29 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
-	# Discontinued
-	#blurls 'http://someonewhocares.org/hosts/hosts' # replaced by StevenBlack Host
-	#blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' # replaced by StevenBlack Host
-	#blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' # replaced by StevenBlack Host
-	#blurls 'http://www.passwall.com/blacklist.txt' # SERVER DOWN
-	#blurls 'http://www.taz.net.au/Mail/SpamDomains' # SERVER DOWN
+	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
+	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 
-# Discontinued
-#function urlblacklist() {
-    #$wgetd "$1" -O bigblacklist.tar.gz && for F in bigblacklist.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
-#}
-	#urlblacklist 'http://urlblacklist.com/cgi-bin/commercialdownload.pl?type=download&file=bigblacklist' # SERVER DOWN
+function blhosts() {
+    $wgetd "$1" && perl -CS -ne '/[\p{Arabic}\p{Cyrillic}\p{CJK}]+/ || print' hosts.txt | sed '/^$/d; / *#/d' | sed '/--/d' | sed 's/^127.0.0.1	//g' | sed '/^[0-9]/d' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | sed 's/^.//g' | sed '/^-/d' | sort -u >> bwtmp/bw.txt && rm -rf hosts.txt >/dev/null 2>&1
+}
+	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
 
 function malwaredomains() {
-    $wgetd "$1" && unzip -p domains.zip >> bl/bltmp.txt
+    $wgetd "$1" && unzip -p domains.zip | sed '/^$/d; / *#/d' | grep -oiE "$regexd" | sort -u >> bwtmp/bw.txt
 }
 	malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
 
 # DIR
 function shalladsi() {
-    $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
+    $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	shalladsi 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	shalladsi 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 
 function squidguard() {
-    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bl/$R ; tar -C bl/$R -zxvf $F -i; done >/dev/null 2>&1
+    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	squidguard 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 
@@ -159,7 +126,7 @@ function remoteurl() {
 	remoteurl 'https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt'
 
 function univ() {
-    $wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
+    $wgetd "$1" -O - | sed -e '/^#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
 }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
@@ -189,11 +156,11 @@ echo "OK"
 # CAPTURING DOMAINS
 echo
 echo "${cm10[${es}]}"
-# Capture domains with regex into "bl" folder | delete lines with capital letters | delete lines with "0--" characters | delete lines that do not have letters or numbers | delete (www|ftp|xxx|wvw and dot) | put a dot at start line | delete lines that start with a dot and followed by characters that are not letters or numbers
-find bl -type f -execdir grep -oiE "$regexd" {} \; | sed '/[A-Z]/d' | sed '/0--/d' | sed -r '/[^a-zA-Z0-9.-]/d' | sed -r  's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' > bwcapture.txt && sleep 1
+# Capture domains with regex into "bwtmp" folder | delete lines with capital letters | delete lines with "0--" characters | delete lines that do not have letters or numbers | delete (www|ftp|xxx|wvw and dot) | put a dot at start line | delete lines that start with a dot and followed by characters that are not letters or numbers
+find bwtmp -type f -execdir grep -oiE "$regexd" {} \; | sed '/[A-Z]/d' | sed '/0--/d' | sed -r '/[^a-zA-Z0-9.-]/d' | sed -r  's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u > bl.txt && sleep 1
 # ADD OWN LIST
 #sed '/^$/d; / *#/d' /path/blackweb_own.txt >> bwcapture.txt
-sed -e '/^#/d' blackurls.txt >> bwcapture.txt && sort -u bwcapture.txt > bl.txt
+sed -e '/^#/d' blackurls.txt | sort -u >> bl.txt
 
 echo "OK"
 
@@ -202,7 +169,8 @@ echo
 echo "${cm11[${es}]}"
 sed -e '/^#/d' whitetlds.txt | sort -u > tlds.txt
 sed -e '/^#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
-python parse_domain.py | grep -Pvi ".(\.adult|\.beer|\.comsex|\.onion|\.poker|\.porn|\.sex|\.sexy|\.vodka|\.webcamsex|\.whoswho|\.xxx)$" | sort -u > blackweb.txt
+python parse_domain.py > bwparse.txt
+grep -Pvi ".(\.adult|\.beer|\.comsex|\.onion|\.poker|\.porn|\.sex|\.sexy|\.vodka|\.webcamsex|\.whoswho|\.xxx)$" bwparse.txt | sort -u > blackweb.txt
 
 # COPY ACL TO PATH
 cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
@@ -221,7 +189,7 @@ echo "OK"
 
 # END
 cd
-rm -rf $bw
+rm -rf $bwupdate
 echo
 echo "${cm13[${es}]}"
 echo "${cm14[${es}]}"

@@ -46,17 +46,15 @@ The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debu
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
-#####  Verifique su ejecución / Check execution (/var/log/syslog):
+#####  Verifique la ejecución / Check execution
 
-Ejecución exitosa / Successful execution
+path: /var/log/syslog
+
 ```
 Blackweb for Squid: Done 06/05/2017 15:47:14
 ```
-Ejecución fallida / Execution failed
+Y verifique el contenido del archivo SquidError.txt en su escritorio para corregirlos / And check the contents of the SquidError.txt file on your desktop to fix them
 
-```
-Blackweb for Squid: Abort 06/05/2017 15:47:14 Check Internet Connection
-```
 ##### Importante Antes de Usar / Important Before Use
 
 - Puede incluir su propia Blacklist, que quiera bloquear y que no se encuentre en **blackweb.txt**, editando el script **bwupdate.sh** y descomentando en **ADD OWN LIST** la línea **/path/blackweb_own.txt** y reemplazandola por la ruta hacia su propia lista. / You can include your own Blacklist IPs, which you want to block, and that is not on **blackweb.txt**, editing **bwupdate.sh** script and uncommenting in **ADD OWN LIST** line **/path/blackweb_own.txt** and replacing it with the path to your own list.
@@ -135,13 +133,9 @@ http_access deny blackweb
 
 [openphish](https://openphish.com/feed.txt)
 
-[Artists Against 419](https://db.aa419.org/fakebankslist.php)
-
 [Tracking Disconnect.me](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
 
 [Carl Spam](http://www.carl.net/spam/access.txt)
-
-[StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts) (Replaces [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Someonewhocares](http://someonewhocares.org/hosts/hosts) and [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt))
 
 [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
 
@@ -149,15 +143,19 @@ http_access deny blackweb
 
 [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list)
 
-[BlackURLs](https://github.com/maravento/blackweb/raw/master/update/blackurls.txt)
-
-[UrlBlacklist](http://urlblacklist.com/?sec=download) ([Server Down since July 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
-
 [Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 
-[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt). Last Update included in [BlackURLs](https://github.com/maravento/blackweb/raw/master/update/blackurls.txt). [Mirror](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt))
-
 [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list)
+
+[StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
+
+##### URLs Blacklists (Discontinued or Replaced)
+
+[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt)). [Last Update](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt)
+
+[UrlBlacklist](http://urlblacklist.com/cgi-bin/commercialdownload.pl?type=download&file=bigblacklist') ([Server Down since July 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
+
+[Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Someonewhocares](http://someonewhocares.org/hosts/hosts) and [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt). Replaced by [StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
 
 ##### Web Miner
 
@@ -167,7 +165,7 @@ http_access deny blackweb
 
 [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/)
 
-##### Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
+##### External Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
 [TLDs IANA](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 
@@ -175,31 +173,39 @@ http_access deny blackweb
 
 [Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
-[WhiteURLs](https://raw.githubusercontent.com/maravento/blackweb/master/update/whiteurls.txt)
-
-[RemoteURLs](https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt)
-
 [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 
 [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (Partial)
 
 [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 
-[Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/update/invalid.txt)
-
 [Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt)
 
-##### Tools
+##### Internal Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
+
+[Maravento Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/invalid.txt)
+
+[Maravento TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/whitetlds.txt)
+
+[Maravento BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
+
+[Maravento WhiteURLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/whiteurls.txt)
+
+[Maravento RemoteURLs](https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt)
+
+##### External Tools
 
 [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/parse_domain.py))
 
 [httpstatus](https://httpstatus.io/)
 
+[CTFR](https://github.com/UnaPibaGeek/ctfr)
+
+##### Internal Tools
+
 [httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/httpstatus.sh)
 
 [Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/debug.py)
-
-[CTFR](https://github.com/UnaPibaGeek/ctfr)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
