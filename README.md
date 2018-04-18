@@ -12,7 +12,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|8.474.451|190,5 MB|
+|blackweb.txt|2.005.139|48,4 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -39,9 +39,9 @@ wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo 
 ### ACTUALIZACIÓN / UPDATE
 ---
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar horas o días.
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tardar días.
 
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take days
  
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
@@ -53,7 +53,7 @@ path: /var/log/syslog
 ```
 Blackweb for Squid: Done 06/05/2017 15:47:14
 ```
-Y verifique el contenido del archivo SquidError.txt en su escritorio para corregirlos / And check the contents of the SquidError.txt file on your desktop to fix them
+Y verifique el contenido del archivo **SquidError.txt** en su escritorio para corregirlos / And check the contents of the **SquidError.txt** file on your desktop to fix them
 
 ##### Importante Antes de Usar / Important Before Use
 
