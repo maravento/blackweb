@@ -43,7 +43,6 @@ xdesktop=$(xdg-user-dir DESKTOP)
 
 # DELETE OLD REPOSITORY
 if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
-
 # CREATE PATH
 if [ ! -d $route ]; then mkdir -p $route; fi
 
@@ -53,11 +52,12 @@ echo "${cm2[${es}]}"
 svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
 cd $bwupdate && mkdir -p bwtmp >/dev/null 2>&1
 
+echo "OK"
+
 # DOWNLOADING BLACKURLS
 echo
 echo "${cm7[${es}]}"
-
-# files
+# download files
 function blurls() {
     $wgetd "$1" -O - >> bwtmp/bw.txt
 }
@@ -86,31 +86,31 @@ function blurls() {
 	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
 	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
-
-# Fix malformed UTF-8 character
+	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+    blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
+    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+# download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
     $wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw.txt
 }
 	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
-
-# zip
+# download .zip
 function malwaredomains() {
     $wgetd "$1" && unzip -p domains.zip >> bwtmp/bw.txt
 }
 	malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
-
-# dir
+# download .tar.gz/.tgz
 function targz() {
     $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
-
 function tgz() {
     $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
-
 # add own list
 #sed '/^$/d; / *#/d' /path/blackweb_own.txt >> bwtmp/bw.txt
 
@@ -119,16 +119,6 @@ echo "OK"
 # DOWNLOADING WHITEURLS
 echo
 echo "${cm8[${es}]}"
-
-function remoteurl() {
-    $wgetd "$1" -O - | sed '/^$/d; / *#/d' | sort -u >> whiteurls.txt
-}
-	remoteurl 'https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt' && sleep 1
-
-function remoteurl() {
-    $wgetd "$1" -O - | sed '/^$/d; / *#/d' | sort -u >> whiteurls.txt
-}
-	remoteurl 'https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt'
 
 function univ() {
     $wgetd "$1" -O - | sed '/^$/d; / *#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
@@ -151,6 +141,11 @@ function publicsuffix() {
 }
 	publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
 
+function whoisxmlapi() {
+    $wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; / *#/d' | sort -u >> whitetlds.txt
+}
+	whoisxmlapi 'https://www.whoisxmlapi.com/support/supported_gtlds.php' && sleep 1
+
 function centralrepo() {
     $wgetd "$1" -O - | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> invalid.txt
 }
@@ -169,26 +164,27 @@ echo "OK"
 echo
 echo "${cm11[${es}]}"
 # add white urls/tld/invalid
-sed -e '/^#/d' whitetlds.txt | sort -u > tlds.txt
-sed -e '/^#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
-# debugging: step 1
+sed '/^$/d; / *#/d' whitetlds.txt | sort -u > tlds.txt
+sed '/^$/d; / *#/d' {invalid,whiteurls,cloudsync,remoteurl}.txt | sort -u > urls.txt
+# first debugging with python
 python parse_domain.py > bwparse.txt
 # add own black urls/tld
-sed -e '/^#/d' blackurls.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
-# debugging: step 2
-grep -Pvi ".(\.adult|\.beer|\.comsex|\.onion|\.poker|\.porn|\.sex|\.sexy|\.vodka|\.webcamsex|\.whoswho|\.xxx)$" bwparse.txt | sort -u > blackweb.txt
-
+sed '/^$/d; / *#/d' blackurls.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
+# second debugging with grep (fixing common errors)
+grep -vi -f debug.txt bwparse.txt | sort -u > blackweb.txt
 # COPY ACL TO PATH
 cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
-sed -e '/^#/d' blackdomains.txt >> $route/blackdomains.txt >/dev/null 2>&1 && sed -i '/^#/d' $route/blackdomains.txt && sort -o $route/blackdomains.txt -u $route/blackdomains.txt >/dev/null 2>&1
-sed -e '/^#/d' whitedomains.txt >> $route/whitedomains.txt >/dev/null 2>&1 && sed -i '/^#/d' $route/whitedomains.txt && sort -o $route/whitedomains.txt -u $route/whitedomains.txt >/dev/null 2>&1
 
 echo "OK"
 
 # RELOAD SQUID
+# First you must edit /etc/squid/squid.conf
+# And add lines:
+# acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
+# http_access deny blackweb
 echo
 echo "${cm12[${es}]}"
-squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
+squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js|state)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
 echo "Blackweb for Squid: Done $date" >> /var/log/syslog
 
 echo "OK"

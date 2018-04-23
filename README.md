@@ -12,7 +12,7 @@
 
 |File|BL Domains|File size|
 |----|----------|---------|
-|blackweb.txt|2.005.139|48,4 MB|
+|blackweb.txt|2.080.749|50,5 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -57,8 +57,9 @@ Y verifique el contenido del archivo **SquidError.txt** en su escritorio para co
 
 ##### Importante Antes de Usar / Important Before Use
 
-- Puede incluir su propia Blacklist, que quiera bloquear y que no se encuentre en **blackweb.txt**, editando el script **bwupdate.sh** y descomentando en **ADD OWN LIST** la línea **/path/blackweb_own.txt** y reemplazandola por la ruta hacia su propia lista. / You can include your own Blacklist IPs, which you want to block, and that is not on **blackweb.txt**, editing **bwupdate.sh** script and uncommenting in **ADD OWN LIST** line **/path/blackweb_own.txt** and replacing it with the path to your own list.
-- Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/). / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**.
+- Puede incluir su propia Blacklist, que quiera bloquear y que no se encuentre en **blackweb.txt**, editando el script **bwupdate.sh** y descomentando en **ADD OWN LIST** la línea **/path/blackweb_own.txt** y reemplazandola por la ruta hacia su propia lista / You can include your own Blacklist, which you want to block and which is not in **blackweb.txt**, by editing the **bwupdate.sh** script and decomposing the line **/path/blackweb_own.txt** in **ADD OWN LIST** and replacing it with the path to your own list
+- La ACL **cloudsync.txt** contiene servicios appcloud (diferentes a onedrive y gdrive), como dropbox, pcloud, mega, etc., y la ACL **remoteurls.txt** contiene servicios remotos, como Teamviewer, Anydesk, Logmein, etc. Por defecto se excluyen de **blackweb.txt**. Para modificarlo, edite **bwupdate.sh**, busque y elimine "**,cloudsync,remoteurl**" / The ACL **cloudsync.txt** contains appcloud services (other than onedrive and gdrive), such as dropbox, pcloud, mega, etc., and the ACL **remoteurls.txt** contains remote services, such as Teamviewer, Anydesk, Logmein , etc. By default they are excluded from **blackweb.txt**. To modify it, edit **bwupdate.sh**, search and delete "**,cloudsync,remoteurl**"
+- Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
 - La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
 
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
@@ -73,9 +74,9 @@ http_access deny blackweb
 ### EDICIÓN / EDITION
 ---
 
-**Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede incluirlos en **blackdomains**
+**Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede agregarlos en **blackdomains**.
 
-**Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can include them in **blackdomains**
+**Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can add them in **blackdomains**.
 
 ```
 acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
@@ -86,7 +87,7 @@ http_access deny blackdomains
 http_access deny blackweb
 ```
 
-**blackdomains.txt** contiene dominios no incluidos en **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) y **whitedomains.txt** contiene el subdominio **accounts.youtube.com** [desde Feb 2014, Google utiliza el subdominio **accounts.youtube.com** para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)
+**blackdomains.txt** contiene dominios no incluidos en **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) y **whitedomains.txt** contiene el subdominio **accounts.youtube.com** [desde Feb 2014, Google utiliza el subdominio **accounts.youtube.com** para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
 
 **blackdomains.txt** contains domains not included in **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) and **whitedomains.txt** contains subdomain **accounts.youtube.com** [since February 2014, Google uses the accounts subdomain .youtube.com to authenticate their services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
 
@@ -149,6 +150,16 @@ http_access deny blackweb
 
 [StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
 
+[Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
+
+[Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
+
+[Joelotz URL Blacklist](https://github.com/joelotz/URL_Blacklist/blob/master/blacklist.csv)
+
+[dshield.org](http://www.dshield.org/feeds/suspiciousdomains_Low.txt)
+
+[Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
+
 ##### URLs Blacklists (Discontinued or Replaced)
 
 [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt)). [Last Update](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt)
@@ -173,6 +184,8 @@ http_access deny blackweb
 
 [Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
+[Whoisxmlapi GTLDs](https://www.whoisxmlapi.com/support/supported_gtlds.php)
+
 [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 
 [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (Partial)
@@ -183,19 +196,23 @@ http_access deny blackweb
 
 ##### Internal Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
-[Maravento Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/invalid.txt)
+[WhiteTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/whitetlds.txt)
 
-[Maravento TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/whitetlds.txt)
+[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/whiteurls.txt)
 
-[Maravento BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
+[RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/remoteurls.txt)
 
-[Maravento WhiteURLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/whiteurls.txt)
+[CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/cloudsync.txt)
 
-[Maravento RemoteURLs](https://raw.githubusercontent.com/maravento/remoteip/master/remoteurls.txt)
+[BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
+
+[Common Errors](https://github.com/maravento/blackweb/raw/master/bwupdate/debug.txt)
+
+[Invalid Domains/TLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/invalid.txt)
 
 ##### External Tools
 
-[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/parse_domain.py))
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/parse_domain.py))
 
 [httpstatus](https://httpstatus.io/)
 
@@ -203,9 +220,9 @@ http_access deny blackweb
 
 ##### Internal Tools
 
-[httpstatus bash](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/httpstatus.sh)
+[httpstatus bash](https://github.com/maravento/blackweb/raw/master/bwupdate/extools/httpstatus.sh)
 
-[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/extools/debug.py)
+[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/extools/debug.py)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
