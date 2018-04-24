@@ -165,7 +165,7 @@ echo
 echo "${cm11[${es}]}"
 # add white urls/tld/invalid
 sed '/^$/d; / *#/d' whitetlds.txt | sort -u > tlds.txt
-sed '/^$/d; / *#/d' {invalid,whiteurls,cloudsync,remoteurl}.txt | sort -u > urls.txt
+sed '/^$/d; / *#/d' {invalid,whiteurls,cloudsync,remoteurls}.txt | sort -u > urls.txt
 # first debugging with python
 python parse_domain.py > bwparse.txt
 # add own black urls/tld
