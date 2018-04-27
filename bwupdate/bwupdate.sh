@@ -57,6 +57,7 @@ echo "OK"
 # DOWNLOADING BLACKURLS
 echo
 echo "${cm7[${es}]}"
+
 # download files
 function blurls() {
     $wgetd "$1" -O - >> bwtmp/bw.txt
@@ -91,28 +92,30 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
     blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
     blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
     $wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw.txt
 }
 	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
+
 # download .zip
 function malwaredomains() {
     $wgetd "$1" && unzip -p domains.zip >> bwtmp/bw.txt
 }
 	malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
+
 # download .tar.gz/.tgz
 function targz() {
     $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
+
 function tgz() {
     $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
 	tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
-# add own list
-#sed '/^$/d; / *#/d' /path/blackweb_own.txt >> bwtmp/bw.txt
 
 echo "OK"
 
@@ -169,7 +172,7 @@ sed '/^$/d; / *#/d' {invalid,whiteurls,cloudsync,remoteurls}.txt | sort -u > url
 # first debugging with python
 python parse_domain.py > bwparse.txt
 # add own black urls/tld
-sed '/^$/d; / *#/d' blackurls.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
+sed '/^$/d; / *#/d' {blackurls,blacktlds}.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
 # second debugging with grep (fixing common errors)
 grep -vi -f debug.txt bwparse.txt | sort -u > blackweb.txt
 # COPY ACL TO PATH

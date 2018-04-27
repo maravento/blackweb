@@ -10,9 +10,9 @@
 ### FICHA TECNICA / DATA SHEET
 ---
 
-|File|BL Domains|File size|
-|----|----------|---------|
-|blackweb.txt|2.080.749|50,5 MB|
+|ACL|Black Domains|Size|
+|---|-------------|----|
+|blackweb.txt|2.077.821|50,4 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -39,9 +39,9 @@ wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo 
 ### ACTUALIZACIÓN / UPDATE
 ---
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tardar horas o días.
+El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar mucho tiempo.
 
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and can take hours or days
+The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and it can take a long time.
  
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
@@ -57,10 +57,14 @@ Y verifique el contenido del archivo **SquidError.txt** en su escritorio para co
 
 ##### Importante Antes de Usar / Important Before Use
 
-- Puede incluir su propia Blacklist, que quiera bloquear y que no se encuentre en **blackweb.txt**, editando el script **bwupdate.sh** y descomentando en **ADD OWN LIST** la línea **/path/blackweb_own.txt** y reemplazandola por la ruta hacia su propia lista / You can include your own Blacklist, which you want to block and which is not in **blackweb.txt**, by editing the **bwupdate.sh** script and decomposing the line **/path/blackweb_own.txt** in **ADD OWN LIST** and replacing it with the path to your own list
-- La ACL **cloudsync.txt** contiene servicios appcloud (diferentes a onedrive y gdrive), como dropbox, pcloud, mega, etc., y la ACL **remoteurls.txt** contiene servicios remotos, como Teamviewer, Anydesk, Logmein, etc. Por defecto se excluyen de **blackweb.txt**. Para modificarlo, edite **bwupdate.sh**, busque y elimine "**,cloudsync,remoteurls**" / The ACL **cloudsync.txt** contains appcloud services (other than onedrive and gdrive), such as dropbox, pcloud, mega, etc., and the ACL **remoteurls.txt** contains remote services, such as Teamviewer, Anydesk, Logmein , etc. By default they are excluded from **blackweb.txt**. To modify it, edit **bwupdate.sh**, search and delete "**,cloudsync,remoteurls**"
 - Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
 - La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
+
+##### Extra ACLs
+
+**cloudsync.txt** es una ACL contiene urls de servicios appcloud, diferentes a onedrive y gdrive (dropbox, pcloud, mega, etc.) y **remoteurls.txt** es una ACL contiene urls de servicios remotos (Teamviewer, Anydesk, Logmein, etc). Por defecto se excluyen de **blackweb.txt**. Para modificarlo, edite **bwupdate.sh**, y elimine las líneas referentes a estas ACLs (,cloudsync,remoteurls)
+
+**cloudsync.txt** is an ACL containing appcloud service urls, different from onedrive and gdrive (dropbox, pcloud, mega, etc.) and **remoteurls.txt** is an ACL containing remote service urls (Teamviewer, Anydesk, Logmein, etc). By default they are excluded from **blackweb.txt**. To modify it, edit **bwupdate.sh**, and delete the lines referring to these ACLs (,cloudsync, remoteurls)
 
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
 ---
@@ -206,7 +210,9 @@ http_access deny blackweb
 
 [BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
 
-[Common Errors](https://github.com/maravento/blackweb/raw/master/bwupdate/debug.txt)
+[BlackTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/blacktlds.txt)
+
+[Debug (Common Errors)](https://github.com/maravento/blackweb/raw/master/bwupdate/debug.txt)
 
 [Invalid Domains/TLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/invalid.txt)
 
@@ -220,9 +226,9 @@ http_access deny blackweb
 
 ##### Internal Tools
 
-[httpstatus bash](https://github.com/maravento/blackweb/raw/master/bwupdate/extools/httpstatus.sh)
+[httpstatus bash](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh)
 
-[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/extools/debug.py)
+[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/debug.py)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
