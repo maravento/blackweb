@@ -18,7 +18,7 @@ cm1=("Este proceso puede tardar mucho tiempo. Sea paciente..." "This process can
 cm2=("Descargando Blackweb Update..." "Downloading Blackweb Update...")
 cm7=("Descargando Listas Negras..." "Downloading Blacklists...")
 cm8=("Descargando Listas Blancas..." "Downloading Whitelist...")
-cm9=("Descargando Listas Blancas TLDs, Dominios Invalidos, etc..." "Downloading WhiteTLDs, Invalids Domains, etc...")
+cm9=("Descargando TLDs, Dominios Invalidos, etc..." "Downloading TLDs, Invalids Domains, etc...")
 cm10=("Capturando Dominios..." "Capturing Domains...")
 cm11=("Depurando Blackweb..." "Debugging Blackweb...")
 cm12=("Recargando Squid..." "Squid Reload...")
@@ -130,7 +130,7 @@ function univ() {
 
 echo "OK"
 
-# DOWNLOADING WHITETLDS
+# DOWNLOADING WHITETLDS AND INVALID DOMAINS
 echo
 echo "${cm9[${es}]}"
 
