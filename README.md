@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|Size|
 |---|-------------|----|
-|blackweb.txt|2.089.219|50,6 MB|
+|blackweb.txt|2.108.726|51,0 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -223,6 +223,7 @@ http_access deny blackweb
 [httpstatus](https://httpstatus.io/)
 
 [CTFR](https://github.com/UnaPibaGeek/ctfr)
+
 
 ##### Internal Tools
 
