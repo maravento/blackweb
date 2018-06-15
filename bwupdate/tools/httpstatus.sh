@@ -20,6 +20,6 @@ list=$(pwd)/folder/list.txt
 sed -e '/^#/d' $list | sed -r '/^.\W+/d' | sed 's/^.//g' | sed '/[A-Z]/d' | sort -u > tmp
 # HTTPSTATUS
 while read LINE; do
-  curl -o /dev/null --silent --head --write-out '%{http_code}' "$LINE"
-  echo " $LINE" 
+        curl -o /dev/null --silent --head --write-out '%{http_code}' "$LINE"
+        echo " $LINE"
 done < tmp | sed '/^000/d' | awk '{print $2}' | awk '{print "."$1}' | sort -u > newlist.txt

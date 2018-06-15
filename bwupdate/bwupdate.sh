@@ -60,62 +60,62 @@ echo "${cm7[${es}]}"
 
 # download files
 function blurls() {
-    $wgetd "$1" -O - >> bwtmp/bw.txt
+	$wgetd "$1" -O - >> bwtmp/bw.txt
 }
-	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
-	blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
-	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
-	blurls 'https://zeustracker.abuse.ch/blocklist.php?download=squiddomain' && sleep 1
-	blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
-	blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
-	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
-	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
-	blurls 'http://adaway.org/hosts.txt' && sleep 1
-	blurls 'https://openphish.com/feed.txt' && sleep 1
-	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
-	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
-	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
-	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
-	blurls 'http://www.carl.net/spam/access.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
-	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
-	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
-	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
-    blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
-    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+		blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+		blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
+                blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
+                blurls 'https://zeustracker.abuse.ch/blocklist.php?download=squiddomain' && sleep 1
+                blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
+                blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
+                blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
+                blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
+                blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
+                blurls 'http://adaway.org/hosts.txt' && sleep 1
+                blurls 'https://openphish.com/feed.txt' && sleep 1
+                blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
+                blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
+                blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
+                blurls 'http://malc0de.com/bl/ZONES' && sleep 1
+                blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
+                blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
+                blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
+                blurls 'http://www.carl.net/spam/access.txt' && sleep 1
+                blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
+                blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
+                blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+                blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
+                blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+                blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
+                blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
+                blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+                blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+                blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
+                blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
-    $wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw.txt
+        $wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw.txt
 }
-	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
+                blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
 
 # download .zip
 function malwaredomains() {
-    $wgetd "$1" && unzip -p domains.zip >> bwtmp/bw.txt
+        $wgetd "$1" && unzip -p domains.zip >> bwtmp/bw.txt
 }
-	malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
+                malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
 
 # download .tar.gz/.tgz
 function targz() {
-    $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+        $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
-	targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
-	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
+                targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
+                targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 
 function tgz() {
-    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+        $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
-	tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
+                tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 
 echo "OK"
 
@@ -124,9 +124,9 @@ echo
 echo "${cm8[${es}]}"
 
 function univ() {
-    $wgetd "$1" -O - | sed '/^$/d; / *#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
+        $wgetd "$1" -O - | sed '/^$/d; / *#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
 }
-    univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
+                univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
 echo "OK"
 
@@ -135,24 +135,24 @@ echo
 echo "${cm9[${es}]}"
 
 function iana() {
-    $wgetd "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed '/^$/d; / *#/d' | sed 's/^/./' | sort -u >> whitetlds.txt
+        $wgetd "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed '/^$/d; / *#/d' | sed 's/^/./' | sort -u >> whitetlds.txt
 }
-	iana 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt' && sleep 1
+                iana 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt' && sleep 1
 
 function publicsuffix() {
-    $wgetd "$1" -O - | grep -v "//" | grep -ve "^$" | sed 's:\(.*\):\.\1:g' | sort -u | grep -v -P "[^a-z0-9_.-]" >> whitetlds.txt
+        $wgetd "$1" -O - | grep -v "//" | grep -ve "^$" | sed 's:\(.*\):\.\1:g' | sort -u | grep -v -P "[^a-z0-9_.-]" >> whitetlds.txt
 }
-	publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
+                publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
 
 function whoisxmlapi() {
-    $wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; / *#/d' | sort -u >> whitetlds.txt
+        $wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; / *#/d' | sort -u >> whitetlds.txt
 }
-	whoisxmlapi 'https://www.whoisxmlapi.com/support/supported_gtlds.php' && sleep 1
+                whoisxmlapi 'https://www.whoisxmlapi.com/support/supported_gtlds.php' && sleep 1
 
 function centralrepo() {
-    $wgetd "$1" -O - | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> invalid.txt
+        $wgetd "$1" -O - | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> invalid.txt
 }
-	centralrepo 'https://raw.githubusercontent.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/master/DOMAINS-dead.txt' && sleep 1
+                centralrepo 'https://raw.githubusercontent.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/master/DOMAINS-dead.txt' && sleep 1
 
 echo "OK"
 
