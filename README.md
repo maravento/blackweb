@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|Size|
 |---|-------------|----|
-|blackweb.txt|2.108.726|51,0 MB|
+|blackweb.txt|2.108.199|51,1 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -42,7 +42,7 @@ wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo 
 El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [fuentes](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar mucho tiempo.
 
 The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [sources](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and it can take a long time.
- 
+
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
@@ -87,7 +87,7 @@ acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
 acl blackdomains dstdomain -i "/etc/acl/blackdomains.txt"
 acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
 http_access allow whitedomains
-http_access deny blackdomains 
+http_access deny blackdomains
 http_access deny blackweb
 ```
 
@@ -164,6 +164,8 @@ http_access deny blackweb
 
 [Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
 
+[CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
+
 ##### URLs Blacklists (Discontinued or Replaced)
 
 [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt)). [Last Update](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt)
@@ -179,6 +181,8 @@ http_access deny blackweb
 ##### Ransomware
 
 [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/)
+
+[Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
 
 ##### External Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
