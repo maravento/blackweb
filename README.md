@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|Size|
 |---|-------------|----|
-|blackweb.txt|2.106.781|51,0 MB|
+|blackweb.txt|2.106.269|51,0 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
