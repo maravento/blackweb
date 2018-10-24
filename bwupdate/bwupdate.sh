@@ -35,11 +35,13 @@ echo "${cm1[${es}]}"
 
 # VARIABLES
 bwupdate=$(pwd)/bwupdate
-route=/etc/acl
 date=`date +%d/%m/%Y" "%H:%M:%S`
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
 wgetd="wget -q -c --retry-connrefused -t 0"
 xdesktop=$(xdg-user-dir DESKTOP)
+
+# PATH_TO_ACL (Change it to the directory of your preference)
+route=/etc/acl
 
 # DELETE OLD REPOSITORY
 if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
@@ -65,7 +67,7 @@ function blurls() {
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
-	blurls 'https://zeustracker.abuse.ch/blocklist.php?download=squiddomain' && sleep 1
+	blurls 'https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist' && sleep 1
 	blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
 	blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
@@ -80,8 +82,10 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
 	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
+	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
 	blurls 'http://www.carl.net/spam/access.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
 	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
@@ -94,6 +98,8 @@ function blurls() {
 	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
 	blurls 'https://github.com/CHEF-KOCH/BarbBlock-filter-list/raw/master/HOSTS.txt' && sleep 1
 	blurls 'https://github.com/CHEF-KOCH/BarbBlock-filter-list/raw/master/uBlock.txt' && sleep 1
+	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
+	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
@@ -126,7 +132,7 @@ echo
 echo "${cm8[${es}]}"
 
 function univ() {
-	$wgetd "$1" -O - | sed '/^$/d; / *#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
+	$wgetd "$1" -O - | sed '/^$/d; /#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
@@ -137,7 +143,7 @@ echo
 echo "${cm9[${es}]}"
 
 function iana() {
-	$wgetd "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed '/^$/d; / *#/d' | sed 's/^/./' | sort -u >> whitetlds.txt
+	$wgetd "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed '/^$/d; /#/d' | sed 's/^/./' | sort -u >> whitetlds.txt
 }
 	iana 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt' && sleep 1
 
@@ -147,7 +153,7 @@ function publicsuffix() {
 	publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
 
 function whoisxmlapi() {
-	$wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; / *#/d' | sort -u >> whitetlds.txt
+	$wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; /#/d' | sort -u >> whitetlds.txt
 }
 	whoisxmlapi 'https://www.whoisxmlapi.com/support/supported_gtlds.php' && sleep 1
 
@@ -169,12 +175,12 @@ echo "OK"
 echo
 echo "${cm11[${es}]}"
 # add white urls/tld/invalid
-sed '/^$/d; / *#/d' whitetlds.txt | sort -u > tlds.txt
-sed '/^$/d; / *#/d' {invalid,whiteurls,cloudsync,remoteurls}.txt | sort -u > urls.txt
+sed '/^$/d; /#/d' whitetlds.txt | sort -u > tlds.txt
+sed '/^$/d; /#/d' {invalid,whiteurls,cloudsync,remoteurls}.txt | sort -u > urls.txt
 # first debugging with python
 python parse_domain.py > bwparse.txt
 # add own black urls/tld
-sed '/^$/d; / *#/d' {blackurls,blacktlds}.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
+sed '/^$/d; /#/d' {blackurls,blacktlds}.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
 # second debugging with grep (fixing common errors)
 grep -vi -f debug.txt bwparse.txt | sort -u > blackweb.txt
 # COPY ACL TO PATH
@@ -185,7 +191,7 @@ echo "OK"
 # RELOAD SQUID
 # First you must edit /etc/squid/squid.conf
 # And add lines:
-# acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
+# acl blackweb dstdomain -i "$route/blackweb.txt"
 # http_access deny blackweb
 echo
 echo "${cm12[${es}]}"

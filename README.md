@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|Size|
 |---|-------------|----|
-|blackweb.txt|2.106.269|51,0 MB|
+|blackweb.txt|2.117.136|51,3 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -29,12 +29,12 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### MODO DE USO / HOW TO USE
 ---
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela con **blackweb.sh**. Por defecto, la ruta de **blackweb.txt** es **/etc/acl**. Ejemplo:
+La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela en la ruta de su preferencia:
 
-The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it with **blackweb.sh**. By default, **blackweb.txt** path is **/etc/acl**. Example:
+The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it in the path of your preference:
 
 ```
-wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.sh && sudo chmod +x blackweb.sh && sudo ./blackweb.sh
+wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.txt
 ```
 ### ACTUALIZACIÓN / UPDATE
 ---
@@ -60,19 +60,18 @@ Y verifique el contenido del archivo **SquidError.txt** en su escritorio para co
 - Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
 - La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
 
-##### Extra ACLs
-
-**cloudsync.txt** es una ACL contiene urls de servicios appcloud, diferentes a onedrive y gdrive (dropbox, pcloud, mega, etc.) y **remoteurls.txt** es una ACL contiene urls de servicios remotos (Teamviewer, Anydesk, Logmein, etc). Por defecto se excluyen de **blackweb.txt**. Para modificarlo, edite **bwupdate.sh**, y elimine las líneas referentes a estas ACLs (,cloudsync,remoteurls)
-
-**cloudsync.txt** is an ACL containing appcloud service urls, different from onedrive and gdrive (dropbox, pcloud, mega, etc.) and **remoteurls.txt** is an ACL containing remote service urls (Teamviewer, Anydesk, Logmein, etc). By default they are excluded from **blackweb.txt**. To modify it, edit **bwupdate.sh**, and delete the lines referring to these ACLs (,cloudsync, remoteurls)
-
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
 ---
 
-Edit /etc/squid/squid.conf:
+Edite / Edit:
+```
+/etc/squid/squid.conf
+```
+Y agregue las siguientes líneas: / And add the following lines:
+
 ```
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
+acl blackweb dstdomain -i "/path_to_acl/blackweb.txt"
 http_access deny blackweb
 ```
 ### EDICIÓN / EDITION
@@ -83,9 +82,9 @@ http_access deny blackweb
 **Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can add them in **blackdomains**.
 
 ```
-acl whitedomains dstdomain -i "/etc/acl/whitedomains.txt"
-acl blackdomains dstdomain -i "/etc/acl/blackdomains.txt"
-acl blackweb dstdomain -i "/etc/acl/blackweb.txt"
+acl whitedomains dstdomain -i "/path_to_acl/whitedomains.txt"
+acl blackdomains dstdomain -i "/path_to_acl/blackdomains.txt"
+acl blackweb dstdomain -i "/path_to_acl/blackweb.txt"
 http_access allow whitedomains
 http_access deny blackdomains
 http_access deny blackweb
@@ -111,6 +110,8 @@ http_access deny blackweb
 [Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 
 [HP Hosts-file](http://hosts-file.net/download/hosts.txt)
+
+[HP ad_servers](https://hosts-file.net/ad_servers.txt)
 
 [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
 
@@ -138,11 +139,13 @@ http_access deny blackweb
 
 [openphish](https://openphish.com/feed.txt)
 
-[Tracking Disconnect.me](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
+[Disconnect.me Tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
+
+[Disconnect.me Ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt)
 
 [Carl Spam](http://www.carl.net/spam/access.txt)
 
-[Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
+[Mitchell Krogza Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
 
 [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt)
 
@@ -152,7 +155,9 @@ http_access deny blackweb
 
 [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list)
 
-[StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
+[StevenBlack fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
+
+[StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
 
 [Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 
