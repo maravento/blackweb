@@ -58,7 +58,7 @@ Y verifique el contenido del archivo **SquidError.txt** en su escritorio para co
 ##### Importante Antes de Usar / Important Before Use
 
 - Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
-- La actualización debe ejecutarse en equipos de pruebas destinados para este propósito. Nunca en servidores en producción. / The update must run on test equipment designed for this purpose. Never on servers in production.
+- La actualización debe ejecutarse en equipos de pruebas. Nunca en servidores en producción. / The update must run on test equipment. Never on servers in production.
 
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
 ---
@@ -74,12 +74,12 @@ Y agregue las siguientes líneas: / And add the following lines:
 acl blackweb dstdomain -i "/path_to_acl/blackweb.txt"
 http_access deny blackweb
 ```
-### EDICIÓN / EDITION
----
+##### Edición / Edition
 
-**Blackweb** contiene millones de dominios bloqueados, por tanto, editarla manualmente puede ser frustrante. Entonces, si detecta un falso positivo, utilice la ACL **whitedomains.txt** y reporte el incidente, para corregirlo en la próxima actualización. Lo mismo aplica para dominios no incluidos en **Blackweb**, que quiera bloquear, puede agregarlos en **blackdomains**.
+**Blackweb** contiene millones de dominios bloqueados, por tanto: / **Blackweb** contains millions of blocked domains, so:
 
-**Blackweb** contains million domains blocked therefore manually editing can be frustrating. Then, if it detects a false positive, use the ACL **whitedomains.txt** and report the incident to correct it in the next update. The same applies for domains not included in **Blackweb**, you want to block, you can add them in **blackdomains**.
+- Utilice la ACL **whitedomains** para excluir dominios falsos positivos (y repórtelo) u otros dominios que quiera excluir (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) / Use the ACL **whitedomains** to exclude false-positive (and report it) domains or other domains that you want to exclude (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube))
+- Utilice la ACL **blackdomains** para agregar dominios no incluidos en **Blackweb** (ejemplo: .youtube.com .googlevideo.com, .ytimg.com) / Use the ACL **blackdomains** to add domains not included in **Blackweb** (e.g.: .youtube.com .googlevideo.com, .ytimg.com)
 
 ```
 acl whitedomains dstdomain -i "/path_to_acl/whitedomains.txt"
@@ -89,10 +89,6 @@ http_access allow whitedomains
 http_access deny blackdomains
 http_access deny blackweb
 ```
-
-**blackdomains.txt** contiene dominios no incluidos en **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) y **whitedomains.txt** contiene el subdominio **accounts.youtube.com** [desde Feb 2014, Google utiliza el subdominio **accounts.youtube.com** para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
-
-**blackdomains.txt** contains domains not included in **Blackweb** (e.g. .youtube.com .googlevideo.com, .ytimg.com) and **whitedomains.txt** contains subdomain **accounts.youtube.com** [since February 2014, Google uses the accounts subdomain .youtube.com to authenticate their services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube).
 
 ### FUENTES / SOURCES
 ---
