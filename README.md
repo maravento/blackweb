@@ -95,146 +95,163 @@ http_access deny blackweb
 
 ##### URLs Blacklists
 
-[Shallalist](http://www.shallalist.de/Downloads/shallalist.tar.gz)
-
-[Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
-
-[MESD blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
-
-[Yoyo Serverlist](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
-
-[Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
-
-[HP Hosts-file](http://hosts-file.net/download/hosts.txt)
-
-[HP ad_servers](https://hosts-file.net/ad_servers.txt)
-
-[Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
-
-[Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
-
-[Joewein Blacklist](http://www.joewein.de/sw/bl-text.htm)
-
-[Tracking-Addresses](https://github.com/10se1ucgo/DisableWinTracking/wiki/Tracking-Addresses)
+[10se1ucgo DisableWinTracking](https://github.com/10se1ucgo/DisableWinTracking/wiki/Tracking-Addresses)
 
 [Adaway](http://adaway.org/hosts.txt)
 
-[Lehigh Malwaredomains](http://malwaredomains.lehigh.edu/files/)
+[Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
+
+[anudeepND](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt)
+
+[BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
+
+[Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
+
+[Carl Spam](http://www.carl.net/spam/access.txt)
+
+[cedia.org.ec](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt)
+
+[chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
+
+[Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
+
+[crazy-max WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
+
+[Dawsey21 List](https://github.com/Dawsey21/Lists)
+
+[Disconnect.me](https://disconnect.me/) (included: [simple_ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt), [simple_malvertising](https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt), [simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt))
+
+[dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
 
 [Easylist for adblockplus](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 
-[Zeus tracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
+[ethanr dns-blacklists](https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
+
+[firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
+
+[hostsfile.mine.nu](https://hostsfile.mine.nu/hosts0.txt)
+
+[hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
+
+[Joelotz URL Blacklist](https://github.com/joelotz/URL_Blacklist/blob/master/blacklist.csv)
+
+[Joewein Blacklist](http://www.joewein.de/sw/bl-text.htm)
+
+[KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
+
+[Lehigh Malwaredomains](http://malwaredomains.lehigh.edu/files/)
+
+[malc0de](http://malc0de.com/bl/)
 
 [Malwaredomain Hosts List](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 
 [Malware-domains](http://www.malware-domains.com/)
 
-[malc0de](http://malc0de.com/bl/)
+[Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 
-[BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
+[MESD blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
+
+[mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
+
+[Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 
 [openphish](https://openphish.com/feed.txt)
 
-[Disconnect.me Tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
-
-[Disconnect.me Ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt)
-
-[Carl Spam](http://www.carl.net/spam/access.txt)
-
-[Mitchell Krogza Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist)
-
-[Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt)
-
-[Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list)
-
-[Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
-
-[The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list)
-
-[StevenBlack fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
-
-[StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
-
-[Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
+[Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 
 [Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
 
-[Joelotz URL Blacklist](https://github.com/joelotz/URL_Blacklist/blob/master/blacklist.csv)
+[quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt)
 
-[dshield.org](http://www.dshield.org/feeds/suspiciousdomains_Low.txt)
+[Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
+
+[reddestdream](https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts)
+
+[securemecca.net and hostsfile.org](https://hostsfile.org/Downloads/hosts.txt)
+
+[Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
+
+[Someonewhocares](http://someonewhocares.org/hosts/hosts)
+
+[squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
+
+[StevenBlack](https://github.com/StevenBlack) (included: [add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts), [add.Risk](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts), [fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts), [hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), [spam](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts), [uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts))
 
 [Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
 
-[CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
+[tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 
-##### URLs Blacklists (Discontinued or Replaced)
+[Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
+
+[vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
+
+[Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
+
+[Yoyo](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
+
+[zerodot1 CoinBlockerLists](https://zerodot1.gitlab.io/CoinBlockerLists/hosts)
+
+[Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
+
+##### Discontinued URLs Blacklists
+
+[CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 
 [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt)). [Last Update](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt)
 
 [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
-[Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Someonewhocares](http://someonewhocares.org/hosts/hosts) and [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt). Replaced by [StevenBlack Hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
-
-##### Web Miner
-
-[Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
-
-##### Ransomware
-
-[Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/)
-
-[Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
-
-##### External Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
-
-[TLDs IANA](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
-
-[TLDs Mozilla Public Suffix](https://publicsuffix.org/list/public_suffix_list.dat)
-
-[Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
-
-[Whoisxmlapi GTLDs](https://www.whoisxmlapi.com/support/supported_gtlds.php)
-
-[ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
-
-[O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (Partial)
-
-[University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
-
-[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt)
-
 ##### Internal Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
-[WhiteTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/whitetlds.txt)
-
-[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/whiteurls.txt)
-
-[RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/remoteurls.txt)
-
-[CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/cloudsync.txt)
+[BlackTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/blacktlds.txt)
 
 [BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
 
-[BlackTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/blacktlds.txt)
+[CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/cloudsync.txt)
 
 [Debug (Common Errors)](https://github.com/maravento/blackweb/raw/master/bwupdate/debug.txt)
 
 [Invalid Domains/TLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/invalid.txt)
 
-##### External Tools
+[RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/remoteurls.txt)
 
-[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/parse_domain.py))
+[WhiteTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/whitetlds.txt)
 
-[httpstatus](https://httpstatus.io/)
+[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/whiteurls.txt)
 
-[CTFR](https://github.com/UnaPibaGeek/ctfr)
+##### External Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
 
+[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt)
+
+[ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
+
+[O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (Partial)
+
+[Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
+
+[TLDs IANA](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+
+[TLDs Mozilla Public Suffix](https://publicsuffix.org/list/public_suffix_list.dat)
+
+[University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
+
+[Whoisxmlapi GTLDs](https://www.whoisxmlapi.com/support/supported_gtlds.php)
+
+[Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
 ##### Internal Tools
 
+[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/debug.py)
+
 [httpstatus bash](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh)
 
-[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/debug.py)
+##### External Tools
+
+[CTFR](https://github.com/UnaPibaGeek/ctfr)
+
+[httpstatus](https://httpstatus.io/)
+
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/parse_domain.py))
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---

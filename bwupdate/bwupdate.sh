@@ -64,42 +64,89 @@ echo "${cm7[${es}]}"
 function blurls() {
 	$wgetd "$1" -O - >> bwtmp/bw.txt
 }
-	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+	blurls 'http://adaway.org/hosts.txt' && sleep 1
+	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
+	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
+	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
+	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
+	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
+	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
+	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
+	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
+	blurls 'https://hosts-file.net/emd.txt' && sleep 1
+	blurls 'https://hosts-file.net/exp.txt' && sleep 1
+	blurls 'https://hosts-file.net/grm.txt' && sleep 1
+	blurls 'https://hosts-file.net/psh.txt' && sleep 1
+	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
+	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
+	blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
+	blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
+	blurls 'https://openphish.com/feed.txt' && sleep 1
+	blurls 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts;showintro=0' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt' && sleep 1
+	blurls 'https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
+	blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all' && sleep 1
+	blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
+	blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
+	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
+	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
+	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Airelle-trc.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/BillStearns.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Kowabit.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Prigent-Ads.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Prigent-Phishing.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/Shalla-mal.txt' && sleep 1
+	blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
+	blurls 'https://www.dshield.org/feeds/suspiciousdomains_High.txt' && sleep 1
+	blurls 'https://www.dshield.org/feeds/suspiciousdomains_Medium.txt' && sleep 1
+	blurls 'https://www.squidblacklist.org/downloads/dg-ads.acl' && sleep 1
+	blurls 'https://www.squidblacklist.org/downloads/dg-malicious.acl' && sleep 1
+	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	blurls 'https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist' && sleep 1
 	blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
+	blurls 'http://www.carl.net/spam/access.txt' && sleep 1
+	blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
 	blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
-	blurls 'http://adaway.org/hosts.txt' && sleep 1
-	blurls 'https://openphish.com/feed.txt' && sleep 1
-	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
-	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
-	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
-	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
-	blurls 'http://www.carl.net/spam/access.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
-	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
-	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
-	blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
-	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
-	blurls 'https://github.com/CHEF-KOCH/BarbBlock-filter-list/raw/master/HOSTS.txt' && sleep 1
-	blurls 'https://github.com/CHEF-KOCH/BarbBlock-filter-list/raw/master/uBlock.txt' && sleep 1
-	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
-	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
