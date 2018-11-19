@@ -11,8 +11,6 @@
 # Description:       Enable service provided by daemon
 ### END INIT INFO
 
-# by:	maravento.com and novatoz.com
-
 # Language spa-eng
 cm1=("Este proceso puede tardar mucho tiempo. Sea paciente..." "This process can take a long time. Be patient...")
 cm2=("Descargando Blackweb Update..." "Downloading Blackweb Update...")
@@ -72,8 +70,11 @@ function blurls() {
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
+	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
+	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
+	blurls 'https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
 	blurls 'https://hosts-file.net/emd.txt' && sleep 1
@@ -83,6 +84,7 @@ function blurls() {
 	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
+	blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
 	blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	blurls 'https://openphish.com/feed.txt' && sleep 1
 	blurls 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts;showintro=0' && sleep 1
@@ -92,10 +94,12 @@ function blurls() {
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/CHEF-KOCH/BarbBlock-filter-list/master/HOSTS.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
@@ -108,6 +112,8 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
@@ -138,7 +144,12 @@ function blurls() {
 	blurls 'https://www.squidblacklist.org/downloads/dg-malicious.acl' && sleep 1
 	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
 	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
 	blurls 'https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist' && sleep 1
 	blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
 	blurls 'http://www.carl.net/spam/access.txt' && sleep 1
@@ -154,7 +165,7 @@ function blhosts() {
 }
 	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
 
-# download .zip
+# download malwaredomains .zip
 function malwaredomains() {
 	$wgetd "$1" && unzip -p domains.zip >> bwtmp/bw.txt
 }
@@ -209,6 +220,14 @@ function centralrepo() {
 }
 	centralrepo 'https://raw.githubusercontent.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/master/DOMAINS-dead.txt' && sleep 1
 
+# add white urls/tld/invalid
+sed '/^$/d; /#/d' whitetlds.txt | sort -u > tlds.txt
+sed '/^$/d; /#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
+# unblock
+#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> urls.txt
+# block
+#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
+
 echo "OK"
 
 # CAPTURING DOMAINS
@@ -221,9 +240,6 @@ echo "OK"
 # DEBUGGING BLACKWEB
 echo
 echo "${cm11[${es}]}"
-# add white urls/tld/invalid
-sed '/^$/d; /#/d' whitetlds.txt | sort -u > tlds.txt
-sed '/^$/d; /#/d' {invalid,whiteurls,cloudsync,remoteurls}.txt | sort -u > urls.txt
 # first debugging with python
 python parse_domain.py > bwparse.txt
 # add own black urls/tld
