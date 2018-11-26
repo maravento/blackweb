@@ -33,9 +33,15 @@ La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-
 
 The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference:
 
+#####  Download ACL
+
 ```
 wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
-# checksum
+```
+#####  Checksum ACL
+
+```
+wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.md5
 md5sum blackweb.txt | awk '{print $1}' && cat blackweb.md5 | awk '{print $1}'
 ```
 ### ACTUALIZACIÓN / UPDATE
