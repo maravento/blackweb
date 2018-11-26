@@ -10,9 +10,9 @@
 ### FICHA TECNICA / DATA SHEET
 ---
 
-|ACL|Black Domains|Size|
-|---|-------------|----|
-|blackweb.txt|2.405.211|56,6 MB|
+|ACL|Black Domains|txt size|tar.gz size|
+|---|-------------|--------|-----------|
+|blackweb.txt|2.405.211|56,6 MB|12,1 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -29,12 +29,14 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### MODO DE USO / HOW TO USE
 ---
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela en la ruta de su preferencia:
+La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia:
 
-The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it in the path of your preference:
+The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference:
 
 ```
-wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.txt
+wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+# checksum
+md5sum blackweb.txt | awk '{print $1}' && cat blackweb.md5 | awk '{print $1}'
 ```
 ### ACTUALIZACIÓN / UPDATE
 ---
