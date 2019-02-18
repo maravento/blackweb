@@ -87,7 +87,6 @@ function blurls() {
 	blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
 	blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	blurls 'https://openphish.com/feed.txt' && sleep 1
-	blurls 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts;showintro=0' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt' && sleep 1
 	blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
@@ -114,6 +113,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
 	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1

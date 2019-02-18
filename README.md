@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|txt size|tar.gz size|
 |---|-------------|--------|-----------|
-|blackweb.txt|2.405.211|56,6 MB|12,1 MB|
+|blackweb.txt|2.409.451|56,7 MB|12,1 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -20,7 +20,7 @@
 git squid bash tar zip wget subversion python
 ```
 
-### DESCARGA / DOWNLOAD
+### GIT CLONE
 ---
 ```
 git clone --depth=1 https://github.com/maravento/blackweb.git
@@ -36,13 +36,13 @@ The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid
 #####  Download ACL
 
 ```
-wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
 ```
 #####  Checksum ACL
 
 ```
-wget -q -N https://github.com/maravento/blackweb/raw/master/blackweb.md5
-md5sum blackweb.txt | awk '{print $1}' && cat blackweb.md5 | awk '{print $1}'
+wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
+md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
 ### ACTUALIZACIÓN / UPDATE
 ---
@@ -52,7 +52,7 @@ El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captu
 The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and it can take a long time.
 
 ```
-wget -q -N https://github.com/maravento/blackweb/raw/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
+wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 #####  Verifique la ejecución / Check execution
 
@@ -147,13 +147,15 @@ http_access deny blackweb
 
 [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 
+[Halt-and-Block-Mining](hhttps://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
+
 [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 
 [hostsfile.mine.nu](https://hostsfile.mine.nu/hosts0.txt)
 
 [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 
-[Joelotz URL Blacklist](https://github.com/joelotz/URL_Blacklist/blob/master/blacklist.csv)
+[Joelotz URL Blacklist](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
 
 [Joewein Blacklist](http://www.joewein.de/sw/bl-text.htm)
 
