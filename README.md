@@ -12,7 +12,7 @@
 
 |ACL|Black Domains|txt size|tar.gz size|
 |---|-------------|--------|-----------|
-|blackweb.txt|2.409.451|56,7 MB|12,1 MB|
+|blackweb.txt|2.409.426|56,7 MB|12,1 MB|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -147,7 +147,7 @@ http_access deny blackweb
 
 [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 
-[Halt-and-Block-Mining](hhttps://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
+[Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 
 [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 
