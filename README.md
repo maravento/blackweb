@@ -120,11 +120,13 @@ http_access deny blackweb
 
 [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
 
+[betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
+
 [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
 
 [Carl Spam](http://www.carl.net/spam/access.txt)
 
-[cedia.org.ec](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt)
+[cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 
 [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
 
@@ -144,6 +146,8 @@ http_access deny blackweb
 
 [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 
+[gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
+
 [Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 
 [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
@@ -158,13 +162,15 @@ http_access deny blackweb
 
 [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
 
-[Lehigh Malwaredomains](http://malwaredomains.lehigh.edu/files/)
-
 [malc0de](http://malc0de.com/bl/)
 
-[Malwaredomain Hosts List](http://www.malwaredomainlist.com/hostslist/hosts.txt)
+[Malwaredomains](http://www.malware-domains.com/files/domains.zip)
 
-[Malware-domains](http://www.malware-domains.com/)
+[Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
+
+[Malware-domains](http://mirror1.malwaredomains.com/files/justdomains) (or [Lehigh Malwaredomains](http://malwaredomains.lehigh.edu/files/justdomains))
+
+[margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 
 [Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 
@@ -209,6 +215,8 @@ http_access deny blackweb
 [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 
 [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
+
+[YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
 
 [Yoyo](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 

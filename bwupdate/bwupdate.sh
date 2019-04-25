@@ -65,7 +65,6 @@ function blurls() {
 	blurls 'http://adaway.org/hosts.txt' && sleep 1
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'http://malwaredomains.lehigh.edu/files/justdomains' && sleep 1
 	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
@@ -83,6 +82,9 @@ function blurls() {
 	blurls 'https://hosts-file.net/psh.txt' && sleep 1
 	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
+	blurls 'http://margevicius.lt/easylistlithuania.txt' && sleep 1
+	blurls 'http://mirror1.malwaredomains.com/files/justdomains' && sleep 1
+	blurls 'https://mirror.cedia.org.ec/malwaredomains/domains.txt' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
 	blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
 	blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
@@ -96,12 +98,14 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/CHEF-KOCH/BarbBlock-filter-list/master/HOSTS.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
 	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
@@ -122,6 +126,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all' && sleep 1
 	blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
 	blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
 	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
 	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
