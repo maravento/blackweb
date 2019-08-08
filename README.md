@@ -26,51 +26,38 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### MODO DE USO / HOW TO USE
 ---
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia:
+La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia / The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference
 
-The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference:
-
-#####  Download ACL
+#####  Download and Checksum
 
 ```
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
-```
-#####  Checksum ACL
-
-```
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
 ### ACTUALIZACIÓN / UPDATE
 ---
 
-El script **bwupdate.sh** actualiza la ACL **blackweb.txt**, realizando la captura, depuración y limpieza de dominios, sin embargo puede generar conflíctos por errores en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources), por tanto deberá depurarlos manualmente. Tenga en cuenta que este script consume gran cantidad de recursos de hardware durante el procesamiento y puede tomar mucho tiempo.
-
-The **bwupdate.sh** script updates **blackweb.txt** ACL, doing the capture, debugging and cleaning of domains, however it can generate conflicts for errors in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources), therefore you must manually debug conflicts. Keep in mind that this script consumes a lot of hardware resources during processing and it can take a long time.
+El script **bwupdate.sh** descarga las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources), las depura, unifica y elimina los dominios superpuestos. Una vez terminado verifique los logs de Squid y si aún existe algún error deberá depurarlo manualmente de **blackweb** / The **bwupdate.sh** script downloads the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources), purifies, unifies and removes overlapping domains. Once finished check the Squid logs and if there is still an error you must manually debug it from **blackweb**
 
 ```
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
-#####  Verifique la ejecución / Check execution
 
-path: /var/log/syslog
-
-```
-Blackweb for Squid: Done 06/05/2017 15:47:14
-```
-Y verifique el contenido del archivo **SquidError.txt** en su escritorio para corregirlos / And check the contents of the **SquidError.txt** file on your desktop to fix them
-
-##### Importante Antes de Usar / Important Before Use
+##### Advertencia / Warning
 
 - Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
-- **bwupdate.sh** debe ejecutarse en equipos de pruebas. Nunca en servidores en producción. / **bwupdate.sh** must run on test equipment. Never on servers in production.
-- **bwupdate.sh** no incluye sitios cloud (Mega, Dropbox, Pcloud, iCloud, etc) o de soporte remoto (Teamviewer, Anydesk, logmein, etc), excepto si ya vienen bloqueados desde las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources). Para bloquearlos o excluirlos debe activar la línea según su elección: / **bwupdate.sh** does not include cloud sites (Mega, Dropbox, Pcloud, iCloud, etc) or remote support (Teamviewer, Anydesk, logmein, etc), except if they are already blocked from the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources). To block or exclude them you must activate the line according to your choice:
+- Para reducir el tamaño de **blackweb** (eliminando dominios inactivos/muertos o inválidos) puede utilizar [PyFunceble](https://github.com/funilrys/PyFunceble) (Rápida pero inestable) o [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Lenta pero Estable. Incluida) / To reduce the size of **blackweb** (eliminating inactive/dead or invalid domains) can use [PyFunceble](https://github.com/funilrys/PyFunceble) (Fast but unstable) or [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Slow but Stable. Included)
+- El proceso de actualización y depuración de **blackweb** puede tardar mucho tiempo y consumir muchos recursos de hardware y ancho de banda / The process of updating and debugging of **blackweb** can take a long time and consume many hardware resources and bandwidth
+- El path por default de **blackweb** es **/etc/acl**. Puede cambiarlo por el directorio de su preferencia / The default path of **blackweb** is **/etc/acl**. You can change it by the directory of your preference
+- **bwupdate.sh** no incluye clouds (Mega, Dropbox, Pcloud, iCloud, etc) o de soporte remoto (Teamviewer, Anydesk, logmein, etc), excepto si ya vienen bloqueados desde las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources). Para bloquearlos o excluirlos debe activar la línea según su elección: / **bwupdate.sh** does not include clouds (Mega, Dropbox, Pcloud, iCloud, etc) or remote support (Teamviewer, Anydesk, logmein, etc), except if they are already blocked from the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources). To block or exclude them you must activate the line according to your choice:
 
 ```
+# JOIN LIST
 # unblock
-#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> urls.txt
+#sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> urls.txt
 # block
-#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
+#sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
 ```
 
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
@@ -87,12 +74,12 @@ Y agregue las siguientes líneas: / And add the following lines:
 acl blackweb dstdomain -i "/path_to_acl/blackweb.txt"
 http_access deny blackweb
 ```
-##### Edición / Edition
+##### MUY IMPORTANTE (Edición Blackweb) / VERY IMPORTANT (Blackweb Edition)
 
 **Blackweb** contiene millones de dominios bloqueados, por tanto: / **Blackweb** contains millions of blocked domains, so:
 
 - Utilice la ACL **whitedomains** para excluir dominios falsos positivos (y repórtelo) u otros dominios que quiera excluir (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) / Use the ACL **whitedomains** to exclude false-positive (and report it) domains or other domains that you want to exclude (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube))
-- Utilice la ACL **blackdomains** para agregar dominios no incluidos en **Blackweb** (ejemplo: .youtube.com .googlevideo.com, .ytimg.com) / Use the ACL **blackdomains** to add domains not included in **Blackweb** (e.g.: .youtube.com .googlevideo.com, .ytimg.com)
+- Utilice la ACL **blackdomains** para agregar dominios no incluidos en **Blackweb** (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.) / Use the ACL **blackdomains** to add domains not included in **Blackweb** (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc)
 
 ```
 acl whitedomains dstdomain -i "/path_to_acl/whitedomains.txt"
@@ -184,8 +171,6 @@ http_access deny blackweb
 
 [openphish](https://openphish.com/feed.txt)
 
-[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt)). [Last Update](https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt)
-
 [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 
 [Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
@@ -224,31 +209,23 @@ http_access deny blackweb
 
 [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-##### Discontinued URLs Blacklists
+##### Lists
 
-[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
+###### Internals
 
-##### Internal Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
+[BlackTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/blacktlds.txt)
 
-[BlackTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/blacktlds.txt)
+[BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/blackurls.txt)
 
-[BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/blackurls.txt)
+[CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/cloudsync.txt)
 
-[CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/cloudsync.txt)
+[RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/remoteurls.txt)
 
-[Debug (Common Errors)](https://github.com/maravento/blackweb/raw/master/bwupdate/debug.txt)
+[WhiteTLDs](https://github.com/maravento/tlds/raw/master/tlds.txt)
 
-[Invalid Domains/TLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/invalid.txt)
+[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/whiteurls.txt)
 
-[RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/remoteurls.txt)
-
-[WhiteTLDs](https://github.com/maravento/blackweb/raw/master/bwupdate/whitetlds.txt)
-
-[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/whiteurls.txt)
-
-##### External Debugging (URLs/TLDs Whitelists, Invalid Domains, etc)
-
-[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt)
+###### Externals
 
 [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 
@@ -266,31 +243,50 @@ http_access deny blackweb
 
 [Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
 
-##### Internal Tools
+##### Errors, Invalid and Inactive/Dead Domains Lists
 
-[Debugging list](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/debug.py)
+[Domain Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/error.txt)
 
-[httpstatus bash](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh)
+[Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
 
-##### External Tools
+[Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt)
 
-[CTFR](https://github.com/UnaPibaGeek/ctfr)
+##### Discontinued Lists
 
-[httpstatus](https://httpstatus.io/)
+[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
-[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/parse_domain.py))
+[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt))
+
+[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt) (Last Update included in [Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt))
+
+##### Tools
+
+###### Internals
+
+[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug.py)
+
+[Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified by Maravento](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
+
+[httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh)
+
+###### Externals
+
+[CTFR (find subdomains)](https://github.com/UnaPibaGeek/ctfr)
+
+[PyFunceble](https://github.com/funilrys/PyFunceble)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
 
 Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto / We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project
+Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 ### DONACION / DONATE
 ---
 
 BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 
-### LICENCIA / LICENCE
+### LICENCIAS / LICENCES
 ---
 
 [![GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.txt)

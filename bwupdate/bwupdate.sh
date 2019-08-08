@@ -16,7 +16,7 @@ cm1=("Este proceso puede tardar mucho tiempo. Sea paciente..." "This process can
 cm2=("Descargando Blackweb Update..." "Downloading Blackweb Update...")
 cm7=("Descargando Listas Negras..." "Downloading Blacklists...")
 cm8=("Descargando Listas Blancas..." "Downloading Whitelist...")
-cm9=("Descargando TLDs, Dominios Invalidos, etc..." "Downloading TLDs, Invalids Domains, etc...")
+cm9=("Descargando TLDs..." "Downloading TLDs...")
 cm10=("Capturando Dominios..." "Capturing Domains...")
 cm11=("Depurando Blackweb..." "Debugging Blackweb...")
 cm12=("Recargando Squid..." "Squid Reload...")
@@ -72,7 +72,6 @@ function blurls() {
 	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
-	blurls 'https://gutl.jovenclub.cu/wp-content/uploads/2017/05/blacklist.txt' && sleep 1
 	blurls 'https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
@@ -195,79 +194,56 @@ echo
 echo "${cm8[${es}]}"
 
 function univ() {
-	$wgetd "$1" -O - | sed '/^$/d; /#/d' | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> whiteurls.txt
+	$wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/whiteurls.txt
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
 echo "OK"
 
-# DOWNLOADING WHITETLDS AND INVALID DOMAINS
+# DOWNLOADING WHITETLDS
 echo
 echo "${cm9[${es}]}"
 
-function iana() {
-	$wgetd "$1" -O - | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/' | sed '/^$/d; /#/d' | sed 's/^/./' | sort -u >> whitetlds.txt
+function tlds() {
+	$wgetd "$1" -O - > lst/tlds.txt
 }
-	iana 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt' && sleep 1
+	tlds 'https://raw.githubusercontent.com/maravento/tlds/master/tlds.txt' && sleep 1
 
-function publicsuffix() {
-	$wgetd "$1" -O - | grep -v "//" | grep -ve "^$" | sed 's:\(.*\):\.\1:g' | sort -u | grep -v -P "[^a-z0-9_.-]" >> whitetlds.txt
-}
-	publicsuffix 'https://publicsuffix.org/list/public_suffix_list.dat' && sleep 1
-
-function whoisxmlapi() {
-	$wgetd "$1" -O - | grep -v -P "[^a-z0-9_.-]" | sed '/^$/d; /#/d' | sort -u >> whitetlds.txt
-}
-	whoisxmlapi 'https://www.whoisxmlapi.com/support/supported_gtlds.php' && sleep 1
-
-function centralrepo() {
-	$wgetd "$1" -O - | sed -r 's:(^.?(www|ftp)[[:alnum:]]?.|^..?)::gi' | awk '{print "."$1}' | sort -u >> invalid.txt
-}
-	centralrepo 'https://raw.githubusercontent.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/master/DOMAINS-dead.txt' && sleep 1
-
-# add white urls/tld/invalid
-sed '/^$/d; /#/d' whitetlds.txt | sort -u > tlds.txt
-sed '/^$/d; /#/d' {invalid,whiteurls}.txt | sort -u > urls.txt
+# JOIN LIST
+sed '/^$/d; /#/d' lst/{invalid,inactive,whiteurls}.txt | sort -u > urls.txt
 # unblock
-#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> urls.txt
+#sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> urls.txt
 # block
-#sed '/^$/d; /#/d' {cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
+#sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
 
 echo "OK"
 
 # CAPTURING DOMAINS
 echo
 echo "${cm10[${es}]}"
-find bwtmp -type f -execdir grep -oiE "$regexd" {} \; | sed '/[A-Z]/d' | sed '/0--/d' | sed -r '/[^a-zA-Z0-9.-]/d' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u > bl.txt && sleep 1
-
+find bwtmp -type f -execdir grep -oiE "$regexd" {} \; > outbw.txt
+sed -r '/[^a-zA-Z0-9.-]/d' outbw.txt | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u > bl.txt
 echo "OK"
 
 # DEBUGGING BLACKWEB
 echo
 echo "${cm11[${es}]}"
-# first debugging with python
-python parse_domain.py > bwparse.txt
-# add own black urls/tld
-sed '/^$/d; /#/d' {blackurls,blacktlds}.txt >> bwparse.txt && sort -o bwparse.txt -u bwparse.txt >/dev/null 2>&1
-# second debugging with grep (fixing common errors)
-grep -vi -f debug.txt bwparse.txt | sort -u > blackweb.txt
-# COPY ACL TO PATH
+# parse domains
+python tools/parse_domain.py | awk '{print "."$1}' | sort -u > out.txt
+# add black domains and fixing common errors
+sed '/^$/d; /#/d' lst/{blackurls,blacktlds}.txt >> out.txt && sort -o out.txt -u out.txt >/dev/null 2>&1
+grep -vi -f error.txt out.txt | sort -u > blackweb.txt
+# copy ACL to path
 cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
-
-echo "OK"
-
-# RELOAD SQUID
-# First you must edit /etc/squid/squid.conf
-# And add lines:
-# acl blackweb dstdomain -i "$route/blackweb.txt"
-# http_access deny blackweb
 echo
 echo "${cm12[${es}]}"
-squid -k reconfigure 2> $xdesktop/SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js|state)/d' | sort -u >> $xdesktop/SquidError.txt && sort -o $xdesktop/SquidError.txt -u $xdesktop/SquidError.txt
-echo "Blackweb for Squid: Done $date" >> /var/log/syslog
-
-echo "OK"
-
+# reload Squid-Cache
+# First you must edit /etc/squid/squid.conf and add lines:
+# acl blackweb dstdomain -i "/path_to/blackweb.txt"
+# http_access deny blackweb
+squid -k reconfigure 2> SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js|state)/d' | sort -u >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
+python tools/debug.py
+cp -f clean.txt $route/blackweb.txt >/dev/null 2>&1
 # END
 cd
 rm -rf $bwupdate
