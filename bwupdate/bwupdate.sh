@@ -210,7 +210,11 @@ function tlds() {
 	tlds 'https://raw.githubusercontent.com/maravento/tlds/master/tlds.txt' && sleep 1
 
 # JOIN LIST
-sed '/^$/d; /#/d' lst/{invalid,inactive,whiteurls}.txt | sort -u > urls.txt
+function tlds() {
+	$wgetd "$1" -O - > lst/invalidtlds.txt
+}
+	tlds 'https://raw.githubusercontent.com/maravento/tlds/master/badtlds.txt' && sleep 1
+sed '/^$/d; /#/d' lst/{badtlds,invalid,inactive,whiteurls}.txt | sort -u > urls.txt
 # unblock
 #sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> urls.txt
 # block

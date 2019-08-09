@@ -93,7 +93,7 @@ http_access deny blackweb
 ### FUENTES / SOURCES
 ---
 
-##### URLs Blacklists
+##### Blacklists
 
 [Adaway](http://adaway.org/hosts.txt)
 
@@ -209,7 +209,15 @@ http_access deny blackweb
 
 [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-##### Lists
+##### Discontinued Lists
+
+[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
+
+[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt))
+
+[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt) (Last Update included in [Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt))
+
+##### Debug Lists
 
 ###### Internals
 
@@ -217,13 +225,17 @@ http_access deny blackweb
 
 [BlackURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/blackurls.txt)
 
+[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/whiteurls.txt)
+
 [CloudSync](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/cloudsync.txt)
 
 [RemoteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/remoteurls.txt)
 
-[WhiteTLDs](https://github.com/maravento/tlds/raw/master/tlds.txt)
+[Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/error.txt)
 
-[WhiteURLs](https://github.com/maravento/blackweb/raw/master/bwupdate/lst/whiteurls.txt)
+[Invalid Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
+
+[Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt)
 
 ###### Externals
 
@@ -233,31 +245,11 @@ http_access deny blackweb
 
 [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
 
-[TLDs IANA](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
-
-[TLDs Mozilla Public Suffix](https://publicsuffix.org/list/public_suffix_list.dat)
-
 [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 
-[Whoisxmlapi GTLDs](https://www.whoisxmlapi.com/support/supported_gtlds.php)
+[TLDs](https://raw.githubusercontent.com/maravento/tlds/master/tlds.txt)
 
-[Wikipedia Top Level Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
-
-##### Errors, Invalid and Inactive/Dead Domains Lists
-
-[Domain Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/error.txt)
-
-[Invalid Domains/TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
-
-[Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt)
-
-##### Discontinued Lists
-
-[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
-
-[Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt))
-
-[Central Repo Dead Domains](https://github.com/mitchellkrogza/CENTRAL-REPO.Dead.Inactive.Whitelisted.Domains.For.Hosts.Projects/blob/master/DOMAINS-dead.txt) (Last Update included in [Inactive Domains](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/inactive.txt))
+[BadTLDs](https://raw.githubusercontent.com/maravento/tlds/master/badtlds.txt)
 
 ##### Tools
 
@@ -271,7 +263,7 @@ http_access deny blackweb
 
 ###### Externals
 
-[CTFR (find subdomains)](https://github.com/UnaPibaGeek/ctfr)
+[CTFR](https://github.com/UnaPibaGeek/ctfr)
 
 [PyFunceble](https://github.com/funilrys/PyFunceble)
 
