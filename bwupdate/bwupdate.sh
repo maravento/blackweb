@@ -198,6 +198,8 @@ function univ() {
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
+sed '/^$/d; /#/d' lst/whiteurls.txt | sort -u > urls.txt
+
 echo "OK"
 
 # DOWNLOADING WHITETLDS
@@ -211,32 +213,32 @@ function tlds() {
 
 # JOIN LIST
 function tlds() {
-	$wgetd "$1" -O - > lst/invalidtlds.txt
+	$wgetd "$1" -O - > lst/badtlds.txt
 }
 	tlds 'https://raw.githubusercontent.com/maravento/tlds/master/badtlds.txt' && sleep 1
-sed '/^$/d; /#/d' lst/{badtlds,invalid,inactive,whiteurls}.txt | sort -u > urls.txt
+
+echo "OK"
+
 # unblock
 #sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> urls.txt
 # block
 #sed '/^$/d; /#/d' lst/{cloudsync,remoteurls}.txt | sort -u >> bwtmp/bw.txt
 
-echo "OK"
-
 # CAPTURING DOMAINS
 echo
 echo "${cm10[${es}]}"
-find bwtmp -type f -execdir grep -oiE "$regexd" {} \; > outbw.txt
-sed -r '/[^a-zA-Z0-9.-]/d' outbw.txt | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u > bl.txt
+find bwtmp -type f -execdir grep -oiE "$regexd" {} \; > bwtmp.txt
+sed -r '/[^a-zA-Z0-9.-]/d' bwtmp.txt | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sed -r '/^\.\W+/d' | sort -u > bl.txt
 echo "OK"
 
 # DEBUGGING BLACKWEB
 echo
 echo "${cm11[${es}]}"
 # parse domains
-python tools/parse_domain.py | awk '{print "."$1}' | sort -u > out.txt
+grep -Fvxf <(cat lst/{tlds,badtlds,inactive}.txt) <(python tools/parse_domain.py | awk '{print "."$1}') | sort -u > out.txt
 # add black domains and fixing common errors
 sed '/^$/d; /#/d' lst/{blackurls,blacktlds}.txt >> out.txt && sort -o out.txt -u out.txt >/dev/null 2>&1
-grep -vi -f error.txt out.txt | sort -u > blackweb.txt
+grep -vi -f lst/error.txt out.txt | sort -u > blackweb.txt
 # copy ACL to path
 cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
 echo
@@ -246,7 +248,7 @@ echo "${cm12[${es}]}"
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 squid -k reconfigure 2> SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js|state)/d' | sort -u >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
-python tools/debug.py
+python tools/debug_error.py
 cp -f clean.txt $route/blackweb.txt >/dev/null 2>&1
 # END
 cd

@@ -1,8 +1,8 @@
 ## [Blackweb](http://www.maravento.com/p/blacklistweb.html)
 
-**Blackweb** es un proyecto que pretende recopilar la mayor cantidad de listas negras públicas de dominios (para bloquear porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), con el objeto de unificarlas y hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/) (Tested in v3.5.x). Para lograrlo, realizamos una depuración de urls, para evitar duplicados, dominios inválidos (validación de ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), y un filtrado con listas blancas de dominios (falsos positivos, como google, hotmail, yahoo, etc), para obtener una mega ACL, optimizada para [Squid-Cache](http://www.squid-cache.org/), libre de "overlapping domains" (e.g: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
+**Blackweb** es un proyecto que pretende recopilar la mayor cantidad de listas negras públicas de dominios (para bloquear porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), con el objeto de unificarlas y hacerlas compatibles con [Squid](http://www.squid-cache.org/) (Tested in v3.5.x). Para lograrlo, realizamos una depuración de urls, para evitar duplicados, dominios inválidos (validación de ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), y un filtrado con listas blancas de dominios (falsos positivos, como google, hotmail, yahoo, etc), para obtener una mega ACL, optimizada para [Squid](http://www.squid-cache.org/), libre de "overlapping domains" (e.g: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
 
-**Blackweb** is a project that aims to collect as many public domain blacklists (to block porn, downloads, drugs, malware, spyware, trackers, Bots, social networks, warez, arms sales, etc.), in order to unify them and make them compatible with [Squid-Cache](http://www.squid-cache.org/) (Tested in v3.5.x ). To do this, we perform a debugging of urls, to avoid duplicates, invalid domains (validation, ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), and filter with white lists of domains (false positives such as google , hotmail, yahoo, etc.), to get a mega ACL, optimized for [Squid-Cache](http://www.squid-cache.org/), free of overlapping domains (eg: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
+**Blackweb** is a project that aims to collect as many public domain blacklists (to block porn, downloads, drugs, malware, spyware, trackers, Bots, social networks, warez, arms sales, etc.), in order to unify them and make them compatible with [Squid](http://www.squid-cache.org/) (Tested in v3.5.x ). To do this, we perform a debugging of urls, to avoid duplicates, invalid domains (validation, ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, etc), and filter with white lists of domains (false positives such as google , hotmail, yahoo, etc.), to get a mega ACL, optimized for [Squid](http://www.squid-cache.org/), free of overlapping domains (eg: "ERROR: '.sub.example.com' is a subdomain of '.example.com'").
 
 ### FICHA TECNICA / DATA SHEET
 ---
@@ -26,7 +26,7 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### MODO DE USO / HOW TO USE
 ---
 
-La ACL **blackweb.txt** ya viene optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia / The ACL **blackweb.txt** is already optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference
+La ACL **blackweb.txt** ya viene optimizada para [Squid](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia / The ACL **blackweb.txt** is already optimized for [Squid](http://www.squid-cache.org/). Download it and unzip it in the path of your preference
 
 #####  Download and Checksum
 
@@ -47,7 +47,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 ##### Advertencia / Warning
 
 - Antes de utilizar **bwupdate.sh** debe activar la regla en [Squid-Cache](http://www.squid-cache.org/) / You must activate the rule in [Squid-Cache](http://www.squid-cache.org/) before using **bwupdate.sh**
-- Para reducir el tamaño de **blackweb** (eliminando dominios inactivos/muertos o inválidos) puede utilizar [PyFunceble](https://github.com/funilrys/PyFunceble) (Rápida pero inestable) o [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Lenta pero Estable. Incluida) / To reduce the size of **blackweb** (eliminating inactive/dead or invalid domains) can use [PyFunceble](https://github.com/funilrys/PyFunceble) (Fast but unstable) or [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Slow but Stable. Included)
+- Para reducir el tamaño de **blackweb** (eliminando dominios inactivos/muertos/inválidos) puede utilizar [PyFunceble](https://github.com/funilrys/PyFunceble) (Rápida pero inestable) o [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Lenta pero Estable. Incluida) / To reduce the size of **blackweb** (eliminating inactive/dead/invalid domains) can use [PyFunceble](https://github.com/funilrys/PyFunceble) (Fast but unstable) or [httpstatus](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/httpstatus.sh) (Slow but Stable. Included)
 - El proceso de actualización y depuración de **blackweb** puede tardar mucho tiempo y consumir muchos recursos de hardware y ancho de banda / The process of updating and debugging of **blackweb** can take a long time and consume many hardware resources and bandwidth
 - El path por default de **blackweb** es **/etc/acl**. Puede cambiarlo por el directorio de su preferencia / The default path of **blackweb** is **/etc/acl**. You can change it by the directory of your preference
 - **bwupdate.sh** no incluye clouds (Mega, Dropbox, Pcloud, iCloud, etc) o de soporte remoto (Teamviewer, Anydesk, logmein, etc), excepto si ya vienen bloqueados desde las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources). Para bloquearlos o excluirlos debe activar la línea según su elección: / **bwupdate.sh** does not include clouds (Mega, Dropbox, Pcloud, iCloud, etc) or remote support (Teamviewer, Anydesk, logmein, etc), except if they are already blocked from the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources). To block or exclude them you must activate the line according to your choice:
@@ -209,7 +209,7 @@ http_access deny blackweb
 
 [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-##### Discontinued Lists
+##### Discontinued
 
 [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
@@ -255,7 +255,7 @@ http_access deny blackweb
 
 ###### Internals
 
-[Debugging list](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug.py)
+[Debugging Squid Error](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 
 [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified by Maravento](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
 
@@ -264,8 +264,6 @@ http_access deny blackweb
 ###### Externals
 
 [CTFR](https://github.com/UnaPibaGeek/ctfr)
-
-[PyFunceble](https://github.com/funilrys/PyFunceble)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
