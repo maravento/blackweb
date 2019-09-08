@@ -1,8 +1,8 @@
 ## [Blackweb](http://www.maravento.com/p/blacklistweb.html)
 
-**Blackweb** es un proyecto que recopilar listas negras públicas de dominios disponibles (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), para unificarlas y hacerlas compatibles con [Squid](http://www.squid-cache.org/)
+**Blackweb** es un proyecto que recopila listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), para unificarlas y hacerlas compatibles con [Squid](http://www.squid-cache.org/)
 
-**Blackweb** is a project that collects blacklists of available domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.), to unify them and make them compatible with [Squid](http://www.squid-cache.org/)
+**Blackweb** is a project that collects blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.), to unify them and make them compatible with [Squid](http://www.squid-cache.org/)
 
 ### FICHA TECNICA / DATA SHEET
 ---
@@ -38,7 +38,7 @@ md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ### REGLA [Squid-Cache](http://www.squid-cache.org/) / [Squid-Cache](http://www.squid-cache.org/) RULE
 ---
 
-Edite / Edit:
+Edite: / Edit:
 ```
 /etc/squid/squid.conf
 ```
@@ -51,10 +51,10 @@ http_access deny blackweb
 ```
 #### Edición / Edition
 
-**Blackweb** contiene millones de dominios bloqueados, por tanto se recomienda / **Blackweb** contains millions of blocked domains, therefore it is recommended:
+**Blackweb** contiene millones de dominios bloqueados, por tanto se recomienda: / **Blackweb** contains millions of blocked domains, therefore it is recommended:
 
-- Usar `whitedomains.txt` para excluir dominios falsos positivos (y repórtelo) u otros dominios que quiera excluir (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) / Use `whitedomains.txt` to exclude false-positive (and report it) domains or other domains that you want to exclude (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube))
-- Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.) / Use **blackdomains.txt` to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc)
+- Usar `whitedomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos / Use `whitedomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives
+- Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.) / Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc)
 
 ```
 acl whitedomains dstdomain -i "/path_to_lst/whitedomains.txt"
@@ -76,28 +76,29 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 #### ⚠️ **ADVERTENCIA: ANTES DE CONTINUAR! / WARNING: BEFORE YOU CONTINUE!**
 
-La actualización y depuración de `blackweb.txt` puede tardar mucho tiempo y consumir muchos recursos de hardware y ancho de banda. Uselo en equipos de prueba; nunca en producción / Update and debugging of `blackweb.txt` can take a long time and consume many hardware resources and bandwidth. Use it in test equipment; never in production
+La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos recursos de hardware y ancho de banda. No se recomienda ejecutarla en equipos en producción / Update and debugging of `blackweb.txt` can take and consume many hardware resources and bandwidth. It is not recommended to run it on production equipment
 
 ##### Descarga y Captura de Listas Negras Públicas / Download and Capture Public Blacklists
 
->Descarga las listas negras públicas de origen (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo / Download the original public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file
+>Descarga las listas negras públicas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo / Download public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file
 
 ##### Depuración de Dominios / Domain Debugging
 
->Elimina de la lista los dominios inactivos/fallidos/inválidos, dominios superpuestos `.sub.example.com' es un dominio de '.example.com'` y dominos de listas blancas (falsos positivos, como google, hotmail, yahoo, etc) / Remove inactive/fault/invalid domains from the list, overlapping domains `.sub.example.com' is a subdomain of '.example.com'` and white list domains (false positives such as google , hotmail, yahoo, etc.).
+>Elimina de la lista unificada, dominios inactivos, fallidos, inválidos, superpuestos ('.sub.example.com' es un dominio de '.example.com') y listas blancas (google, hotmail, yahoo, etc.) / Remove inactive, failed, invalid, overlapping domains from the unified list ('.sub.example.com' is a subdomain of '.example.com') and white list (google, hotmail, yahoo, etc.)
 
 ```
 com
 .com
 .domain.com
 domain.com
-000 domain.com
+0.0.0.0 domain.com
+127.0.0.1 domain.com
+::1 domain.com
 domain.com.co
 foo.bar.subdomain.domain.com
 .subdomain.domain.com.co
 www.domain.com
 www.foo.bar.subdomain.domain.com
-000 www.xxx.foo.bar.subdomain.domain.com
 domain.co.uk
 xxx.foo.bar.subdomain.domain.co.uk
 ```
@@ -110,7 +111,7 @@ outfile:
 
 ##### Validación TLD / TLD Validation
 
->Elimina de la lista los dominios con TLD inválidos, con una lista de TLDs (Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc.) hasta 4to nivel (4LDs) / Remove domains with invalid TLDs from the list, with a list of TLDs (Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc.) up to 4th level (4LDs)
+>Elimina de la lista unificada, los dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs) / Remove from the unified list, domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs)
 
 ```
 domain.exe
@@ -123,7 +124,7 @@ outfile:
 
 ##### Depuración Punycode-IDN / Debugging Punycode-IDN
 
->Elimina de la lista los hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode) / Remove hostnames greater than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and converts domains with international (non-ASCII) characters and domains used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to the [Punycode/IDNA](https://www.charset.org/punycode)
+>Elimina de la lista unificada los hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode) / Remove hostnames larger than 63 characters from the unified list ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (not ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format
 
 ```
 президент.рф
@@ -147,7 +148,7 @@ xn--sendesk-wfb.com
 
 ##### Búsqueda de DNS / DNS Loockup
 
->Las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) (que crean **Blackweb**) la mayoría son listas que contienen millones de dominios inválidos/inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Este script comprueba la lista, vía DNS, y elimina los dominios inexistentes. Esa búsqueda puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda  / The [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) (that create **Blackweb**) most are lists that contain millions of invalid/nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). This script check list, via DNS, and remove nonexistent domains. That search may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on hardware and bandwidth
+>Las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) que crean la lista unificada, en su mayoría, son listas no depuradas que contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Es por eso que el script verifica cada dominio vía DNS y los elimina. Esta verificación puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / The [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) that create the unified list, most are not debugged lists containing millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). That is why the script verifies each domain via DNS and eliminates. This verification may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
 
 ```
 HIT google.com
@@ -156,12 +157,12 @@ FAULT testfaultdomain.com
 
 ##### Correr Squid con Blackweb / Run Squid with Blackweb
 
->Corre Squid con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to `SquidError.txt` on your desktop
+>Corre Squid con Blackweb y cualquier error lo envía a archivo `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to file `SquidError.txt` on your desktop
 
 ##### Importante sobre Blackweb Update / Important about Blackweb Update
 
-- El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el directorio de su preferencia / The default path of **blackweb** is `/etc/acl`. You can change it by the directory of your preference
-- `bwupdate.sh` incluye listas (no activas) de dominios relacionados con cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), soporte remoto (Teamviewer, Anydesk, logmein, etc) y telemetría (Puede contener falsos positivos), excepto si ya vienen bloqueados desde las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources). Para bloquearlos o excluirlos debe activar las líneas en el script (# JOIN LIST), aunque se recomenda agregarlas manualmente a blackweb para evitar conflictos o falsos positivos / `bwupdate.sh` includes lists (not active) of domains related to cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), remote support (Teamviewer, Anydesk, logmein, etc) and telemetry (May contain false positives), except if they are already blocked from the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources). To block or exclude them you must activate the lines in the script (# JOIN LIST), although it is recommended to add them manually to blackweb to avoid conflicts or false positives
+- El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el de su preferencia / The default path of **blackweb** is `/etc/acl`. You can change it for your preference
+- `bwupdate.sh` incluye listas de dominios relacionados con cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), soporte remoto (Teamviewer, Anydesk, logmein, etc) y telemetría (Puede contener falsos positivos). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos / `bwupdate.sh` includes lists of domains related to cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), remote support (Teamviewer, Anydesk, logmein, etc) and telemetry (May contain false positives). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives
 
 ### FUENTES / SOURCES
 ---
