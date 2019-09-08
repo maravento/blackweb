@@ -14,7 +14,7 @@
 ### DEPENDENCIAS / DEPENDENCIES
 ---
 ```
-git squid bash tar zip wget subversion python idn2 curl xargs
+git squid bash tar zip wget subversion python idn2 xargs
 ```
 
 ### GIT CLONE
@@ -146,13 +146,33 @@ xn--mslaikas-qzb5f.lt
 xn--sendesk-wfb.com
 ```
 
-##### Búsqueda de DNS / DNS Loockup
+##### Búsqueda DNS / DNS Loockup
 
->Las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) que crean la lista unificada, en su mayoría, son listas no depuradas que contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Es por eso que el script verifica cada dominio vía DNS y los elimina. Esta verificación puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / The [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) that create the unified list, most are not debugged lists containing millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). That is why the script verifies each domain via DNS and eliminates. This verification may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
+>Las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources), que crean la lista unificada **Blackweb**, en su mayoría, son listas no depuradas que contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Es por eso que se verifica cada dominio vía DNS y se sacan de la lista (a `fault.txt`). Esta verificación puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / The [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) that create the unified list **Blackweb**, most are not debugged lists containing millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). That is why each domain is verified via DNS and removed from the list (to `fault.txt`). This verification may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
 
 ```
 HIT google.com
 FAULT testfaultdomain.com
+```
+##### Bloqueo TLD / TLD Block
+
+>Agrega Black TLDs para bloquear cualquier dominio que contenga alguno. Edite `blacktlds.txt` y agrege o elimine los TLDs que quiera bloquear / Add Black TLDs to block any domain that contains one. Edit `blacktlds.txt` and add or remove the TLDs you want to block
+
+```
+.adult
+.porn
+.xxx
+.domain.adult
+.domain.porn
+.subdomain.domain.xxx
+.domain.com
+```
+outfile:
+```
+.adult
+.porn
+.xxx
+.domain.com
 ```
 
 ##### Correr Squid con Blackweb / Run Squid with Blackweb

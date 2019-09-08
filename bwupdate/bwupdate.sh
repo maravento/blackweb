@@ -260,7 +260,7 @@ echo "${cm15[${es}]}"
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
 ni="300"
-grep -Fvxf <(cat {urls,tlds}.txt) cleanidn | sort -u > cleandns
+grep -Fvxf <(cat {urls,tlds}.txt lst/fault.txt) cleanidn | sort -u > cleandns
 cat dnslookup > progress 2> /dev/null
 cat cleandns | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup
 # hit
