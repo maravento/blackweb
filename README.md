@@ -86,7 +86,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 ##### Depuración de Dominios / Domain Debugging
 
->Elimina dominios inactivos, fallidos, inválidos, superpuestos ('.sub.example.com' es un dominio de '.example.com') y excluye listas blancas (google, hotmail, yahoo, etc.) / Remove inactive, failed, invalid, overlapping domains ('.sub.example.com' is a subdomain of '.example.com') and excludes whitelists (google, hotmail, yahoo, etc.)
+>Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista blanca (`whiteurls.txt`) / Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid format and excludes false positives (google, hotmail, yahoo, etc.) with a whitelist (`whiteurls.txt`)
 
 ```
 com
@@ -150,7 +150,7 @@ xn--sendesk-wfb.com
 
 ##### Búsqueda DNS / DNS Loockup
 
->La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos o inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y se excluyen de la lista (`fault.txt`). Este proceso puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid or nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and are excluded from the list (`fault.txt`). This process may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
+>La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y se excluyen de la lista (`fault.txt`). Este proceso puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and are excluded from the list (`fault.txt`). This process may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
 
 ```
 HIT google.com

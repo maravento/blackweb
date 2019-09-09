@@ -260,6 +260,7 @@ echo "${cm15[${es}]}"
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
 ni="300"
+# STEP 1:
 grep -Fvxf <(cat {urls,tlds,fault}.txt) cleanidn | sort -u > cleandns
 cat dnslookup > progress 2> /dev/null
 cat cleandns | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup
@@ -267,6 +268,14 @@ cat cleandns | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress; then if 
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u > hit.txt
 # fault
 sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fault.txt && sort -o fault.txt -u fault.txt
+# STEP 2:
+sed 's/^\.//g' fault.txt | sort -u > step2
+cat dnslookup2 > progress2 2> /dev/null
+cat step2 | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress2; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup2
+# hit
+sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >> hit.txt
+# fault
+sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fault.txt
 
 # DEBUG LIST AND BLACKTLDS
 echo
