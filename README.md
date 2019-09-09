@@ -9,7 +9,7 @@
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|2.935.717|68,6 MB|12,9 MB|v3.5.x|
+|blackweb.txt|2.937.023|68,6 MB|12,9 MB|v3.5.x|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
@@ -68,23 +68,25 @@ http_access deny blackweb
 ### ACTUALIZACIÓN / UPDATE
 ---
 
+#### ⚠️ **ADVERTENCIA: ANTES DE CONTINUAR! / WARNING: BEFORE YOU CONTINUE!**
+
+La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos recursos de hardware y ancho de banda. No se recomienda ejecutarla en equipos en producción / Update and debugging of `blackweb.txt` can take and consume many hardware resources and bandwidth. It is not recommended to run it on production equipment
+
+##### Actualización Blackweb / Blackweb Update
+
 El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh` / The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`
 
 ```
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
 ```
 
-#### ⚠️ **ADVERTENCIA: ANTES DE CONTINUAR! / WARNING: BEFORE YOU CONTINUE!**
+##### Captura de Listas Negras Públicas / Capture Public Blacklists
 
-La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos recursos de hardware y ancho de banda. No se recomienda ejecutarla en equipos en producción / Update and debugging of `blackweb.txt` can take and consume many hardware resources and bandwidth. It is not recommended to run it on production equipment
-
-##### Descarga y Captura de Listas Negras Públicas / Download and Capture Public Blacklists
-
->Descarga las listas negras públicas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo / Download public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file
+>Captura los dominios de las listas negras públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo / Capture domains from downloaded public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file
 
 ##### Depuración de Dominios / Domain Debugging
 
->Elimina de la lista unificada, dominios inactivos, fallidos, inválidos, superpuestos ('.sub.example.com' es un dominio de '.example.com') y listas blancas (google, hotmail, yahoo, etc.) / Remove inactive, failed, invalid, overlapping domains from the unified list ('.sub.example.com' is a subdomain of '.example.com') and white list (google, hotmail, yahoo, etc.)
+>Elimina dominios inactivos, fallidos, inválidos, superpuestos ('.sub.example.com' es un dominio de '.example.com') y excluye listas blancas (google, hotmail, yahoo, etc.) / Remove inactive, failed, invalid, overlapping domains ('.sub.example.com' is a subdomain of '.example.com') and excludes whitelists (google, hotmail, yahoo, etc.)
 
 ```
 com
@@ -111,7 +113,7 @@ outfile:
 
 ##### Validación TLD / TLD Validation
 
->Elimina de la lista unificada, los dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs) / Remove from the unified list, domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs)
+>Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs) / Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs)
 
 ```
 domain.exe
@@ -124,7 +126,7 @@ outfile:
 
 ##### Depuración Punycode-IDN / Debugging Punycode-IDN
 
->Elimina de la lista unificada los hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode) / Remove hostnames larger than 63 characters from the unified list ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (not ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format
+>Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode) / Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (not ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format
 
 ```
 президент.рф
@@ -148,7 +150,7 @@ xn--sendesk-wfb.com
 
 ##### Búsqueda DNS / DNS Loockup
 
->Las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources), que crean la lista unificada **Blackweb**, en su mayoría, son listas no depuradas que contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Es por eso que se verifica cada dominio vía DNS y se sacan de la lista (a `fault.txt`). Esta verificación puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / The [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) that create the unified list **Blackweb**, most are not debugged lists containing millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). That is why each domain is verified via DNS and removed from the list (to `fault.txt`). This verification may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
+>La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos o inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y se excluyen de la lista (`fault.txt`). Este proceso puede tardar. Por defecto procesa en paralelo ≈ 6k a 12k dominios x min, en dependencia del hardware y ancho de banda / Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid or nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and are excluded from the list (`fault.txt`). This process may take. By default it processes in parallel ≈ 6k to 12k domains x min, depending on the hardware and bandwidth
 
 ```
 HIT google.com
@@ -177,7 +179,14 @@ outfile:
 
 ##### Correr Squid con Blackweb / Run Squid with Blackweb
 
->Corre Squid con Blackweb y cualquier error lo envía a archivo `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to file `SquidError.txt` on your desktop
+>Corre Squid con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to `SquidError.txt` on your desktop
+
+##### Verifique la ejecución / Check execution (/var/log/syslog):
+
+Ejecución exitosa / Successful execution
+```
+Blackweb: Done 06/05/2019 15:47:14
+```
 
 ##### Importante sobre Blackweb Update / Important about Blackweb Update
 
@@ -260,6 +269,8 @@ outfile:
 [MESD blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 
 [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
+
+[Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 
 [notabug latvian-list](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 

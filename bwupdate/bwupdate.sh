@@ -4,7 +4,6 @@
 # By: Alej Calero and Jhonatan Sneider
 # maravento.com
 # ------------------------------------
-
 # Language spa-eng
 cm1=("Este proceso puede tardar. Sea paciente..." "This process can take. Be patient...")
 cm2=("Descargando Blackweb..." "Downloading Blackweb...")
@@ -24,7 +23,6 @@ cm19=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-
 
 test "${LANG:0:2}" == "es"
 es=$?
-
 clear
 echo
 echo "Blackweb Project"
@@ -159,6 +157,7 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
@@ -233,7 +232,8 @@ echo "OK"
 echo
 echo "${cm12[${es}]}"
 # parse domains
-grep -Fvxf <(cat {urls,tlds}.txt lst/fault.txt) <(python tools/parse_domain.py | awk '{print "."$1}') | sort -u > outparse
+cat lst/fault.tar.gz* | tar xzf -
+grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "."$1}') | sort -u > outparse
 echo "OK"
 
 # DEBUGGING TLDS
@@ -260,13 +260,13 @@ echo "${cm15[${es}]}"
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
 ni="300"
-grep -Fvxf <(cat {urls,tlds}.txt lst/fault.txt) cleanidn | sort -u > cleandns
+grep -Fvxf <(cat {urls,tlds,fault}.txt) cleanidn | sort -u > cleandns
 cat dnslookup > progress 2> /dev/null
 cat cleandns | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup
 # hit
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u > hit.txt
 # fault
-sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> lst/fault.txt && sort -o lst/fault.txt -u lst/fault.txt
+sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fault.txt && sort -o fault.txt -u fault.txt
 
 # DEBUG LIST AND BLACKTLDS
 echo
@@ -290,6 +290,7 @@ squid -k reconfigure 2> SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squi
 python tools/debug_error.py
 cp -f final $route >/dev/null 2>&1
 squid -k reconfigure 2> $xdesktop/SquidError.txt
+echo "Blackweb $date" >> /var/log/syslog
 # END
 echo
 echo "${cm18[${es}]}"
