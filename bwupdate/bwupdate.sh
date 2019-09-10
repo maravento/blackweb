@@ -64,6 +64,7 @@ function blurls() {
 	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
+	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
 	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
@@ -93,9 +94,12 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/iPv4Hosts.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts)' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/CHEF-KOCH/BarbBlock-filter-list/master/HOSTS.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/List.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
@@ -119,6 +123,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all' && sleep 1
+	blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
 	blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
@@ -157,7 +162,6 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {

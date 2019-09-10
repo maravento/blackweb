@@ -200,11 +200,11 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ###### Active
 
+[ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
+
 [Adaway](http://adaway.org/hosts.txt)
 
 [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
-
-[ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 
 [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 
@@ -213,6 +213,8 @@ Blackweb: Done 06/05/2019 15:47:14
 [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
 
 [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
+
+[BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/iPv4Hosts.txt) and [Scam Websites, Crypto Miners and Fake new](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts))
 
 [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
 
@@ -225,6 +227,8 @@ Blackweb: Done 06/05/2019 15:47:14
 [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 
 [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
+
+[cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/List.txt)
 
 [crazy-max WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 
@@ -256,11 +260,11 @@ Blackweb: Done 06/05/2019 15:47:14
 
 [malc0de](http://malc0de.com/bl/)
 
-[Malwaredomains](http://www.malware-domains.com/files/domains.zip)
-
 [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 
 [Malware-domains](http://mirror1.malwaredomains.com/files/justdomains) (or [Lehigh Malwaredomains](http://malwaredomains.lehigh.edu/files/justdomains))
+
+[Malwaredomains](http://www.malware-domains.com/files/domains.zip)
 
 [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 
@@ -304,6 +308,8 @@ Blackweb: Done 06/05/2019 15:47:14
 
 [Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 
+[txthinking blacklist](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
+
 [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 
 [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
@@ -318,11 +324,11 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ###### Inactive
 
-[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
+[O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
 [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt))
 
-[O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
+[UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
 ##### Work Lists
 
@@ -332,11 +338,11 @@ Blackweb: Done 06/05/2019 15:47:14
 
 [Black URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blackurls.txt)
 
-[White URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/whiteurls.txt)
-
 [Fault URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/fault.txt)
 
 [Invalid TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
+
+[White URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/whiteurls.txt)
 
 ###### Externals
 
@@ -366,9 +372,9 @@ Blackweb: Done 06/05/2019 15:47:14
 
 [CTFR](https://github.com/UnaPibaGeek/ctfr)
 
-[idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-
 [curl](https://curl.haxx.se/docs/manpage.html)
+
+[idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
