@@ -226,10 +226,14 @@ echo "${cm11[${es}]}"
 sed '/^$/d; /#/d' lst/{whiteurls,invalid}.txt | sort -u > urls.txt
 # add blackurls.txt to capture
 sed '/^$/d; /#/d' lst/blackurls.txt >> capture
+# add oldurls.txt to capture
+tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # unblock cloud/sync/telemetry
 #sed '/^$/d; /#/d' lst/{cloudsync,remote,telemetry}.txt | sort -u >> urls.txt
 # block cloud/sync/telemetry
 #sed '/^$/d; /#/d' lst/{cloudsync,remote,telemetry}.txt | sort -u >> capture
+# uniq capture
+sort -o capture -u capture
 echo "OK"
 
 # DEBUGGING DOMAINS

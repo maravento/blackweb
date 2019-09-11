@@ -245,6 +245,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
 - [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt), [trackers](https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt), [qmalware](https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt))
 - [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
+- [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
 - [reddestdream](https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts)
 - [securemecca.net and hostsfile.org](https://hostsfile.org/Downloads/hosts.txt)
 - [Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
@@ -264,9 +265,22 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ###### Inactive
 
+- [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) (Server Down. Last Updated Known Dec, 2016. Added to: `oldurls.txt`)
+- [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE). Last Updated Known Jul 24, 2017. Added to: `oldurls.txt`)
+
+##### Whitelist (URLs/TLDs)
+
+###### Active
+
+- [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
+- [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+- [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
+- [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
+- [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
+
+###### Inactive
+
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
-- [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) ([Server Down since Dec 2016](https://web.archive.org/web/20161203014003/http://www.passwall.com/blacklist.txt))
-- [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down since July 24, 2017](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE))
 
 ##### Work Lists
 
@@ -276,13 +290,8 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Black URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blackurls.txt)
 - [Fault URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/fault.txt)
 - [Invalid TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
+- [Old URls](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/oldurls.txt)
 - [White URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/whiteurls.txt)
-
-###### Externals
-
-- [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
-- [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
-- [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 
 ###### Optionals
 
