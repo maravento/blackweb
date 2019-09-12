@@ -77,7 +77,7 @@ La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos
 El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh` / The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`
 
 ```
-wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && sudo chmod +x bwupdate.sh && sudo ./bwupdate.sh
+wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
 ```
 
 ##### Captura de Listas Negras Públicas / Capture Public Blacklists

@@ -16,7 +16,7 @@ cm12=("Depurando Dominios..." "Debugging Domains...")
 cm13=("Validando TLD..." "Validating TLD...")
 cm14=("Depurando Punycode-IDN..." "Debugging PunycodeIDN...")
 cm15=("Búsqueda de DNS..." "DNS Loockup...")
-cm16=("Agregando Black TLD..." "Adding Black TLD...")
+cm16=("Agregando Blacklist Adicionales..." "Adding Additional Blacklist...")
 cm17=("Reiniciando Squid..." "Restarting Squid...")
 cm18=("Terminado" "Done")
 cm19=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
@@ -224,8 +224,6 @@ echo
 echo "${cm11[${es}]}"
 # create urls.txt
 sed '/^$/d; /#/d' lst/{whiteurls,invalid}.txt | sort -u > urls.txt
-# add blackurls.txt to capture
-sed '/^$/d; /#/d' lst/blackurls.txt >> capture
 # add oldurls.txt to capture
 tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # unblock cloud/sync/telemetry
@@ -281,27 +279,30 @@ sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fault.txt
 echo "OK"
 
-# DEBUG LIST AND BLACKTLDS
+# ADD BLACKURLS AND BLACKTLD
 echo
 echo "${cm16[${es}]}"
-cat lst/blacktlds.txt >> hit.txt
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' blacktlds.txt) hit.txt | sort -u > blackweb.txt
+# add blackurls and blacktlds
+cat lst/{blackurls,blacktlds}.txt >> hit.txt
+# clean hit
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds}.txt) hit.txt | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE
 echo
 echo "${cm16[${es}]}"
 # copy blaclweb to path
-cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
+sudo cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
 echo "OK"
 # Squid Reload
 # First Edit /etc/squid/squid.conf and add lines:
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
-squid -k reconfigure 2> SquidError.txt && grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | grep -oiE "$regexd" | sed -r '/\.(log|conf|crl|js|state)/d' | sort -u >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
+sudo bash -c 'squid -k reconfigure' 2> SquidError.txt
+sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
 python tools/debug_error.py
-cp -f final $route >/dev/null 2>&1
-squid -k reconfigure 2> $xdesktop/SquidError.txt
+sudo cp -f final $route/blackweb.txt >/dev/null 2>&1
+sudo -s squid -k reconfigure 2> $xdesktop/SquidError.txt
 echo "Blackweb $date" >> /var/log/syslog
 # END
 echo
