@@ -270,7 +270,8 @@ grep -Fvxf <(cat {urls,tlds,fault}.txt) cleanidn | sort -u > cleandns
 cat dnslookup > progress 2> /dev/null
 cat cleandns | xargs -I {} -P $ni sh -c "if ! grep --quiet {} progress; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u > hit.txt
-sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fault.txt && sort -o fault.txt -u fault.txt
+sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fault.txt
+sort -o fault.txt -u fault.txt
 # STEP 2:
 sed 's/^\.//g' fault.txt | sort -u > step2
 cat dnslookup2 > progress2 2> /dev/null
@@ -302,8 +303,8 @@ sudo bash -c 'squid -k reconfigure' 2> SquidError.txt
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
 python tools/debug_error.py
 sudo cp -f final $route/blackweb.txt >/dev/null 2>&1
-sudo -s squid -k reconfigure 2> $xdesktop/SquidError.txt
-echo "Blackweb $date" >> /var/log/syslog
+sudo bash -c 'squid -k reconfigure' 2> $xdesktop/SquidError.txt
+sudo bash -c 'echo "Blackweb $date" >> /var/log/syslog'
 # END
 echo
 echo "${cm18[${es}]}"
