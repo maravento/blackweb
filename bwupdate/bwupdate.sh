@@ -20,6 +20,7 @@ cm16=("Agregando Blacklist Adicionales..." "Adding Additional Blacklist...")
 cm17=("Reiniciando Squid..." "Restarting Squid...")
 cm18=("Terminado" "Done")
 cm19=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
+cm20=("Verificando de Ancho de Banda de Descarga..." "Checking Download Bandwidth...")
 
 test "${LANG:0:2}" == "es"
 es=$?
@@ -27,7 +28,6 @@ clear
 echo
 echo "Blackweb Project"
 echo "${cm1[${es}]}"
-
 # VARIABLES
 bwupdate=$(pwd)/bwupdate
 date=`date +%d/%m/%Y" "%H:%M:%S`
@@ -42,11 +42,40 @@ if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
 # CREATE PATH
 if [ ! -d $route ]; then mkdir -p $route; fi
 
+# CHECKING DOWNLOAD BANDWIDTH (Optional)
+# https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh
+echo
+echo "${cm20[${es}]}"
+dlmin="1.00"
+mb="Mbit/s"
+dl=$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --simple --no-upload | grep 'Download:')
+resume=$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --simple)
+dlvalue=$(echo $dl | awk '{print $2}')
+dlmb=$(echo $dl | awk '{print $3}')
+
+function download(){
+if (( $(echo "$dlvalue $dlmin" | awk '{print ($1 < $2)}') )); then
+        echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
+        notify-send "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
+    else
+        echo "OK"
+fi
+}
+
+if [[ $mb == $dlmb ]]; then
+    download
+  else
+    echo "Incorrect Value. Abort: $resume"
+    notify-send "Incorrect Value. Abort: $resume"
+    exit
+fi
+
 # DOWNLOAD BLACKWEB
 echo
 echo "${cm2[${es}]}"
 svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
-cd $bwupdate && mkdir -p bwtmp >/dev/null 2>&1
+cd $bwupdate
+mkdir -p bwtmp >/dev/null 2>&1
 echo "OK"
 
 # DOWNLOADING BLACKURLS
@@ -300,7 +329,8 @@ echo "OK"
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 sudo bash -c 'squid -k reconfigure' 2> SquidError.txt
-sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt && sort -o SquidError.txt -u SquidError.txt
+sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt
+sort -o SquidError.txt -u SquidError.txt
 python tools/debug_error.py
 sudo cp -f final $route/blackweb.txt >/dev/null 2>&1
 sudo bash -c 'squid -k reconfigure' 2> $xdesktop/SquidError.txt
@@ -309,3 +339,4 @@ sudo bash -c 'echo "Blackweb $date" >> /var/log/syslog'
 echo
 echo "${cm18[${es}]}"
 echo "${cm19[${es}]}"
+notify-send "Blackweb Update: Done"

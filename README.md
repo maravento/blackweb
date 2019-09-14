@@ -9,12 +9,12 @@
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.346.792|76.2 MB|15.1 MB|v3.5.x|
+|blackweb.txt|3.348.157|76.2 MB|15.1 MB|v3.5.x|
 
 ### DEPENDENCIAS / DEPENDENCIES
 ---
 ```
-git squid bash tar zip wget subversion python idn2 xargs
+git subversion squid bash tar zip wget piconv curl python idn2 xargs awk notify-send
 ```
 
 ### GIT CLONE
@@ -74,11 +74,15 @@ La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos
 
 ##### Actualización Blackweb / Blackweb Update
 
-El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh` / The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`
+>El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh` / The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`
 
 ```
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
 ```
+
+##### Comprobación de Ancho de Banda (opcional) / Bandwidth Check (optional)
+
+>Para garantizar la ejecución de la actualización, antes de comenzar, el script verifica el acho de banda (con [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). Si es > 1 Mbit/s, la actualización continúa; de lo contrario, muestra mensajes de advertencia y se recomienda interrumpir la actualización / To guarantee update execution, before starting, script check bandwidth (with [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). If it is > 1 Mbit/s, update continues; else, it shows warning messages and it is recommended to interrupt update.
 
 ##### Captura de Listas Negras Públicas / Capture Public Blacklists
 
@@ -179,11 +183,12 @@ outfile:
 
 ##### Correr Squid con Blackweb / Run Squid with Blackweb
 
->Corre Squid con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to `SquidError.txt` on your desktop
+>Corre Squid con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio / Run Squid with Blackweb and any error sends it to `SquidError.txt` on your desktop.
 
 ##### Verifique la ejecución / Check execution (/var/log/syslog):
 
-Ejecución exitosa / Successful execution
+>Ejecución exitosa / Successful execution
+
 ```
 Blackweb: Done 06/05/2019 15:47:14
 ```
@@ -310,6 +315,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
+- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh)
 
 ### CONTRIBUCIONES / CONTRIBUTIONS
 ---
