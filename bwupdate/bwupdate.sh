@@ -98,6 +98,7 @@ function blurls() {
 	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
+	blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
 	blurls 'https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
@@ -191,18 +192,15 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts' && sleep 1
+	blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
+	blurls 'https://hosts.nfz.moe/full/hosts' && sleep 1
 
 # download and fix hosts.txt blacklist (malformed UTF-8 character)
 function blhosts() {
 	$wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw
 }
 	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
-
-# download malwaredomains .zip
-function malwaredomains() {
-	$wgetd "$1" && unzip -p domains.zip >> bwtmp/bw
-}
-	malwaredomains 'http://www.malware-domains.com/files/domains.zip' && sleep 1
 
 # download .tar.gz/.tgz
 function targz() {
