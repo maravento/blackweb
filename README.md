@@ -35,7 +35,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
-### [Squid-Cache](http://www.squid-cache.org/) RULE
+### [Squid-Cache](http://www.squid-cache.org/) Rule
 ---
 
 Edit: / Edite:
@@ -49,9 +49,9 @@ And add the following lines: / Y agregue las siguientes líneas:
 acl blackweb dstdomain -i "/path_to_lst/blackweb.txt"
 http_access deny blackweb
 ```
-#### Edition
+#### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules
 
-**Blackweb** contains millions of blocked domains, therefore it is recommended: / **Blackweb** contiene millones de dominios bloqueados, por tanto se recomienda:
+**Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
 - Use `whitedomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `whitedomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
 - Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
