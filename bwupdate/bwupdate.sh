@@ -20,7 +20,7 @@ cm16=("Agregando Blacklist Adicionales..." "Adding Additional Blacklist...")
 cm17=("Reiniciando Squid..." "Restarting Squid...")
 cm18=("Terminado" "Done")
 cm19=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
-cm20=("Verificando de Ancho de Banda de Descarga..." "Checking Download Bandwidth...")
+cm20=("Verificando Ancho de Banda..." "Checking Bandwidth...")
 
 test "${LANG:0:2}" == "es"
 es=$?

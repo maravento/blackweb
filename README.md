@@ -1,15 +1,15 @@
 ## [Blackweb](http://www.maravento.com/p/blacklistweb.html)
 
-**Blackweb** is a project that collects blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.), to unify them and make them compatible with [Squid](http://www.squid-cache.org/)
+**Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.) to make them compatible with [Squid](http://www.squid-cache.org/)
 
-**Blackweb** es un proyecto que recopila listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc), para unificarlas y hacerlas compatibles con [Squid](http://www.squid-cache.org/)
+**Blackweb** es un proyecto que recopila y unifica listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc) para hacerlas compatibles con [Squid](http://www.squid-cache.org/)
 
 ### DATA SHEET
 ---
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.339.490|76.0 MB|15.0 MB|v3.5.x|
+|blackweb.txt|3.339.934|76.1 MB|15.0 MB|v3.5.x|
 
 ### DEPENDENCIES
 ---
@@ -68,7 +68,7 @@ http_access deny blackweb
 ### UPDATE
 ---
 
-#### ⚠️ WARNING: BEFORE YOU CONTINUE!**
+#### ⚠️ WARNING: BEFORE YOU CONTINUE!
 
 Update and debugging of `blackweb.txt` can take and consume many hardware resources and bandwidth. It is not recommended to run it on production equipment / La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos recursos de hardware y ancho de banda. No se recomienda ejecutarla en equipos en producción
 
