@@ -9,7 +9,7 @@
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.337.256|76.0 MB|15.0 MB|v3.5.x|
+|blackweb.txt|3.339.273|76.0 MB|15.0 MB|v3.5.x|
 
 ### DEPENDENCIES
 ---
@@ -248,6 +248,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish](https://openphish.com/feed.txt)
 - [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
+- [Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
 - [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt), [trackers](https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt), [qmalware](https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt))
 - [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
@@ -265,7 +266,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
 - [YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
-- [Yoyo](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
@@ -321,14 +321,15 @@ Blackweb: Done 06/05/2019 15:47:14
 ### BACKLINKS
 ---
 
-- [Wikipedia. *Blacklist_(computing)*](https://en.wikipedia.org/wiki/Blacklist_(computing))
 - [OSINT Framework. *Domain Name/Domain Blacklists/Blackweb*](https://osintframework.com/)
+- [Wikipedia. *Blacklist_(computing)*](https://en.wikipedia.org/wiki/Blacklist_(computing))
 - [Zeltser. *Free Blocklists of Suspected Malicious IPs and URLs*](https://zeltser.com/malicious-ip-blocklists/)
 - [Segu-Info. *Análisis de malware y sitios web en tiempo real*](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
+- [Awesome Open Source. *WindowsSpyBlocker*](https://awesomeopensource.com/project/crazy-max/WindowsSpyBlocker)
+- [covert.io. *Getting Started with DGA Domain Detection Research*](http://www.covert.io/getting-started-with-dga-research/)
+- [Keystone Solutions. *blocklists*](https://keystonesolutions.io/solutions/blocklists/)
 - [Secrepo. *Samples of Security Related Data*](http://www.secrepo.com/)
 - [Soficas. *CiberSeguridad - Protección Activa*](https://soficas.com/noticias/proteccion-ciberseguridad.html)
-- [Keystone Solutions. *blocklists*](https://keystonesolutions.io/solutions/blocklists/)
-- [Awesome Open Source. *WindowsSpyBlocker*](https://awesomeopensource.com/project/crazy-max/WindowsSpyBlocker)
 - [Xploitlab. *Projects using WindowsSpyBlocker*](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
 
 ### CONTRIBUTIONS
