@@ -1,0 +1,26 @@
+# google
+.ggpht.com
+.goo.gl
+.play.google.com
+.googlevideo.com
+.rewind.youtube
+.video-stats.l.google.com
+.youtu.be
+.youtube.com
+.youtube.com.br
+.youtube.co.nz
+.youtube.de
+.youtube.es
+.youtube.googleapis.com
+.youtubei.googleapis.com
+.youtube.it
+.youtube.l.google.com
+.youtube.nl
+.youtube-nocookie.com
+.youtube.ru
+.ytimg.com
+.ytimg.l.google.com
+# microsoft update
+.tlu.dl.delivery.mp.microsoft.com
+.update.microsoft.com
+.windowsupdate.com
