@@ -883,6 +883,7 @@
 .pastewma.com
 .path.com
 .pausetv.com.tr
+.payskip.org
 .pdbarea.com
 .pdlinks.co
 .pelispedia.tv
@@ -898,6 +899,7 @@
 .plexapp.com
 .plex.bz
 .plex.tv
+.plixid.com
 .pocosmegashdd.org
 .podzone.net
 .podzone.org
@@ -1181,6 +1183,7 @@
 .tighturl.com
 .tinyarro.ws
 .tinyarrows.com
+.tinybit.cc
 .tiny.cc
 .tiny.tw
 .tinyurl.com
@@ -1379,6 +1382,7 @@
 .zippyshare.com
 .zkmobi.com
 .zlx.com.br
+.zone-telechargement-albums.com
 .zophar.net
 .zorpia.com
 .zpn.im
