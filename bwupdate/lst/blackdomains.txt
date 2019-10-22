@@ -21,6 +21,6 @@
 .ytimg.com
 .ytimg.l.google.com
 # microsoft update
-.tlu.dl.delivery.mp.microsoft.com
-.update.microsoft.com
-.windowsupdate.com
+#.tlu.dl.delivery.mp.microsoft.com
+#.update.microsoft.com
+#.windowsupdate.com

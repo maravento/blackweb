@@ -33,6 +33,7 @@
 .ad-miner.com
 .admy.link
 .adnxs.com
+.adpop.me
 .adshort.co
 .adsrt.me
 .adsrvr.org
@@ -49,6 +50,7 @@
 .amgload.net
 .amnserver.com
 .amung.us
+.animeflv.net
 .aniview.com
 .anony.men
 .anonymouse.org
@@ -67,6 +69,7 @@
 .autohideip.com
 .avidly.com
 .awesomehp.com
+.ayads.co
 .b1t.it
 .b54.in
 .badoo.com
@@ -261,6 +264,7 @@
 .dvrdns.org
 .dwin1.com
 .dwindly.io
+.dwrfslsqpdfqfwy.net
 .dyfedpowys-helphub.org.uk
 .dynalias.com
 .dynalias.net
@@ -458,6 +462,7 @@
 .glpals.com
 .gmboxx.com
 .goldenfrog.com
+.goldfishka13.icu
 .golffan.us
 .googleanalytcs.com
 .gooveo.net
@@ -484,6 +489,7 @@
 .heftinesscongresscandy.info
 .helperbar.com
 .hemnes.win
+.hepsandlingdefi.info
 .here-for-more.info
 .heroesofrpg.com
 .hhtxnet.com
@@ -684,6 +690,7 @@
 .ki.ms
 .kissdoujin.com
 .kisshentai.net
+.kissmetrics.com
 .kiwifarms.net
 .knowsitall.info
 .knowurl.com
@@ -1074,6 +1081,7 @@
 .shoutkey.com
 .shrtfly.com
 .shrty.link
+.sh.st
 .shst.us
 .shtyle.fm
 .s.id
@@ -1129,6 +1137,7 @@
 .stickyadstv.com
 .stmbl.xyz
 .stonecrestfurniture.com
+.streamium.xyz
 .streamtheworld.com
 .strossle.it
 .studivz.net
@@ -1238,6 +1247,7 @@
 .ugamezone.com
 .uii.io
 .ukl.me.uk
+.uloz.to
 .ul.to
 .ultrasurfing.com
 .ultrasurf.us
@@ -1250,6 +1260,7 @@
 .und.pw
 .unrulymedia.com
 .unusualperson.com
+.up-4ever.org
 .upload.ee
 .uploadocean.com
 .uploadrar.com
@@ -1266,6 +1277,7 @@
 .ur.ly
 .usenet.nl
 .userscloud.com
+.usersdrive.com
 .usessh001.com
 .us-proxy.org
 .uswebproxy.com
@@ -1312,6 +1324,7 @@
 .webhop.me
 .webhop.net
 .webhop.org
+.webify.pw
 .webmine.cz
 .webminepool.com
 .webminepool.tk
