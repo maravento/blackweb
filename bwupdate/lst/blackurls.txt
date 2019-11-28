@@ -16,6 +16,7 @@
 .aartemis.com
 .acortalo.net
 .acortar.xyz
+.activatebarbellfoothill.info
 .activetect.net
 .actual.bz
 .ad5.eu
@@ -124,6 +125,7 @@
 .buud.co
 .buyshouses.net
 .buzznet.com
+.byethost7.com
 .cable-modem.org
 .cafemom.com
 .campoamor.org
@@ -136,6 +138,7 @@
 .casalemedia.com
 .cctvhotdeals.com
 .cdduplication.ie
+.cdn77.org
 .cdninstagram.com
 .cechire.com
 .cellufun.com
@@ -207,6 +210,7 @@
 .dailymotion.com
 .dailyuploads.net
 .damnserver.com
+.dares.xyz
 .darkville.tv
 .datafilehost.com
 .datagravity.com
@@ -352,7 +356,6 @@
 .flipax.net
 .flixster.com
 .focus.com
-.footprintdns.com
 .for-better.biz
 .forgot.her.name
 .forgot.his.name
@@ -427,6 +430,7 @@
 .from-wi.com
 .from-wv.com
 .from-wy.com
+.fshare.vn
 .ftpaccess.cc
 .ftphosting.pw
 .fuettertdasnetz.de
@@ -549,6 +553,7 @@
 .hotspotshield.com
 .hotspotshield.net
 .hotstartsearch.com
+.href.li
 .hsms06.com
 .hsselite.com
 .hubapi.com
@@ -728,6 +733,7 @@
 .lpg02.com
 .lstu.fr
 .lythu.com
+.ma3loma.pw
 .mailstat.us
 .mailtemp.org
 .majorgeeks.com
@@ -791,6 +797,7 @@
 .msgamestudios.com
 .ms-studiosmedia.com
 .msupdt.com
+.multifilemirror.com
 .multiply.com
 .multiup.org
 .mwpaste.com
@@ -976,6 +983,7 @@
 .quick-hide-ip.com
 .quicksytes.com
 .qvo6.com
+.r20.rs6.net
 .rapid7.com
 .rapidshare.com
 .rarbg.to
@@ -1089,7 +1097,6 @@
 .site2unblock.com
 .siteco.com.co
 .skyrock.com
-.slack.com
 .slack-edge.com
 .slink.co
 .s-links.org
@@ -1130,8 +1137,10 @@
 .sr22dwi.com
 .srcsmrtgs.com
 .ssyoutube.com
+.stablepostureswinging.info
 .stackpathdns.com
 .staticimgfarm.com
+.steadfastraspingsubtotal.info
 .stealthy.co
 .steepto.com
 .stickyadstv.com
@@ -1350,6 +1359,7 @@
 .windowsphone-int.com
 .windscribe.com
 .wish.com
+.woiemcoiwe.host
 .womenalia.com
 .wordsandpublicity.com
 .workisboring.com
