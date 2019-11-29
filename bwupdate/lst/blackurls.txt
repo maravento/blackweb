@@ -983,7 +983,6 @@
 .quick-hide-ip.com
 .quicksytes.com
 .qvo6.com
-.r20.rs6.net
 .rapid7.com
 .rapidshare.com
 .rarbg.to
@@ -1018,6 +1017,7 @@
 .rod.gs
 .rosbusiness.eu
 .royaldetail.net
+.rs6.net
 .rubiconproject.com
 .rutracker.org
 .rxproxy.com
