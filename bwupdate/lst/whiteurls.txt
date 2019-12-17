@@ -12287,6 +12287,7 @@
 .oaasexplorer.centralus.cloudapp.azure.com
 .oaidevport.eastus.cloudapp.azure.com
 .oa.microsoft.com
+.oaspapps.com
 .oas.as.ficp.support.microsoft.com
 .oas.consumersecuritysupport.microsoft.com
 .oas.ec.ficp.support.microsoft.com
@@ -25512,8 +25513,6 @@
 .atrapalo.com.co
 .autodesk.com
 .avantel.co
-.avast.com
-.avg.com
 .awesomeopensource.com
 .awsstatic.com
 .axesat.com
@@ -25568,8 +25567,8 @@
 .bnpparibas.com
 .bnymellon.com
 .boh.com
-.bostonprivate.com
 .bootstrapcdn.com
+.bostonprivate.com
 .brac.net
 .browseranalytic.com
 .buenastareas.com
@@ -25583,6 +25582,7 @@
 .camericas.net
 .canaluno.com.co
 .canonical.com
+.canva.com
 .capacitateparaelempleo.org
 .capfed.com
 .capitalone.com
@@ -25640,9 +25640,9 @@
 .citigroup.com
 .citizensonline.com
 .claro.com.co
+.cloudflare.com
 .cloudfront.net
 .cloudns.net
-.cloudflare.com
 .cmi.com.co
 .cnb.com
 .cnn.com
@@ -25733,6 +25733,7 @@
 .fastly.net
 .fcfbank.com
 .fedearroz.com.co
+.fedex.com
 .fenalco.com.co
 .fes.de
 .file-extensions.org
@@ -25752,8 +25753,8 @@
 .fnbcorporation.com
 .fnfg.com
 .franzinfra.com
-.freegeoip.net
 .freefilesync.org
+.freegeoip.net
 .freemaptools.com
 .frostbank.com
 .fsf.org
@@ -25813,6 +25814,7 @@
 .keystonesolutions.io
 .kiusys.com
 .kiusys.net
+.ksmobile.com
 .lair.io
 .lan.com
 .larepublica.com.co
@@ -25891,6 +25893,7 @@
 .onlinemd5.com
 .openphish.com
 .opensource.org
+.openstreetmap.org
 .opera.com
 .ops-oms.org
 .oracle.com
@@ -25942,6 +25945,7 @@
 .runt.com.co
 .samsung.com
 .santander.com
+.satbancolombia.com
 .satena.com
 .satena.shop
 .schwab.com

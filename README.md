@@ -46,7 +46,7 @@ And add the following lines: / Y agregue las siguientes líneas:
 
 ```
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-acl blackweb dstdomain -i "/path_to_lst/blackweb.txt"
+acl blackweb dstdomain -i "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 #### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules
@@ -57,9 +57,9 @@ http_access deny blackweb
 - Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```
-acl whitedomains dstdomain -i "/path_to_lst/whitedomains.txt"
-acl blackdomains dstdomain -i "/path_to_lst/blackdomains.txt"
-acl blackweb dstdomain -i "/path_to_lst/blackweb.txt"
+acl whitedomains dstdomain -i "/path_to/whitedomains.txt"
+acl blackdomains dstdomain -i "/path_to/blackdomains.txt"
+acl blackweb dstdomain -i "/path_to/blackweb.txt"
 http_access allow whitedomains
 http_access deny blackdomains
 http_access deny blackweb

@@ -356,6 +356,7 @@
 .flipax.net
 .flixster.com
 .focus.com
+.fodz.xyz
 .for-better.biz
 .forgot.her.name
 .forgot.his.name
@@ -434,6 +435,7 @@
 .ftpaccess.cc
 .ftphosting.pw
 .fuettertdasnetz.de
+.fuiz.io
 .fullvicio.com
 .funlux.com
 .funnyordie.com
@@ -475,6 +477,7 @@
 .gotdns.com
 .gotdns.org
 .govtsmartjob.com
+.gplinks.in
 .gpsonextra.net
 .gravatar.com
 .groks-the.info
@@ -1176,6 +1179,7 @@
 .t2mio.com
 .taboola.com
 .tagged.com
+.takefile.link
 .tapad.com
 .taringa.net
 .tawk.to
