@@ -1,4 +1,4 @@
-## [Blackweb](http://www.maravento.com/p/blacklistweb.html)
+## [Blackweb](https://www.maravento.com/p/blacklistweb.html)
 
 **Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.) to make them compatible with [Squid](http://www.squid-cache.org/)
 
@@ -120,8 +120,8 @@ outfile:
 >Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs) / Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs)
 
 ```
-domain.exe
-domain.com
+.domain.exe
+.domain.com
 ```
 outfile:
 ```
@@ -133,23 +133,23 @@ outfile:
 >Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (not ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format / Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode)
 
 ```
-президент.рф
-mañana.com
-bücher.com
-café.fr
-köln-düsseldorfer-rhein-main.de
-mūsųlaikas.lt
-sendesık.com
+.президент.рф
+.mañana.com
+.bücher.com
+.café.fr
+.köln-düsseldorfer-rhein-main.de
+.mūsųlaikas.lt
+.sendesık.com
 ```
 outfile:
 ```
-xn--d1abbgf6aiiy.xn--p1ai
-xn--maana-pta.com
-xn--bcher-kva.com
-xn--caf-dma.fr
-xn--kln-dsseldorfer-rhein-main-cvc6o.de
-xn--mslaikas-qzb5f.lt
-xn--sendesk-wfb.com
+.xn--d1abbgf6aiiy.xn--p1ai
+.xn--maana-pta.com
+.xn--bcher-kva.com
+.xn--caf-dma.fr
+.xn--kln-dsseldorfer-rhein-main-cvc6o.de
+.xn--mslaikas-qzb5f.lt
+.xn--sendesk-wfb.com
 ```
 
 ##### DNS Loockup
