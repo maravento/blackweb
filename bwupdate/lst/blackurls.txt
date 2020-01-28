@@ -224,6 +224,7 @@
 .crop.is
 .cross.tv
 .croxyproxy.com
+.cryptobrowser.site
 .crypto-loot.com
 .cryptoloot.pro
 .cu5.io
@@ -641,6 +642,7 @@
 .icecyber.org
 .idope.se
 .if-cdn.com
+.igram.im
 .ilovecollege.info
 .imqq.com
 .imzahrwl.xyz
@@ -1189,6 +1191,7 @@
 .schoolproxy.info
 .scoop.it
 .scrapping.cc
+.scuseami.net
 .sdpaste.com
 .searchcompletion.com
 .secreturl.xyz
@@ -1588,6 +1591,7 @@
 .xroxy.com
 .xtendadvert.com
 .xxlproxy4.com
+.yabuilder.com
 .ycombinator.com
 .yd7333.com
 .yeabests.cc
