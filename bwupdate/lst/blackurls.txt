@@ -258,9 +258,11 @@
 .depositfiles.com
 .depositfiles.org
 .descargatelocorp.com
+.desertleather.com
 .deviantart.com
 .deyllqu220y8p.cloudfront.net
 .dft.ba
+.diangov.co
 .directorio-w.com
 .directvnow.com
 .disorderstatus.ru
@@ -763,6 +765,7 @@
 .jsecoin.com
 .juegosfriv2018.link
 .juegosfriv.com
+.justamericanjackets.com
 .justproxy.co.uk
 .jwplayer.com
 .jyra.online
@@ -840,6 +843,7 @@
 .malavida.com
 .marjalles.com
 .marksandspencersale.store
+.marksandspenceruk.ru
 .maskedip.com
 .mathtag.com
 .maxgames.com
@@ -1158,6 +1162,7 @@
 .redirect2719.ws
 .redirectme.net
 .reducelnk.com
+.reformas-en-granada.com
 .remotecam.nu
 .renren.com
 .reverbnation.com

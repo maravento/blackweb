@@ -265,6 +265,8 @@ echo "OK"
 echo
 echo "${cm12[${es}]}"
 # parse domains
+#svn export "https://github.com/maravento/blackweb/trunk/bw" >/dev/null 2>&1
+#cd $bwpath
 cat lst/fault.tar.gz* | tar xzf -
 grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "."$1}') | sort -u > outparse
 echo "OK"

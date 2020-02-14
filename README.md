@@ -9,7 +9,7 @@
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.332.129|76 MB|15 MB|v3.5.x|
+|blackweb.txt|3.340.942|76.2 MB|15 MB|v3.5.x|
 
 ### DEPENDENCIES
 ---
@@ -326,12 +326,13 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Wikipedia. *Blacklist_(computing)*](https://en.wikipedia.org/wiki/Blacklist_(computing))
 - [Zeltser. *Free Blocklists of Suspected Malicious IPs and URLs*](https://zeltser.com/malicious-ip-blocklists/)
 - [Segu-Info. *Análisis de malware y sitios web en tiempo real*](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
-- [Awesome Open Source. *WindowsSpyBlocker*](https://awesomeopensource.com/project/crazy-max/WindowsSpyBlocker)
 - [covert.io. *Getting Started with DGA Domain Detection Research*](http://www.covert.io/getting-started-with-dga-research/)
 - [Keystone Solutions. *blocklists*](https://keystonesolutions.io/solutions/blocklists/)
 - [Secrepo. *Samples of Security Related Data*](http://www.secrepo.com/)
 - [Soficas. *CiberSeguridad - Protección Activa*](https://soficas.com/noticias/proteccion-ciberseguridad.html)
 - [Xploitlab. *Projects using WindowsSpyBlocker*](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
+- [Awesome Open Source. *Blackweb*](https://awesomeopensource.com/project/maravento/blackweb)
+- [Lifars. *Sites with blocklist of malicious IPs and URLs*](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
 
 ### CONTRIBUTIONS
 ---

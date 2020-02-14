@@ -25796,6 +25796,7 @@
 .iana.org
 .ibc.com
 .iberiabank.com
+.ifx.net.co
 .inboxsdk.com
 .indicedetransparencia.org.co
 .infospyware.com
@@ -25805,6 +25806,7 @@
 .intel.la
 .inter.la
 .itagil.com
+.java.com
 .joewein.de
 .joewein.net
 .johnsonbank.com
@@ -25994,6 +25996,7 @@
 .tdbank.com
 .tegrazone.com
 .telefonica.com
+.telegram.me
 .telegram.org
 .theprivatebank.com
 .thirdfederal.com
@@ -26004,6 +26007,7 @@
 .toshiba.com
 .tramitesyconsultas.info
 .transaccionesbancolombia.com
+.trusteer.com
 .trustmark.com
 .tutellus.com
 .typepad.com
@@ -26059,6 +26063,7 @@
 .westernunion.ru
 .whatbrowser.org
 .whatismyipaddress.com
+.whatsapp.com
 .whitneybank.com
 .whoisxmlapi.com
 .wikibooks.org
