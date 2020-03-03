@@ -46,6 +46,7 @@
 .adsrt.me
 .adsrvr.org
 .adturtle.biz
+.adultd8.com
 .afishaonline.eu
 .afminer.com
 .agkn.com
@@ -1005,6 +1006,7 @@
 .oegllc.net
 .office-on-the.net
 .oko.sh
+.ome.tv
 .omiga-plus.com
 .onelink.to
 .onewebproxy.com
@@ -1273,11 +1275,9 @@
 .s-links.org
 .smardroid.com
 .smartadserver.com
-.smartsuppchat.com
 .smarturl.it
 .smoz.us
 .smugmug.com
-.snapchat.com
 .snappea.com
 .snnd.co
 .socdm.com
@@ -1558,7 +1558,6 @@
 .webproxy.to
 .websitevpn.com
 .webssearches.com
-.wechat.com
 .weheartit.com
 .weibo.com
 .whaa.tk
@@ -1590,6 +1589,7 @@
 .x18.eu
 .xanga.com
 .xevd.co
+.xfire.com
 .xiaoying.co
 .xing.com
 .xitesite.com

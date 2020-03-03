@@ -309,13 +309,13 @@ sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fault.txt
 echo "OK"
 
-# ADD BLACKURLS AND BLACKTLD
+# ADD BLACKLIST BLACKTLDS
 echo
 echo "${cm16[${es}]}"
-# add blackurls and blacktlds
-cat lst/{blackurls,blacktlds}.txt >> hit.txt
+# add blackurls, blacktlds, webchat
+cat lst/{blackurls,blacktlds,webchat}.txt >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds}.txt) hit.txt | sort -u > blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds,webchat}.txt) hit.txt | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE

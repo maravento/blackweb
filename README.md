@@ -49,7 +49,7 @@ And add the following lines: / Y agregue las siguientes líneas:
 acl blackweb dstdomain -i "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
-#### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules
+#### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended to use) / Reglas Avanzadas (recomendadas para usar)
 
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
@@ -293,18 +293,19 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ###### Internals
 
-- [Black TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blacktlds.txt)
-- [Black URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blackurls.txt)
-- [Fault URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/fault.tar.gz)
-- [Invalid TLDs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/invalid.txt)
-- [Old URls](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/oldurls.tar.gz)
-- [White URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/whiteurls.txt)
+- [Black TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Black URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [White URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
 ###### Optionals
 
-- [CloudSync URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/cloudsync.txt)
-- [Remote URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/remote.txt)
-- [Telemetry URLs](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/telemetry.txt)
+- [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [WebChat URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
 ##### Work Tools
 
@@ -354,7 +355,7 @@ BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 [![CreativeCommons](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 [maravento.com](http://www.maravento.com) is licensed under a [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-© 2019 [Maravento Studio](http://www.maravento.com)
+© 2020 [Maravento Studio](http://www.maravento.com)
 
 ### DISCLAIMER
 ---

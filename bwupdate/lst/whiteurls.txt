@@ -7090,6 +7090,7 @@
 .cdn.odc.officeapps.live.com
 .cdn.office.net
 .Cdn.onenote.net
+.cdn.onenote.net
 .cdn.optimizely.com
 .Cdn.optimizely.com
 .cdn.query.prod.cms.msn.com
@@ -12515,6 +12516,7 @@
 .onegw.microsoft.com
 .oneittelbulkingestion.westus2.cloudapp.azure.com
 .onenote.com
+.onenote.net
 .onenote.officeapps.live.com
 .onerf.microsoft.com
 .onerf.msn.com
@@ -25832,7 +25834,6 @@
 .linux.org
 .linuxquestions.org
 .list-manage1.com
-.livechatinc.com
 .mailchimp.com
 .mailgrupobancolombia.com.co
 .malc0de.com
@@ -25968,7 +25969,6 @@
 .simbogota.com.co
 .simit.org.co
 .simple.co
-.slack.com
 .sld.cu
 .slideshare.net
 .snapcraft.io
@@ -25996,8 +25996,6 @@
 .tdbank.com
 .tegrazone.com
 .telefonica.com
-.telegram.me
-.telegram.org
 .theprivatebank.com
 .thirdfederal.com
 .tinypass.com
@@ -26063,7 +26061,6 @@
 .westernunion.ru
 .whatbrowser.org
 .whatismyipaddress.com
-.whatsapp.com
 .whitneybank.com
 .whoisxmlapi.com
 .wikibooks.org
