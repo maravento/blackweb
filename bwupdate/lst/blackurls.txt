@@ -959,6 +959,12 @@
 .neat-url.com
 .net57.info
 .netflix.com
+.nflxext.com
+.nflximg.net
+.nflximg.com
+.nflxsearch.net
+.nflxso.net
+.nflxvideo.net
 .net-freaks.com
 .netherlandswebproxy.co.nl
 .netlog.com
@@ -1044,6 +1050,7 @@
 .pingstart.com
 .pinimg.com
 .pinterest.com
+.pinimg.com
 .platinumhideip.com
 .playproxy.com
 .plexapp.com
@@ -1270,7 +1277,6 @@
 .sitesunblocked.com
 .siteunblock.org
 .skyrock.com
-.slack-edge.com
 .slink.co
 .s-links.org
 .smardroid.com

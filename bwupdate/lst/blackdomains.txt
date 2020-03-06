@@ -1,4 +1,3 @@
-# google
 .ggpht.com
 .goo.gl
 .play.google.com
@@ -20,3 +19,4 @@
 .youtube.ru
 .ytimg.com
 .ytimg.l.google.com
+.googlesyndication.com

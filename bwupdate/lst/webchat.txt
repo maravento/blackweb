@@ -81,6 +81,7 @@
 .skibbel.com
 .skout.com
 .slack.com
+.slack-edge.com
 .smartsuppchat.com
 .smartsupp.com
 .snapchat.com
