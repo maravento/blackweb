@@ -25480,10 +25480,12 @@
 .acme.com
 .acnur.org
 .adblockplus.org
+.addthis.com
 .adobe.com
 .adobedtm.com
 .afd.fr
 .agenti.com.co
+.agkn.com
 .airpr.com
 .akamai.com
 .akamaihd.net
@@ -25606,6 +25608,7 @@
 .cgiar.org
 .chase.com
 .checkmal.com
+.chromestatus.com
 .cinu.org.mx
 .cisco.com
 .citibank.ae
@@ -25684,6 +25687,7 @@
 .disqus.com
 .dnd.ca
 .domaintools.com
+.doubleverify.com
 .dreamhost.com
 .dshield.org
 .duckduckgo.com
@@ -25828,6 +25832,7 @@
 .lavoz.com.ar
 .lenovo.com
 .libretamilitar.mil.co
+.licensebuttons.net
 .linode.com
 .linuxfoundation.org
 .linuxmint.com
@@ -25899,6 +25904,7 @@
 .openphish.com
 .opensource.org
 .openstreetmap.org
+.openx.net
 .opera.com
 .ops-oms.org
 .oracle.com
@@ -25933,9 +25939,11 @@
 .providentnj.com
 .pse.com.co
 .ptp.com.co
+.pubmatic.com
 .qualtrics.com
 .rabobank.com
 .rae.es
+.rawgit.com
 .raymondjames.com
 .rbcbankusa.com
 .rbs.com
@@ -26022,6 +26030,7 @@
 .unicef.org
 .unir.net
 .un.org
+.unpkg.com
 .unv.org
 .ups.com
 .upv.es

@@ -3,6 +3,7 @@
 .1fichier.com
 .1n.pm
 .1q2w3.fun
+.1v.to
 .22apple.com
 .2giga.link
 .2proxy.de
@@ -32,7 +33,6 @@
 .adcrun.ch
 .addevweb.com
 .addic7ed.com
-.addthis.com
 .adfe.es
 .adf.ly
 .adform.net
@@ -49,7 +49,6 @@
 .adultd8.com
 .afishaonline.eu
 .afminer.com
-.agkn.com
 .airtelbroadband.in
 .ala-internet.com
 .allcalidad.com
@@ -72,6 +71,7 @@
 .applicationinsights.net
 .appsflyer.com
 .aptrixx.com
+.arcai.com
 .argstudio.com
 .aserdefa.ru
 .ashleymadison.com
@@ -96,6 +96,7 @@
 .barrell-of-knowledge.info
 .barrel-of-knowledge.info
 .batidoraporno.com
+.bayfiles.com
 .bazookariddancelividly.info
 .bblocker.info
 .bc.vc
@@ -249,6 +250,7 @@
 .datagravity.com
 .dbn3wu0k6poiv.cloudfront.net
 .dclinks.info
+.ddl.to
 .ddnsking.com
 .ddns.me
 .ddns.net
@@ -270,6 +272,7 @@
 .ditchyourip.com
 .dit-inc.us
 .divalane.com
+.dll.to
 .dlvr.it
 .dnsalias.com
 .dnsalias.net
@@ -296,7 +299,7 @@
 .do-search.com
 .dosearches.com
 .douban.com
-.doubleverify.com
+.douploads.net
 .dq33tynpwunh.cloudfront.net
 .dropitto.me
 .duapps.com
@@ -394,6 +397,7 @@
 .fiberproxy.eu
 .filecloud.io
 .filecrypt.cc
+.filefactory.com
 .filehippo.com
 .filenugget.com
 .filerio.in
@@ -752,7 +756,6 @@
 .is-with-theband.com
 .itsmy.com
 .itw.me
-.ivpaste.com
 .jacktekpro.com
 .jans.li
 .jaxpulse.com
@@ -957,14 +960,9 @@
 .ne1.ca
 .ne8.org
 .neat-url.com
+.neswery.com
 .net57.info
 .netflix.com
-.nflxext.com
-.nflximg.net
-.nflximg.com
-.nflxsearch.net
-.nflxso.net
-.nflxvideo.net
 .net-freaks.com
 .netherlandswebproxy.co.nl
 .netlog.com
@@ -978,6 +976,8 @@
 .nflxext.com
 .nflximg.com
 .nflximg.net
+.nflxsearch.net
+.nflxso.net
 .nflxvideo.net
 .nhlfan.net
 .nin.com
@@ -987,6 +987,7 @@
 .ninjacloak.com
 .ninjaproxy.co.uk
 .ninjaweb.xyz
+.nitroflare.com
 .nk.pl
 .nntime.com
 .no-control.info
@@ -1024,7 +1025,6 @@
 .opendiary.com
 .openload.co
 .openvpn.net
-.openx.net
 .optoutprescreen.com
 .ospserver.net
 .ouo.io
@@ -1050,7 +1050,6 @@
 .pingstart.com
 .pinimg.com
 .pinterest.com
-.pinimg.com
 .platinumhideip.com
 .playproxy.com
 .plexapp.com
@@ -1138,7 +1137,6 @@
 .publicproxy.org
 .publicproxyservers.com
 .publicvm.com
-.pubmatic.com
 .pub.network
 .pumaskill.com
 .purevpn.com
@@ -1154,6 +1152,7 @@
 .quicksytes.com
 .qvo6.com
 .rapid7.com
+.rapidgator.net
 .rapidshare.com
 .rarbg.to
 .rayjump.com
@@ -1477,10 +1476,12 @@
 .untracable.org
 .unusualperson.com
 .up-4ever.org
+.uploaded.net
 .upload.ee
 .uploadocean.com
 .uploadrar.com
 .uplynk.com
+.uppit.com
 .uptobox.com
 .uptodown.com
 .urban-vpn.com
