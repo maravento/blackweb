@@ -9,7 +9,7 @@
 
 |lst|Black Domains|txt|tar.gz|Squid Tested|
 | :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.323.851|75.9 MB|14.9 MB|v3.5.x|
+|blackweb.txt|3.348.566|76.7 MB|14.9 MB|v3.5.x|
 
 ### DEPENDENCIES
 ---
