@@ -83,6 +83,7 @@
 .autohideip.com
 .avidly.com
 .avoidance.info
+.awdescargas.com
 .awesomehp.com
 .ayads.co
 .b1t.it
@@ -262,6 +263,8 @@
 .depositfiles.org
 .descargatelocorp.com
 .desertleather.com
+.desmaxgo.com
+.destyy.com
 .deviantart.com
 .deyllqu220y8p.cloudfront.net
 .dft.ba
@@ -369,6 +372,7 @@
 .eurf.info
 .europegroup.xyz
 .evennode.com
+.exee.io
 .exe.io
 .expressvpn.com
 .eyeem.com
@@ -391,6 +395,7 @@
 .fcfan.org
 .fc.lc
 .fhcrc.org
+.fiaharam.net
 .fiberprox.com
 .fiberprox.net
 .fiberproxy.com
@@ -403,6 +408,7 @@
 .filerio.in
 .filescdn.com
 .filesupload.org
+.file-up.org
 .filterbypass.me
 .filtersplusfl.com
 .finchvpn.com
@@ -779,6 +785,7 @@
 .kambicdn.com
 .kambi.com
 .kargo.com
+.katfile.com
 .kept-unknown.xyz
 .kernvpn.com
 .key-find.com
@@ -1009,6 +1016,7 @@
 .o365weve-dev.com
 .oath.com
 .oboom.com
+.ocul.to
 .odnoklassniki.ru
 .oegllc.net
 .office-on-the.net
@@ -1182,6 +1190,8 @@
 .ricush.ath.cx
 .rightinthebox.com
 .rjmetrics.com
+.rockfile.co
+.rockfile.eu
 .rock-music.xyz
 .rocks.io
 .rockstargames.com
@@ -1478,6 +1488,8 @@
 .up-4ever.org
 .uploaded.net
 .upload.ee
+.uploading.site
+.up-load.io
 .uploadocean.com
 .uploadrar.com
 .uplynk.com

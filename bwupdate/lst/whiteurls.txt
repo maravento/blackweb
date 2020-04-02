@@ -26434,6 +26434,7 @@
 .jquery.com
 .jsdelivr.com
 .jsdelivr.net
+.kampyle.com
 .kaspersky.com
 .keybank.com
 .keystonesolutions.io
@@ -26570,6 +26571,7 @@
 .refinancia.com.co
 .regions.com
 .rootcapital.org
+.ruda.slm.cloud
 .runt.com.co
 .samsung.com
 .santander.com
@@ -26593,7 +26595,9 @@
 .simbogota.com.co
 .simit.org.co
 .simple.co
+.sitescout.com
 .sld.cu
+.slidesharecdn.com
 .slideshare.net
 .snapcraft.io
 .soatadomicilio.co
@@ -26622,6 +26626,7 @@
 .telefonica.com
 .theprivatebank.com
 .thirdfederal.com
+.tigo.com.co
 .tinypass.com
 .tiqcdn.com
 .tiquetesbaratos.com
@@ -26716,6 +26721,9 @@
 .xploitlab.com
 .yandex.com
 .yoyo.org
+.zdassets.com
 .zeltser.com
+.zendesk.com
 .zionsbank.com
 .zonapagos.com
+.zopim.com
