@@ -1502,6 +1502,7 @@
 .urlbaba.com
 .urlcash.net
 .urlof.site
+.urlike.net
 .urlsh.me
 .ur.ly
 .usenet.nl
