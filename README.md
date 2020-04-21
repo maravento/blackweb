@@ -26,7 +26,7 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### HOW TO USE
 ---
 
-**blackweb.txt** is already optimized. Download it and unzip it in the path of your preference and activate [Squid RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene optimizada. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
+**blackweb.txt** is already updated and optimized para Squid. Download it and unzip it in the path of your preference and activate [Squid RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene actualizada y optimizada para Squid. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
 
 ####  Download and Checksum
 
@@ -70,7 +70,7 @@ http_access deny blackweb
 
 #### ⚠️ WARNING: BEFORE YOU CONTINUE!
 
-Update and debugging of `blackweb.txt` can take and consume many hardware resources and bandwidth. It is not recommended to run it on production equipment / La actualización y depuración de `blackweb.txt` puede tardar y consumir muchos recursos de hardware y ancho de banda. No se recomienda ejecutarla en equipos en producción
+This section is only to explain how update and optimization process works. It is not necessary for user to run it. This process can take time and consume a lot of hardware and bandwidth resources, therefore it is recommended to use test equipment / Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas
 
 ##### Blackweb Update
 
@@ -353,9 +353,9 @@ BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 [![GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.txt)
 
 [![CreativeCommons](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
-[maravento.com](http://www.maravento.com) is licensed under a [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional License](http://creativecommons.org/licenses/by-sa/4.0/).
+[maravento.com](https://www.maravento.com) is licensed under a [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-© 2020 [Maravento Studio](http://www.maravento.com)
+© 2020 [Maravento Studio](https://www.maravento.com)
 
 ### DISCLAIMER
 ---

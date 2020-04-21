@@ -1501,8 +1501,8 @@
 .urladda.co
 .urlbaba.com
 .urlcash.net
-.urlof.site
 .urlike.net
+.urlof.site
 .urlsh.me
 .ur.ly
 .usenet.nl
@@ -1529,6 +1529,7 @@
 .viadeo.com
 .viajeschavez.es
 .viber.com
+.vico3.online
 .vidadivinapioneros.com
 .vidd.ws
 .videoschistososdivertidos.com
@@ -1645,6 +1646,7 @@
 .zenmate.com
 .zenvpn.net
 .zheat.info
+.zipansion.com
 .zippyshare.com
 .zkmobi.com
 .zlx.com.br
