@@ -312,10 +312,10 @@ echo "OK"
 # ADD BLACKLIST BLACKTLDS
 echo
 echo "${cm16[${es}]}"
-# add blackurls, blacktlds, webchat
-cat lst/{blackurls,blacktlds,webchat}.txt >> hit.txt
+# add blackurls, blacktlds
+cat lst/{blackurls,blacktlds}.txt >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds,webchat}.txt) hit.txt | sort -u > blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds}.txt) hit.txt | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE

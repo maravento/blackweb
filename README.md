@@ -305,7 +305,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [WebChat URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
 ##### Work Tools
 
