@@ -7,9 +7,9 @@
 ### DATA SHEET
 ---
 
-|lst|Black Domains|txt|tar.gz|Squid Tested|
-| :---: | :---: | :---: | :---: | :---: |
-|blackweb.txt|3.252.251|74.9 MB|14.4 MB|v3.5.x|
+|lst|Black Domains|txt|tar.gz|
+| :---: | :---: | :---: | :---: |
+|blackweb.txt|3.321.957|76,6 MB|14.6 MB|
 
 ### DEPENDENCIES
 ---
@@ -46,7 +46,7 @@ And add the following lines: / Y agregue las siguientes líneas:
 
 ```
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-acl blackweb dstdomain -i "/path_to/blackweb.txt"
+acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 #### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended to use) / Reglas Avanzadas (recomendadas para usar)
@@ -57,9 +57,9 @@ http_access deny blackweb
 - Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```
-acl whitedomains dstdomain -i "/path_to/whitedomains.txt"
-acl blackdomains dstdomain -i "/path_to/blackdomains.txt"
-acl blackweb dstdomain -i "/path_to/blackweb.txt"
+acl whitedomains dstdomain "/path_to/whitedomains.txt"
+acl blackdomains dstdomain "/path_to/blackdomains.txt"
+acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access allow whitedomains
 http_access deny blackdomains
 http_access deny blackweb

@@ -303,6 +303,7 @@
 .destyy.com
 .deviantart.com
 .deyllqu220y8p.cloudfront.net
+.dfiles.ru
 .dft.ba
 .diangov.co
 .directorio-w.com
@@ -1283,6 +1284,7 @@
 .royaldetail.net
 .rs6.net
 .rubiconproject.com
+.rusfolder.com
 .rutracker.org
 .rxproxy.com
 .ryze.com
@@ -1555,6 +1557,7 @@
 .tumblr.com
 .tunnelbear.com
 .turbobit.net
+.turbobit.pw
 .turnsocial.com
 .turnsocial.now.sh
 .tusfiles.com
