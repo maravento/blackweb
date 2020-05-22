@@ -1,15 +1,15 @@
 ## [Blackweb](https://www.maravento.com/p/blacklistweb.html)
 
-**Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, arms sales, etc.) to make them compatible with [Squid](http://www.squid-cache.org/)
+**Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/)
 
-**Blackweb** es un proyecto que recopila y unifica listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, venta de armas, etc) para hacerlas compatibles con [Squid](http://www.squid-cache.org/)
+**Blackweb** es un proyecto que recopila y unifica listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/)
 
 ### DATA SHEET
 ---
 
-|lst|Black Domains|txt|tar.gz|
-| :---: | :---: | :---: | :---: |
-|blackweb.txt|3.321.957|76,6 MB|14.6 MB|
+|lst|Black Domains|.txt|
+| :---: | :---: | :---: |
+|blackweb.txt|3.287.410|75,9 MB|
 
 ### DEPENDENCIES
 ---
@@ -26,7 +26,7 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### HOW TO USE
 ---
 
-**blackweb.txt** is already updated and optimized para Squid. Download it and unzip it in the path of your preference and activate [Squid RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene actualizada y optimizada para Squid. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
+**blackweb.txt** is already updated and optimized para Squid-Cache. Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene actualizada y optimizada para Squid-Cache. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
 
 ####  Download and Checksum
 
@@ -90,7 +90,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 ##### Domain Debugging
 
->Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid format and excludes false positives (google, hotmail, yahoo, etc.) with a whitelist (`whiteurls.txt`) / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista blanca (`whiteurls.txt`)
+>Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a whitelist (`whiteurls.txt`) / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista blanca (`whiteurls.txt`)
 
 ```
 com
@@ -182,9 +182,9 @@ outfile:
 .domain.com
 ```
 
-##### Run Squid with Blackweb
+##### Run Squid-Cache with Blackweb
 
->Run Squid with Blackweb and any error sends it to `SquidError.txt` on your desktop / Corre Squid con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio
+>Run Squid-Cache with Blackweb and any error sends it to `SquidError.txt` on your desktop / Corre Squid-Cache con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio
 
 ##### Check execution (/var/log/syslog):
 
@@ -310,7 +310,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ###### Internals
 
-- [Debug Squid Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
+- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
 
 ###### Externals

@@ -26352,6 +26352,7 @@
 .etrade.com
 .everbank.com
 .exceltotal.com
+.fao.org
 .fastly.com
 .fastly.net
 .fcfbank.com
@@ -26376,6 +26377,7 @@
 .flagstar.com
 .fnbcorporation.com
 .fnfg.com
+.forms.gle
 .franzinfra.com
 .freefilesync.org
 .freegeoip.net
@@ -26691,6 +26693,7 @@
 .westernunion.fr
 .westernunion.gr
 .westernunion.ru
+.wetransfer.com
 .whatbrowser.org
 .whatismyipaddress.com
 .whereby.com
