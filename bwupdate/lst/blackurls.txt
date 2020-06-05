@@ -6,6 +6,8 @@
 .1q2w3.fun
 .1v.to
 .22apple.com
+.2abpyxuqnprsqbs.com
+.2drhi6trnsnqpdvb.com
 .2giga.link
 .2proxy.de
 .301.li
@@ -17,9 +19,12 @@
 .4shared.com
 .500px.com
 .50tl.net
+.6yg222ywwil.com
 .7cups.com
+.7lzgnkeofw3.com
 .7vip.es
 .9w9.org
+.a4jixfnqs2tzieiz3cxyh.com
 .aartemis.com
 .acceder.gratis
 .accessmeproxy.com
@@ -78,6 +83,7 @@
 .aptrixx.com
 .arcai.com
 .argstudio.com
+.articlix.com
 .aserdefa.ru
 .ashleymadison.com
 .ask.com
@@ -272,12 +278,14 @@
 .cxense.com
 .cxrt.life
 .cyberghostvpn.com
+.cyocnc6h2elhq4w5gr.com
 .d14qd3he45186l.cloudfront.net
 .d18wyx6lbaie50.cloudfront.net
 .d19ya6dk74n9uf.cloudfront.net
 .d2c87l0yth4zbw.cloudfront.net
 .d7jxwulc45efu.cloudfront.net
 .d8rk54i4mohrb.cloudfront.net
+.da27akxusoxjcwgjeh3.com
 .dailymotion.com
 .dailyuploads.net
 .damnserver.com
@@ -387,6 +395,7 @@
 .eazel.com
 .ebuddy.com
 .eeproxy.pw
+.ehcvbajzqf7llynx5.com
 .ehehdada.com
 .elasticbeanstalk.com
 .elbo.in
@@ -559,6 +568,7 @@
 .funnyordie.com
 .fur.ly
 .futureinterest.org
+.fyj6nal3qy.com
 .gaiaonline.com
 .gamediversions.com
 .game-host.org
@@ -663,6 +673,7 @@
 .hislink.net
 .hitfake.eu
 .hiveam.com
+.hnoo4tjc6c6pa.com
 .hobby-site.com
 .hobby-site.org
 .holtfarmholidays.com
@@ -734,6 +745,7 @@
 .internet-surfer.xyz
 .internetunblock.us
 .in-the-band.net
+.invidio.us
 .ipcamouflage.com
 .ipchanging.com
 .ipdisguiser.com
@@ -827,6 +839,7 @@
 .itw.me
 .jacktekpro.com
 .jans.li
+.jaxmydtt.net
 .jaxpulse.com
 .jblocker.info
 .j.gs
@@ -853,6 +866,7 @@
 .kept-unknown.xyz
 .kernvpn.com
 .key-find.com
+.kfe2ihlfd7vhouuwi3w.com
 .kickass.cd
 .kicks-ass.net
 .kicks-ass.org
@@ -1040,6 +1054,7 @@
 .nav1002.ath.cx
 .navegasinley.com
 .naver.jp
+.nb22dykdt7ekruq.com
 .ne1.ca
 .ne8.org
 .neat-url.com
@@ -1086,6 +1101,7 @@
 .no-ip.org
 .noip.us
 .nordvpn.com
+.no-thanks.invalid
 .novaenreta.space
 .nubrec.com
 .n-url.xyz
@@ -1639,6 +1655,7 @@
 .velaro.com
 .verizondigitalmedia.com
 .vestacp.com
+.vfmdgndt2j6uclbmrfv.com
 .v.gd
 .viabcp.com
 .viadeo.com
@@ -1717,6 +1734,7 @@
 .windscribe.com
 .wire.com
 .wish.com
+.wkdx.com
 .woiemcoiwe.host
 .womenalia.com
 .wordsandpublicity.com
@@ -1729,8 +1747,10 @@
 .www-search.net
 .wysasys.com
 .x18.eu
+.x3ztllmw57mlomch.com
 .xanga.com
 .xevd.co
+.xfcpdtr4yoonszs.com
 .xfire.com
 .xiaoying.co
 .xing.com
@@ -1755,6 +1775,7 @@
 .yubture.info
 .yumenetworks.com
 .yvnc.com
+.yxu5q3iuz.com
 .yy.com
 .z2i.com
 .zagbit.com
