@@ -55,7 +55,7 @@ dlmb=$(echo $dl | awk '{print $3}')
 
 function download(){
 if (( $(echo "$dlvalue $dlmin" | awk '{print ($1 < $2)}') )); then
-        echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
+    	echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
         notify-send "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
     else
         echo "OK"
@@ -63,11 +63,11 @@ fi
 }
 
 if [[ $mb == $dlmb ]]; then
-    download
-  else
-    echo "Incorrect Value. Abort: $resume"
-    notify-send "Incorrect Value. Abort: $resume"
-    exit
+		download
+	else
+		echo "Incorrect Value. Abort: $resume"
+		notify-send "Incorrect Value. Abort: $resume"
+		exit
 fi
 
 # DOWNLOAD BLACKWEB

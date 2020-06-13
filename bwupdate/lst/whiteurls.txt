@@ -6361,6 +6361,7 @@
 .azure.beta.si.bingads.microsoft.com
 .azure.bingads.microsoft.com
 .azure.com
+.azure.net
 .azureedge.net
 .azure-encoding.mediaservices.microsoft.com
 .azureexpert.ext.azure.com
@@ -26449,6 +26450,7 @@
 .larepublica.com.co
 .launchpad.net
 .lavoz.com.ar
+.ldrv.ms
 .lenovo.com
 .libretamilitar.mil.co
 .licensebuttons.net
@@ -26528,6 +26530,7 @@
 .ops-oms.org
 .oracle.com
 .osintframework.com
+.paginasamarillas.com.co
 .pagosimple.com
 .pagosonline.com
 .pagosonline.net

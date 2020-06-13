@@ -1,62 +1,73 @@
-## [Blackweb](https://www.maravento.com/p/blacklistweb.html)
+# [Blackweb](https://www.maravento.com/p/blacklistweb.html)
 
 **Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/)
 
 **Blackweb** es un proyecto que recopila y unifica listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/)
 
-### DATA SHEET
+## DATA SHEET
+
 ---
 
 |lst|Black Domains|.txt|
 | :---: | :---: | :---: |
 |blackweb.txt|3.287.731|75,9 MB|
 
-### DEPENDENCIES
+## DEPENDENCIES
+
 ---
-```
+
+```bash
 git subversion squid bash tar zip wget piconv curl python idn2 xargs awk notify-send
 ```
 
-### GIT CLONE
+## GIT CLONE
+
 ---
-```
+
+```bash
 git clone --depth=1 https://github.com/maravento/blackweb.git
 ```
 
-### HOW TO USE
+## HOW TO USE
+
 ---
 
 **blackweb.txt** is already updated and optimized para Squid-Cache. Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene actualizada y optimizada para Squid-Cache. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
 
-####  Download and Checksum
+### Download and Checksum
 
-```
+```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
+
 ### [Squid-Cache](http://www.squid-cache.org/) Rule
+
 ---
 
 Edit: / Edite:
-```
+
+```bash
 /etc/squid/squid.conf
 ```
+
 And add the following lines: / Y agregue las siguientes líneas:
 
-```
+```bash
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
-#### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended to use) / Reglas Avanzadas (recomendadas para usar)
+
+### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended to use) / Reglas Avanzadas (recomendadas para usar)
 
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
 - Use `whitedomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `whitedomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
 - Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
-```
+```bash
 acl whitedomains dstdomain "/path_to/whitedomains.txt"
 acl blackdomains dstdomain "/path_to/blackdomains.txt"
 acl blackweb dstdomain "/path_to/blackweb.txt"
@@ -65,34 +76,35 @@ http_access deny blackdomains
 http_access deny blackweb
 ```
 
-### UPDATE
+## UPDATE
+
 ---
 
-#### ⚠️ WARNING: BEFORE YOU CONTINUE!
+### ⚠️ WARNING: BEFORE YOU CONTINUE
 
 This section is only to explain how update and optimization process works. It is not necessary for user to run it. This process can take time and consume a lot of hardware and bandwidth resources, therefore it is recommended to use test equipment / Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas
 
-##### Blackweb Update
+#### Blackweb Update
 
 >The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh` / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`
 
-```
+```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
 ```
 
-##### Bandwidth Check (optional)
+#### Bandwidth Check (optional)
 
 >To guarantee update execution, before starting, script check bandwidth (with [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). If it is > 1 Mbit/s, update continues; else, it shows warning messages and it is recommended to interrupt update / Para garantizar la ejecución de la actualización, antes de comenzar, el script verifica el acho de banda (con [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). Si es > 1 Mbit/s, la actualización continúa; de lo contrario, muestra mensajes de advertencia y se recomienda interrumpir la actualización
 
-##### Capture Public Blacklists
+#### Capture Public Blacklists
 
 >Capture domains from downloaded public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file / Captura los dominios de las listas negras públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo
 
-##### Domain Debugging
+#### Domain Debugging
 
 >Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a whitelist (`whiteurls.txt`) / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista blanca (`whiteurls.txt`)
 
-```
+```bash
 com
 .com
 .domain.com
@@ -108,31 +120,35 @@ www.foo.bar.subdomain.domain.com
 domain.co.uk
 xxx.foo.bar.subdomain.domain.co.uk
 ```
+
 outfile:
-```
+
+```bash
 .domain.com
 .domain.com.co
 .domain.co.uk
 ```
 
-##### TLD Validation
+#### TLD Validation
 
 >Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs) / Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs)
 
-```
+```bash
 .domain.exe
 .domain.com
 ```
+
 outfile:
-```
+
+```bash
 .domain.com
 ```
 
-##### Debugging Punycode-IDN
+#### Debugging Punycode-IDN
 
 >Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (not ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format / Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode)
 
-```
+```bash
 .президент.рф
 .mañana.com
 .bücher.com
@@ -141,8 +157,10 @@ outfile:
 .mūsųlaikas.lt
 .sendesık.com
 ```
+
 outfile:
-```
+
+```bash
 .xn--d1abbgf6aiiy.xn--p1ai
 .xn--maana-pta.com
 .xn--bcher-kva.com
@@ -152,20 +170,20 @@ outfile:
 .xn--sendesk-wfb.com
 ```
 
-##### DNS Loockup
+#### DNS Loockup
 
 >Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and invalid and nonexistent are excluded from Blackweb (sent to `fault.txt`). This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y los inválidos e inexistentes se excluyen de Blackweb (enviados a `fault.txt`). Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda
 
-```
+```bash
 HIT google.com
 FAULT testfaultdomain.com
 ```
 
-##### TLD Block
+#### TLD Block
 
 >Add Black TLDs to block any domain that contains one. Edit `blacktlds.txt` and add or remove the TLDs you want to block / Agrega Black TLDs para bloquear cualquier dominio que contenga alguno. Edite `blacktlds.txt` y agrege o elimine los TLDs que quiera bloquear
 
-```
+```bash
 .adult
 .porn
 .xxx
@@ -174,35 +192,38 @@ FAULT testfaultdomain.com
 .subdomain.domain.xxx
 .domain.com
 ```
+
 outfile:
-```
+
+```bash
 .adult
 .porn
 .xxx
 .domain.com
 ```
 
-##### Run Squid-Cache with Blackweb
+#### Run Squid-Cache with Blackweb
 
 >Run Squid-Cache with Blackweb and any error sends it to `SquidError.txt` on your desktop / Corre Squid-Cache con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio
 
-##### Check execution (/var/log/syslog):
+#### Check execution (/var/log/syslog):
 
-```
+```bash
 Blackweb: Done 06/05/2019 15:47:14
 ```
 
-##### Important about Blackweb Update
+#### Important about Blackweb Update
 
 - The default path of **blackweb** is `/etc/acl`. You can change it for your preference / El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el de su preferencia
 - `bwupdate.sh` includes lists of domains related to cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), remote support (Teamviewer, Anydesk, logmein, etc) and telemetry (May contain false positives). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives / `bwupdate.sh` incluye listas de dominios relacionados con cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), soporte remoto (Teamviewer, Anydesk, logmein, etc) y telemetría (Puede contener falsos positivos). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos
 
-### SOURCES
+## SOURCES
+
 ---
 
-##### Blacklists
+### Blacklists
 
-###### Active
+#### Blacklists Active
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
@@ -270,14 +291,14 @@ Blackweb: Done 06/05/2019 15:47:14
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-###### Inactive
+#### Blacklists Inactive
 
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) (Server Down. Last Updated Known Dec, 2016. Added to: `oldurls.txt`)
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE). Last Updated Known Jul 24, 2017. Added to: `oldurls.txt`)
 
-##### Whitelist (URLs/TLDs)
+### Whitelist (URLs/TLDs)
 
-###### Active
+#### Whitelist Active
 
 - [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
@@ -285,13 +306,11 @@ Blackweb: Done 06/05/2019 15:47:14
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 
-###### Inactive
+#### Whitelist Inactive
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
-##### Work Lists
-
-###### Internals
+### Work Lists
 
 - [Black TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Black URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
@@ -299,27 +318,20 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [White URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-
-###### Optionals
-
 - [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
-##### Work Tools
-
-###### Internals
+### Work Tools
 
 - [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
-
-###### Externals
-
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh)
 
-### BACKLINKS
+## BACKLINKS
+
 ---
 
 - [OSINT Framework. *Domain Name/Domain Blacklists/Blackweb*](https://osintframework.com/)
@@ -334,19 +346,22 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Awesome Open Source. *Blackweb*](https://awesomeopensource.com/project/maravento/blackweb)
 - [Lifars. *Sites with blocklist of malicious IPs and URLs*](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
 
-### CONTRIBUTIONS
+## CONTRIBUTIONS
+
 ---
 
 We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project / Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto
 
 Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
-### DONATE
+## DONATE
+
 ---
 
 BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 
-### LICENCES
+## LICENCES
+
 ---
 
 [![GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.txt)
@@ -356,7 +371,8 @@ BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 
 © 2020 [Maravento Studio](https://www.maravento.com)
 
-### DISCLAIMER
+## DISCLAIMER
+
 ---
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
