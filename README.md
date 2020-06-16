@@ -10,7 +10,7 @@
 
 |lst|Black Domains|.txt|
 | :---: | :---: | :---: |
-|blackweb.txt|3.287.731|75,9 MB|
+|blackweb.txt|3.285.789|75,9 MB|
 
 ## DEPENDENCIES
 
