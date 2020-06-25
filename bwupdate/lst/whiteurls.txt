@@ -156,6 +156,7 @@
 .alt4.aspmx.l.google.com
 .alt4.gmail-smtp-in.l.google.com
 .alt4.gmr-smtp-in.l.google.com
+.ampproject.org
 .analytics.google.com
 .android.clients.google.com
 .android.com

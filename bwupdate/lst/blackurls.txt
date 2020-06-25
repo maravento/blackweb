@@ -963,9 +963,11 @@
 .meetic.es
 .meetme.com
 .meetup.com
+.megalinks.site
 .megaproxy.com
 .megaproxy.com.ar
 .megapush.online
+.megared.net.mx
 .megaupload2.com
 .megaup.net
 .mellowads.com
