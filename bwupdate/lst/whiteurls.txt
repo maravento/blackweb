@@ -12094,6 +12094,7 @@
 .ms.akadns.net
 .msapprovals.microsoft.com
 .msauction.microsoft.com
+.msauth.net
 .msauthorize.microsoft.com
 .mscollect.partners.extranet.microsoft.com
 .mscollectuat.partners.extranet.microsoft.com
@@ -19564,6 +19565,7 @@
 .dardni.gov.uk
 .dartmoor-npa.gov.uk
 .data.gov
+.datatables.net
 .datos.gov.co
 .davidsoncountync.gov
 .davie-fl.gov
