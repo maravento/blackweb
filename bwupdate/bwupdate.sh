@@ -70,7 +70,7 @@ if [[ $mb == $dlmb ]]; then
 		exit
 fi
 
-# DOWNLOAD BLOCKWEB
+# DOWNLOAD BLACKWEB
 echo
 echo "${cm2[${es}]}"
 svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
