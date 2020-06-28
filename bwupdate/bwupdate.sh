@@ -7,8 +7,8 @@
 # Language spa-eng
 cm1=("Este proceso puede tardar. Sea paciente..." "This process can take. Be patient...")
 cm2=("Descargando Blackweb..." "Downloading Blackweb...")
-cm7=("Descargando Listas Negras..." "Downloading Blacklists...")
-cm8=("Descargando Listas Blancas..." "Downloading Whitelist...")
+cm7=("Descargando Listas de Bloqueo..." "Downloading Blocklists...")
+cm8=("Descargando Listas de Permitidos..." "Downloading Allowlist...")
 cm9=("Actualizando TLD..." "TLD Update...")
 cm10=("Capturando Dominios..." "Capturing Domains...")
 cm11=("Uniendo Listas..." "Joining Lists...")
@@ -16,7 +16,7 @@ cm12=("Depurando Dominios..." "Debugging Domains...")
 cm13=("Validando TLD..." "Validating TLD...")
 cm14=("Depurando Punycode-IDN..." "Debugging PunycodeIDN...")
 cm15=("Búsqueda de DNS..." "DNS Loockup...")
-cm16=("Agregando Blacklist Adicionales..." "Adding Additional Blacklist...")
+cm16=("Agregando Blocklist Adicionales..." "Adding Additional Blocklist...")
 cm17=("Reiniciando Squid..." "Restarting Squid...")
 cm18=("Terminado" "Done")
 cm19=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
@@ -70,7 +70,7 @@ if [[ $mb == $dlmb ]]; then
 		exit
 fi
 
-# DOWNLOAD BLACKWEB
+# DOWNLOAD BLOCKWEB
 echo
 echo "${cm2[${es}]}"
 svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
@@ -78,7 +78,7 @@ cd $bwupdate
 mkdir -p bwtmp >/dev/null 2>&1
 echo "OK"
 
-# DOWNLOADING BLACKURLS
+# DOWNLOADING BLOCKURLS
 echo
 echo "${cm7[${es}]}"
 # download files
@@ -216,12 +216,12 @@ function tgz() {
 
 echo "OK"
 
-# DOWNLOADING WHITEURLS
+# DOWNLOADING ALLOWURLS
 echo
 echo "${cm8[${es}]}"
 # download world_universities_and_domains
 function univ() {
-	$wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/whiteurls.txt
+	$wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/allowurls.txt
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 echo "OK"
@@ -250,7 +250,7 @@ echo "OK"
 echo
 echo "${cm11[${es}]}"
 # create urls.txt
-sed '/^$/d; /#/d' lst/{whiteurls,invalid}.txt | sort -u > urls.txt
+sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
 # add oldurls.txt to capture
 tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # unblock cloud/sync/telemetry
@@ -309,13 +309,13 @@ sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fault.txt
 echo "OK"
 
-# ADD BLACKLIST BLACKTLDS
+# ADD BLOCKLIST BLOCKTLDS
 echo
 echo "${cm16[${es}]}"
-# add blackurls, blacktlds
-cat lst/{blackurls,blacktlds}.txt >> hit.txt
+# add blockurls, blocktlds
+cat lst/{blockurls,blocktlds}.txt >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blackurls,blacktlds}.txt) hit.txt | sort -u > blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blockurls,blocktlds}.txt) hit.txt | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE

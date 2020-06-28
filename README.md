@@ -1,14 +1,22 @@
 # [Blackweb](https://www.maravento.com/p/blacklistweb.html)
 
-**Blackweb** is a project that collects and unifies public blacklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/)
+**Blackweb** is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/)
 
-**Blackweb** es un proyecto que recopila y unifica listas negras públicas de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/)
+**Blackweb** es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/)
+
+## ETYMOLOGY
+
+---
+
+In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used. A greylist contains items that are temporarily blocked (or temporarily allowed) until an additional step is performed [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
+
+En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando. Una lista gris contiene elementos que se bloquean temporalmente (o se permiten temporalmente) hasta que se realiza un paso adicional [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
 
 ## DATA SHEET
 
 ---
 
-|lst|Black Domains|.txt|
+|lst|Blocklist Domains|.txt|
 | :---: | :---: | :---: |
 |blackweb.txt|3.285.789|75,9 MB|
 
@@ -65,14 +73,14 @@ http_access deny blackweb
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
 - Use `whitedomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `whitedomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
-- Use blackdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blackdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
+- Use blockdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```bash
-acl whitedomains dstdomain "/path_to/whitedomains.txt"
-acl blackdomains dstdomain "/path_to/blackdomains.txt"
+acl allowdomains dstdomain "/path_to/allowdomains.txt"
+acl blockdomains dstdomain "/path_to/blockdomains.txt"
 acl blackweb dstdomain "/path_to/blackweb.txt"
-http_access allow whitedomains
-http_access deny blackdomains
+http_access allow allowdomains
+http_access deny blockdomains
 http_access deny blackweb
 ```
 
@@ -96,13 +104,13 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 >To guarantee update execution, before starting, script check bandwidth (with [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). If it is > 1 Mbit/s, update continues; else, it shows warning messages and it is recommended to interrupt update / Para garantizar la ejecución de la actualización, antes de comenzar, el script verifica el acho de banda (con [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). Si es > 1 Mbit/s, la actualización continúa; de lo contrario, muestra mensajes de advertencia y se recomienda interrumpir la actualización
 
-#### Capture Public Blacklists
+#### Capture Public Blocklists
 
->Capture domains from downloaded public blacklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file / Captura los dominios de las listas negras públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo
+>Capture domains from downloaded public blocklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file / Captura los dominios de las listas de bloqueo públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo
 
 #### Domain Debugging
 
->Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a whitelist (`whiteurls.txt`) / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista blanca (`whiteurls.txt`)
+>Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`allowurls.txt`) / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`allowurls.txt`)
 
 ```bash
 com
@@ -181,7 +189,7 @@ FAULT testfaultdomain.com
 
 #### TLD Block
 
->Add Black TLDs to block any domain that contains one. Edit `blacktlds.txt` and add or remove the TLDs you want to block / Agrega Black TLDs para bloquear cualquier dominio que contenga alguno. Edite `blacktlds.txt` y agrege o elimine los TLDs que quiera bloquear
+>Add Block TLDs to block any domain that contains one. Edit `blocktlds.txt` and add or remove the TLDs you want to block / Agrega Block TLDs para bloquear cualquier dominio que contenga alguno. Edite `blocktlds.txt` y agrege o elimine los TLDs que quiera bloquear
 
 ```bash
 .adult
@@ -221,16 +229,16 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ---
 
-### Blacklists
+### Blocklists
 
-#### Blacklists Active
+#### Blocklists Active
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [Adaway](http://adaway.org/hosts.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
-- [anudeepND Blacklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
+- [anudeepND Blocklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/iPv4Hosts.txt) and [Scam Websites, Crypto Miners and Fake new](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts))
@@ -291,7 +299,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-#### Blacklists Inactive
+#### Blocklists Inactive
 
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) (Server Down. Last Updated Known Dec, 2016. Added to: `oldurls.txt`)
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE). Last Updated Known Jul 24, 2017. Added to: `oldurls.txt`)
@@ -312,8 +320,8 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ### Work Lists
 
-- [Black TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Black URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
