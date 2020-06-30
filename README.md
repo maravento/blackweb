@@ -8,16 +8,17 @@
 
 ---
 
-Due to recent arbitrary changes in computer terminology, it is necessary to clarify the meaning and connotation of the term **blacklist**, associated with this project: 
-*In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used.*
+Due to recent arbitrary changes in computer terminology, it is necessary to clarify the meaning and connotation of the term **blacklist**, associated with this project: *In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used.*
 
-Debido a los recientes cambios arbitrarios en la terminología informática, es necesario aclarar el significado y connotación del término **blacklist**, asociado a este proyecto: 
-*En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando.*
+Debido a los recientes cambios arbitrarios en la terminología informática, es necesario aclarar el significado y connotación del término **blacklist**, asociado a este proyecto: *En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando.*
 
 Source [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
 
-Therefore, **blacklist**, **blackweb**, **blackip**, etc., have nothing to do with racial discrimination.
-Por tanto, **blacklist**, **blackweb**, **blackip**, etc.,  no tienen ninguna relación con la discriminación racial.
+Therefore / Por tanto
+
+**blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist**, **etc.**
+
+are terms that have nothing to do with racial discrimination / son términos que no tienen ninguna relación con la discriminación racial
 
 ## DATA SHEET
 
@@ -26,14 +27,6 @@ Por tanto, **blacklist**, **blackweb**, **blackip**, etc.,  no tienen ninguna re
 |lst|Blocklist Domains|.txt|
 | :---: | :---: | :---: |
 |blackweb.txt|3.285.789|75,9 MB|
-
-## DEPENDENCIES
-
----
-
-```bash
-git subversion squid bash tar zip wget piconv curl python idn2 xargs awk notify-send
-```
 
 ## GIT CLONE
 
@@ -49,10 +42,15 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 
 **blackweb.txt** is already updated and optimized para Squid-Cache. Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule) / **blackweb.txt** ya viene actualizada y optimizada para Squid-Cache. Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule)
 
-### Download and Checksum
+### Download
 
 ```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+```
+
+### Checksum
+
+```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
@@ -79,7 +77,7 @@ http_access deny blackweb
 
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
-- Use `whitedomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `whitedomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
+- Use `allowdomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
 - Use blockdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```bash
@@ -105,6 +103,12 @@ This section is only to explain how update and optimization process works. It is
 
 ```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
+```
+
+#### Dependencies
+
+```bash
+git subversion squid bash tar zip wget piconv curl python idn2 xargs awk notify-send
 ```
 
 #### Bandwidth Check (optional)
@@ -236,9 +240,9 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ---
 
-### Blocklists
+### Blacklists
 
-#### Blocklists Active
+#### Active Blocklists
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
@@ -253,9 +257,8 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Carl Spam](http://www.carl.net/spam/access.txt)
 - [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
-- [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 - [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
-- [cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/List.txt)
+- [cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt)
 - [crazy-max WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 - [Dawsey21 List](https://github.com/Dawsey21/Lists)
 - [Disconnect.me](https://disconnect.me/) (included: [simple_ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt), [simple_malvertising](https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt), [simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt))
@@ -267,34 +270,31 @@ Blackweb: Done 06/05/2019 15:47:14
 - [hBlock](https://hblock.molinero.dev/hosts_domains.txt)
 - [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 - [hostsfile.mine.nu](https://hostsfile.mine.nu/hosts0.txt)
-- [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 - [Joelotz URL Blacklist](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
 - [Joewein Blacklist](http://www.joewein.de/sw/bl-text.htm)
 - [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
 - [malc0de](http://malc0de.com/bl/)
-- [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [Malware Domains Blacklist](http://mirror1.malwaredomains.com/files/justdomains)
-- [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
+- [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [Matomo-org referrer-spam-blacklist](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 - [MESD blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
 - [MobileAdTrackers](https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts)
-- [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
+- [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [notabug latvian-list](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [Oleksiig Blacklist](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish](https://openphish.com/feed.txt)
 - [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 - [Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [Quedlin blacklist](https://github.com/quedlin/blacklist/blob/master/domains)
-- [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt), [trackers](https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt), [qmalware](https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt))
+- [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt))
 - [Ransomware Abuse](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
 - [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
 - [reddestdream](https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts)
 - [securemecca.net and hostsfile.org](https://hostsfile.org/Downloads/hosts.txt)
 - [Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
 - [Someonewhocares](http://someonewhocares.org/hosts/hosts)
-- [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [StevenBlack](https://github.com/StevenBlack) (included: [add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts), [add.Risk](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts), [fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts), [hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), [spam](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts), [uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts))
 - [Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
 - [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
@@ -306,43 +306,47 @@ Blackweb: Done 06/05/2019 15:47:14
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-#### Blocklists Inactive
+#### Inactive Blocklists (Added to: `oldurls.txt`)
 
-- [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt) (Server Down. Last Updated Known Dec, 2016. Added to: `oldurls.txt`)
-- [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com) ([Server Down](https://groups.google.com/forum/#!topic/e2guardian/7WeHpD-54LE). Last Updated Known Jul 24, 2017. Added to: `oldurls.txt`)
+- [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
+- [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
+- [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
+- [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
+- [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
+- [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
 
-### Whitelist (URLs/TLDs)
+### Whitelist (URL/TLD)
 
-#### Whitelist Active
+#### Active Allowlist
 
-- [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
-- [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
-- [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
+- [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
+- [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
+- [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-#### Whitelist Inactive
+#### Inactive Allowlist
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
-### Work Lists
+### Worklists
 
+- [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [White URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
-### Work Tools
+### Worktools
 
-- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
+- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh)
 
 ## BACKLINKS

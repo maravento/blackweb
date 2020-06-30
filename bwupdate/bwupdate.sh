@@ -32,15 +32,13 @@ echo "${cm1[${es}]}"
 bwupdate=$(pwd)/bwupdate
 date=`date +%d/%m/%Y" "%H:%M:%S`
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-wgetd="wget -q -c --retry-connrefused -t 0"
+wgetd="wget -c --retry-connrefused -t 0"
 xdesktop=$(xdg-user-dir DESKTOP)
 # PATH_TO_ACL (Change it to the directory of your preference)
 route=/etc/acl
 
 # DELETE OLD REPOSITORY
 if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
-# CREATE PATH
-if [ ! -d $route ]; then mkdir -p $route; fi
 
 # CHECKING DOWNLOAD BANDWIDTH (Optional)
 # https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh
@@ -88,10 +86,10 @@ function blurls() {
 	blurls 'http://adaway.org/hosts.txt' && sleep 1
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'http://margevicius.lt/easylistlithuania.txt' && sleep 1
 	blurls 'http://mirror1.malwaredomains.com/files/justdomains' && sleep 1
 	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+	blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
 	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
@@ -101,12 +99,8 @@ function blurls() {
 	blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
 	blurls 'https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
-	blurls 'https://hosts-file.net/ad_servers.txt' && sleep 1
-	blurls 'https://hosts-file.net/emd.txt' && sleep 1
-	blurls 'https://hosts-file.net/exp.txt' && sleep 1
-	blurls 'https://hosts-file.net/grm.txt' && sleep 1
-	blurls 'https://hosts-file.net/psh.txt' && sleep 1
 	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
+	blurls 'https://hosts.nfz.moe/full/hosts' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/domains.txt' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
@@ -128,13 +122,13 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts)' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/CHEF-KOCH/BarbBlock-filter-list/master/HOSTS.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/List.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
 	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' && sleep 1
@@ -143,8 +137,6 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
@@ -174,13 +166,11 @@ function blurls() {
 	blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
 	blurls 'https://www.dshield.org/feeds/suspiciousdomains_High.txt' && sleep 1
 	blurls 'https://www.dshield.org/feeds/suspiciousdomains_Medium.txt' && sleep 1
-	blurls 'https://www.squidblacklist.org/downloads/dg-ads.acl' && sleep 1
-	blurls 'https://www.squidblacklist.org/downloads/dg-malicious.acl' && sleep 1
 	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
 	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
+	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional' && sleep 1
-	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
@@ -192,15 +182,6 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts' && sleep 1
-	blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
-	blurls 'https://hosts.nfz.moe/full/hosts' && sleep 1
-
-# download and fix hosts.txt blacklist (malformed UTF-8 character)
-function blhosts() {
-	$wgetd "$1" -O hosts.txt && piconv -f cp1252 -t UTF-8 < hosts.txt >> bwtmp/bw
-}
-	blhosts 'http://hosts-file.net/download/hosts.txt' && sleep 1
 
 # download .tar.gz/.tgz
 function targz() {
@@ -316,27 +297,6 @@ echo "${cm16[${es}]}"
 cat lst/{blockurls,blocktlds}.txt >> hit.txt
 # clean hit
 grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blockurls,blocktlds}.txt) hit.txt | sort -u > blackweb.txt
-echo "OK"
+echo "end"
 
-# RELOAD SQUID-CACHE
-echo
-echo "${cm16[${es}]}"
-# copy blaclweb to path
-sudo cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
-echo "OK"
-# Squid Reload
-# First Edit /etc/squid/squid.conf and add lines:
-# acl blackweb dstdomain -i "/path_to/blackweb.txt"
-# http_access deny blackweb
-sudo bash -c 'squid -k reconfigure' 2> SquidError.txt
-sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt
-sort -o SquidError.txt -u SquidError.txt
-python tools/debug_error.py
-sudo cp -f final $route/blackweb.txt >/dev/null 2>&1
-sudo bash -c 'squid -k reconfigure' 2> $xdesktop/SquidError.txt
-sudo bash -c 'echo "Blackweb $date" >> /var/log/syslog'
-# END
-echo
-echo "${cm18[${es}]}"
-echo "${cm19[${es}]}"
 notify-send "Blackweb Update: Done"
