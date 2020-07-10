@@ -324,6 +324,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Blocklist Ultrasurf Domains](https://raw.githubusercontent.com/maravento/lockstring/master/bld)
 
 ### Worktools
 

@@ -187,6 +187,7 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/bld' && sleep 1
 
 # download .tar.gz/.tgz
 function targz() {
