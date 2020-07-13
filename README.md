@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3285789|75,9 MB|
+|blackweb.txt|3422230|78,5 MB|
 
 ## GIT CLONE
 
@@ -218,7 +218,7 @@ Blackweb: Done 06/05/2019 15:47:14
 #### Important about Blackweb Update
 
 - The default path of **blackweb** is `/etc/acl`. You can change it for your preference / El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el de su preferencia
-- `bwupdate.sh` includes lists of domains related to cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), remote support (Teamviewer, Anydesk, logmein, etc) and telemetry (May contain false positives). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives / `bwupdate.sh` incluye listas de dominios relacionados con cloud/sync (Mega, Dropbox, Pcloud, iCloud, etc), soporte remoto (Teamviewer, Anydesk, logmein, etc) y telemetría (Puede contener falsos positivos). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos
+- `bwupdate.sh` includes lists of domains related to remote support (Teamviewer, Anydesk, logmein, etc). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos
 
 ## SOURCES
 
@@ -318,13 +318,11 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [CloudSync URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Telemetry URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Blocklist Ultrasurf Domains](https://raw.githubusercontent.com/maravento/lockstring/master/bld)
+- [Ultrasurf Domains Blocklist](https://raw.githubusercontent.com/maravento/lockstring/master/dbl)
 
 ### Worktools
 

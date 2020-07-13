@@ -187,7 +187,7 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/bld' && sleep 1
+	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/dbl' && sleep 1
 
 # download .tar.gz/.tgz
 function targz() {
@@ -237,10 +237,10 @@ echo "${bw09[${es}]}"
 sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
 # add oldurls.txt to capture
 tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
-# unblock cloud/sync/telemetry
-#sed '/^$/d; /#/d' lst/{cloudsync,remote,telemetry}.txt | sort -u >> urls.txt
-# block cloud/sync/telemetry
-#sed '/^$/d; /#/d' lst/{cloudsync,remote,telemetry}.txt | sort -u >> capture
+# unblock remote
+#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
+# block remote
+#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
 # uniq capture
 sort -o capture -u capture
 echo "OK"
