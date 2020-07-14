@@ -9427,6 +9427,7 @@
 .edge-origin.skype.com
 .edge.skype.com
 .edge.vm.skype.com
+.edgekey.net
 .edinsights.partners.extranet.microsoft.com
 .edinsightsuat.parttest.extranettest.microsoft.com
 .edispm.partners.extranet.microsoft.com
@@ -26847,7 +26848,6 @@
 .dnd.ca
 .domaintools.com
 .doubleverify.com
-.download.macromedia.com
 .dreamhost.com
 .dropbox.com
 .dshield.org
@@ -26859,7 +26859,6 @@
 .e-bbvanetcash.com.co
 .e-collect.com
 .edatel.net.co
-.edgekey.net
 .edgesuite.net
 .efirstbank.com
 .elcolombiano.com
@@ -26926,9 +26925,8 @@
 .flagstar.com
 .fnbcorporation.com
 .fnfg.com
+.force.com
 .forms.gle
-.fpdownload.macromedia.com
-.fpdownload.macromedia.com.edgekey.net
 .franzinfra.com
 .freefilesync.org
 .freegeoip.net
@@ -26954,6 +26952,7 @@
 .godaddy.com
 .golden1.com
 .gongoplay.com
+.gonitro.com
 .gov-auctions.org
 .groovehq.com
 .grupobancolombia.com
@@ -26975,6 +26974,7 @@
 .iana.org
 .ibc.com
 .iberiabank.com
+.ibm.com
 .icloud.com
 .identrust.com
 .ifx.net.co
@@ -27018,6 +27018,8 @@
 .linux.org
 .linuxquestions.org
 .list-manage1.com
+.lpsmedia.net
+.macromedia.com
 .mailchimp.com
 .mailgrupobancolombia.com.co
 .malc0de.com
@@ -27065,6 +27067,7 @@
 .newalliancebank.com
 .nfz.moe
 .nidohosting.com
+.nitrocloud.com
 .northwestsavingsbank.com
 .notabug.org
 .noticiasrcn.com
@@ -27163,6 +27166,7 @@
 .rootg2.crl
 .ruda.slm.cloud
 .runt.com.co
+.s81c.com
 .samsung.com
 .santander.com
 .satbancolombia.com
