@@ -308,7 +308,7 @@ sudo cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
 # First Edit /etc/squid/squid.conf and add lines:
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
-sudo bash -c 'squid -k reconfigure' 2> SquidError.txt
+sudo bash -c 'squid -k reconfigure' 2> SquidError.txt && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> SquidError.txt
 sort -o SquidError.txt -u SquidError.txt
 python tools/debug_error.py

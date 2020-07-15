@@ -240,7 +240,6 @@
 .cloakpoint.com
 .cloudmobi.net
 .cmcm.com
-.cnet.com
 .cnhv.co
 .coffeemeetsbagel.com
 .coinblind.com
@@ -341,7 +340,6 @@
 .diverporno.com
 .divxtotal.la
 .dll.to
-.dlvr.it
 .dnsalias.com
 .dnsalias.net
 .dnsalias.org
@@ -453,8 +451,6 @@
 .eztv.ag
 .eztv.io
 .fabsdeals.com
-.facebook.com
-.facebookmail.com
 .facebook.net
 .facebookproxy.org
 .facebuzz.com
@@ -464,10 +460,6 @@
 .fastproxynetwork.com
 .fastproxysite.net
 .fastusaproxy.com
-.fbcdn.com
-.fbcdn.net
-.fb.com
-.fb.me
 .fbsbx.com
 .fcfan.org
 .fc.lc
@@ -1446,6 +1438,7 @@
 .sh.st
 .shst.us
 .shtyle.fm
+.shurt.pw
 .s.id
 .simple-url.com
 .site2unblock.com
@@ -1560,8 +1553,6 @@
 .tech59.com
 .teenplanet.org
 .telegram.dog
-.telegram.me
-.telegram.org
 .telegra.ph
 .telerik.com
 .telesco.pe
@@ -1784,8 +1775,6 @@
 .weibo.com
 .whaa.tk
 .whatismyproxy.com
-.whatsapp.com
-.whatsapp.net
 .whizurl.com
 .whoer.net
 .whq.org.uk
