@@ -1308,7 +1308,6 @@
 .nt2.ggpht.com
 .nt3.ggpht.com
 .oauth.googleusercontent.com
-.ocsp.pki.goog
 .officialorkutblog.blogspot.com
 .ogs.google.com
 .onetoday-dev-appspot.sandbox.google.com
@@ -1436,6 +1435,7 @@
 .picasaweb.google.com.tw
 .picasaweb.l.google.com
 .pixel.google.com
+.pki.goog
 .pki.google.com
 .play-fe.googleapis.com
 .play.golang.org
@@ -23731,6 +23731,7 @@
 .damascus.vic.edu.au
 .darlngtnps.sa.edu.au
 .dartmouth.edu
+.datafont.com
 .davenport.edu
 .davidson.edu
 .davisny.edu
@@ -26736,6 +26737,7 @@
 .ccb.org.co
 .cccartagena.org.co
 .ccc.org.co
+.cdnpk.net
 .cdp1.public-trust.com
 .cedia.org.ec
 .centralbancompany.com
@@ -26931,6 +26933,8 @@
 .freefilesync.org
 .freegeoip.net
 .freemaptools.com
+.freepik.com
+.freepik.es
 .frostbank.com
 .fsf.org
 .fult.com
@@ -27031,6 +27035,7 @@
 .mbfinancial.com
 .mcafee.com
 .mediawiki.org
+.mercadopago.com
 .mercycorps.org
 .mercycorps.org.co
 .mesadeconversaciones.com.co
