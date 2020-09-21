@@ -26608,6 +26608,7 @@
 .acer.com
 .acme.com
 .acnur.org
+.ada.support
 .adblockplus.org
 .addthis.com
 .adobe.com
@@ -26935,6 +26936,7 @@
 .freemaptools.com
 .freepik.com
 .freepik.es
+.fromsmash.com
 .frostbank.com
 .fsf.org
 .fult.com
@@ -27006,6 +27008,7 @@
 .kiusys.com
 .kiusys.net
 .ksmobile.com
+.kwiqflick.com
 .lair.io
 .lan.com
 .larepublica.com.co
@@ -27188,7 +27191,9 @@
 .segu-info.com.ar
 .sei-consultores.com.co
 .semana.com
+.sendgb.com
 .sendgrid.net
+.sendthisfile.com
 .sertigo.com
 .serverfault.com
 .servientrega.com
@@ -27237,6 +27242,7 @@
 .tdbank.com
 .tegrazone.com
 .telefonica.com
+.terashare.net
 .thawte.com
 .theprivatebank.com
 .thirdfederal.com
@@ -27245,9 +27251,11 @@
 .tiqcdn.com
 .tiquetesbaratos.com
 .todo1.com
+.toffeeshare.com
 .toshiba.com
 .tramitesyconsultas.info
 .transaccionesbancolombia.com
+.transferxl.com
 .trusteer.com
 .trustmark.com
 .tutellus.com
