@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3419598|78,4 MB|
+|blackweb.txt|3425026|78,5 MB|
 
 ## GIT CLONE
 
@@ -321,8 +321,12 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Ultrasurf Domains Blocklist](https://raw.githubusercontent.com/maravento/lockstring/master/dbl)
+
+### Addlists
+
+- [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst/add)
+- [Block Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/lst/add)
 
 ### Worktools
 

@@ -15,9 +15,9 @@ bw12=("Depurando Punycode-IDN..." "Debugging PunycodeIDN...")
 bw13=("1st DNS Loockup...")
 bw14=("2nd DNS Loockup...")
 bw15=("Agregando Blocklist Adicionales..." "Adding Additional Blocklist...")
-bw15=("Reiniciando Squid..." "Restarting Squid...")
-bw16=("Terminado" "Done")
-bw17=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
+bw16=("Reiniciando Squid..." "Restarting Squid...")
+bw17=("Terminado" "Done")
+bw18=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
 test "${LANG:0:2}" == "es"
 es=$?
 
@@ -238,9 +238,9 @@ sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
 # add oldurls.txt to capture
 tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # unblock remote
-#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
+#sed '/^$/d; /#/d' lst/add/remote.txt | sort -u >> urls.txt
 # block remote
-#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
+#sed '/^$/d; /#/d' lst/add/remote.txt | sort -u >> capture
 # uniq capture
 sort -o capture -u capture
 echo "OK"
@@ -318,5 +318,5 @@ sudo bash -c 'echo "Blackweb $date" >> /var/log/syslog'
 echo "OK"
 # END
 echo "${bw17[${es}]}"
-echo "${cm20[${es}]}"
+echo "${bw18[${es}]}"
 notify-send "Blackweb Update: Done"

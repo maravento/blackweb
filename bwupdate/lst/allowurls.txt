@@ -26612,6 +26612,7 @@
 .adblockplus.org
 .addthis.com
 .adobe.com
+.adobe.io
 .adobedtm.com
 .afd.fr
 .agenti.com.co
@@ -26834,6 +26835,7 @@
 .cs-g2-crl.thawte.com
 .custhelp.com
 .cybercrime-tracker.net
+.dafont.com
 .datacredito.com.co
 .daviviendapaypal.com
 .db.com
@@ -27291,6 +27293,7 @@
 .vassg142.ocsp.omniroot.com
 .verisign.com
 .verisign.net
+.vecteezy.com
 .viajala.com.co
 .vigilanciasuperiorprocuraduria.org
 .virtualearth.net
