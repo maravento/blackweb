@@ -278,6 +278,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [reddestdream](https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts)
 - [securemecca.net and hostsfile.org](https://hostsfile.org/Downloads/hosts.txt)
 - [Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
+- [SocialBlockLists](https://github.com/d43m0nhLInt3r/socialblocklists)
 - [Someonewhocares](http://someonewhocares.org/hosts/hosts)
 - [StevenBlack](https://github.com/StevenBlack) (included: [add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts), [add.Risk](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts), [fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts), [hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), [spam](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts), [uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts))
 - [Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
@@ -325,8 +326,9 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ### Addlists
 
-- [Remote URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst/add)
-- [Block Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/lst/add)
+- [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
+- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
+- [Social](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 
 ### Worktools
 

@@ -188,8 +188,13 @@ function blurls() {
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
 	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/dbl' && sleep 1
+	blurls 'https://raw.githubusercontent.com/d43m0nhLInt3r/socialblocklists/master/Agency/agencyblocklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/d43m0nhLInt3r/socialblocklists/master/Tracking/trackingblocklist.txt' && sleep 1
 
-# download .tar.gz/.tgz
+# SOCIAL
+sed '/^$/d; /#/d' add/social.txt | sort -u >> bwtmp/bw
+
+# DOWNLOADING BIG BLOCKLISTS
 function targz() {
 	$wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
 }
@@ -238,9 +243,9 @@ sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
 # add oldurls.txt to capture
 tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # unblock remote
-#sed '/^$/d; /#/d' lst/add/remote.txt | sort -u >> urls.txt
+#sed '/^$/d; /#/d' add/remote.txt | sort -u >> urls.txt
 # block remote
-#sed '/^$/d; /#/d' lst/add/remote.txt | sort -u >> capture
+#sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
 # uniq capture
 sort -o capture -u capture
 echo "OK"

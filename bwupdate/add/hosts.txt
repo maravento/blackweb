@@ -22,6 +22,7 @@
 127.0.0.1 4shared.com
 127.0.0.1 500px.com
 127.0.0.1 50tl.net
+127.0.0.1 51modo.cc
 127.0.0.1 52pr2m2hmoccoa3mo2zqf2.com
 127.0.0.1 5rn6fpymlmdfed.com
 127.0.0.1 6slxnpqfbjarims4pa.com
@@ -73,6 +74,7 @@
 127.0.0.1 allus.com.co
 127.0.0.1 al.ly
 127.0.0.1 alphanoob.com
+127.0.0.1 amap.com
 127.0.0.1 amgload.net
 127.0.0.1 amnserver.com
 127.0.0.1 amung.us
@@ -143,6 +145,7 @@
 127.0.0.1 bit.do
 127.0.0.1 bit.ly
 127.0.0.1 bitly.com
+127.0.0.1 bitmoji.com
 127.0.0.1 bitstamp.net
 127.0.0.1 bitvise.com
 127.0.0.1 bizographics.com
@@ -363,6 +366,7 @@
 127.0.0.1 does-it.net
 127.0.0.1 doesntexist.com
 127.0.0.1 doesntexist.org
+127.0.0.1 dogado.eu
 127.0.0.1 domainhostingonline.xyz
 127.0.0.1 dontexist.com
 127.0.0.1 dontexist.net
@@ -439,6 +443,7 @@
 127.0.0.1 endofinternet.net
 127.0.0.1 endofinternet.org
 127.0.0.1 endoftheinternet.org
+127.0.0.1 energized.pro
 127.0.0.1 engageya.com
 127.0.0.1 epicgames.com
 127.0.0.1 epictorrents.com
@@ -472,6 +477,8 @@
 127.0.0.1 fastusaproxy.com
 127.0.0.1 fcfan.org
 127.0.0.1 fc.lc
+127.0.0.1 fdn.fr
+127.0.0.1 feelinsonice.com
 127.0.0.1 fhcrc.org
 127.0.0.1 fiaharam.net
 127.0.0.1 fiberprox.com
@@ -501,6 +508,7 @@
 127.0.0.1 fleshandbloodoutdoors.com
 127.0.0.1 flipax.net
 127.0.0.1 flixster.com
+127.0.0.1 flurry.com
 127.0.0.1 fly-unicorn.com
 127.0.0.1 fmovie.sc
 127.0.0.1 focus.com
@@ -670,6 +678,7 @@
 127.0.0.1 hdfull.co
 127.0.0.1 headproxy.com
 127.0.0.1 health-carereform.com
+127.0.0.1 hebnews.cn
 127.0.0.1 helperbar.com
 127.0.0.1 helpmehide.net
 127.0.0.1 helpscout.com
@@ -782,7 +791,6 @@
 127.0.0.1 internetwarriors.net
 127.0.0.1 in-the-band.net
 127.0.0.1 invidio.us
-127.0.0.1 invidious.fdn.fr
 127.0.0.1 invidious.ggc-project.de
 127.0.0.1 invidious.glie.town
 127.0.0.1 invidiou.site
@@ -1044,6 +1052,7 @@
 127.0.0.1 mirrored.to
 127.0.0.1 misconfused.org
 127.0.0.1 mitmproxy.org
+127.0.0.1 miui.com
 127.0.0.1 mixer.com
 127.0.0.1 mixi.jp
 127.0.0.1 ml314.com
@@ -1186,6 +1195,7 @@
 127.0.0.1 omiga-plus.com
 127.0.0.1 onelink.to
 127.0.0.1 onewebproxy.com
+127.0.0.1 online-metrix.net
 127.0.0.1 onl.li
 127.0.0.1 on-the-web.tv
 127.0.0.1 onthewifi.com
@@ -1204,6 +1214,7 @@
 127.0.0.1 outbrainimg.com
 127.0.0.1 ow.ly
 127.0.0.1 pampaporno.com
+127.0.0.1 paopaotuan.org
 127.0.0.1 papoto.com
 127.0.0.1 pastepvp.org
 127.0.0.1 pastewma.com
@@ -1338,6 +1349,7 @@
 127.0.0.1 qlink.me
 127.0.0.1 qone8.com
 127.0.0.1 qpiyz.com
+127.0.0.1 qplus.com
 127.0.0.1 qq.com
 127.0.0.1 quantserve.com
 127.0.0.1 quezy.xyz
@@ -1407,8 +1419,13 @@
 127.0.0.1 savetubevideo.com
 127.0.0.1 sbooks.best
 127.0.0.1 scammed.by
+127.0.0.1 sc-cdn.net
+127.0.0.1 sc-gw.com
 127.0.0.1 schoolproxy.info
+127.0.0.1 sc-jpl.com
 127.0.0.1 scoop.it
+127.0.0.1 sc-prod.ne
+127.0.0.1 sc-prod.net
 127.0.0.1 scrapping.cc
 127.0.0.1 scuseami.net
 127.0.0.1 sdpaste.com
@@ -1481,6 +1498,7 @@
 127.0.0.1 shurt.pw
 127.0.0.1 s.id
 127.0.0.1 simple-url.com
+127.0.0.1 sina.cn
 127.0.0.1 site2unblock.com
 127.0.0.1 siteco.com.co
 127.0.0.1 sitesunblocked.com
@@ -1499,11 +1517,13 @@
 127.0.0.1 smarturl.it
 127.0.0.1 smoz.us
 127.0.0.1 smugmug.com
+127.0.0.1 snapads.com
 127.0.0.1 snapchat.com
 127.0.0.1 snapengage.com
 127.0.0.1 snappea.com
 127.0.0.1 snnd.co
 127.0.0.1 snopyta.org
+127.0.0.1 snssdk.com
 127.0.0.1 snwmds.com
 127.0.0.1 snwmds.net
 127.0.0.1 snwmds.org
@@ -1659,6 +1679,7 @@
 127.0.0.1 torrents-pro.pro
 127.0.0.1 torrentz2.eu
 127.0.0.1 to.tc
+127.0.0.1 toutiao.com
 127.0.0.1 towinbackyourex.com
 127.0.0.1 toyotacasl.com
 127.0.0.1 tozein.com
@@ -1706,6 +1727,7 @@
 127.0.0.1 ultimatepro.us
 127.0.0.1 ul.to
 127.0.0.1 ultrasurfing.com
+127.0.0.1 umeng.co
 127.0.0.1 umeng.com
 127.0.0.1 unblockblockedwebsites.com
 127.0.0.1 unblocked.biz
@@ -1829,7 +1851,6 @@
 127.0.0.1 webychat.net
 127.0.0.1 wechat.com
 127.0.0.1 weheartit.com
-127.0.0.1 weibo.com
 127.0.0.1 whaa.tk
 127.0.0.1 whatismyproxy.com
 127.0.0.1 whizurl.com
@@ -1866,6 +1887,8 @@
 127.0.0.1 xevd.co
 127.0.0.1 xfcpdtr4yoonszs.com
 127.0.0.1 xfire.com
+127.0.0.1 xiaomi.com
+127.0.0.1 xiaomi.net
 127.0.0.1 xiaoying.co
 127.0.0.1 xing.com
 127.0.0.1 xitesite.com

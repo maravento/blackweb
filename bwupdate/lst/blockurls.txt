@@ -22,6 +22,7 @@
 .4shared.com
 .500px.com
 .50tl.net
+.51modo.cc
 .52pr2m2hmoccoa3mo2zqf2.com
 .5rn6fpymlmdfed.com
 .6slxnpqfbjarims4pa.com
@@ -73,6 +74,7 @@
 .allus.com.co
 .al.ly
 .alphanoob.com
+.amap.com
 .amgload.net
 .amnserver.com
 .amung.us
@@ -112,7 +114,6 @@
 .ayads.co
 .b1t.it
 .b54.in
-.badoo.com
 .baiduccdn1.com
 .baidu.com
 .bajarpelisgratis.com
@@ -143,6 +144,7 @@
 .bit.do
 .bit.ly
 .bitly.com
+.bitmoji.com
 .bitstamp.net
 .bitvise.com
 .bizographics.com
@@ -186,8 +188,6 @@
 .cable-modem.org
 .cafemom.com
 .campoamor.org
-.canalchat.net
-.canalchat.org
 .candid.zone
 .capsulink.com
 .care2.com
@@ -199,7 +199,6 @@
 .cctvhotdeals.com
 .cdduplication.ie
 .cdn77.org
-.cdninstagram.com
 .cechire.com
 .cellufun.com
 .celtichr.com
@@ -207,26 +206,6 @@
 .certified-toolbar.com
 .certum.pl
 .cfts1tifqr.com
-.chartbeat.com
-.chartbeat.net
-.chatarg.com
-.chat-avenue.com
-.chatcolombia.org
-.chateagratis.net
-.chatealo.cl
-.chateamosgratis.com
-.chatear.online
-.chathispano.com
-.chatlatin.org
-.chatous.com
-.chatrad.com
-.chatra.io
-.chatrandom.com
-.chatroulette.com
-.chatschile.com
-.chatsfriends.com
-.chaturbate.com
-.chatzona.org
 .chinaplant.xyz
 .chuporno.com
 .cinecalidad.com
@@ -324,7 +303,6 @@
 .ddns.net
 .dearproxy.in
 .deezer.com
-.del.icio.us
 .delta-homes.com
 .depositfiles.com
 .depositfiles.org
@@ -429,17 +407,15 @@
 .ehehdada.com
 .elasticbeanstalk.com
 .elbo.in
-.elchat.com
-.elchatgratis.org
 .eliteproxyswitcher.com
 .elitesingles.com
 .elitetorrent.biz
 .ello.co
-.emeraldchat.com
 .encarguelo.com
 .endofinternet.net
 .endofinternet.org
 .endoftheinternet.org
+.energized.pro
 .engageya.com
 .epicgames.com
 .epictorrents.com
@@ -474,6 +450,7 @@
 .fcfan.org
 .fc.lc
 .fdn.fr
+.feelinsonice.com
 .fhcrc.org
 .fiaharam.net
 .fiberprox.com
@@ -503,6 +480,7 @@
 .fleshandbloodoutdoors.com
 .flipax.net
 .flixster.com
+.flurry.com
 .fly-unicorn.com
 .fmovie.sc
 .focus.com
@@ -672,6 +650,7 @@
 .hdfull.co
 .headproxy.com
 .health-carereform.com
+.hebnews.cn
 .helperbar.com
 .helpmehide.net
 .helpscout.com
@@ -941,10 +920,6 @@
 .land-4-sale.us
 .landing-papers.xyz
 .largero.com
-.last.fm
-.latinchat.biz
-.latinchats.net
-.latinchats.org
 .ldw3b4by.com
 .leaseweb.com
 .lebtimnetz.de
@@ -1045,6 +1020,7 @@
 .mirrored.to
 .misconfused.org
 .mitmproxy.org
+.miui.com
 .mixer.com
 .mixi.jp
 .ml314.com
@@ -1106,7 +1082,6 @@
 .mysecuritycamera.com
 .mysecuritycamera.net
 .mysecuritycamera.org
-.myspace.com
 .myspaceunblocking.com
 .myspaceunlock.com
 .mytechonline.info
@@ -1187,6 +1162,7 @@
 .omiga-plus.com
 .onelink.to
 .onewebproxy.com
+.online-metrix.net
 .onl.li
 .on-the-web.tv
 .onthewifi.com
@@ -1205,6 +1181,7 @@
 .outbrainimg.com
 .ow.ly
 .pampaporno.com
+.paopaotuan.org
 .papoto.com
 .pastepvp.org
 .pastewma.com
@@ -1235,7 +1212,6 @@
 .pingit.link
 .pingstart.com
 .pinimg.com
-.pinterest.com
 .platinumhideip.com
 .playproxy.com
 .plexapp.com
@@ -1339,6 +1315,7 @@
 .qlink.me
 .qone8.com
 .qpiyz.com
+.qplus.com
 .qq.com
 .quantserve.com
 .quezy.xyz
@@ -1408,8 +1385,13 @@
 .savetubevideo.com
 .sbooks.best
 .scammed.by
+.sc-cdn.net
+.sc-gw.com
 .schoolproxy.info
+.sc-jpl.com
 .scoop.it
+.sc-prod.ne
+.sc-prod.net
 .scrapping.cc
 .scuseami.net
 .sdpaste.com
@@ -1482,6 +1464,7 @@
 .shurt.pw
 .s.id
 .simple-url.com
+.sina.cn
 .site2unblock.com
 .siteco.com.co
 .sitesunblocked.com
@@ -1500,11 +1483,12 @@
 .smarturl.it
 .smoz.us
 .smugmug.com
-.snapchat.com
+.snapads.com
 .snapengage.com
 .snappea.com
 .snnd.co
 .snopyta.org
+.snssdk.com
 .snwmds.com
 .snwmds.net
 .snwmds.org
@@ -1527,7 +1511,6 @@
 .spiritrhythmband.com
 .sports-collectors.com
 .spotbros.com
-.spotify.com
 .spotxchange.com
 .spotx.tv
 .spreaker.com
@@ -1587,11 +1570,8 @@
 .talko.cc
 .tamilrockers.ws
 .tapad.com
-.taringa.net
 .tarla.info
-.tawk.to
 .tbjr6.net
-.t.co
 .tcpvpn.com
 .tdesktop.com
 .teaches-yoga.com
@@ -1605,7 +1585,6 @@
 .telex.cc
 .telly.com
 .tematika.com
-.tfbnw.net
 .tfsallin.net
 .thebestfurnitureidea.tk
 .thebrighttag.com
@@ -1627,18 +1606,14 @@
 .tiiner.com
 .tiktok.com
 .tiktokv.com
-.tinder.com
 .tinyarro.ws
 .tinyarrows.com
 .tinybit.cc
 .tiny.cc
-.tinychat.com
 .tiny.tw
 .tinyurl.com
 .tjgo6auum2q7k.com
 .tkit.tk
-.tmblr.co
-.t.me
 .tmearn.com
 .todaysnews.live
 .toddandsarahrainey.com
@@ -1660,6 +1635,7 @@
 .torrents-pro.pro
 .torrentz2.eu
 .to.tc
+.toutiao.com
 .towinbackyourex.com
 .toyotacasl.com
 .tozein.com
@@ -1678,7 +1654,6 @@
 .tubetitties.com
 .tubeunblock.me
 .tucows.com
-.tumblr.com
 .tunnelbear.com
 .turbobit.net
 .turbobit.pw
@@ -1688,8 +1663,6 @@
 .tu.tv
 .tvproxy.info
 .twimg.com
-.twitter.co
-.twitter.com
 .tyn.ee
 .tysonkirksey.com
 .uach.cl
@@ -1707,6 +1680,7 @@
 .ultimatepro.us
 .ul.to
 .ultrasurfing.com
+.umeng.co
 .umeng.com
 .unblockblockedwebsites.com
 .unblocked.biz
@@ -1827,10 +1801,7 @@
 .websitealive.com
 .websitevpn.com
 .webssearches.com
-.webychat.net
-.wechat.com
 .weheartit.com
-.weibo.com
 .whaa.tk
 .whatismyproxy.com
 .whizurl.com
@@ -1867,6 +1838,8 @@
 .xevd.co
 .xfcpdtr4yoonszs.com
 .xfire.com
+.xiaomi.com
+.xiaomi.net
 .xiaoying.co
 .xing.com
 .xitesite.com
