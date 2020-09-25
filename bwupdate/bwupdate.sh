@@ -99,10 +99,10 @@ function blurls() {
 	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
 	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
+	blurls 'https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
 	blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
-	blurls 'https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
 	blurls 'https://hosts.nfz.moe/full/hosts' && sleep 1
@@ -133,16 +133,24 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/dbl' && sleep 1
 	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
+	blurls 'https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
 	blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
 	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+	blurls 'https://raw.githubusercontent.com/Rpsl/adblock-leadgenerator-list/master/list/list.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
+	blurls 'https://raw.githubusercontent.com/ryanbr/fanboy-adblock/master/fake-news.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/sayomelu/nothingblock/master/filter.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
@@ -152,6 +160,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all' && sleep 1
 	blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
+	blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
 	blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
 	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
@@ -187,12 +196,9 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/maravento/lockstring/master/dbl' && sleep 1
-	blurls 'https://raw.githubusercontent.com/d43m0nhLInt3r/socialblocklists/master/Agency/agencyblocklist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/d43m0nhLInt3r/socialblocklists/master/Tracking/trackingblocklist.txt' && sleep 1
 
 # SOCIAL
-sed '/^$/d; /#/d' add/social.txt | sort -u >> bwtmp/bw
+cat lst/blocksocial.txt >> bwtmp/bw
 
 # DOWNLOADING BIG BLOCKLISTS
 function targz() {

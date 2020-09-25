@@ -3486,7 +3486,6 @@
 .staging-prod.blogger.corp.google.com
 .staging-weekly.blogger.corp.google.com
 .staging-weekly.blogspot.corp.google.com
-.static.2mdn.net
 .static.googleusercontent.com
 .static.panoramio.com
 .static.panoramio.com.storage.googleapis.com
@@ -15862,7 +15861,6 @@
 .ryu3redmine.japaneast.cloudapp.azure.com
 .s-0001.s-msedge.net
 .s-0004.s-msedge.net
-.s0.2mdn.net
 .s0.assets-yammer.com
 .s11.billing.ext.azure.com
 .s12.billing.ext.azure.com
@@ -19026,7 +19024,6 @@
 .reisen.yahoo.com
 .resumen2013.espanol.yahoo.com
 .rss.news.yahoo.com
-.sb.scorecardresearch.com
 .sc5.yahoo.com
 .scd.yahoo.com
 .scorecardresearch.com
@@ -19068,7 +19065,9 @@
 .yahooapis.com
 .yahoo.ca
 .yahoo.cam
+.yahoo.cm
 .yahoo.cn
+.yahoo.co
 .yahoo.co.id
 .yahoo.co.jp
 .yahoo.co.kr
@@ -27182,6 +27181,7 @@
 .satbancolombia.com
 .satena.com
 .satena.shop
+.sap.com
 .sca1b.crl
 .sca1b.crt
 .schwab.com
@@ -27200,7 +27200,6 @@
 .serverfault.com
 .servientrega.com
 .shallalist.de
-.sharepoint.com
 .simbogota.com.co
 .simit.org.co
 .simple.co

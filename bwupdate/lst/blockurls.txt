@@ -1,4 +1,5 @@
 .0daydown.com
+.1001tracklists.com
 .10short.com
 .1337x.pl
 .16yd.com
@@ -12,6 +13,7 @@
 .2giga.link
 .2proxy.de
 .301.li
+.360yield.com
 .39slxu3bw.ru
 .3utilities.com
 .3y5bs.com
@@ -111,6 +113,10 @@
 .avxhm.se
 .awdescargas.com
 .awesomehp.com
+.awsdns-04.co.uk
+.awsdns-26.net
+.awsdns-55.com
+.awsdns-56.org
 .ayads.co
 .b1t.it
 .b54.in
@@ -139,6 +145,7 @@
 .better-than.tv
 .big780.com
 .bigfile.to
+.bilibili.com
 .binbox.io
 .bin.wf
 .bit.do
@@ -449,7 +456,6 @@
 .fastusaproxy.com
 .fcfan.org
 .fc.lc
-.fdn.fr
 .feelinsonice.com
 .fhcrc.org
 .fiaharam.net
@@ -618,6 +624,7 @@
 .goldenfrog.com
 .golffan.us
 .gomoviesfree.sc
+.goo.gl
 .googleanalytcs.com
 .gooveo.net
 .goredirect.party
@@ -874,6 +881,7 @@
 .jsccnn.com
 .jscdndel.com
 .jsecoin.com
+.jsfiddle.net
 .juegosfriv2018.link
 .juegosfriv.com
 .justamericanjackets.com
@@ -947,7 +955,6 @@
 .linkshrink.net
 .linkto.net
 .liveappsearch.com
-.livechatinc.com
 .livehelpnow.net
 .livejasmin.com
 .liveperson.com
@@ -1034,9 +1041,14 @@
 .mobpowertech.com
 .mobsmovement.com
 .mocospace.com
+.moda.com.pe
 .monerise.com
 .monerominer.rocks
 .mookie1.com
+.moonbit.co.in
+.moondash.co.in
+.moondoge.co.in
+.moonliteco.in
 .mopub.com
 .morningdigit.com
 .mp3.es
@@ -1070,7 +1082,6 @@
 .myheritage.com
 .myiphide.com
 .myjetweb.xyz
-.mylivechat.com
 .mymediapc.net
 .mypets.ws
 .myphotos.cc
@@ -1198,6 +1209,7 @@
 .pelismart.com
 .pelispedia.cc
 .pelispedia.tv
+.pelisplus.co
 .pelisplushd.net
 .pelisplus.me
 .pelispop.com
@@ -1298,6 +1310,7 @@
 .proxyweb.com.es
 .proxy.web.id
 .proxywebproxy.info
+.pscp.tv
 .psiphon3.com
 .psiphon.ca
 .psiphontoday.com
@@ -1316,7 +1329,6 @@
 .qone8.com
 .qpiyz.com
 .qplus.com
-.qq.com
 .quantserve.com
 .quezy.xyz
 .quick-hide-ip.com
@@ -1340,7 +1352,6 @@
 .reasonsecurity.com
 .rebrandly.com
 .redbull.tv
-.reddit.com
 .re-direcciona.me
 .redirect2719.ws
 .redirectme.net
@@ -1483,7 +1494,6 @@
 .smarturl.it
 .smoz.us
 .smugmug.com
-.snapads.com
 .snapengage.com
 .snappea.com
 .snnd.co
@@ -1503,7 +1513,6 @@
 .sonarr.tv
 .sonico.com
 .sosdangereolien.com
-.soundcloud.com
 .sourceforge.net
 .space-to-rent.com
 .spapps.co
@@ -1576,6 +1585,7 @@
 .tdesktop.com
 .teaches-yoga.com
 .teads.tv
+.tealdit.com
 .tech59.com
 .teenplanet.org
 .telegram.dog
@@ -1604,8 +1614,6 @@
 .tighturl.com
 .tii.ai
 .tiiner.com
-.tiktok.com
-.tiktokv.com
 .tinyarro.ws
 .tinyarrows.com
 .tinybit.cc
@@ -1662,7 +1670,6 @@
 .tusfiles.com
 .tu.tv
 .tvproxy.info
-.twimg.com
 .tyn.ee
 .tysonkirksey.com
 .uach.cl
@@ -1747,6 +1754,7 @@
 .viadeo.com
 .viajeschavez.es
 .viber.com
+.vice.com
 .vico3.online
 .vidadivinapioneros.com
 .vidd.ws
@@ -1755,8 +1763,6 @@
 .vidible.tv
 .vid.mint.lgbt
 .viglink.com
-.vimeocdn.com
-.vimeo.com
 .vimeonk.com
 .vindicosuite.com
 .vine.co
@@ -1804,10 +1810,12 @@
 .weheartit.com
 .whaa.tk
 .whatismyproxy.com
+.whisper.sh
 .whizurl.com
 .whoer.net
 .whq.org.uk
 .wibbitz.com
+.wibiya.com
 .wickercentral.com
 .wickr.com
 .widdit.com
