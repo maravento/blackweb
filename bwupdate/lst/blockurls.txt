@@ -454,6 +454,7 @@
 .fastproxynetwork.com
 .fastproxysite.net
 .fastusaproxy.com
+.fcdot.lc
 .fcfan.org
 .fc.lc
 .feelinsonice.com
@@ -1343,6 +1344,7 @@
 .rarbg.to
 .rarzip.download
 .rayjump.com
+.rdircto.link
 .reactor.cc
 .read-books.org
 .readmyblog.org

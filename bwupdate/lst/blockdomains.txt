@@ -1,10 +1,10 @@
 .ggpht.com
-.goo.gl
-.play.google.com
+.googlesyndication.com
 .googlevideo.com
-.rewind.youtube
+.play.google.com
 .video-stats.l.google.com
 .youtu.be
+.youtube
 .youtube.com
 .youtube.com.br
 .youtube.co.nz
@@ -19,4 +19,3 @@
 .youtube.ru
 .ytimg.com
 .ytimg.l.google.com
-.googlesyndication.com
