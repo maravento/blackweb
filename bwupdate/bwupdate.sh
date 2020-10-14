@@ -196,6 +196,7 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	blurls 'https://feeds.opensquat.com/domain-names.txt' && sleep 1
 
 # SOCIAL
 cat lst/blocksocial.txt >> bwtmp/bw

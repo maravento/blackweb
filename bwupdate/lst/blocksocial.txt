@@ -86,6 +86,8 @@
 .linkedin.com
 .livechat.com
 .livechatinc.com
+.liveperson.com
+.liveperson.net
 .messenger.com
 .m.me
 .muscdn.com

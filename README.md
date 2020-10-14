@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3494325|79,6 MB|
+|blackweb.txt|3506716|79,8 MB|
 
 ## GIT CLONE
 
@@ -281,6 +281,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [nothingblock](https://github.com/dorxmi/nothingblock)
 - [Oleksiig](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish](https://openphish.com/feed.txt)
+- [opensquat](https://feeds.opensquat.com/domain-names.txt)
 - [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 - [Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [Quedlin](https://github.com/quedlin/blacklist/blob/master/domains)

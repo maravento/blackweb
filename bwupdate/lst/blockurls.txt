@@ -1,5 +1,6 @@
 .0daydown.com
 .1001tracklists.com
+.10ru.pt
 .10short.com
 .1337x.pl
 .16yd.com
@@ -93,6 +94,7 @@
 .applicationinsights.io
 .applicationinsights.net
 .appsflyer.com
+.apster.com
 .aptrixx.com
 .araseks.com
 .arcai.com
@@ -173,6 +175,7 @@
 .bounceme.net
 .bp2cnxjcroh.com
 .brasilia.me
+.break.com
 .brightcove.com
 .broke-it.net
 .brothersoft.com
@@ -251,6 +254,7 @@
 .complitly.com
 .com-reward.com
 .concretesoftware.com
+.conduit-data.com
 .connectedglobalgroup.com
 .consensu.org
 .contestugc.com
@@ -473,6 +477,7 @@
 .filenugget.com
 .filerio.in
 .filescdn.com
+.fileserver.co.kr
 .filesupload.org
 .file-up.org
 .filmathar.blogspot.com
@@ -600,6 +605,7 @@
 .gasolina.ml
 .gatherproxy.com
 .gblocker.info
+.g-content.bid
 .gdanstum.net
 .geekgalaxy.com
 .geekproxy.com
@@ -762,6 +768,7 @@
 .inside-shops.com
 .insidethehotel.com
 .insightexpressai.com
+.instructure.com
 .intercambiosvirtuales.org
 .intercom.com
 .intercom.io
@@ -929,6 +936,7 @@
 .land-4-sale.us
 .landing-papers.xyz
 .largero.com
+.lcn.cc
 .ldw3b4by.com
 .leaseweb.com
 .lebtimnetz.de
@@ -1131,6 +1139,7 @@
 .nflxso.net
 .nflxvideo.net
 .nhlfan.net
+.nimiq.agency
 .nin.com
 .nincsmail.com
 .ning.com
@@ -1138,6 +1147,7 @@
 .ninjacloak.com
 .ninjaproxy.co.uk
 .ninjaweb.xyz
+.nintenderos.com
 .nitroflare.com
 .nk.pl
 .nntime.com
@@ -1192,6 +1202,7 @@
 .outbrain.com
 .outbrainimg.com
 .ow.ly
+.package12.com
 .pampaporno.com
 .paopaotuan.org
 .papoto.com
@@ -1205,6 +1216,7 @@
 .pdlinks.co
 .peliculaonlinehd.com
 .peliculas1mega.com
+.peliculas-dvdrip.com
 .pelisap.com
 .pelisforte.co
 .pelismart.com
@@ -1366,6 +1378,7 @@
 .repelises.com
 .reverbnation.com
 .revmobads.com
+.revogamers.net
 .rfihub.com
 .rgho.st
 .rhapsody.com
@@ -1457,6 +1470,7 @@
 .share-online.biz
 .sharethis.com
 .shauninman.com
+.shenyangxg.com
 .shink.me
 .shon.xyz
 .shorten.me
@@ -1531,6 +1545,7 @@
 .ssyoutube.com
 .stackpathdns.com
 .staticimgfarm.com
+.statistic.date
 .stealthy.co
 .steepto.com
 .stel.com
@@ -1583,6 +1598,7 @@
 .tapad.com
 .tarla.info
 .tbjr6.net
+.tbliab.net
 .tcpvpn.com
 .tdesktop.com
 .teaches-yoga.com
@@ -1672,6 +1688,7 @@
 .tusfiles.com
 .tu.tv
 .tvproxy.info
+.twojanagroda.pl
 .tyn.ee
 .tysonkirksey.com
 .uach.cl
@@ -1834,6 +1851,7 @@
 .womenalia.com
 .wordsandpublicity.com
 .workisboring.com
+.worldmoviesz.com
 .worse-than.tv
 .writesthisblog.com
 .wupload.com
@@ -1852,6 +1870,7 @@
 .xiaomi.net
 .xiaoying.co
 .xing.com
+.xinhuacybz.com
 .xitesite.com
 .xnxx.es
 .xroxy.com
@@ -1889,6 +1908,7 @@
 .zend2.com
 .zendesk.com
 .zenmate.com
+.zenodo.org
 .zenvpn.net
 .zheat.info
 .zipansion.com

@@ -26611,8 +26611,8 @@
 .adblockplus.org
 .addthis.com
 .adobe.com
-.adobe.io
 .adobedtm.com
+.adobe.io
 .afd.fr
 .agenti.com.co
 .agkn.com
@@ -26634,6 +26634,7 @@
 .apnic.net
 .apopo.org
 .aportesenlinea.com
+.appdynamics.com
 .apple.com
 .apple.com.au
 .apps.co
@@ -26900,6 +26901,7 @@
 .esigna.me
 .etb.net.co
 .etrade.com
+.eum-appdynamics.com
 .eu.surveymonkey.com
 .eu.surveymonkey.net
 .everbank.com
@@ -26948,8 +26950,8 @@
 .geotrust.com
 .ghostery.com
 .girosyfinanzas.com
-.github.com
 .githubassets.com
+.github.com
 .githubusercontent.com
 .gitlab.com
 .gitlab.io
@@ -27180,15 +27182,16 @@
 .s81c.com
 .samsung.com
 .santander.com
+.sap.com
 .satbancolombia.com
 .satena.com
 .satena.shop
-.sap.com
 .sca1b.crl
 .sca1b.crt
 .schwab.com
 .scribd.com
 .sdccu.com
+.secomtrust.net
 .secrepo.com
 .secure.globalsign.com
 .secureserver.net
@@ -27216,6 +27219,7 @@
 .solipagosonline.com.co
 .someonewhocares.org
 .somersettechsolutions.co.uk
+.splash-screen.net
 .squidblacklist.org
 .squid-cache.org
 .ssca-sha2-g6.crl
@@ -27292,9 +27296,9 @@
 .vanguardia.com
 .vassg142.crl.omniroot.com
 .vassg142.ocsp.omniroot.com
+.vecteezy.com
 .verisign.com
 .verisign.net
-.vecteezy.com
 .viajala.com.co
 .vigilanciasuperiorprocuraduria.org
 .virtualearth.net
@@ -27327,6 +27331,7 @@
 .wetransfer.com
 .whatbrowser.org
 .whatismyipaddress.com
+.whatwg.org
 .whereby.com
 .whitneybank.com
 .whoisxmlapi.com
