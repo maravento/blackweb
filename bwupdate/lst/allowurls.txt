@@ -18885,6 +18885,19 @@
 .analytics.yahoo.com
 .answers.yahoo.com
 .any-l.aycs.b.yahoodns.net
+.aol.ca
+.aol.com
+.aol.com.ar
+.aol.com.au
+.aol.com.br
+.aol.com.mx
+.aol.co.nz
+.aol.co.uk
+.aol.de
+.aol.es
+.aol.fr
+.aol.in
+.aol.jp
 .api.flickr.com
 .ar.answers.yahoo.com
 .asia.groups.yahoo.com
@@ -26975,6 +26988,7 @@
 .hicloud.com
 .hipertextual.com
 .hncbank.com
+.home.blog
 .hostsfile.mine.nu
 .hosts-file.net
 .hostsfile.org
