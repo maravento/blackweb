@@ -242,7 +242,7 @@ piconv -f cp1252 -t UTF-8 < captmp1 > captmp2
 sed -r 's:(^\.*?(www|ftp|http)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "."$1}' | sort -u > capture
 echo "OK"
 
-# JOIN LIST
+# JOIN AND UPDATE LIST
 echo "${bw09[${es}]}"
 # create urls.txt
 sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
@@ -252,6 +252,8 @@ tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> urls.txt
 # block remote
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
+# update hosts file
+sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/{blockurls,blocksocial,blockdomains}.txt | sort -u > add/hosts.txt
 # uniq capture
 sort -o capture -u capture
 echo "OK"

@@ -25240,6 +25240,7 @@
 .pointpark.edu
 .polcolan.edu.co
 .policia.edu.co
+.poligran.edu.co
 .politecnicojic.edu.co
 .poly.edu
 .pomona.edu
