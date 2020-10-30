@@ -26920,6 +26920,7 @@
 .everbank.com
 .exceltotal.com
 .fao.org
+.fast.com
 .fastly.com
 .fastly.net
 .fcfbank.com
@@ -27038,6 +27039,8 @@
 .letsencrypt.org
 .libretamilitar.mil.co
 .licensebuttons.net
+.lifesizecloud.com
+.lifesize.com
 .linode.com
 .linuxfoundation.org
 .linuxmint.com
@@ -27170,6 +27173,7 @@
 .ptp.com.co
 .public-trust.com
 .pubmatic.com
+.qgis.org
 .qualtrics.com
 .rabobank.com
 .rae.es
@@ -27233,6 +27237,7 @@
 .solipagosonline.com.co
 .someonewhocares.org
 .somersettechsolutions.co.uk
+.speedtest.net
 .splash-screen.net
 .squidblacklist.org
 .squid-cache.org
@@ -27380,6 +27385,7 @@
 .zeltser.com
 .zendesk.com
 .zionsbank.com
+.zimbra.com
 .zonapagos.com
 .zoom.us
 .zopim.com

@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3494350|79,6 MB|
+|blackweb.txt|3501591|79,7 MB|
 
 ## GIT CLONE
 
