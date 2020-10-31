@@ -274,7 +274,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
 - [MobileAdTrackers](https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts)
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
-- [Neohost](https://hosts.nfz.moe/full/hosts)
 - [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [NoCoin adblock list](https://github.com/hoshsadiq/adblock-nocoin-list)
 - [notabug latvian-list](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
@@ -312,6 +311,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
+- [Neohost](https://hosts.nfz.moe/full/hosts)
 
 ### Allowlist (URL/TLD)
 
@@ -323,11 +323,11 @@ Blackweb: Done 06/05/2019 15:47:14
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-#### Inactive Allowlist
+#### Inactive Allowlist (Added to: `allowurls.txt`)
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
-### Worklists
+### Internal Worklists
 
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
@@ -336,19 +336,25 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Ultrasurf Domains Blocklist](https://raw.githubusercontent.com/maravento/lockstring/master/dbl)
 
-### Addlists
+### Internal Optional List
 
 - [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 - [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 
-### Worktools
+### External Worklists
+
+- [Ultrasurf Domains Blocklist](https://raw.githubusercontent.com/maravento/lockstring/master/dbl)
+
+### Internal Worktools
+
+- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
+
+### External Worktools
 
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
-- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh)
 
 ## BACKLINKS

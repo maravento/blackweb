@@ -25,7 +25,7 @@ es=$?
 bwupdate=$(pwd)/bwupdate
 date=`date +%d/%m/%Y" "%H:%M:%S`
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-wgetd="wget -q -c --retry-connrefused -t 0"
+wgetd="wget -q -c --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 30"
 xdesktop=$(xdg-user-dir DESKTOP)
 # PATH_TO_ACL (Change it to the directory of your preference)
 route=/etc/acl
@@ -105,7 +105,6 @@ function blurls() {
 	blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
 	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
-	blurls 'https://hosts.nfz.moe/full/hosts' && sleep 1
 	blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/domains.txt' && sleep 1
 	blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
