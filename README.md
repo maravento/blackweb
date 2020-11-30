@@ -355,7 +355,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh)
+- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh)
 
 ## BACKLINKS
 

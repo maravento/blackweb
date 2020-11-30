@@ -697,8 +697,8 @@
 .gus.host
 .gxulaehkcthorvaer.com
 .habbo.com
-.hackstore.net
 .hackshort.me
+.hackstore.net
 .hajoopteg.com
 .hall.com
 .haloapps.com
@@ -1072,6 +1072,7 @@
 .merseine.com
 .merseine.org
 .metalalbumszipkbps10.blogspot.com
+.metastead.com
 .meteor.com
 .mgid.com
 .mibbit.com
@@ -1645,6 +1646,7 @@
 .streamtheworld.com
 .stream-up.com
 .strossle.it
+.studiesbythecase.com
 .studivz.net
 .studyaway.ru
 .stuff-4-sale.org

@@ -49,7 +49,7 @@ dependencies &> /dev/null
 echo "OK"
 
 # CHECKING DOWNLOAD BANDWIDTH (Optional)
-# https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh
+# https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh
 echo "${bw03[${es}]}"
 dlmin="1.00"
 mb="Mbit/s"
