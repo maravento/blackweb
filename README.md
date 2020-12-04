@@ -396,7 +396,7 @@ BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 [![CreativeCommons](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 [maravento.com](https://www.maravento.com) is licensed under a [Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-© 2020 [Maravento Studio](https://www.maravento.com)
+© 2021 [Maravento Studio](https://www.maravento.com)
 
 ## DISCLAIMER
 

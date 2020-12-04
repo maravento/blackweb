@@ -943,6 +943,7 @@
 .gap
 .garden
 .ga.us
+.gay
 .gb
 .gbiz
 .gd
@@ -2631,6 +2632,7 @@
 .weibo
 .weir
 .wf
+.whoswho
 .wien
 .wiki
 .williamhill
@@ -2866,6 +2868,3 @@
 .zt.ua
 .zuerich
 .zw
-# PENDING
-#.mac
-#.msn

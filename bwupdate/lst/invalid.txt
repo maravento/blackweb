@@ -1151,6 +1151,7 @@
 .gotovoyeu
 .gouv
 .gouvs
+.gov.com
 .gpe
 .graef
 .grafix
