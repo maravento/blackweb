@@ -72,6 +72,7 @@
 .agency
 .agrar.hu
 .agr.br
+.agri.td
 .ah.cn
 .ai
 .aichi.jp
@@ -525,6 +526,8 @@
 .com.sg
 .com.sv
 .com.sy
+.com.tc
+.com.td
 .com.tj
 .com.tn
 .com.tr
@@ -784,6 +787,7 @@
 .edu.sk
 .edu.sv
 .edu.tc
+.edu.td
 .edu.tf
 .edu.tj
 .edu.tr
@@ -1019,6 +1023,7 @@
 .gouv.fr
 .gouv.ht
 .gouv.rw
+.gouv.td
 .gov
 .gov.ac
 .gov.ae
@@ -1292,6 +1297,7 @@
 .info.pl
 .info.pr
 .info.sd
+.info.td
 .info.tn
 .info.tr
 .info.tt
@@ -1704,6 +1710,7 @@
 .name.vn
 .nara.jp
 .nationwide
+.nat.td
 .nat.tn
 .natura
 .navy
@@ -1806,6 +1813,8 @@
 .net.sd
 .net.sg
 .net.sy
+.net.tc
+.net.td
 .net.th
 .net.tj
 .net.tn
@@ -1934,6 +1943,7 @@
 .orange
 .or.at
 .or.cr
+.ordr.td
 .org
 .org.ac
 .org.ae
@@ -2032,6 +2042,8 @@
 .org.se
 .org.sg
 .org.sv
+.org.tc
+.org.td
 .org.tj
 .org.tn
 .org.tr
@@ -2138,6 +2150,7 @@
 .praxi
 .prd.fr
 .prd.mg
+.presid.td
 .press
 .press.cy
 .presse.fr
@@ -2163,6 +2176,7 @@
 .properties
 .property
 .pro.pr
+.pro.tc
 .protection
 .pro.tt
 .pro.vn
@@ -2261,6 +2275,7 @@
 .sandvik
 .sandvikcoromant
 .sanofi
+.sante.td
 .sap
 .sapo
 .sapporo.jp
@@ -2500,6 +2515,7 @@
 .toshiba
 .total
 .tottori.jp
+.tourism.td
 .tourism.tn
 .tours
 .town

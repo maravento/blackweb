@@ -11,6 +11,7 @@
 .1und1.de
 .1v.to
 .22apple.com
+.24liveplus.com
 .2abpyxuqnprsqbs.com
 .2drhi6trnsnqpdvb.com
 .2giga.link
@@ -41,6 +42,7 @@
 .acceder.gratis
 .accessmeproxy.com
 .aceproxy.com
+.acidcrud.com
 .aclabink.com
 .acortalo.net
 .acortar.xyz
@@ -117,6 +119,7 @@
 .asmallworld.net
 .at-band-camp.net
 .atlassian.com
+.auditorius.ru
 .aurumrock.ru
 .australia-proxy.com
 .authorse.com
@@ -149,6 +152,7 @@
 .beanonymouse.org
 .beastvila.info
 .bebee.com
+.beeline.ru
 .bellsyscdn.com
 .best-ip.xyz
 .bestmobiworld.com
@@ -159,6 +163,7 @@
 .better-than.tv
 .big780.com
 .bigfile.to
+.bighosted.com
 .bilibili.com
 .binbox.io
 .bin.wf
@@ -180,6 +185,7 @@
 .blogsyte.com
 .bloquer.fr
 .bmwservis-izmir.com
+.bobx.com
 .bo.im
 .bold360.com
 .boldlygoingnowhere.org
@@ -231,6 +237,7 @@
 .cfts1tifqr.com
 .chinaplant.xyz
 .chuporno.com
+.ciblo.net
 .cinecalidad2.com
 .cinecalidad.com
 .cinecalidad.to
@@ -297,6 +304,7 @@
 .cryptobrowser.site
 .crypto-loot.com
 .cryptoloot.pro
+.cryptonoter.com
 .cu5.io
 .cuevana2espanol.com
 .cuevana2.io
@@ -351,6 +359,7 @@
 .dfiles.ru
 .dft.ba
 .diangov.co
+.digitalmediacommunications.com
 .directorio-w.com
 .directvnow.com
 .dirtytorrents.com
@@ -792,6 +801,7 @@
 .hotspotshield.com
 .hotspotshield.net
 .hotstartsearch.com
+.how2dll.info
 .href.li
 .hsms06.com
 .hsselite.com
@@ -1000,6 +1010,7 @@
 .lessnmore.net
 .letio.com
 .lewd.ninja
+.lexisnexis.com
 .liadm.com
 .lifewarn.xyz
 .lightazure.info
@@ -1035,6 +1046,7 @@
 .mainprox.com
 .maisputain.ovh
 .majorgeeks.com
+.majorwap.com
 .malavida.com
 .marjalles.com
 .marksandspencersale.store
@@ -1429,6 +1441,7 @@
 .rarbg.me
 .rarbg.to
 .rarzip.download
+.ravelotti.cn
 .rayjump.com
 .rdircto.link
 .reactor.cc
@@ -1468,6 +1481,7 @@
 .rocks.io
 .rockstargames.com
 .rod.gs
+.rollcall.com
 .rosbusiness.eu
 .royaldetail.net
 .rs6.net
@@ -2022,6 +2036,7 @@
 .zenmate.com
 .zenodo.org
 .zenvpn.net
+.zgsemi.cn
 .zheat.info
 .zhoulaoban.com
 .zipansion.com

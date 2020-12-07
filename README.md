@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3501591|79,7 MB|
+|blackweb.txt|3485686|79,7 MB|
 
 ## GIT CLONE
 
@@ -327,7 +327,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
-### Internal Worklists
+### Debug Lists
 
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
@@ -336,23 +336,14 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-
-### Internal Optional List
-
 - [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 - [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
+- [Ultrasurf Domains Blocklist](https://gitlab.com/maravento/lockstring/-/raw/master/dbl)
 
-### External Worklists
-
-- [Ultrasurf Domains Blocklist](https://raw.githubusercontent.com/maravento/lockstring/master/dbl)
-
-### Internal Worktools
+### Worktools
 
 - [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
-
-### External Worktools
-
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh)
