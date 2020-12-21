@@ -11,6 +11,7 @@
 127.0.0.1 1und1.de
 127.0.0.1 1v.to
 127.0.0.1 22apple.com
+127.0.0.1 24liveplus.com
 127.0.0.1 2abpyxuqnprsqbs.com
 127.0.0.1 2drhi6trnsnqpdvb.com
 127.0.0.1 2giga.link
@@ -42,6 +43,7 @@
 127.0.0.1 accessmeproxy.com
 127.0.0.1 acebook.com
 127.0.0.1 aceproxy.com
+127.0.0.1 acidcrud.com
 127.0.0.1 aclabink.com
 127.0.0.1 acortalo.net
 127.0.0.1 acortar.xyz
@@ -118,6 +120,7 @@
 127.0.0.1 asmallworld.net
 127.0.0.1 at-band-camp.net
 127.0.0.1 atlassian.com
+127.0.0.1 auditorius.ru
 127.0.0.1 aurumrock.ru
 127.0.0.1 australia-proxy.com
 127.0.0.1 authorse.com
@@ -151,6 +154,7 @@
 127.0.0.1 beanonymouse.org
 127.0.0.1 beastvila.info
 127.0.0.1 bebee.com
+127.0.0.1 beeline.ru
 127.0.0.1 bellsyscdn.com
 127.0.0.1 best-ip.xyz
 127.0.0.1 bestmobiworld.com
@@ -161,6 +165,7 @@
 127.0.0.1 better-than.tv
 127.0.0.1 big780.com
 127.0.0.1 bigfile.to
+127.0.0.1 bighosted.com
 127.0.0.1 bilibili.com
 127.0.0.1 binbox.io
 127.0.0.1 bin.wf
@@ -182,6 +187,7 @@
 127.0.0.1 blogsyte.com
 127.0.0.1 bloquer.fr
 127.0.0.1 bmwservis-izmir.com
+127.0.0.1 bobx.com
 127.0.0.1 bo.im
 127.0.0.1 bold360.com
 127.0.0.1 boldlygoingnowhere.org
@@ -259,6 +265,7 @@
 127.0.0.1 chatzona.org
 127.0.0.1 chinaplant.xyz
 127.0.0.1 chuporno.com
+127.0.0.1 ciblo.net
 127.0.0.1 cinecalidad2.com
 127.0.0.1 cinecalidad.com
 127.0.0.1 cinecalidad.to
@@ -325,6 +332,7 @@
 127.0.0.1 cryptobrowser.site
 127.0.0.1 crypto-loot.com
 127.0.0.1 cryptoloot.pro
+127.0.0.1 cryptonoter.com
 127.0.0.1 cu5.io
 127.0.0.1 cuevana2espanol.com
 127.0.0.1 cuevana2.io
@@ -380,6 +388,7 @@
 127.0.0.1 dfiles.ru
 127.0.0.1 dft.ba
 127.0.0.1 diangov.co
+127.0.0.1 digitalmediacommunications.com
 127.0.0.1 directorio-w.com
 127.0.0.1 directvnow.com
 127.0.0.1 dirtytorrents.com
@@ -758,6 +767,7 @@
 127.0.0.1 gus.host
 127.0.0.1 gxulaehkcthorvaer.com
 127.0.0.1 habbo.com
+127.0.0.1 hackshort.me
 127.0.0.1 hackstore.net
 127.0.0.1 hajoopteg.com
 127.0.0.1 hall.com
@@ -849,9 +859,12 @@
 127.0.0.1 hotfrog.jp
 127.0.0.1 hotfrog.pt
 127.0.0.1 hotjar.com
+127.0.0.1 hotlink.cc
 127.0.0.1 hotspotshield.com
 127.0.0.1 hotspotshield.net
 127.0.0.1 hotstartsearch.com
+127.0.0.1 how2dll.info
+127.0.0.1 hqpornt.com
 127.0.0.1 href.li
 127.0.0.1 hsms06.com
 127.0.0.1 hsselite.com
@@ -1084,6 +1097,7 @@
 127.0.0.1 lessnmore.net
 127.0.0.1 letio.com
 127.0.0.1 lewd.ninja
+127.0.0.1 lexisnexis.com
 127.0.0.1 liadm.com
 127.0.0.1 lifewarn.xyz
 127.0.0.1 lightazure.info
@@ -1123,6 +1137,7 @@
 127.0.0.1 mainprox.com
 127.0.0.1 maisputain.ovh
 127.0.0.1 majorgeeks.com
+127.0.0.1 majorwap.com
 127.0.0.1 malavida.com
 127.0.0.1 marjalles.com
 127.0.0.1 marksandspencersale.store
@@ -1161,6 +1176,7 @@
 127.0.0.1 merseine.org
 127.0.0.1 messenger.com
 127.0.0.1 metalalbumszipkbps10.blogspot.com
+127.0.0.1 metastead.com
 127.0.0.1 meteor.com
 127.0.0.1 mgid.com
 127.0.0.1 mibbit.com
@@ -1531,6 +1547,7 @@
 127.0.0.1 rarbg.me
 127.0.0.1 rarbg.to
 127.0.0.1 rarzip.download
+127.0.0.1 ravelotti.cn
 127.0.0.1 rayjump.com
 127.0.0.1 rdircto.link
 127.0.0.1 reactor.cc
@@ -1572,6 +1589,7 @@
 127.0.0.1 rocks.io
 127.0.0.1 rockstargames.com
 127.0.0.1 rod.gs
+127.0.0.1 rollcall.com
 127.0.0.1 rosbusiness.eu
 127.0.0.1 royaldetail.net
 127.0.0.1 rs6.net
@@ -1756,6 +1774,7 @@
 127.0.0.1 streamtheworld.com
 127.0.0.1 stream-up.com
 127.0.0.1 strossle.it
+127.0.0.1 studiesbythecase.com
 127.0.0.1 studivz.net
 127.0.0.1 studyaway.ru
 127.0.0.1 stuff-4-sale.org
@@ -2175,6 +2194,7 @@
 127.0.0.1 zenmate.com
 127.0.0.1 zenodo.org
 127.0.0.1 zenvpn.net
+127.0.0.1 zgsemi.cn
 127.0.0.1 zheat.info
 127.0.0.1 zhoulaoban.com
 127.0.0.1 zipansion.com

@@ -26866,6 +26866,7 @@
 .disquscdn.com
 .disqus.com
 .dnd.ca
+.docusign.com
 .domaintools.com
 .doubleverify.com
 .dreamhost.com

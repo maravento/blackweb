@@ -25,7 +25,7 @@ es=$?
 bwupdate=$(pwd)/bwupdate
 date=`date +%d/%m/%Y" "%H:%M:%S`
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-wgetd="wget -q -c --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 30"
+wgetd='wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
 xdesktop=$(xdg-user-dir DESKTOP)
 # PATH_TO_ACL (Change it to the directory of your preference)
 route=/etc/acl
@@ -86,7 +86,12 @@ echo "OK"
 echo "${bw05[${es}]}"
 # download files
 function blurls() {
-	$wgetd "$1" -O - >> bwtmp/bw
+   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+   if [ $? -eq 0 ]; then
+       $wgetd "$1" -O - >> bwtmp/bw
+   else
+       echo ERROR "$1"
+   fi
 }
 	blurls 'http://adaway.org/hosts.txt' && sleep 1
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
@@ -201,13 +206,23 @@ cat lst/blocksocial.txt >> bwtmp/bw
 
 # DOWNLOADING BIG BLOCKLISTS
 function targz() {
-	$wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+   if [ $? -eq 0 ]; then
+       $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+   else
+       echo ERROR "$1"
+   fi
 }
 	targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 
 function tgz() {
-	$wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+   if [ $? -eq 0 ]; then
+       $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+   else
+       echo ERROR "$1"
+   fi
 }
 	tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 
@@ -217,7 +232,12 @@ echo "OK"
 echo "${bw06[${es}]}"
 # download world_universities_and_domains
 function univ() {
-	$wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/allowurls.txt
+   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+   if [ $? -eq 0 ]; then
+       $wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/allowurls.txt
+   else
+       echo ERROR "$1"
+   fi
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 echo "OK"
@@ -225,7 +245,12 @@ echo "OK"
 # UPDATE TLDS
 echo "${bw07[${es}]}"
 function publicsuffix() {
-	$wgetd "$1" -O - >> lst/sourcetlds.txt
+   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+   if [ $? -eq 0 ]; then
+       $wgetd "$1" -O - >> lst/sourcetlds.txt
+   else
+       echo ERROR "$1"
+   fi
 }
 	publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
 	publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
@@ -252,7 +277,7 @@ tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # block remote
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
 # update hosts file
-sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/{blockurls,blocksocial,blockdomains}.txt | sort -u > add/hosts.txt
+sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/{blockurls,blocksocial}.txt | sort -u > add/hosts.txt
 # uniq capture
 sort -o capture -u capture
 echo "OK"
