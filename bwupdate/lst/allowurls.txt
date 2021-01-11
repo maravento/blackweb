@@ -26646,6 +26646,7 @@
 .amd.com
 .americafirst.com
 .amnesty.org
+.any.do
 .apnic.net
 .apopo.org
 .aportesenlinea.com
@@ -27063,6 +27064,7 @@
 .mbfinancial.com
 .mcafee.com
 .mediawiki.org
+.medifast1.com
 .mercadopago.com
 .mercycorps.org
 .mercycorps.org.co
@@ -27387,8 +27389,8 @@
 .zdassets.com
 .zeltser.com
 .zendesk.com
-.zionsbank.com
 .zimbra.com
+.zionsbank.com
 .zonapagos.com
 .zoom.us
 .zopim.com
