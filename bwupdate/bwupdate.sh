@@ -96,10 +96,7 @@ function blurls() {
 	blurls 'http://adaway.org/hosts.txt' && sleep 1
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	blurls 'http://malc0de.com/bl/ZONES' && sleep 1
-	blurls 'http://mirror1.malwaredomains.com/files/justdomains' && sleep 1
-	blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
-	blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
 	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
@@ -200,6 +197,9 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	#blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
+	#blurls 'http://mirror1.malwaredomains.com/files/justdomains' && sleep 1
+	#blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 
 # SOCIAL
 cat lst/blocksocial.txt >> bwtmp/bw

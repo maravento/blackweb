@@ -26755,6 +26755,7 @@
 .ccb.org.co
 .cccartagena.org.co
 .ccc.org.co
+.cdn-apple.com
 .cdnpk.net
 .cdp1.public-trust.com
 .cedia.org.ec
@@ -26763,6 +26764,7 @@
 .centralpacificbank.com
 .certicamara.com
 .cert.int-x3.letsencrypt.org
+.certum.pl
 .cgiar.org
 .chase.com
 .checkmal.com
@@ -26820,6 +26822,7 @@
 .communitybankna.com
 .comodoca.com
 .comprasypagospse.com
+.comunidadcontable.com
 .concursoempleosdecarrerapgn.org.co
 .confianza.com.co
 .consumidoresunidos.org
@@ -26923,6 +26926,7 @@
 .eu.surveymonkey.net
 .everbank.com
 .exceltotal.com
+.ezyzip.com
 .fao.org
 .fast.com
 .fastly.com
@@ -27093,6 +27097,7 @@
 .mynycb.com
 .myslide.es
 .mywu.com
+.mzstatic.com
 .nacionesunidas.org.co
 .namecheap.com
 .name.com

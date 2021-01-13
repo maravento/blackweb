@@ -234,14 +234,12 @@ Blackweb: Done 06/05/2019 15:47:14
 
 #### Active Blocklists
 
-- [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [Adaway](http://adaway.org/hosts.txt)
 - [adblock-leadgenerator-list](https://github.com/Rpsl/adblock-leadgenerator-list)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [anudeepND Blocklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
-- [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/iPv4Hosts.txt) and [Scam Websites, Crypto Miners and Fake new](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts))
 - [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
@@ -267,8 +265,8 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Joewein](http://www.joewein.de/sw/bl-text.htm)
 - [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
 - [malc0de](http://malc0de.com/bl/)
-- [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
+- [malspam emotet list](https://github.com/MBThreatIntel/malspam)
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
@@ -305,13 +303,16 @@ Blackweb: Done 06/05/2019 15:47:14
 
 #### Inactive Blocklists (Added to: `oldurls.txt`)
 
+- [280blocker](https://280blocker.net/files/280blocker_domain.txt)
+- [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
+- [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
+- [Neohost](https://hosts.nfz.moe/full/hosts)
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
-- [Neohost](https://hosts.nfz.moe/full/hosts)
 
 ### Allowlist (URL/TLD)
 

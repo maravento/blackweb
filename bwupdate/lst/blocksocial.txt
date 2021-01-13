@@ -132,6 +132,8 @@
 .twimg.com
 .twitter.co
 .twitter.com
+.twttr.net
+.twttr.com
 .v16-tiktokcdn-com.akamaized.net
 .video-stats.l.google.com
 .vimeocdn.com
