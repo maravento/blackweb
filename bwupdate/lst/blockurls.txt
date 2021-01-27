@@ -275,6 +275,7 @@
 .coin-have.com
 .coin-hive.com
 .coinhive.com
+.coinimp.com
 .coinlab.biz
 .coinmania.online
 .coinnebula.com
@@ -325,6 +326,7 @@
 .cuevana.uno
 .cuon.io
 .cutout.es
+.cutw.in
 .cwbimportados.com
 .cxense.com
 .cxrt.life
@@ -1055,6 +1057,7 @@
 .livehelpnow.net
 .livejasmin.com
 .liveperson.com
+.livetv.ru
 .lix.in
 .lknsuite.com
 .lkqd.com
@@ -1109,6 +1112,7 @@
 .mellowads.com
 .meneame.net
 .merca.net.co
+.mercy.ga
 .merseine.com
 .merseine.org
 .metalalbumszipkbps10.blogspot.com

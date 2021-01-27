@@ -197,9 +197,6 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	#blurls 'https://280blocker.net/files/280blocker_domain.txt' && sleep 1
-	#blurls 'http://mirror1.malwaredomains.com/files/justdomains' && sleep 1
-	#blurls 'http://osint.bambenekconsulting.com/feeds/dga-feed.txt' && sleep 1
 
 # SOCIAL
 cat lst/blocksocial.txt >> bwtmp/bw
@@ -263,7 +260,7 @@ echo "${bw08[${es}]}"
 # capturing
 find bwtmp -type f -execdir grep -oiE "$regexd" {} \; > captmp1
 piconv -f cp1252 -t UTF-8 < captmp1 > captmp2
-sed -r 's:(^\.*?(www|ftp|http)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "."$1}' | sort -u > capture
+sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "."$1}' | sort -u > capture
 echo "OK"
 
 # JOIN AND UPDATE LIST
