@@ -19170,6 +19170,8 @@
 .alaska.gov
 .albanyny.gov
 .albuquerque-nm.gov
+.alcaldiadecucuta.gov.co
+.alcaldianeiva.gov.co
 .aldoi.gov
 .alea.gov
 .alertaenlinea.gov
@@ -19196,6 +19198,7 @@
 .ama.gov
 .amarillo.gov
 .amberalert.gov
+.amc.gov.co
 .ameniany.gov
 .america.gov
 .americanmemory.gov
@@ -19417,6 +19420,7 @@
 .bankhelp.gov
 .banknet.gov
 .banrep.gov.co
+.baranoa-atlantico.gov.co
 .barharbormaine.gov
 .barnsley.gov.uk
 .barnstablecounty-ma.gov
@@ -19633,6 +19637,7 @@
 .cabotar.gov
 .cabq.gov
 .ca.gov
+.cajanal.gov.co
 .calaisvermont.gov
 .calderdale.gov.uk
 .caldwelltx.gov
@@ -19762,6 +19767,7 @@
 .chestnuthilltwp-pa.gov
 .cheverly-md.gov
 .chevychasevillagemd.gov
+.chia-cundinamarca.gov.co
 .chiamass.gov
 .chichester.gov.uk
 .chickasawartisans-nsn.gov
@@ -19939,6 +19945,7 @@
 .collincountytexas.gov
 .collincountytx.gov
 .colombiacompra.gov.co
+.colombiamayor.co
 .colonialheightsva.gov
 .coloradoattorneygeneral.gov
 .colorado.gov
@@ -19948,7 +19955,6 @@
 .coloradoui.gov
 .colpensiones.gov.co
 .colrain-ma.gov
-.colombiamayor.co
 .columbiacountyga.gov
 .columbianaohio.gov
 .columbiasc.gov
@@ -19988,6 +19994,7 @@
 .contractdirectory.gov
 .contraloriagen.gov.co
 .contraloria.gov.co
+.contraloriaibague.gov.co
 .contratos.gov.co
 .conwy.gov.uk
 .cookcountyil.gov
@@ -20249,6 +20256,7 @@
 .eda.gov
 .eddingtonmaine.gov
 .edenny.gov
+.edeso.gov.co
 .edgecombecountync.gov
 .edgewood-fl.gov
 .edgewoodky.gov
@@ -20301,7 +20309,9 @@
 .erieco.gov
 .eriecountypa.gov
 .erie.gov
+.esacor.gov.co
 .esc.gov
+.esecolombia.gov.co
 .esrs.gov
 .essexct.gov
 .essex-fire.gov.uk
@@ -20520,6 +20530,7 @@
 .fremontnc.gov
 .fremontne.gov
 .frenchsettlement-la.gov
+.frentesdeseguridad.gov.co
 .fresno.gov
 .fridleymn.gov
 .friendshipheightsmd.gov
@@ -20802,6 +20813,8 @@
 .hopkinton-nh.gov
 .horiconny.gov
 .horseshoe-bay-tx.gov
+.hospitalpitalito.gov.co
+.hospitalsantamaria.gov.co
 .housecalendar.gov
 .housecommunications.gov
 .housedemocrats.gov
@@ -20863,6 +20876,7 @@
 .idahovotes.gov
 .identitytheft.gov
 .idmanagement.gov
+.idsn.gov.co
 .idtheft.gov
 .iedison.gov
 .igac.gov.co
@@ -20953,6 +20967,7 @@
 .itap.gov
 .itdashboard.gov
 .itis.gov
+.itrc.gov.co
 .its.gov
 .jacintocity-tx.gov
 .jacksoncounty-il.gov
@@ -21664,6 +21679,7 @@
 .nmdhb.govt.nz
 .nmsto.gov
 .nmvtis.gov
+.nnaj.chia-cundinamarca.gov.co
 .nnlm.gov
 .nnva.gov
 .noaa.gov
@@ -21760,6 +21776,7 @@
 .oakridgetn.gov
 .oakwoodohio.gov
 .oberlinkansas.gov
+.observatoriosna.archivogeneral.gov.co
 .occ.gov
 .occhelps.gov
 .occoquanva.gov
@@ -21774,6 +21791,7 @@
 .ogallala-ne.gov
 .ogden-ks.gov
 .oge.gov
+.ogricc.gov.co
 .ohioagriculture.gov
 .ohioanalytics.gov
 .ohioattorneygeneral.gov
@@ -22606,6 +22624,7 @@
 .tps.gov
 .trade.gov
 .trafficsafetymarketing.gov
+.transitobarrancabermeja.gov.co
 .transparencyflorida.gov
 .transparencywv.gov
 .transportation.gov
