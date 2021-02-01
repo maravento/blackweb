@@ -250,7 +250,11 @@
 .chuporno.com
 .ciblo.net
 .cinecalidad2.com
+.cine-calidad.co
+.cine-calidad.com
 .cinecalidad.com
+.cinecalidad.is
+.cinecalidad.pro
 .cinecalidad.to
 .cinemauae.com
 .cineyseries.net
@@ -490,6 +494,7 @@
 .ep-surveillance.com
 .equipoiseconsulting.com
 .erne.co
+.espncdn.com
 .esses.info
 .est-a-la-maison.com
 .est-a-la-masion.com
@@ -505,6 +510,7 @@
 .eurf.info
 .europegroup.xyz
 .evennode.com
+.exchange.uk.com
 .exe.app
 .exee.io
 .exe.io
@@ -1164,6 +1170,7 @@
 .moonliteco.in
 .mopub.com
 .morningdigit.com
+.movetv.com
 .mp3.es
 .mp3leo.com
 .mp3-sbornik.ru
@@ -2106,3 +2113,4 @@
 .zproxy.de
 .zukxd6fkxqn.com
 .zvf3pjnaxkozomvmuks6i7e.com
+.novostimira.com
