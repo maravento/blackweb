@@ -239,6 +239,7 @@
 .cctvhotdeals.com
 .cdduplication.ie
 .cdn77.org
+.cdn-jquery.host
 .cechire.com
 .cellufun.com
 .celtichr.com
@@ -294,6 +295,7 @@
 .compucalitv.com
 .compuseriestotal.me
 .com-reward.com
+.com-scan.live
 .concretesoftware.com
 .conduit-data.com
 .connectedglobalgroup.com
@@ -976,6 +978,7 @@
 .johnlewisgiftlist.com
 .jotformeu.com
 .joyreactor.cc
+.jquery-uim.download
 .jsccnn.com
 .jscdndel.com
 .jsecoin.com
@@ -1178,6 +1181,7 @@
 .mrunblock.com
 .mrveggy.com
 .msgamestudios.com
+.mshare.xyz
 .ms-studiosmedia.com
 .msupdt.com
 .multifilemirror.com
@@ -1217,6 +1221,7 @@
 .mysecuritycamera.org
 .myspaceunblocking.com
 .myspaceunlock.com
+.mysticalgateway.com
 .mytechonline.info
 .myvictoriasecret.xyz
 .myvnc.com
@@ -1282,6 +1287,7 @@
 .nordvpn.com
 .no-thanks.invalid
 .novaenreta.space
+.novostimira.com
 .nubrec.com
 .n-url.xyz
 .nyaa.si
@@ -1750,6 +1756,7 @@
 .sytes.net
 .t2mio.com
 .taboola.com
+.tagesanzeiger.ch
 .tagged.com
 .takefile.link
 .talko.cc
@@ -1898,6 +1905,7 @@
 .untracable.org
 .unusualperson.com
 .up-4ever.org
+.upantool.com
 .uploaded.net
 .upload.ee
 .uploading.site
@@ -2113,4 +2121,3 @@
 .zproxy.de
 .zukxd6fkxqn.com
 .zvf3pjnaxkozomvmuks6i7e.com
-.novostimira.com
