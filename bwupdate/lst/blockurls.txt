@@ -67,6 +67,7 @@
 .adnxs.com
 .adpop.me
 .adshort.co
+.adshort.live
 .adsrt.live
 .adsrt.me
 .adsrt.net
@@ -472,6 +473,7 @@
 .eating-organic.net
 .eazel.com
 .ebuddy.com
+.educationmedianews.com
 .edvok.com
 .eeproxy.pw
 .ehcvbajzqf7llynx5.com
@@ -719,6 +721,7 @@
 .gotdns.com
 .gotdns.org
 .govtsmartjob.com
+.gplinks.co
 .gplinks.in
 .gpsonextra.net
 .graph.org
@@ -1772,6 +1775,7 @@
 .teads.tv
 .tealdit.com
 .tech59.com
+.techgeek.digital
 .teenplanet.org
 .telegram.dog
 .telegra.ph

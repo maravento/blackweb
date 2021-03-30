@@ -138,7 +138,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
-	blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/dbl' && sleep 1
+	blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/lockdn' && sleep 1
 	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
