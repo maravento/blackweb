@@ -5317,6 +5317,7 @@
 .14.officeapps.live.com
 .15.officeapps.live.com
 .1drv.com
+.1drv.ms
 .2015hrgc.microsoft.com
 .20sqm.microsoft.com
 .2.tlu.dl.delivery.mp.microsoft.com
@@ -26665,6 +26666,7 @@
 .amd.com
 .americafirst.com
 .amnesty.org
+.ampproject.net
 .any.do
 .apnic.net
 .apopo.org
@@ -26918,6 +26920,8 @@
 .eltiempo.com
 .eltiempo.com.co
 .eluniversal.com.co
+.embluemail.com
+.emb-japan.go.jp
 .encolombia.com
 .enlace-apb.com
 .enlaceoperativo.com
@@ -27062,7 +27066,6 @@
 .larepublica.com.co
 .launchpad.net
 .lavoz.com.ar
-.ldrv.ms
 .lenovo.com
 .letsencrypt.org
 .libretamilitar.mil.co
