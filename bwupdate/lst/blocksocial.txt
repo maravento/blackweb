@@ -130,6 +130,7 @@
 .t.me
 .tumblr.com
 .twimg.com
+.twitch.tv
 .twitter.co
 .twitter.com
 .twttr.net

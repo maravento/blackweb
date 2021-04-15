@@ -27036,6 +27036,7 @@
 .icloud.com
 .identrust.com
 .ifx.net.co
+.ilovepdf.com
 .inboxsdk.com
 .indicedetransparencia.org.co
 .infospyware.com
@@ -27232,6 +27233,7 @@
 .runt.com.co
 .s81c.com
 .samsung.com
+.samsung-mail.com
 .santander.com
 .sap.com
 .satbancolombia.com
@@ -27315,6 +27317,7 @@
 .tramitesyconsultas.info
 .transaccionesbancolombia.com
 .transferxl.com
+.trendmicro.com
 .trusteer.com
 .trustmark.com
 .tutellus.com
