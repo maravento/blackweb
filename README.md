@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4082737|97,8 MB|
+|blackweb.txt|4075106|97,6 MB|
 
 ## GIT CLONE
 
@@ -237,21 +237,18 @@ Blackweb: Done 06/05/2019 15:47:14
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [Adaway](http://adaway.org/hosts.txt)
 - [adblock-leadgenerator-list](https://github.com/Rpsl/adblock-leadgenerator-list)
-- [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [anudeepND Blocklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
-- [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/iPv4Hosts.txt) and [Scam Websites, Crypto Miners and Fake new](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Miscellaneous%20(Hosts))
+- [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt), [MinerBlocklist](https://raw.githubusercontent.com/BlackJack8/MinerBlocklist/master/Hosts.txt) and [webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
 - [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
 - [Carl Spam](http://www.carl.net/spam/access.txt)
-- [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
 - [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
 - [cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt)
 - [crazy-max WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 - [Dawsey21 List](https://github.com/Dawsey21/Lists)
 - [Disconnect.me](https://disconnect.me/) (included: [simple_ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt), [simple_malvertising](https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt), [simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt))
-- [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
 - [ethanr dns](https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
 - [fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
 - [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
@@ -261,6 +258,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 - [hostsfile.mine.nu](https://hostsfile.mine.nu/hosts0.txt)
 - [iploggerfilter](https://github.com/piperun/iploggerfilter)
+- [Jawz101 Potencial Trackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
 - [Joelotz URL](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
 - [Joewein](http://www.joewein.de/sw/bl-text.htm)
 - [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
@@ -270,7 +268,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
-- [MobileAdTrackers](https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts)
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
 - [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [NoCoin adblock list](https://github.com/hoshsadiq/adblock-nocoin-list)
@@ -299,7 +296,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
 - [YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
-- [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
 #### Inactive Blocklists (Added to: `oldurls.txt`)
 
@@ -313,6 +309,10 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
+- [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
+- [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
+- [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
+- [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 
 ### Allowlist (URL/TLD)
 
@@ -339,7 +339,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 - [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
-- [Ultrasurf Domains Blocklist](https://gitlab.com/maravento/lockstring/-/raw/master/dbl)
+- [Ultrasurf Domains Blocklist](https://gitlab.com/maravento/lockstring/-/raw/master/lockdn)
 
 ### Worktools
 
