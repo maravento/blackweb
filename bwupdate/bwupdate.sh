@@ -191,14 +191,6 @@ function blurls() {
 	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	# Temporarily offline
-    #blurls 'https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist' && sleep 1
-    #blurls 'http://www.dshield.org/feeds/suspiciousdomains_Low.txt' && sleep 1
-    #blurls 'https://www.dshield.org/feeds/suspiciousdomains_High.txt' && sleep 1
-	#blurls 'https://www.dshield.org/feeds/suspiciousdomains_Medium.txt' && sleep 1
-    #blurls 'https://easylist-downloads.adblockplus.org/malwaredomains_full.txt' && sleep 1
-    #blurls 'https://mirror.cedia.org.ec/malwaredomains/domains.txt' && sleep 1
-	#blurls 'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt' && sleep 1
 	
 # SOCIAL
 cat lst/blocksocial.txt >> bwtmp/bw

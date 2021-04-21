@@ -639,6 +639,7 @@
 .gaming.youtube.com
 .gcdn.2mdn.net
 .g.co
+.g.page
 .gdata.youtube.com
 .gearsblog.blogspot.com
 .geo0.ggpht.com
@@ -27421,6 +27422,7 @@
 .zdassets.com
 .zeltser.com
 .zendesk.com
+.zeustracker.abuse.ch
 .zimbra.com
 .zionsbank.com
 .zonapagos.com

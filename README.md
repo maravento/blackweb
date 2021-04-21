@@ -230,9 +230,9 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ---
 
-### Blocklists
+### BLOCKLISTS
 
-#### Active Blocklists
+#### Active
 
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [Adaway](http://adaway.org/hosts.txt)
@@ -297,7 +297,9 @@ Blackweb: Done 06/05/2019 15:47:14
 - [YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 
-#### Inactive Blocklists (Added to: `oldurls.txt`)
+#### Inactive or Discontinued
+
+*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `oldurls.txt`*
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
@@ -314,9 +316,9 @@ Blackweb: Done 06/05/2019 15:47:14
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 
-### Allowlist (URL/TLD)
+### ALLOWLISTS (URL/TLD)
 
-#### Active Allowlist
+#### Active
 
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
@@ -324,11 +326,13 @@ Blackweb: Done 06/05/2019 15:47:14
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-#### Inactive Allowlist (Added to: `allowurls.txt`)
+#### Inactive or Discontinued
 
-- [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) (No longer support. [See This post](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
+*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `allowurls.txt`*
 
-### Debug Lists
+- [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) ([No longer support](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
+
+### Debug
 
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
@@ -339,7 +343,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
 - [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
-- [Ultrasurf Domains Blocklist](https://gitlab.com/maravento/lockstring/-/raw/master/lockdn)
+- [UltraSurf related domains](https://gitlab.com/maravento/lockstring/-/raw/master/lockdn)
 
 ### Worktools
 
@@ -364,6 +368,8 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Xploitlab. *Projects using WindowsSpyBlocker*](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
 - [Awesome Open Source. *Blackweb*](https://awesomeopensource.com/project/maravento/blackweb)
 - [Lifars. *Sites with blocklist of malicious IPs and URLs*](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
+- [Kerry Cordero. *Blocklists of Suspected Malicious IPs and URLs*](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
+- [stackoverflow.com. *Blacklist IP database*](https://stackoverflow.com/a/39516166/8747573)
 
 ## CONTRIBUTIONS
 
