@@ -122,7 +122,6 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/BlackJack8/MinerBlocklist/master/Hosts.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
@@ -267,7 +266,7 @@ tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> urls.txt
 # block remote
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
-# update hosts file
+# update hosts file (optional. for other purposes)
 sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/{blockurls,blocksocial}.txt | sort -u > add/hosts.txt
 # uniq capture
 sort -o capture -u capture
