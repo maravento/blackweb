@@ -26,6 +26,7 @@
 .chatsfriends.com
 .chaturbate.com
 .chatzona.org
+.contest.com
 .del.icio.us
 .disqus.com
 .elchat.com
@@ -59,6 +60,7 @@
 .friendfeed.com
 .ggpht.com
 .googlevideo.com
+.graph.org
 .hypstarcdn.com
 .ibytedtos.com
 .insagram.com
@@ -103,6 +105,7 @@
 .pinterest.com
 .play.google.com
 .qq.com
+.quiz.directory
 .reddit.com
 .rewind.youtube
 .slack.com
@@ -116,9 +119,19 @@
 .taringa.net
 .tawk.to
 .t.co
+.tdesktop.com
+.telega.one
 .telegram.com
+.telegram.dog
+.telegram.im
+.telegram.me
 .telegram.net
+.telegram.org
+.telegram.space
+.telegra.ph
+.telesco.pe
 .tfbnw.net
+.tg.dev
 .tiktokcdn.com
 .tiktokcdn-com.akamaized.net
 .tiktok.com
@@ -133,8 +146,10 @@
 .twitch.tv
 .twitter.co
 .twitter.com
-.twttr.net
 .twttr.com
+.twttr.net
+.tx.me
+.usercontent.dev
 .v16-tiktokcdn-com.akamaized.net
 .video-stats.l.google.com
 .vimeocdn.com

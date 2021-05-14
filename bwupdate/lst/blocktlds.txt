@@ -2,6 +2,7 @@
 .beer
 .chat
 .club
+.crypto
 .onion
 .poker
 .porn
@@ -9,3 +10,4 @@
 .sexy
 .vodka
 .xxx
+.zil

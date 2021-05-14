@@ -43,7 +43,7 @@ if [ ! -d $route ]; then mkdir -p $route; fi
 # DEPENDENCIES
 echo "${bw02[${es}]}"
 function dependencies(){
-    sudo apt -y install wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python squid
+	sudo apt -y install wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python squid
 }
 dependencies &> /dev/null
 echo "OK"
@@ -60,10 +60,10 @@ dlmb=$(echo $dl | awk '{print $3}')
 
 function download(){
 if (( $(echo "$dlvalue $dlmin" | awk '{print ($1 < $2)}') )); then
-    	echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
-        notify-send "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
-    else
-        echo "OK"
+		echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
+		notify-send "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
+	else
+		echo "OK"
 fi
 }
 
@@ -86,12 +86,12 @@ echo "OK"
 echo "${bw05[${es}]}"
 # download files
 function blurls() {
-   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-   if [ $? -eq 0 ]; then
-       $wgetd "$1" -O - >> bwtmp/bw
-   else
-       echo ERROR "$1"
-   fi
+wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+if [ $? -eq 0 ]; then
+		$wgetd "$1" -O - >> bwtmp/bw
+	else
+		echo ERROR "$1"
+fi
 }
 	blurls 'http://adaway.org/hosts.txt' && sleep 1
 	blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
@@ -137,7 +137,7 @@ function blurls() {
 	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
 	blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/lockdn' && sleep 1
 	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/PULL_REQUESTS/domains.txt' && sleep 1
+	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
 	blurls 'https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt' && sleep 1
@@ -196,23 +196,23 @@ cat lst/blocksocial.txt >> bwtmp/bw
 
 # DOWNLOADING BIG BLOCKLISTS
 function targz() {
-   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-   if [ $? -eq 0 ]; then
-       $wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
-   else
-       echo ERROR "$1"
-   fi
+wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+if [ $? -eq 0 ]; then
+		$wgetd "$1" && for F in *.tar.gz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+	else
+		echo ERROR "$1"
+fi
 }
 	targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 
 function tgz() {
-   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-   if [ $? -eq 0 ]; then
-       $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
-   else
-       echo ERROR "$1"
-   fi
+wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+if [ $? -eq 0 ]; then
+		$wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf $F -i; done >/dev/null 2>&1
+	else
+		echo ERROR "$1"
+fi
 }
 	tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 
@@ -222,12 +222,12 @@ echo "OK"
 echo "${bw06[${es}]}"
 # download world_universities_and_domains
 function univ() {
-   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-   if [ $? -eq 0 ]; then
-       $wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/allowurls.txt
-   else
-       echo ERROR "$1"
-   fi
+wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+if [ $? -eq 0 ]; then
+		$wgetd "$1" -O - | grep -oiE "$regexd" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/allowurls.txt
+	else
+		echo ERROR "$1"
+fi
 }
 	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 echo "OK"
@@ -235,12 +235,12 @@ echo "OK"
 # UPDATE TLDS
 echo "${bw07[${es}]}"
 function publicsuffix() {
-   wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-   if [ $? -eq 0 ]; then
-       $wgetd "$1" -O - >> lst/sourcetlds.txt
-   else
-       echo ERROR "$1"
-   fi
+wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+if [ $? -eq 0 ]; then
+		$wgetd "$1" -O - >> lst/sourcetlds.txt
+	else
+		echo ERROR "$1"
+fi
 }
 	publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
 	publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
@@ -298,12 +298,15 @@ echo "OK"
 # DNS LOCKUP
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
-# pp = parallel processes
-pp="300"
+# pp = parallel processes (high resource consumption!)
+pp="400"
 # STEP 1:
 echo "${bw13[${es}]}"
-cat dnslookup > progress 2> /dev/null
-cat cleandns | xargs -I {} -P $pp sh -c "if ! grep --quiet {} progress; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup
+if [ -s dnslookup ] ; then
+		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup cleandns
+	else
+		cat cleandns
+fi | xargs -I {} -P $pp sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u > hit.txt
 sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fault.txt
 sort -o fault.txt -u fault.txt
@@ -311,8 +314,11 @@ echo "OK"
 # STEP 2:
 echo "${bw14[${es}]}"
 sed 's/^\.//g' fault.txt | sort -u > step2
-cat dnslookup2 > progress2 2> /dev/null
-cat step2 | xargs -I {} -P $pp sh -c "if ! grep --quiet {} progress2; then if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi; fi" >> dnslookup2
+if [ -s dnslookup2 ] ; then
+		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
+	else
+		cat step2
+fi | xargs -I {} -P $pp sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup2
 sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >> hit.txt
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fault.txt
 echo "OK"
