@@ -405,6 +405,7 @@
 .console.firebase.google.com
 .contacts.google.com
 .container.googleapis.com
+.content-autofill.googleapis.com
 .content.googleapis.com
 .content-storage-download.googleapis.com
 .content-storage.googleapis.com
@@ -604,6 +605,7 @@
 .finance.google.com
 .firebase.google.com
 .firebasestorage.googleapis.com
+.firebaseremoteconfig.googleapis.com
 .firestore.googleapis.com
 .flexpack.google.com
 .fls.doubleclick.net
@@ -642,6 +644,7 @@
 .g.page
 .gdata.youtube.com
 .gearsblog.blogspot.com
+.geller-pa.googleapis.com
 .geo0.ggpht.com
 .geo1.ggpht.com
 .geo2.ggpht.com
@@ -1189,6 +1192,7 @@
 .market.android.com
 .mars.google.com
 .material.google.com
+.mdh-pa.googleapis.com
 .meet.google.com
 .meeting.ext.google.com
 .metric.gstatic.com
@@ -1206,6 +1210,7 @@
 .mobile.google.com.hk
 .mobile-gtalk.l.google.com
 .mobile.l.google.com
+.mobilenetworkscoring-pa.googleapis.com
 .mobilemaps.clients.google.com
 .moderator.appspot.com
 .monitoring.googleapis.com
@@ -1424,6 +1429,7 @@
 .payments.youtube.com
 .peering.google.com
 .people-pa.clients6.google.com
+.people-pa.googleapis.com
 .p.gmodules.com
 .p.googleapis.com
 .photos1.blogger.com
@@ -1445,6 +1451,7 @@
 .playground.html5rocks.com
 .play-ti.googleapis.com
 .play-tokenized.googleapis.com
+.playatoms-pa.googleapis.com
 .plus.corp.google.com
 .plus.flexpack.google.com
 .plus.freezone.google.com
@@ -3388,6 +3395,7 @@
 .registry.google
 .research.google.com
 .reseed.corp.google.com
+.rewind.youtube
 .runtimeconfig.googleapis.com
 .ru.youtube.com
 .s0.2mdn.net
@@ -3719,10 +3727,12 @@
 .tc.v9.cache8.googlevideo.com
 .t.doc-0-0-sj.sj.googleusercontent.com
 .teachparentstech.org
+.tenor.googleapis.com
 .test-hilbertdevicesync-pa.sandbox.googleapis.com
 .testmysite.thinkwithgoogle.com
 .testonly.googleapis.com
 .test.postini.corp.google.com
+.telephonyspamprotect-pa.googleapis.com
 .textcube.com
 .thegobridgeoglepuzzle.com
 .thegooglepuzzle.com
@@ -5627,6 +5637,7 @@
 .afa.southeastasia.cloudapp.azure.com
 .afasq.westeurope.cloudapp.azure.com
 .affiliates.skype.com
+.afproxyprod.northeurope.cloudapp.azure.com
 .afx.ms
 .aganalyticsdev.eastus2.cloudapp.azure.com
 .agathaserver.eastus.cloudapp.azure.com
@@ -5826,6 +5837,7 @@
 .api.choice.microsoft.com
 .api.choice.msn.com
 .api.cognitive.microsoft.com
+.api.cognitive.microsofttranslator.com
 .api.conditionalaccesspolicies.identitygovernance.azure.com
 .api.cpm.account.microsoft.com
 .api.cp.microsoft.com
@@ -5849,6 +5861,7 @@
 .api.estimatordiy.microsoft.com
 .api.estimator.microsoft.com
 .api.estimatorsit.microsoft.com
+.api.flightproxy.teams.microsoft.com
 .api.flow.microsoft.com
 .api.fl.teams.skype.com
 .api.informationprotection.azure.com
@@ -6021,6 +6034,7 @@
 .argocache.microsoft.com
 .aria.microsoft.com
 .arima.westeurope.cloudapp.azure.com
+.a-ring-fallback.msedge.net
 .ariseinnovation.japaneast.cloudapp.azure.com
 .ar.msn.com
 .array101-int.do.dsp.mp.microsoft.com
@@ -6378,6 +6392,7 @@
 .azr-autonomia-l02.westeurope.cloudapp.azure.com
 .azrbac.mspim.azure.com
 .azrbac.mspim.ext.azure.com
+.azscus1-client-s.gateway.messenger.live.com
 .azsusvisvp01.southcentralus.cloudapp.azure.com
 .azsyslock-alerts-prod2-web.westus2.cloudapp.azure.com
 .azure.bcp.bingads.microsoft.com
@@ -6456,6 +6471,7 @@
 .azvm.eastus.cloudapp.azure.com
 .azwaasprddb01.westeurope.cloudapp.azure.com
 .azwertbal002.westus.cloudapp.azure.com
+.azwus2-client-s.gateway.messenger.live.com
 .b2b-a.parttest.extranettest.microsoft.com
 .b2bapi-perf2.partners.extranet.microsoft.com
 .b2bapiperf.partners.extranet.microsoft.com
@@ -7216,6 +7232,7 @@
 .c1.ch1.sharedservices.adcenterapi.microsoft.com
 .c1.microsoft.com
 .c1.skype.com
+.c1-word-view-15.cdn.office.net
 .c299-plesk.uksouth.cloudapp.azure.com
 .c2.Advertiser-si.adcenter.microsoft.com
 .c2.by2.adcenterapi.microsoft.com
@@ -9424,11 +9441,11 @@
 .EDADFS.partners.extranet.microsoft.com
 .edartcoresit.parttest.extranettest.microsoft.com
 .Edccsuat.parttest.extranettest.microsoft.com
+.edgekey.net
 .edge.messenger.live.com
 .edge-origin.skype.com
 .edge.skype.com
 .edge.vm.skype.com
-.edgekey.net
 .edinsights.partners.extranet.microsoft.com
 .edinsightsuat.parttest.extranettest.microsoft.com
 .edispm.partners.extranet.microsoft.com
@@ -9789,6 +9806,7 @@
 .events.skydrive.live.com
 .eventstest.one.microsoft.com
 .events.tpum.skype.com
+.evoke-windowsservices-tas.msedge.net
 .evprod-vm-east1.eastus.cloudapp.azure.com
 .evprod-vm-east2.eastus.cloudapp.azure.com
 .evprod-vm-staging.westus.cloudapp.azure.com
@@ -9864,6 +9882,9 @@
 .extsky.microsoft.com
 .eyefit-classifier.australiaeast.cloudapp.azure.com
 .ey-hub.northeurope.cloudapp.azure.com
+.fa000000005.resources.office.net
+.fa000000014.resources.office.net
+.fa000000043.resources.office.net
 .fabrikamenterpriseenrollment.westus2.cloudapp.azure.com
 .fabrikamwebportal.westus2.cloudapp.azure.com
 .facebook.skype.com
@@ -10178,6 +10199,7 @@
 .fpc.msedge.net
 .fp-db.ds.microsoft.com
 .fpk.southeastasia.cloudapp.azure.com
+.fp.msedge.net
 .fp-pr1.ds.microsoft.com
 .fptdev.live.com
 .fptdev.microsoft.com
@@ -11568,6 +11590,7 @@
 .kv401-prod.do.dsp.mp.microsoft.com
 .kv501-prod.do.dsp.mp.microsoft.com
 .kv601-prod.do.dsp.mp.microsoft.com
+.kv601.prod.do.dsp.mp.microsoft.com
 .kv701-prod.do.dsp.mp.microsoft.com
 .kv801-prod.do.dsp.mp.microsoft.com
 .kvsdemo17tex01.westeurope.cloudapp.azure.com
@@ -11595,6 +11618,7 @@
 .labtest01.westeurope.cloudapp.azure.com
 .lam.delve.office.com
 .lamp.westeurope.cloudapp.azure.com
+.lamssettings-pa.googleapis.com
 .lapp-dvaz001.brazilsouth.cloudapp.azure.com
 .laqorr-apac-oz.australiaeast.cloudapp.azure.com
 .latam.msn.com
@@ -11769,7 +11793,6 @@
 .live-namsouth.office365.com
 .live.net
 .live.org
-.liveperson.net
 .live.rads.msn.com
 .live.stax.microsoft.com
 .livesupportcms.skype.com
@@ -12148,6 +12171,7 @@
 .mcpuat.one.microsoft.com
 .mc.skype.com
 .mct.microsoft.com
+.mcultura-my.sharepoint.com
 .mdasroadmap.msn.com
 .mdcbj4-dns-reg1.eastus.cloudapp.azure.com
 .mdenier1.westeurope.cloudapp.azure.com
@@ -12447,6 +12471,7 @@
 .moderationmanagement.mediaservices.microsoft.com
 .moderationmanagement-ppe.mediaservices.microsoft.com
 .moderation.soapbox.msn.com
+.modern.akamai.odsp.cdn.office.net
 .ModRskFE-ust-rk-ldc1-BN2.apslb.cp.microsoft.com
 .ModRskFE-ust-rk-ldc1-CY2.apslb.cp.microsoft.com
 .ModRskFE-ust-rk-ldc1-DB5.apslb.cp.microsoft.com
@@ -13361,6 +13386,8 @@
 .officeclient.microsoft.com
 .office.com
 .office-df.live.com
+.officehomeblobs.blob.core.windows.net
+.officehome.cdn.office.net
 .officeimg.vo.msecnd.net
 .officeint.microsoft.com
 .Officeint.microsoft.com
@@ -13657,6 +13684,7 @@
 .otrsbkend.brazilsouth.cloudapp.azure.com
 .outletcoverage.microsoft.com
 .outletcoverageppe.parttest.extranettest.microsoft.com
+.outlook-1.cdn.office.net
 .outlook.co
 .outlook.com
 .outlook.co.za
@@ -16359,6 +16387,7 @@
 .share.advertising.microsoft.com
 .sharedcnacluster.westus2.cloudapp.azure.com
 .shared.live.com
+.shared.officeapps.live.com
 .sharedservices.adcenterapi.microsoft.com
 .sharedservices.api.bingads.microsoft.com
 .sharedservices.si.api.adcenter.microsoft.com
@@ -16636,6 +16665,7 @@
 .snt406-m.hotmail.com
 .snt407-m.hotmail.com
 .snykgappoc.northeurope.cloudapp.azure.com
+.snz04pap001.storage.live.com
 .sO.2mdn.net
 .soap.perf.ctp.msn.com
 .sobrcds-glowingbear-1.uksouth.cloudapp.azure.com
@@ -17597,6 +17627,8 @@
 .tr.msn.com
 .trockend.westus2.cloudapp.azure.com
 .troublemakersregistry.eastus2.cloudapp.azure.com
+.trouter2-azsc-uswe-1-a.trouter.teams.microsoft.com
+.trouter-azsc-usea-0-a.trouter.skype.com
 .trouter-df.skype.com
 .trouter.skype.com
 .trpil.eastus.cloudapp.azure.com
@@ -18359,6 +18391,8 @@
 .web6.sbweb.microsoft.com
 .webapp.skype.com
 .webapps.microsoft.com
+.webdir0a.online.lync.com
+.webdir.online.lync.com
 .webfolders.metaservices.microsoft.com
 .webfolders.partners.extranet.microsoft.com
 .webgallery.microsoft.com
@@ -18371,6 +18405,7 @@
 .webmin.westus2.cloudapp.azure.com
 .webpa201.int.aeos.microsoft.com
 .webpa202.int.aeos.microsoft.com
+.webpoolbl20a25.infra.lync.com
 .webrtcclient.westus2.cloudapp.azure.com
 .webrtc-sandvik.northeurope.cloudapp.azure.com
 .webservicesh.eastus.cloudapp.azure.com
@@ -18471,6 +18506,7 @@
 .westus2.management.azure.com
 .westus2.network.azure.com
 .westus2.pir.compute.azure.com
+.westus2-prod-2.notifications.teams.microsoft.com
 .westus2.prod.powerquery.microsoft.com
 .westus2.rsrp.storage.azure.com
 .westus2.servicefabric.azure.com
@@ -18770,6 +18806,7 @@
 .xa.msn.com
 .x-api.skype.com
 .x.bing.com
+.xboxab.com
 .xboxagentauthstdsit.parttest.extranettest.microsoft.com
 .xboxagentpubnsrsit.parttest.extranettest.microsoft.com
 .xboxagentpubstdsit.parttest.extranettest.microsoft.com
@@ -26634,6 +26671,7 @@
 .360safe.com
 .360securityapps.com
 .360totalsecurity.com
+.4-72.com.co
 .53.com
 .a1.verisigndns.com
 .a2.verisigndns.com
@@ -26649,6 +26687,7 @@
 .adobe.com
 .adobedtm.com
 .adobe.io
+.adobess.com
 .afd.fr
 .agenti.com.co
 .agkn.com
@@ -26660,12 +26699,14 @@
 .akamaitechnologies.com
 .akamaized.net
 .alexgorbatchev.com
+.allus.com.co
 .alterserv.com
 .amazonaws.com
 .amazon.com
 .amcore.com
 .amd.com
 .americafirst.com
+.amigosingleses.com
 .amnesty.org
 .ampproject.net
 .any.do
@@ -26788,6 +26829,7 @@
 .centralpacificbank.com
 .certicamara.com
 .cert.int-x3.letsencrypt.org
+.certum.eu
 .certum.pl
 .cgiar.org
 .chase.com
@@ -26891,9 +26933,6 @@
 .digitalocean.com
 .disconnect.me
 .disney.com
-.disq.us
-.disquscdn.com
-.disqus.com
 .dnd.ca
 .docusign.com
 .domaintools.com
@@ -27045,6 +27084,7 @@
 .ifx.net.co
 .ilovepdf.com
 .inboxsdk.com
+.inconcertcc.com
 .indicedetransparencia.org.co
 .infospyware.com
 .infoworld.com
@@ -27217,6 +27257,7 @@
 .ptp.com.co
 .public-trust.com
 .pubmatic.com
+.q10.com
 .qgis.org
 .qualtrics.com
 .rabobank.com
@@ -27311,6 +27352,8 @@
 .taz.net.au
 .tcfbank.com
 .tdbank.com
+.teachable.com
+.teachablecdn.com
 .tegrazone.com
 .telefonica.com
 .terashare.net
@@ -27331,6 +27374,7 @@
 .trusteer.com
 .trustmark.com
 .tutellus.com
+.typekit.com
 .typepad.com
 .u1.verisigndns.com
 .u2.verisigndns.com
@@ -27430,10 +27474,7 @@
 .yoyo.org
 .zdassets.com
 .zeltser.com
-.zendesk.com
 .zeustracker.abuse.ch
 .zimbra.com
 .zionsbank.com
 .zonapagos.com
-.zoom.us
-.zopim.com

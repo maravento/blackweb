@@ -475,6 +475,7 @@
 .gammamc.logmeinrescue-enterprise.com
 .gateway.join.me
 .get.gotomypc.com
+.getgo.com
 .getstage.gotomypc.com
 .gotomypc.com
 .hamachi.cc

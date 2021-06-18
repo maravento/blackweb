@@ -191,9 +191,6 @@ fi
 	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
 	
-# SOCIAL
-cat lst/blocksocial.txt >> bwtmp/bw
-
 # DOWNLOADING BIG BLOCKLISTS
 function targz() {
 wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
@@ -267,7 +264,7 @@ tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
 # block remote
 #sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
 # update hosts file (optional. for other purposes)
-sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/{blockurls,blocksocial}.txt | sort -u > add/hosts.txt
+sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > add/hosts.txt
 # uniq capture
 sort -o capture -u capture
 echo "OK"

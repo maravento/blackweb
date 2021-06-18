@@ -3,6 +3,7 @@
 .chat
 .club
 .crypto
+.download
 .onion
 .poker
 .porn
