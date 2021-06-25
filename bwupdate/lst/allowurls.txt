@@ -161,6 +161,8 @@
 .alt4.aspmx.l.google.com
 .alt4.gmail-smtp-in.l.google.com
 .alt4.gmr-smtp-in.l.google.com
+.ampcid.google.com
+.ampcid.google.com.co
 .ampproject.org
 .analytics.google.com
 .android.clients.google.com
@@ -200,6 +202,7 @@
 .aspmx.l.google.com
 .atmospheretokyo.withgoogle.com
 .atmosphere.withgoogle.com
+.attachment.googleusercontent.com
 .audioads.google.com
 .au.doubleclick.net
 .auth.corp.google.com
@@ -394,6 +397,7 @@
 .clouderrorreporting.googleapis.com
 .cloud.google.com
 .cloudiotprovisioningmqtt.googleapis.com
+.cloudsearch.googleapis.com
 .cloudssh.developers.google.com
 .cloudtrace.googleapis.com
 .cm.g.doubleclick.net
@@ -409,6 +413,7 @@
 .compress.googlezip.net
 .connectedclassrooms.withgoogle.com
 .connectivitycheck.android.com
+.connectivitycheck.gstatic.com
 .consent.corp.youtube.com
 .console.developers.google.com
 .console.firebase.google.com
@@ -432,6 +437,7 @@
 .cse.google.com
 .csi.gstatic.com
 .csi.l.google.com
+.csp.withgoogle.com
 .ct.googleapis.com
 .c.video.google.com
 .c.youtube.com
@@ -563,6 +569,7 @@
 .docs9.google.com
 .docs-dev.corp.google.com
 .docs.google.com
+.docs.googleusercontent.com
 .docs-nightly.corp.google.com
 .docs-platinum.corp.google.com
 .docs-qa.corp.google.com
@@ -590,6 +597,7 @@
 .edgetp4.googleapis.com
 .edudirectory.withgoogle.com
 .eggroll.ext.google.com
+.embeds.googleusercontent.com
 .emeadev.blogspot.com
 .encrypted.google.com
 .encrypted-tbn0.google.com
@@ -605,6 +613,7 @@
 .evolutionofweb.appspot.com
 .ext.google.com
 .fcm.googleapis.com
+.fcmregistrations.googleapis.com
 .feedback.googleusercontent.com
 .feedburner.com
 .feedburner.google.com
@@ -612,10 +621,12 @@
 .feedproxy.google.com
 .feeds2.feedburner.com
 .feeds.feedburner.com
+.fe.googleapis.com
 .fi.google.com
 .filetransferenabled.mail.google.com
 .finance.google.com
 .firebase.google.com
+.firebaseinstallations.googleapis.com
 .firebaseremoteconfig.googleapis.com
 .firebasestorage.googleapis.com
 .firestore.googleapis.com
@@ -624,6 +635,7 @@
 .fls.uk.doubleclick.net
 .focus.corp.google.com
 .fonts.googleapis.com
+.fonts.google.com
 .fonts.gstatic.com
 .foobar.withgoogle.com
 .foofle.com
@@ -638,6 +650,7 @@
 .froogle.com
 .froogle.google.com
 .fr.youtube.com
+.fundingchoicesmessages.google.com
 .fusion.google.com
 .fvm.withgoogle.com
 .g0.gstatic.com
@@ -706,6 +719,7 @@
 .googl.com
 .google.ac
 .google.ad
+.googleads4.g.doubleclick.net
 .googleadservices.com
 .googleads.g.doubleclick.net
 .google.ae
@@ -1059,6 +1073,7 @@
 .gxc.google.com
 .gxc.google.com.hk
 .haiticrisis.appspot.com
+.hangouts.clients6.google.com
 .hangouts.google.com
 .health.google.com
 .help.blogger.com
@@ -1101,6 +1116,7 @@
 .images.l.google.com
 .imap.gmail.com
 .imap.googlemail.com
+.imasdk.googleapis.com
 .img0.gmodules.com
 .img1.blogblog.com
 .img1.gmodules.com
@@ -1143,6 +1159,7 @@
 .khm.l.google.com
 .khms0.googleapis.com
 .khms0.google.com
+.khms1.googleapis.com
 .khms1.google.com
 .khms2.google.com
 .khms3.google.com
@@ -1327,6 +1344,7 @@
 .nt3.ggpht.com
 .oauthaccountmanager.googleapis.com
 .oauth.googleusercontent.com
+.ocsp.pki.goog
 .officialorkutblog.blogspot.com
 .ogs.google.com
 .onetoday-dev-appspot.sandbox.google.com
@@ -1476,6 +1494,7 @@
 .plusone.corp.google.com
 .plusone.google.com
 .plus.url.google.com
+.policies.google.com
 .pop.gmail.com
 .pop.googlemail.com
 .postini.corp.google.com
@@ -3408,6 +3427,7 @@
 .redirector.googlevideo.com
 .redirector.gvt1.com
 .registry.google
+.remotedesktop.google.com
 .research.google.com
 .reseed.corp.google.com
 .rewind.youtube
@@ -3758,6 +3778,7 @@
 .themes.googleusercontent.com
 .think.withgoogle.com
 .thinkwithgoogle.com
+.thirdparty.googleusercontent.com
 .toolbar.google.com
 .toolbar.google.com.hk
 .toolbarqueries.clients.google.com
@@ -3936,6 +3957,7 @@
 .urchin.com
 .urchin.corp.google.com
 .url.google.com
+.userlocation.googleapis.com
 .v10.lscache1.c.android.clients.google.com
 .v10.lscache1.c.bigcache.googleapis.com
 .v10.lscache1.c.googlesyndication.com
@@ -5386,6 +5408,7 @@
 .aa-breakdown-reporting-arr1.northeurope.cloudapp.azure.com
 .aac-dev-w.japaneast.cloudapp.azure.com
 .aadbridge.cp.microsoft.com
+.aadcdn.msauth.net
 .aadconnecthealth.azure.com
 .aad.cs.dds.microsoft.com
 .aadg.mspim.azure.com
@@ -5475,7 +5498,6 @@
 .acme-rds.southcentralus.cloudapp.azure.com
 .acn-fin-office.northeurope.cloudapp.azure.com
 .acn-octopus.southcentralus.cloudapp.azure.com
-.acompli-android-logs.s3.amazonaws.com
 .acompli.helpshift.com
 .acompli.net
 .a.config.skype.com
@@ -5563,6 +5585,7 @@
 .adinsight.beta.si.bingads.microsoft.com
 .adinsight.bingads.microsoft.com
 .adinsight.si.bingads.microsoft.com
+.adl.windows.com
 .admediatorsvc-int.dce.mp.microsoft.com
 .admin.binglocalinformation.msn.com
 .admin.businessplatform.microsoft.com
@@ -5658,6 +5681,7 @@
 .a-euwe-api.callrecorder.skype.com
 .afa.southeastasia.cloudapp.azure.com
 .afasq.westeurope.cloudapp.azure.com
+.afd.azureedge.net
 .affiliates.skype.com
 .afproxyprod.northeurope.cloudapp.azure.com
 .afx.ms
@@ -5841,6 +5865,7 @@
 .apcs.westeurope.cloudapp.azure.com
 .apgcpremier.partners.extranet.microsoft.com
 .apgcreports.partners.extranet.microsoft.com
+.api3.cc.skype.com
 .api.access.tools-centralus.cp.microsoft.com
 .api.access.tools.cp.microsoft.com
 .api.access.tools-eastasia.cp.microsoft.com
@@ -5848,6 +5873,7 @@
 .api.access.tools-northeurope.cp.microsoft.com
 .api.access.tools-westus.cp.microsoft.com
 .api.account.microsoft.com
+.api.addins.omex.office.net
 .api.analysis.windows.net
 .api.asm.skype.com
 .api.bap.microsoft.com
@@ -6035,6 +6061,7 @@
 .appsvcciphers.eastus.cloudapp.azure.com
 .appsvcux.ext.azure.com
 .appublic.westeurope.cloudapp.azure.com
+.aprodportalb2csa.blob.core.windows.net
 .apselfserviceprodauth.partners.extranet.microsoft.com
 .APSelfServiceProdAuth.partners.extranet.microsoft.com
 .apselfserviceuat.parttest.extranettest.microsoft.com
@@ -6100,19 +6127,27 @@
 .array601-prod.do.dsp.mp.microsoft.com
 .array601.prod.do.dsp.mp.microsoft.com
 .array602-prod.do.dsp.mp.microsoft.com
+.array602.prod.do.dsp.mp.microsoft.com
 .array603-prod.do.dsp.mp.microsoft.com
 .array604-prod.do.dsp.mp.microsoft.com
+.array604.prod.do.dsp.mp.microsoft.com
 .array605-prod.do.dsp.mp.microsoft.com
 .array605.prod.do.dsp.mp.microsoft.com
 .array606-prod.do.dsp.mp.microsoft.com
 .array607-prod.do.dsp.mp.microsoft.com
 .array608-prod.do.dsp.mp.microsoft.com
+.array608.prod.do.dsp.mp.microsoft.com
 .array609-prod.do.dsp.mp.microsoft.com
 .array610-prod.do.dsp.mp.microsoft.com
+.array610.prod.do.dsp.mp.microsoft.com
 .array611-prod.do.dsp.mp.microsoft.com
+.array611.prod.do.dsp.mp.microsoft.com
 .array612-prod.do.dsp.mp.microsoft.com
+.array612.prod.do.dsp.mp.microsoft.com
 .array613-prod.do.dsp.mp.microsoft.com
+.array613.prod.do.dsp.mp.microsoft.com
 .array614-prod.do.dsp.mp.microsoft.com
+.array614.prod.do.dsp.mp.microsoft.com
 .array615-prod.do.dsp.mp.microsoft.com
 .array701-prod.do.dsp.mp.microsoft.com
 .array702-prod.do.dsp.mp.microsoft.com
@@ -6134,6 +6169,7 @@
 .array806-prod.do.dsp.mp.microsoft.com
 .array807-prod.do.dsp.mp.microsoft.com
 .array808-prod.do.dsp.mp.microsoft.com
+.array809.prod.do.dsp.mp.microsoft.com
 .arrint.microsoft.com
 .ars.smartscreen.microsoft.com
 .artcore.partners.extranet.microsoft.com
@@ -6146,6 +6182,7 @@
 .arweb.parttest.extranettest.microsoft.com
 .arxsonar.eastus2.cloudapp.azure.com
 .as-api.asm.skype.com
+.as.azureedge.net
 .as.cp.wd.microsoft.com
 .ascrupdc01.westeurope.cloudapp.azure.com
 .as.cwa.microsoft.com
@@ -6194,6 +6231,7 @@
 .assets.ppv1.microsoft.com
 .assetsprod.microsoft.com
 .assets-yammer.com
+.assignments.onenote.com
 .assoftcrm.westeurope.cloudapp.azure.com
 .as-sql-influxdb.northeurope.cloudapp.azure.com
 .asus13.us.msn.com
@@ -6216,6 +6254,7 @@
 .atp.azure.com
 .attachment.outlook.live.net
 .attachment.outlook.office.net
+.attachments.office.net
 .att.admin.messaging.microsoft.com
 .att-expertzone.microsoft.com
 .att.quarantine.messaging.microsoft.com
@@ -6243,6 +6282,7 @@
 .auepaassharedsvcsppe.australiaeast.cloudapp.azure.com
 .aueprod-dacsvc.azure.com
 .aueProd-dacsvc.azure.com
+.augloop.office.com
 .aurecongitlab.australiasoutheast.cloudapp.azure.com
 .aureconopendata.australiaeast.cloudapp.azure.com
 .aus.delve.office.com
@@ -6622,6 +6662,7 @@
 .basuat2.partners.extranet.microsoft.com
 .basuatexternal2.parttest.extranettest.microsoft.com
 .basuatexternal.parttest.extranettest.microsoft.com
+.bat.bing.com
 .batchaitraining.azure.com
 .batchaitraining-test.azure.com
 .batch.ext.azure.com
@@ -6859,8 +6900,12 @@
 .bl3301-a.1drv.com
 .bl3301-c.1drv.com
 .bl3301-g.1drv.com
+.bl3302.settings.live.net
+.bl3302.storage.live.com
 .bl6pap003.settings.live.net
 .bl6pap003.storage.live.com
+.bl6pap004.settings.live.net
+.bl6pap004.storage.live.com
 .blaf-tool-prod4.westeurope.cloudapp.azure.com
 .blenddigital.northeurope.cloudapp.azure.com
 .blislocations.glbdns2.microsoft.com
@@ -6960,8 +7005,15 @@
 .bmsuat2.partners.extranet.microsoft.com
 .bmsub01.manage-beta.microsoft.com
 .bmsuc01.manage-beta.microsoft.com
+.bn02pap001.storage.live.com
 .bn02p.partnermanage.microsoft.com
+.bn1301.settings.live.net
+.bn1301.storage.live.com
+.bn1303.settings.live.net
+.bn1303.storage.live.com
 .bn1304-e.1drv.com
+.bn1304.storage.live.com
+.bn1305.storage.live.com
 .bn1306-a.1drv.com
 .bn1306-e.1drv.com
 .bn1306-g.1drv.com
@@ -7173,6 +7225,7 @@
 .broadfe2.ws.microsoft.com
 .broker.skype.com
 .browser.events.data.microsoft.com
+.browser.events.data.msn.com
 .browser.pipe.aria.microsoft.com
 .browse.tvdownload.microsoft.com
 .brt.blr.microsoft.com
@@ -7503,6 +7556,7 @@
 .cdn.call.skype.com
 .cdn.content.prod.cms.msn.com
 .cdn.content.prod.cms.msn.com.edgesuite.net
+.cdn.forms.office.net
 .cdn.ocws.edog.officeapps.live.com
 .cdn.ocws.officeapps.live.com
 .cdn.odc.officeapps.live.com
@@ -7673,6 +7727,10 @@
 .cheshire.microsoft.com
 .cheyenne.msftvpn-alt.ras.microsoft.com
 .cheyenne.msftvpn.ras.microsoft.com
+.chi01pap001.settings.live.net
+.chi01pap001.storage.live.com
+.chi01pap002.settings.live.net
+.chi01pap002.storage.live.com
 .chicago.adexpert.msn.com
 .chicago.rnr.adexpert.msn.com
 .chicago.techsummit.microsoft.com
@@ -7749,6 +7807,7 @@
 .client-office365-tas.msedge.net
 .client.prod.tpc.skype.com
 .client.registrar.skype.com
+.clients.config.office.net
 .client-s.gateway.messenger.live.com
 .clientstore.partners.extranet.microsoft.com
 .clienttemplates.content.office.net
@@ -7759,6 +7818,7 @@
 .clisms-skypesms-qa.smse2etest.skype.com
 .c.live.com
 .cl.msn.com
+.clo.footprintdns.com
 .clog.msn.com
 .clonedrupal.westeurope.cloudapp.azure.com
 .cloudapp.azure.com
@@ -8038,6 +8098,7 @@
 .config.edog.officeapps.live.com
 .config.edog.office.microsoft.com
 .configencryption.mcr.skype.com
+.config.fp.measure.office.com
 .config.officeapps.live.com
 .config.office.microsoft.com
 .config.skype.com
@@ -8094,6 +8155,7 @@
 .content.api.sandbox.bingads.microsoft.com
 .contentapi.skype.com
 .contentexplorer.mc.microsoft.com
+.content.growth.office.net
 .contentidea.partners.extranet.microsoft.com
 .contentmoderator.cognitive.microsoft.com
 .content.office.microsoft.com
@@ -8194,6 +8256,7 @@
 .cp601.prod.do.dsp.mp.microsoft.com
 .cp701-prod.do.dsp.mp.microsoft.com
 .cp801-prod.do.dsp.mp.microsoft.com
+.cp801.prod.do.dsp.mp.microsoft.com
 .cpanelsi.eastus.cloudapp.azure.com
 .c.partnersettings.familysafety.microsoft.com
 .cpchronos.partners.extranet.microsoft.com
@@ -8424,7 +8487,9 @@
 .cwsmtpaseexternal.parttest.extranettest.microsoft.com
 .cws-tip.dcat.dsp.mp.microsoft.com
 .cwsuatadminsvcext.one.microsoft.com
+.cx.atdmt.com
 .cxcs.cdn.office.net
+.cxcs.microsoft.net
 .cx.familysafety.microsoft.com
 .cx.msn.com
 .cxp.partners.extranet.microsoft.com
@@ -9000,6 +9065,7 @@
 .df.storage.live.com
 .df.storage.msn.com
 .df.telemetry.microsoft.com
+.df.trap.teams.microsoft.com
 .dftrckseuprdcd1.westeurope.cloudapp.azure.com
 .dftrckseuprdcd2.westeurope.cloudapp.azure.com
 .dftrckseuprdcm1.westeurope.cloudapp.azure.com
@@ -9063,6 +9129,7 @@
 .disc601.prod.do.dsp.mp.microsoft.com
 .disc701-prod.do.dsp.mp.microsoft.com
 .disc801-prod.do.dsp.mp.microsoft.com
+.disc801.prod.do.dsp.mp.microsoft.com
 .discovery.alerts.security.azure.com
 .discovery.security.azure.com
 .discrequest.dps.mp.microsoft.com
@@ -9090,6 +9157,10 @@
 .dlws.microsoft.com
 .dm1-1prod-dacsvc.azure.com
 .dm1-1Prod-dacsvc.azure.com
+.dm2302.settings.live.net
+.dm2302.storage.live.com
+.dm2304.settings.live.net
+.dm2304.storage.live.com
 .dmat.css.microsoft.com
 .dmat-int.css.microsoft.com
 .dmat-ppe.css.microsoft.com
@@ -9217,6 +9288,7 @@
 .dsframework.support.microsoft.com
 .ds-int.eastus.cloudapp.azure.com
 .ds-int.westus.cloudapp.azure.com
+.dsm01pap002.storage.live.com
 .ds.microsoft.com
 .dsn0.skype-dsn.akadns.net
 .dsn10.skype-dsn.akadns.net
@@ -9484,6 +9556,7 @@
 .EDADFS.partners.extranet.microsoft.com
 .edartcoresit.parttest.extranettest.microsoft.com
 .Edccsuat.parttest.extranettest.microsoft.com
+.edge.activity.windows.com
 .edgekey.net
 .edge.messenger.live.com
 .edge.microsoft.com
@@ -10248,6 +10321,7 @@
 .fpc.msedge.net
 .fp-db.ds.microsoft.com
 .fpk.southeastasia.cloudapp.azure.com
+.fp.measure.office.com
 .fp.msedge.net
 .fp-pr1.ds.microsoft.com
 .fptdev.live.com
@@ -10322,6 +10396,7 @@
 .fulfillment.partners.extranet.microsoft.com
 .full.account.microsoft.com
 .fullproduct.download.microsoft.com
+.functional.events.data.microsoft.com
 .functions.azure.com
 .functionschallenge.azure.com
 .functions-next.azure.com
@@ -10484,6 +10559,7 @@
 .gostarena.westeurope.cloudapp.azure.com
 .go.trouter.io
 .go.trouter.skype.com
+.go.trouter.teams.microsoft.com
 .gov-art-eus-nt-a.eastus.cloudapp.azure.com
 .gov-art-eus-nt-b.eastus.cloudapp.azure.com
 .gov-art-int-nt-a.eastus.cloudapp.azure.com
@@ -10585,6 +10661,7 @@
 .HardwareWeb-int.microsoft.com
 .HardwareWF-dev.microsoft.com
 .HardwareWF-int.microsoft.com
+.has.spserv.microsoft.com
 .havana-latest.skype.com
 .havana-launcher-latest.skype.com
 .havana-launcher.skype.com
@@ -10882,6 +10959,7 @@
 .ia.microsoft.com
 .iapbackup1.uksouth.cloudapp.azure.com
 .i.apprep.smartscreen.microsoft.com
+.ib.adnxs.com
 .ib.anycast.adnxs.com
 .i.bing.com
 .i-bl6p-cor001.api.p001.1drv.com
@@ -11647,6 +11725,7 @@
 .kv601.prod.do.dsp.mp.microsoft.com
 .kv701-prod.do.dsp.mp.microsoft.com
 .kv801-prod.do.dsp.mp.microsoft.com
+.kv801.prod.do.dsp.mp.microsoft.com
 .kvsdemo17tex01.westeurope.cloudapp.azure.com
 .kvsdemo18fcy01.westeurope.cloudapp.azure.com
 .kvsdemo18trd01.westeurope.cloudapp.azure.com
@@ -11831,6 +11910,7 @@
 .listingsapi-int.dps.mp.microsoft.com
 .listmanager.adcenter.microsoft.com
 .listmanager-si.adcenter.microsoft.com
+.lists.office.com
 .lists.research.microsoft.com
 .lite.community.support.microsoft.com
 .little.westeurope.cloudapp.azure.com
@@ -11923,6 +12003,7 @@
 .losoctopusdeploydevsync1.southcentralus.cloudapp.azure.com
 .loty.msn.com
 .lpapi.japaneast.cloudapp.azure.com
+.lpcres.delve.office.com
 .lpsite.japaneast.cloudapp.azure.com
 .lpwiki.japaneast.cloudapp.azure.com
 .lqg.partners.extranet.microsoft.com
@@ -12135,6 +12216,7 @@
 .mappoint.msn.com
 .maps.live.com
 .maps.msn.com
+.maps.windows.com
 .marble.canadacentral.cloudapp.azure.com
 .markafoni.tr.msn.com
 .marketingepuat.partners.extranet.microsoft.com
@@ -12249,6 +12331,7 @@
 .mdstg.northeurope.cloudapp.azure.com
 .mdw.infocatalog.azure.com
 .meallinone1.westeurope.cloudapp.azure.com
+.measure.office.com
 .MediaAcq.Partners.Extranet.Microsoft.com
 .mediaacquisitions.partners.extranet.microsoft.com
 .mediaacquisitionsuat.partners.extranet.microsoft.com
@@ -12272,6 +12355,7 @@
 .mediaplayer.inteviews.skype.com
 .mediaprofile.int.microsoft.com
 .mediaprofile-origin.microsoft.com
+.mediap.svc.ms
 .mediarecents.int.microsoft.com
 .mediarecents.microsoft.com
 .mediaredirect.microsoft.com
@@ -12318,6 +12402,7 @@
 .mert.microsoft.com
 .messagingexporter.skype.com
 .messagingexporter-staging.skype.com
+.messaging.office.com
 .messagingthread.skype.com
 .messagingv2exporter.skype.com
 .messenger-df.live.com
@@ -12541,6 +12626,7 @@
 .moeuat1.partners.extranet.microsoft.com
 .moeuat2.partners.extranet.microsoft.com
 .mofarcgis.northeurope.cloudapp.azure.com
+.moiafdaws.clo.footprintdns.com
 .moja-unms.ukwest.cloudapp.azure.com
 .moments.skype.com
 .monaco.addins.call.skype.com
@@ -12647,6 +12733,7 @@
 .mrmd-dbxl.eastus.cloudapp.azure.com
 .mrodevicemgr.edog.officeapps.live.com
 .mrodevicemgr.officeapps.live.com
+.mrrcountries.cdn.skype.com
 .mrschef.westus2.cloudapp.azure.com
 .mrs-expertzone.microsoft.com
 .mrsjenkins.centralus.cloudapp.azure.com
@@ -12945,6 +13032,7 @@
 .m.tmsua02.manage-selfhost.microsoft.com
 .mucp.api.account.microsoft.com
 .mural.westus2.cloudapp.azure.com
+.musicimage.xboxlive.com
 .musicmatch-origin.int.microsoft.com
 .musicmatch-origin.microsoft.com
 .music.microsoft.com
@@ -13025,6 +13113,7 @@
 .myservicezuneeoc.partners.extranet.microsoft.com
 .myservicezunesit.parttest.extranettest.microsoft.com
 .myservicezunestg.partners.extranet.microsoft.com
+.my.sharepoint.com
 .mysqldbrp-ppe.azure.com
 .mysqldbservices.azure.com
 .mysurfaceserviceaoc.partners.extranet.microsoft.com
@@ -13041,9 +13130,11 @@
 .myunms.southcentralus.cloudapp.azure.com
 .myvertec.westeurope.cloudapp.azure.com
 .myxboxservicestg.partners.extranet.microsoft.com
+.na01.oscs.protection.outlook.com
 .nagiosxi.eastus.cloudapp.azure.com
 .nalxci2dev.eastus.cloudapp.azure.com
 .nam02.dataservice.protection.outlook.com
+.nam10.safelinks.protection.outlook.com
 .nam.cloudmail.microsoft.com
 .nam.daas.microsoft.com
 .nam.delve.office.com
@@ -13278,6 +13369,7 @@
 .nsdashboard.uksouth.cloudapp.azure.com
 .nseorquest.westeurope.cloudapp.azure.com
 .n.settings.familysafety.microsoft.com
+.ntp.msn.com
 .nt-staging-vm.centralus.cloudapp.azure.com
 .nuruntest.westeurope.cloudapp.azure.com
 .nus1-api.asm.skype.com
@@ -13351,6 +13443,7 @@
 .oas.wc.ficp.support.microsoft.com
 .oas.world.ficp.support.microsoft.com
 .oauth.live.com
+.oauth.online.office.com
 .oauth.sellerdashboard.microsoft.com
 .obapptest.eastus.cloudapp.azure.com
 .obce.northeurope.cloudapp.azure.com
@@ -13368,6 +13461,7 @@
 .ocos-office365-s2s.msedge.net
 .ocp.microsoft.com
 .ocpppe.microsoft.com
+.ocps.manage.microsoft.com
 .ocps.manage-selfhost.microsoft.com
 .ocs01x.ocsweb.microsoft.com
 .ocs02x.ocsweb.microsoft.com
@@ -13399,6 +13493,7 @@
 .odcsm.officeapps.live.com
 .odcsup.edog.officeapps.live.com
 .odcsup.officeapps.live.com
+.odinvzc.azureedge.net
 .ods.opinsights.azure.com
 .odysseuslabs-dev.eastus.cloudapp.azure.com
 .odysseuslabs.eastus.cloudapp.azure.com
@@ -13523,8 +13618,27 @@
 .oneclient.sfx.ms
 .Oneclient.sfx.ms
 .oneco-mqtt.northeurope.cloudapp.azure.com
+.onedriveclucprodbn20004.blob.core.windows.net
 .onedriveclucprodbn20006.blob.core.windows.net
+.onedriveclucprodbn20008.blob.core.windows.net
+.onedriveclucprodbn20010.blob.core.windows.net
+.onedriveclucprodbn20011.blob.core.windows.net
+.onedriveclucprodbn20014.blob.core.windows.net
+.onedriveclucprodbn20024.blob.core.windows.net
+.onedriveclucprodbn20025.blob.core.windows.net
+.onedriveclucprodbn20026.blob.core.windows.net
+.onedriveclucprodbn20028.blob.core.windows.net
+.onedriveclucprodbn20029.blob.core.windows.net
+.onedriveclucprodbn20030.blob.core.windows.net
 .onedriveclucproddm20002.blob.core.windows.net
+.onedriveclucproddm20013.blob.core.windows.net
+.onedriveclucproddm20016.blob.core.windows.net
+.onedriveclucproddm20018.blob.core.windows.net
+.onedriveclucproddm20021.blob.core.windows.net
+.onedriveclucproddm20023.blob.core.windows.net
+.onedriveclucproddm20026.blob.core.windows.net
+.onedriveclucproddm20027.blob.core.windows.net
+.onedriveclucproddm20029.blob.core.windows.net
 .onedrive.co
 .onedrive.com
 .onedrive.co.uk
@@ -13545,6 +13659,7 @@
 .onenote.com
 .onenote.net
 .onenote.officeapps.live.com
+.oneocsp.microsoft.com
 .onerf.microsoft.com
 .onerf.msn.com
 .onerfwiki.westus.cloudapp.azure.com
@@ -13769,6 +13884,7 @@
 .outlook.uservoice.com
 .ovpn8436.westeurope.cloudapp.azure.com
 .ovwtt.parttest.extranettest.microsoft.com
+.ow1.res.office365.com
 .ow2.res.office365.com
 .owa.exchange.microsoft.com
 .owa.microsoft.com
@@ -14076,6 +14192,7 @@
 .phonefactor.net
 .phoneprov.westus2.cloudapp.azure.com
 .phoneregistration.microsoft.com
+.phone.sports.tile.appex.bing.com
 .photos-dev.microsoft.com
 .photos-df.live.com
 .photos.live.com
@@ -15269,6 +15386,7 @@
 .prod-31.westus2.logic.azure.com
 .prod-31.westus.logic.azure.com
 .prod.asyncgw.teams.microsoft.com
+.prod.azurewebsites.net
 .prod-cdn.webapps.microsoft.com
 .prod.cms.rt.microsoft.com
 .prod.do.dsp.mp.microsoft.com.edgekey.net
@@ -15983,7 +16101,6 @@
 .s2s-storage.live.com
 .s3connect.microsoft.com
 .s3int.cloudappdiscovery.ext.azure.com
-.s3-us-west-2.amazonaws.com
 .sa1-api.asm.skype.com
 .sa1-authgw.asm.skype.com
 .sa1-distr.asm.skype.com
@@ -15992,6 +16109,7 @@
 .sa1-transform.asm.skype.com
 .sa1-urlp.asm.skype.com
 .sa2-transform.asm.skype.com
+.sa4spservices.blob.core.windows.net
 .sabenefitsuat.parttest.extranettest.microsoft.com
 .SABenefitsUAT.parttest.extranettest.microsoft.com
 .sa.cp.wd.microsoft.com
@@ -16069,6 +16187,8 @@
 .sassitstd.parttest.extranettest.microsoft.com
 .sasweb.microsoft.com
 .sas.zone.msn.com
+.sat02pap001.settings.live.net
+.sat02pap001.storage.live.com
 .sat.dev.ep.parttest.extranettest.microsoft.com
 .sat.ep.microsoft.com
 .SAT.EP.MICROSOFT.COM
@@ -16242,7 +16362,6 @@
 .secure.consumer.entitlement.skype.com
 .securedge-admin.eastus.cloudapp.azure.com
 .secure.emea.msn.com
-.secure.flashtalking.com
 .secureit.microsoft.com
 .secure.kaw.msn.com
 .secure.myspace.skype.com
@@ -16411,6 +16530,7 @@
 .sfds-prod.westcentralus.cloudapp.azure.com
 .sfds-prod.westus.cloudapp.azure.com
 .sfitest.westeurope.cloudapp.azure.com
+.sfnam.loki.delve.office.com
 .sfsitecoredev.westeurope.cloudapp.azure.com
 .sftasia.one.microsoft.com
 .sftasiauat.one.microsoft.com
@@ -16484,6 +16604,7 @@
 .shc-prod-001.westeurope.cloudapp.azure.com
 .shc-test-001.westeurope.cloudapp.azure.com
 .shell.azure.com
+.shell.cdn.office.net
 .shellprod.msocdn.com
 .shievsp16dev.japaneast.cloudapp.azure.com
 .shim.int.cms.rt.microsoft.com
@@ -16594,6 +16715,7 @@
 .Skydrive-DF.live.com
 .skydrive.live.com
 .skydrivesync.policies.live.net
+.skydrive.wns.windows.com
 .skygfx-df.live.com
 .skygfx.live.com
 .skylightgitlab1.centralus.cloudapp.azure.com
@@ -16709,6 +16831,8 @@
 .sn3301-c.1drv.com
 .sn3301-e.1drv.com
 .sn3301-g.1drv.com
+.sn3301.settings.live.net
+.sn3301.storage.live.com
 .sn3p.authorization.cp.microsoft.com
 .sn3p.authorizationjournal.cp.microsoft.com
 .snackbox.microsoft.com
@@ -16737,6 +16861,7 @@
 .snt406-m.hotmail.com
 .snt407-m.hotmail.com
 .snykgappoc.northeurope.cloudapp.azure.com
+.snz04pap001.settings.live.net
 .snz04pap001.storage.live.com
 .sO.2mdn.net
 .soap.perf.ctp.msn.com
@@ -16953,6 +17078,7 @@
 .SSLDDE.partners.extranet.microsoft.com
 .SSLIPE.partners.extranet.microsoft.com
 .ssllc.eastus.cloudapp.azure.com
+.ssl.microsofttranslator.com
 .sslmsl.partners.extranet.microsoft.com
 .ssl.search.live.com
 .ssltest-pads4.northeurope.cloudapp.azure.com
@@ -17010,6 +17136,7 @@
 .sta.testcur.ep.parttest.extranettest.microsoft.com
 .state.token.cp.microsoft.com
 .static.2mdn.net
+.static2.sharepointonline.com
 .static2.skype.com
 .static-asm.secure.skypeassets.com
 .static.asm.skype.com
@@ -17020,6 +17147,7 @@
 .static.ship2.scdev.microsoft.com
 .static.skype.com
 .statics.teams.cdn.office.net
+.statics.teams.microsoft.com
 .statics.teams.skype.com
 .staticview.microsoft.com
 .stationq.microsoft.com
@@ -17099,6 +17227,7 @@
 .stomp.mediaservices.microsoft.com
 .storage.asm.skype.com
 .storage.azure.com
+.storagecdndian.z20.web.core.windows.net
 .storage-int.msn.com
 .storage.live.com
 .storage.msn.com
@@ -17325,6 +17454,7 @@
 .svscheduler.westus.cloudapp.azure.com
 .sway.com
 .swc.addins.call.skype.com
+.swc.cdn.skype.com
 .s.windows.microsoft.com
 .sws1.update.microsoft.com
 .swsales-int.mp.dps.microsoft.com
@@ -17400,6 +17530,7 @@
 .team-feedback.northeurope.cloudapp.azure.com
 .Team.partners.extranet.microsoft.com
 .teams.events.data.microsoft.com
+.teams.live.com
 .teams.microsoft.com
 .teams.skype.com
 .tech4learn.southeastasia.cloudapp.azure.com
@@ -17410,6 +17541,7 @@
 .tel-aviv.techsummit.microsoft.com
 .telaviv.techsummit.microsoft.com
 .teleasistencia.westus.cloudapp.azure.com
+.telecommandsvc.microsoft.com
 .telecommand.telemetry.microsoft.com
 .telecommand.telemetry.microsoft.com.nsatc.net
 .telecomreporting.partners.extranet.microsoft.com
@@ -17700,6 +17832,7 @@
 .trendingnow.msn.com
 .trex.parttest.extranettest.microsoft.com
 .trial.eastasia.cloudapp.azure.com
+.tring.clo.footprintdns.com
 .tr.msn.com
 .trockend.westus2.cloudapp.azure.com
 .troublemakersregistry.eastus2.cloudapp.azure.com
@@ -17826,6 +17959,7 @@
 .ubuntults.westus.cloudapp.azure.com
 .ubuntu-srv.westeurope.cloudapp.azure.com
 .ucavictas-web-2017.australiasoutheast.cloudapp.azure.com
+.uci.cdn.office.net
 .uci.edog.officeapps.live.com
 .uci.officeapps.live.com
 .ucm.bingads.microsoft.com
@@ -17933,6 +18067,7 @@
 .umt.ttc.ep.parttest.extranettest.microsoft.com
 .umt.ttn.ep.parttest.extranettest.microsoft.com
 .umtuat.ep.microsoft.com
+.umwatson.events.data.microsoft.com
 .uniboard-prod-w2.westus2.cloudapp.azure.com
 .unifyportal.japaneast.cloudapp.azure.com
 .unistore.microsoft.com
@@ -17967,6 +18102,7 @@
 .updeep.westeurope.cloudapp.azure.com
 .upgrade-api.skype.com
 .uplnewsit.partners.extranet.microsoft.com
+.upload.fp.measure.office.com
 .uploadlog2.msn.com
 .uploadlog.msn.com
 .upl.parttest.extranettest.microsoft.com
@@ -18360,6 +18496,8 @@
 .w8vsc3.daccess.microsoft.com
 .wa1.lync.mds.microsoft.com
 .wac.edgecastcdn.net
+.waconafd.officeapps.live.com
+.waconatm.officeapps.live.com
 .wacprodr4.connect.azure.com
 .wacprodr5.connect.azure.com
 .wacprodr6.connect.azure.com
@@ -18418,6 +18556,7 @@
 .wcm.microsoft.com
 .wcms-prod-vm.canadaeast.cloudapp.azure.com
 .wcms-qa-vm.westeurope.cloudapp.azure.com
+.wcpstatic.microsoft.com
 .wcus.data-a.opinsights.azure.com
 .wcus.data.opinsights.azure.com
 .wcus.ext.core.security.ext.azure.com
@@ -18471,6 +18610,10 @@
 .webapp.skype.com
 .webapps.microsoft.com
 .webdir0a.online.lync.com
+.webdir1a.online.lync.com
+.webdir2a.online.lync.com
+.webdir4a.online.lync.com
+.webdirca1.online.lync.com
 .webdir.online.lync.com
 .webfolders.metaservices.microsoft.com
 .webfolders.partners.extranet.microsoft.com
@@ -18485,9 +18628,12 @@
 .webpa201.int.aeos.microsoft.com
 .webpa202.int.aeos.microsoft.com
 .webpoolbl20a25.infra.lync.com
+.webpooleu21a01.infra.lync.com
+.webpoolwu20a01.infra.lync.com
 .webrtcclient.westus2.cloudapp.azure.com
 .webrtc-sandvik.northeurope.cloudapp.azure.com
 .webservicesh.eastus.cloudapp.azure.com
+.webshell.suite.office.com
 .website-360.westus2.cloudapp.azure.com
 .web.skype.com
 .websms.skype.com
@@ -18661,6 +18807,7 @@
 .whiteboard.inteviews.skype.com
 .whiteboard.microsoft.com
 .whosstage.parttest.extranettest.microsoft.com
+.widgetsdataifx.blob.core.windows.net
 .widgets.membership.microsoft.com
 .widgets.services.microsoft.com
 .widgets.video.msn.com
@@ -18668,6 +18815,7 @@
 .wifi.skype.com
 .wigvm01.uksouth.cloudapp.azure.com
 .wijzienpockpn.northeurope.cloudapp.azure.com
+.wikipedia.firstpartyapps.oaspapps.com
 .wiki.skype.com
 .wiki.technet.microsoft.com
 .wildcard.appex-rf.msn.com
@@ -18718,6 +18866,7 @@
 .windowsmobile.co.uk
 .windowsmobile.eu
 .windowsmobile.org
+.windows.msn.com
 .windows.net
 .windowsowa.mail.microsoft.com
 .windowsphone.co
@@ -18772,6 +18921,7 @@
 .workspace.office.live.com
 .workspaces.canadacentral.cloudapp.azure.com
 .workspace.skype.com
+.worldaz.turn.teams.microsoft.com
 .wowsv.japaneast.cloudapp.azure.com
 .wp1awph01ftweb.eastus2.cloudapp.azure.com
 .wp1awph01web01.eastus2.cloudapp.azure.com
@@ -19014,6 +19164,7 @@
 .bcst.yahoo.com
 .bc.yahoo.com
 .beap-bc.yahoo.com
+.beap.gemini.yahoo.com
 .bf1.yahoo.com
 .bid.yahoo.com
 .br.groups.yahoo.com
@@ -26747,7 +26898,6 @@
 .abuse.ch
 .academiaeset.com
 .acer.com
-.aclm.external.hp.com
 .acme.com
 .acnur.org
 .acroipm2.adobe.com
@@ -26905,7 +27055,6 @@
 .ccc.org.co
 .cdn-apple.com
 .cdn.datatables.net
-.cdnjs.cloudflare.com
 .cdnpk.net
 .cdp1.public-trust.com
 .cedia.org.ec
@@ -26913,6 +27062,8 @@
 .centralops.net
 .centralpacificbank.com
 .certicamara.com
+.certificates.godaddy.com
+.certificates.starfieldtech.com
 .cert.int-x3.letsencrypt.org
 .certum.eu
 .certum.pl
@@ -26974,6 +27125,7 @@
 .commercebank.com
 .communitybankna.com
 .comodoca.com
+.completion.amazon.com
 .comprasypagospse.com
 .computerworld.com
 .comunidadcontable.com
@@ -26993,13 +27145,16 @@
 .crl.geotrust.com
 .crl.globalsign.com
 .crl.globalsign.net
+.crl.godaddy.com
 .crl.identrust.com
 .crl.omniroot.com
 .crl.rootca1.amazontrust.com
 .crl.rootg2.amazontrust.com
 .crl.sca1b.amazontrust.com
+.crl.starfieldtech.com
 .crl.thawte.com
 .crl.usertrust.com
+.crl.verisign.com
 .crt.rootca1.amazontrust.com
 .crt.rootg2.amazontrust.com
 .crt.sca1b.amazontrust.com
@@ -27172,7 +27327,6 @@
 .ifx.net.co
 .ilovepdf.com
 .inboxsdk.com
-.incoming.telemetry.mozilla.org
 .inconcertcc.com
 .indicedetransparencia.org.co
 .infospyware.com
@@ -27226,7 +27380,6 @@
 .malwaredomains.com
 .maravento.com
 .margevicius.lt
-.maxcdn.bootstrapcdn.com
 .mbfinancial.com
 .mcafee.com
 .mediawiki.org
@@ -27296,6 +27449,7 @@
 .ocsp.rootg2.amazontrust.com
 .ocsp.sca1b.amazontrust.com
 .ocsp.sectigo.com
+.ocsp.starfieldtech.com
 .ocsp.thawte.com
 .ocsp.usertrust.com
 .ocsp.verisign.com
@@ -27424,7 +27578,6 @@
 .sstatic.net
 .stackexchange.com
 .stackoverflow.com
-.stackpath.bootstrapcdn.com
 .statestreet.com
 .status.rapidssl.com
 .stopforumspam.com
@@ -27573,3 +27726,4 @@
 .zimbra.com
 .zionsbank.com
 .zonapagos.com
+.zoom.us

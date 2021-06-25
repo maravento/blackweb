@@ -24,6 +24,7 @@
 .360antivirus.org
 .360yield.com
 .39slxu3bw.ru
+.3lift.com
 .3utilities.com
 .3y5bs.com
 .44d.info
@@ -122,6 +123,7 @@
 .anonymster.com
 .antiphishingdomain.com
 .antupload.com
+.anymind360.com
 .anymorenews.com
 .anysy.com
 .applicationinsights.io
@@ -325,6 +327,7 @@
 .ciscofreak.com
 .ciuvo.com
 .cjhdxz.com
+.clarity.ms
 .clashroyale.com
 .classiccinemaonline.com
 .classmates.com
@@ -1413,6 +1416,7 @@
 .multiup.org
 .muscdn.com
 .musemuse.cn
+.musicaaeu.blogspot.com
 .musical.ly
 .musically.ly
 .mwpaste.com
@@ -1533,6 +1537,7 @@
 .o365weve-dev.com
 .oath.com
 .oboom.com
+.observacatholic.com
 .ocul.to
 .ocul.us
 .oculus.com
@@ -1544,10 +1549,12 @@
 .okcupid.com
 .oko.sh
 .olark.com
+.olok.in
 .omegle.onl
 .ome.tv
 .omgfractal.com
 .omiga-plus.com
+.onaudience.com
 .onelink.to
 .onewebproxy.com
 .oninstagram.com
@@ -1564,6 +1571,7 @@
 .opensubtitles.org
 .opentrackr.org
 .openvpn.net
+.openx.net
 .optoutprescreen.com
 .ospserver.net
 .ouo.io
@@ -1572,6 +1580,7 @@
 .outbrain.com
 .outbrainimg.com
 .ow.ly
+.owneriq.net
 .oxiserverz.xyz
 .p16-tiktokcdn-com.akamaized.net
 .package12.com
@@ -1793,6 +1802,7 @@
 .ricush.ath.cx
 .rightinthebox.com
 .rjmetrics.com
+.rlcdn.com
 .rockaor.com
 .rockfile.co
 .rockfile.eu
@@ -1805,6 +1815,7 @@
 .rosbusiness.eu
 .royaldetail.net
 .rs6.net
+.rtbsrv.com
 .rubiconproject.com
 .rudns-tl.ru
 .rusfolder.com
@@ -1816,6 +1827,7 @@
 .safesear.ch
 .salasdechatgratis.org
 .salesforce.com
+.samsungapps.com
 .sandcastlesinthunderstorms.com
 .savefrom.net
 .savemax.store
@@ -1922,6 +1934,7 @@
 .sintonizzate.me
 .site2unblock.com
 .siteco.com.co
+.sitescout.com
 .sitesunblocked.com
 .siteunblock.org
 .skibbel.com
@@ -1945,6 +1958,7 @@
 .snapengage.com
 .snapkit.com
 .snappea.com
+.snaptube.app
 .snjwellers.com
 .snnd.co
 .snopyta.org
@@ -2012,6 +2026,7 @@
 .suficaravan.com
 .sumo.com
 .sumo.ly
+.sundaysky.com
 .sunkauf.de
 .sunsetravens.com
 .superfreevpn.com
@@ -2091,6 +2106,7 @@
 .theurl.co
 .thezeldacenter.info
 .thouth.net
+.thrtle.com
 .thruhere.net
 .tidaltv.com
 .tighturl.com
@@ -2119,6 +2135,7 @@
 .tntapk.com
 .todaysnews.live
 .toddandsarahrainey.com
+.todo1.com
 .todocomics.home.blog
 .todofullxd.com
 .todoxmega.me
@@ -2159,6 +2176,7 @@
 .trillian.im
 .tr.im
 .tripadvisor.es
+.truoptik.com
 .trustisson.com
 .tubemogul.com
 .tubeplus.ag
@@ -2172,6 +2190,7 @@
 .tunnelbear.com
 .turbobit.net
 .turbobit.pw
+.turn.com
 .turnsocial.com
 .turnsocial.now.sh
 .tusfiles.com
@@ -2269,6 +2288,7 @@
 .utorrent.com
 .v16-tiktokcdn-com.akamaized.net
 .v9.com
+.valassisdigital.io
 .vampirefreaks.com
 .vanisher.us
 .vascat.es
@@ -2382,6 +2402,7 @@
 .video-iad9-1.xx.fbcdn.net
 .video-mia3-1.xx.fbcdn.net
 .video-mia3-2.xx.fbcdn.net
+.videoplaza.tv
 .videoschistososdivertidos.com
 .videospornocolombia.com
 .video.twimg.com
@@ -2419,10 +2440,12 @@
 .vurl.com
 .vv.cc
 .vyprvpn.com
+.w55c.net
 .waa.ai
 .walkincareers.com
 .wanderburst.com
 .wattpad.com
+.wayfair.com
 .wayn.com
 .wcscoiledtubing.com
 .web4proxy.org
@@ -2464,6 +2487,7 @@
 .wickercentral.com
 .wickr.com
 .widdit.com
+.widespace.com
 .wif.red
 .wiksa.com
 .win2url.com
@@ -2494,6 +2518,7 @@
 .x2convert.com
 .x3ztllmw57mlomch.com
 .xanga.com
+.xender.com
 .xevd.co
 .xfcpdtr4yoonszs.com
 .xfire.com
@@ -2551,6 +2576,7 @@
 .zenmate.com
 .zenodo.org
 .zenvpn.net
+.zeotap.com
 .zeznzo.nl
 .zgsemi.cn
 .zheat.info
@@ -2560,11 +2586,10 @@
 .zkmobi.com
 .zlx.com.br
 .zone-telechargement-albums.com
-.zoom.us
 .zooqle.com
+.zopim.com
 .zoosk.com
 .zophar.net
-.zopim.com
 .zorpia.com
 .zpn.im
 .zproxy.de
