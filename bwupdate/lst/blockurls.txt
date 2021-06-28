@@ -190,6 +190,7 @@
 .bebee.com
 .beeline.ru
 .bellsyscdn.com
+.benglishsolutions.com
 .bestdeals.at
 .best-ip.xyz
 .bestmobiworld.com
@@ -260,6 +261,7 @@
 .byteoversea.net
 .bytewarez.net
 .bzgint.com
+.bzgthg.com
 .cable-modem.org
 .cactuscreekcoffee.com
 .cafemom.com
@@ -458,6 +460,7 @@
 .deyllqu220y8p.cloudfront.net
 .dfiles.ru
 .dft.ba
+.dhdinc.info
 .diangov.co
 .digitalmediacommunications.com
 .directorio-w.com
@@ -623,6 +626,7 @@
 .facbook.com
 .facebok.com
 .facebook.co
+.facebook.com
 .facebook.com.br
 .facebook.com.edgekey.net
 .facebook.com.edgesuite.net
@@ -849,6 +853,7 @@
 .glpals.com
 .gmboxx.com
 .gnula.nu
+.goeoffice.com
 .goldenfrog.com
 .golffan.us
 .gomoviesfree.sc
@@ -1182,6 +1187,7 @@
 .kayako.com
 .kbatesllc.com
 .kbatesmbti.com
+.kbc999.com
 .kept-unknown.xyz
 .kernvpn.com
 .key-find.com
@@ -1305,6 +1311,7 @@
 .mathtag.com
 .mattech-llc.com
 .maxgames.com
+.max.pl
 .mbarathi.com
 .mdstrm.com
 .mebeam.com
@@ -1420,6 +1427,7 @@
 .musical.ly
 .musically.ly
 .mwpaste.com
+.my3gb.com
 .myactivedirectory.com
 .mybesthost.com
 .mycomputersupport.xyz
@@ -1788,6 +1796,7 @@
 .relampagomovies.com
 .remotecam.nu
 .renren.com
+.rentcarsuganda.com
 .repelises.com
 .repelis.li
 .resuco.net
@@ -1932,8 +1941,10 @@
 .simple-url.com
 .sina.cn
 .sintonizzate.me
+.sistine.gov.ve
 .site2unblock.com
 .siteco.com.co
+.sitefast.xyz
 .sitescout.com
 .sitesunblocked.com
 .siteunblock.org
@@ -1997,6 +2008,7 @@
 .srcsmrtgs.com
 .ssyoutube.com
 .stackpathdns.com
+.startua.com
 .staticimgfarm.com
 .statistic.date
 .stealthy.co
@@ -2009,6 +2021,7 @@
 .stonecrestfurniture.com
 .strangermeetup.com
 .streamium.xyz
+.streamservices.de
 .streamtape.com
 .streamtheworld.com
 .stream-up.com
@@ -2238,6 +2251,7 @@
 .unblockwebsite.net
 .unblockyoutube.xyz
 .und.pw
+.unipdfconverter.com
 .unixfox.eu
 .unknownproxy.com
 .unoadsrv.com
@@ -2522,6 +2536,7 @@
 .xevd.co
 .xfcpdtr4yoonszs.com
 .xfire.com
+.xi1111.com
 .xiaolinzi.com
 .xiaomi.com
 .xiaomi.net
@@ -2587,9 +2602,9 @@
 .zlx.com.br
 .zone-telechargement-albums.com
 .zooqle.com
-.zopim.com
 .zoosk.com
 .zophar.net
+.zopim.com
 .zorpia.com
 .zpn.im
 .zproxy.de

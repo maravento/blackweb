@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4000999|96,0 MB|
+|blackweb.txt|3669775|88,5 MB|
 
 ## GIT CLONE
 
@@ -298,7 +298,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
 - [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
 
-#### Inactive or Discontinued
+#### Inactive, Discontinued or Private
 
 *Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `oldurls.txt`*
 
@@ -327,7 +327,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-#### Inactive or Discontinued
+#### Inactive, Discontinued or Private
 
 *Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `allowurls.txt`*
 
