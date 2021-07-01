@@ -1,25 +1,25 @@
 #!/bin/bash
 # Language spa-eng
-bw01=("Este proceso puede tardar. Sea paciente..." "This process can take. Be patient...")
-bw02=("Instalando Dependencias..." "Installing Dependencies...")
-bw03=("Verificando Ancho de Banda..." "Checking Bandwidth...")
-bw04=("Descargando Blackweb..." "Downloading Blackweb...")
-bw05=("Descargando Listas de Bloqueo..." "Downloading Blocklists...")
-bw06=("Descargando Listas de Permitidos..." "Downloading Allowlist...")
-bw07=("Actualizando TLD..." "TLD Update...")
-bw08=("Capturando Dominios..." "Capturing Domains...")
-bw09=("Uniendo Listas..." "Joining Lists...")
-bw10=("Depurando Dominios..." "Debugging Domains...")
-bw11=("Validando TLD..." "Validating TLD...")
-bw12=("Depurando Punycode-IDN..." "Debugging PunycodeIDN...")
+bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea paciente...")
+bw02=("Installing Dependencies..." "Instalando Dependencias...")
+bw03=("Checking Bandwidth..." "Verificando Ancho de Banda...")
+bw04=("Downloading Blackweb..." "Descargando Blackweb...")
+bw05=("Downloading Blocklists..." "Descargando Listas de Bloqueo...")
+bw06=("Downloading Allowlist..." "Descargando Listas de Permitidos...")
+bw07=("TLD Update..." "Actualizando TLD...")
+bw08=("Capturing Domains..." "Capturando Dominios...")
+bw09=("Joining Lists..." "Uniendo Listas...")
+bw10=("Debugging Domains..." "Depurando Dominios...")
+bw11=("Validating TLD..." "Validando TLD...")
+bw12=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
 bw13=("1st DNS Loockup...")
 bw14=("2nd DNS Loockup...")
-bw15=("Agregando Blocklist Adicionales..." "Adding Additional Blocklist...")
-bw16=("Reiniciando Squid..." "Restarting Squid...")
-bw17=("Terminado" "Done")
-bw18=("Verifique en su escritorio Squid-Error.txt" "Check on your desktop Squid-Error.txt")
-test "${LANG:0:2}" == "es"
-es=$?
+bw15=("Adding Additional Blocklist..." "Agregando Blocklist Adicionales...")
+bw16=("Restarting Squid..." "Reiniciando Squid...")
+bw17=("Done" "Terminado")
+bw18=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
+test "${LANG:0:2}" == "en"
+en=$?
 
 # VARIABLES
 bwupdate=$(pwd)/bwupdate
@@ -32,7 +32,7 @@ route=/etc/acl
 
 clear
 echo "Blackweb Project"
-echo "${bw01[${es}]}"
+echo "${bw01[${en}]}"
 
 # DELETE OLD REPOSITORY
 if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
@@ -41,7 +41,7 @@ if [ -d $bwupdate ]; then rm -rf $bwupdate; fi
 if [ ! -d $route ]; then mkdir -p $route; fi
 
 # DEPENDENCIES
-echo "${bw02[${es}]}"
+echo "${bw02[${en}]}"
 function dependencies(){
 	sudo apt -y install wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python squid
 }
@@ -50,7 +50,7 @@ echo "OK"
 
 # CHECKING DOWNLOAD BANDWIDTH (Optional)
 # https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh
-echo "${bw03[${es}]}"
+echo "${bw03[${en}]}"
 dlmin="1.00"
 mb="Mbit/s"
 dl=$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --simple --no-upload | grep 'Download:')
@@ -76,14 +76,14 @@ if [[ $mb == $dlmb ]]; then
 fi
 
 # DOWNLOAD BLACKWEB
-echo "${bw04[${es}]}"
+echo "${bw04[${en}]}"
 svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
 cd $bwupdate
 mkdir -p bwtmp >/dev/null 2>&1
 echo "OK"
 
 # DOWNLOADING BLOCKURLS
-echo "${bw05[${es}]}"
+echo "${bw05[${en}]}"
 # download files
 function blurls() {
 wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
@@ -216,7 +216,7 @@ fi
 echo "OK"
 
 # DOWNLOADING ALLOWURLS
-echo "${bw06[${es}]}"
+echo "${bw06[${en}]}"
 # download world_universities_and_domains
 function univ() {
 wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
@@ -230,7 +230,7 @@ fi
 echo "OK"
 
 # UPDATE TLDS
-echo "${bw07[${es}]}"
+echo "${bw07[${en}]}"
 function publicsuffix() {
 wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
 if [ $? -eq 0 ]; then
@@ -246,7 +246,7 @@ grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" 
 echo "OK"
 
 # CAPTURING DOMAINS
-echo "${bw08[${es}]}"
+echo "${bw08[${en}]}"
 # capturing
 find bwtmp -type f -execdir grep -oiE "$regexd" {} \; > captmp1
 piconv -f cp1252 -t UTF-8 < captmp1 > captmp2
@@ -254,7 +254,7 @@ sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|
 echo "OK"
 
 # JOIN AND UPDATE LIST
-echo "${bw09[${es}]}"
+echo "${bw09[${en}]}"
 # create urls.txt
 sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
 # add oldurls.txt to capture
@@ -270,20 +270,20 @@ sort -o capture -u capture
 echo "OK"
 
 # DEBUGGING DOMAINS
-echo "${bw10[${es}]}"
+echo "${bw10[${en}]}"
 # parse domains
 cat lst/fault.tar.gz* | tar xzf -
 grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "."$1}') | sort -u > outparse
 echo "OK"
 
 # DEBUGGING TLDS
-echo "${bw11[${es}]}"
+echo "${bw11[${en}]}"
 # check tlds
 grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u > cleantlds
 echo "OK"
 
 # DEBUGGING IDN
-echo "${bw12[${es}]}"
+echo "${bw12[${en}]}"
 sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u > idnlst
 grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >> idnlst
 grep --color='auto' -P "[^[:ascii:]]" idnlst > idntmp
@@ -298,7 +298,7 @@ echo "OK"
 # pp = parallel processes (high resource consumption!)
 pp="400"
 # STEP 1:
-echo "${bw13[${es}]}"
+echo "${bw13[${en}]}"
 if [ -s dnslookup ] ; then
 		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup cleandns
 	else
@@ -309,7 +309,7 @@ sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >> fa
 sort -o fault.txt -u fault.txt
 echo "OK"
 # STEP 2:
-echo "${bw14[${es}]}"
+echo "${bw14[${en}]}"
 sed 's/^\.//g' fault.txt | sort -u > step2
 if [ -s dnslookup2 ] ; then
 		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
@@ -321,7 +321,7 @@ sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u > fa
 echo "OK"
 
 # ADD BLOCKLIST BLOCKTLDS
-echo "${bw15[${es}]}"
+echo "${bw15[${en}]}"
 # add blockurls, blocktlds
 cat lst/{blockurls,blocktlds}.txt >> hit.txt
 # clean hit
@@ -329,7 +329,7 @@ grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blockurls,blocktlds}.txt) hit.txt |
 echo "OK"
 
 # RELOAD SQUID-CACHE
-echo "${bw16[${es}]}"
+echo "${bw16[${en}]}"
 # copy blaclweb to path
 sudo cp -f blackweb.txt $route/blackweb.txt >/dev/null 2>&1
 # Squid Reload
@@ -345,6 +345,6 @@ sudo bash -c 'squid -k reconfigure' 2> $xdesktop/SquidError.txt
 sudo bash -c 'echo "Blackweb $date" >> /var/log/syslog'
 echo "OK"
 # END
-echo "${bw17[${es}]}"
-echo "${bw18[${es}]}"
+echo "${bw17[${en}]}"
+echo "${bw18[${en}]}"
 notify-send "Blackweb Update: Done"
