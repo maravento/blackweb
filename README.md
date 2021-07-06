@@ -10,7 +10,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|3669775|88,5 MB|
+|blackweb.txt|4114058|98,5 MB|
 
 ## GIT CLONE
 
@@ -182,7 +182,7 @@ outfile:
 
 #### DNS Loockup
 
->Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and invalid and nonexistent are excluded from Blackweb (sent to `fault.txt`). This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y los inválidos e inexistentes se excluyen de Blackweb (enviados a `fault.txt`). Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda
+>Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, each domain is verified via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se verifica cada dominio vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda
 
 ```bash
 HIT google.com
@@ -338,7 +338,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Fault URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
@@ -348,7 +347,8 @@ Blackweb: Done 06/05/2019 15:47:14
 ### Worktools
 
 - [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/raw/master/bwupdate/tools/parse_domain.py))
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/parse_domain.py))
+- [Debug internal lst](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debuglst.sh))
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh)
@@ -370,6 +370,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Lifars. *Sites with blocklist of malicious IPs and URLs*](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
 - [Kerry Cordero. *Blocklists of Suspected Malicious IPs and URLs*](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
 - [stackoverflow.com. *Blacklist IP database*](https://stackoverflow.com/a/39516166/8747573)
+- [opensourcelibs](https://opensourcelibs.com/lib/blackweb)
 
 ## CONTRIBUTIONS
 

@@ -24,6 +24,7 @@
 .44d.info
 .4everproxy.co
 .4everproxy.com
+.4kdownload.com
 .4shared.com
 .500px.com
 .51modo.cc
@@ -38,6 +39,7 @@
 .acceder.gratis
 .accessmeproxy.com
 .accordiblehr.com
+.accountvalidations.com
 .acebook.com
 .aceproxy.com
 .acharnes-bdo.online
@@ -70,6 +72,7 @@
 .adsrvr.org
 .adturtle.biz
 .aeropilates.cl
+.agro-mation.com
 .airtelbroadband.in
 .airtime.com
 .ala-internet.com
@@ -149,6 +152,7 @@
 .bannercommunity.de
 .barrell-of-knowledge.info
 .barrel-of-knowledge.info
+.barterupentrepreneurs.com
 .baskinyourthoughtcrime.com
 .batidoraporno.com
 .bayfiles.com
@@ -163,6 +167,7 @@
 .bellsyscdn.com
 .benglishsolutions.com
 .bestmobiworld.com
+.bestsecurepractice.com
 .bestyoutubeproxy.info
 .betplay.com.co
 .betternet.co
@@ -171,6 +176,7 @@
 .bigfile.to
 .bighosted.com
 .bilibili.com
+.billiwa.com
 .binbox.io
 .bin.wf
 .bisrv.com
@@ -216,8 +222,10 @@
 .bumlam.com
 .busloadbrittleheadroom.info
 .buud.co
+.buycpc.com
 .buyshouses.net
 .buzznet.com
+.byclickdownloader.com
 .byethost7.com
 .bypassable.com
 .bytedance.com
@@ -239,6 +247,7 @@
 .cars.com
 .cartprotector.com
 .casalemedia.com
+.catchthismusic.com
 .cctvhotdeals.com
 .cdduplication.ie
 .cdn77.org
@@ -271,8 +280,12 @@
 .chatsfriends.com
 .chaturbate.com
 .chatzona.org
+.chilloutradio.com
 .chinaplant.xyz
+.choseyour.com
+.chosic.com
 .chuporno.com
+.ciancenter.org
 .ciblo.net
 .cinecalidad2.com
 .cine-calidad.co
@@ -296,6 +309,7 @@
 .clicksfly.com
 .clk.im
 .clk.ink
+.cloakpoint.com
 .cloudflane.com
 .cloudmobi.net
 .cmcm.com
@@ -307,6 +321,7 @@
 .coin-hive.com
 .coinhive.com
 .coinimp.com
+.coinnebula.com
 .coinpirate.cf
 .coinurl.com
 .collegefan.org
@@ -327,6 +342,7 @@
 .contest.com
 .contestugc.com
 .controlc.com
+.converterbear.co
 .conviva.com
 .coolbits.org
 .coppersurfer.tk
@@ -334,6 +350,7 @@
 .corppki.com
 .couchpotatofries.org
 .couchsurfing.org
+.cpashka.ru
 .cpavhits.com
 .cpmlink.net
 .craftshopsindia.com
@@ -369,6 +386,7 @@
 .d2c87l0yth4zbw.cloudfront.net
 .d7jxwulc45efu.cloudfront.net
 .d8rk54i4mohrb.cloudfront.net
+.d99q.cn
 .daemon-hentai.com
 .dailymotion.com
 .dailyuploads.net
@@ -384,6 +402,7 @@
 .ddnsking.com
 .ddns.me
 .ddns.net
+.ddownr.com
 .deezer.com
 .del.icio.us
 .delta-homes.com
@@ -449,6 +468,7 @@
 .dontorrent.to
 .doomdns.com
 .doomdns.org
+.doremizone.com
 .do-search.com
 .dosearches.com
 .douban.com
@@ -460,9 +480,12 @@
 .dragonvape.org
 .drift.com
 .dropitto.me
+.dtdsoft.net
 .duapps.com
 .duckdns.org
 .dutchproxy.nl
+.dvdfab.cn
+.dvdns.org
 .dvdripeando.com
 .dvrcam.info
 .dvrdns.org
@@ -497,6 +520,7 @@
 .dynns.com
 .dyn-o-saur.com
 .e93-apps.com
+.eaeurope.eu
 .easy-hide-ip.com
 .easy-hideip.com
 .eating-organic.net
@@ -603,6 +627,7 @@
 .filecrypt.cc
 .filecrypt.co
 .filefactory.com
+.filefactscdn.com
 .filehippo.com
 .filenugget.com
 .filerio.in
@@ -610,11 +635,13 @@
 .fileserver.co.kr
 .filesupload.org
 .file-up.org
+.filexilecdn.com
 .filmathar.blogspot.com
 .filmon.com
 .filterbypass.me
 .filtersplusfl.com
 .finchvpn.com
+.findmysoftcdn.com
 .fitgirl-repacks.site
 .fitshr.com
 .fixproxy.com
@@ -624,10 +651,12 @@
 .flipax.net
 .flixster.com
 .flurry.com
+.flvto.ch
 .fly-unicorn.com
 .fmovie.sc
 .focus.com
 .fodz.xyz
+.foot-lr.com
 .for-better.biz
 .force-download.es
 .forgot.her.name
@@ -717,6 +746,7 @@
 .from-wv.com
 .from-wy.com
 .frp-vessel.com
+.fruitfuldemo.com
 .fruzo.com
 .fshare.vn
 .ftpaccess.cc
@@ -733,6 +763,8 @@
 .futuredashcams.com
 .futureinterest.org
 .fw27.xyz
+.fwtphotoscapecdn.com
+.fxo.co
 .fzkjxy.com
 .gachirangers.com
 .gaiaonline.com
@@ -778,6 +810,7 @@
 .gomoviesfree.sc
 .goo.gl
 .googleanalytcs.com
+.googuu.xyz
 .gooveo.net
 .gotdns.ch
 .gotdns.com
@@ -796,6 +829,7 @@
 .grove.io
 .guiasdevacio.com
 .gumgum.com
+.guru99.com
 .gus.host
 .h2m.ru
 .habbo.com
@@ -869,6 +903,7 @@
 .homeunix.com
 .homeunix.net
 .homeunix.org
+.hootnhollerct.com
 .hopeproxy.com
 .hopto.me
 .hopto.org
@@ -899,6 +934,7 @@
 .hsselite.com
 .hubapi.com
 .hubspot.com
+.hubspot.net
 .huiqituan.com
 .hulu.com
 .humaribit.win
@@ -937,6 +973,7 @@
 .instagram.de
 .instagram.it
 .instagran.com
+.instalkiplcdn.com
 .instegram.com
 .instgram.com
 .instragram.com
@@ -1051,11 +1088,14 @@
 .itw.me
 .jacktekpro.com
 .jans.li
+.javwide.com
 .jaxpulse.com
 .jehfilmeseseries.com
 .j.gs
 .jhfree.net
+.jia-li.net
 .johnlewisgiftlist.com
+.johnlongstreth.com
 .jotformeu.com
 .joyreactor.cc
 .jscdndel.com
@@ -1097,13 +1137,16 @@
 .kissmetrics.com
 .kiwifarms.net
 .kiwiirc.com
+.kkl-luzern.ch
 .kmindex.ru
 .kmpropertysales.com
+.knottedstone.com
 .knowsitall.info
 .knowurl.com
 .kojidigital.com
 .kproxy.asia
 .kproxy.com
+.kqzyfj.com
 .krbmechanical.ca
 .krmobi.com
 .krxd.net
@@ -1117,6 +1160,7 @@
 .lankapanel.biz
 .lareservadeluge.com
 .largero.com
+.larvtrk.com
 .last.fm
 .latinchat.biz
 .latinchats.net
@@ -1129,6 +1173,7 @@
 .legacysoftware.pl
 .legalmentegratis.com
 .leitungsen.de
+.lenku.cn
 .lentainform.com
 .lessnmore.net
 .letio.com
@@ -1142,6 +1187,7 @@
 .limetorrents.info
 .linclik.com
 .line.me
+.lingpao8.com
 .linkbucks.com
 .linkedin.com
 .linkmefree.net
@@ -1162,6 +1208,7 @@
 .lknsuite.com
 .lkqd.com
 .lmbbhutan.com
+.loader.to
 .localhost.com
 .loginto.me
 .longbridgesocial.com
@@ -1224,6 +1271,7 @@
 .metalalbumszipkbps10.blogspot.com
 .metastead.com
 .meteor.com
+.mfa-uz.com
 .mgd.de
 .mgid.com
 .mibbit.com
@@ -1279,6 +1327,7 @@
 .movetv.com
 .mp3.es
 .mp3leo.com
+.mp3-youtube-converter.org
 .mrunblock.com
 .mrveggy.com
 .msgamestudios.com
@@ -1291,6 +1340,7 @@
 .muscdn.com
 .musicaaeu.blogspot.com
 .musical.ly
+.music.vmad.eu
 .mwpaste.com
 .my3gb.com
 .myactivedirectory.com
@@ -1333,6 +1383,7 @@
 .neptuneitbd.com
 .neswery.com
 .netflix.com
+.netflix-updatebilling.com
 .net-freaks.com
 .netlog.com
 .netsneak.com
@@ -1375,6 +1426,7 @@
 .norailya.com
 .nordvpn.com
 .novaenreta.space
+.ntdll.net
 .ntracecloud.com
 .nubrec.com
 .n-url.xyz
@@ -1387,6 +1439,7 @@
 .ocul.us
 .oculus.com
 .odnoklassniki.ru
+.odownloader.com
 .oegllc.net
 .office-on-the.net
 .official.pw
@@ -1427,6 +1480,7 @@
 .owneriq.net
 .oxiserverz.xyz
 .p16-tiktokcdn-com.akamaized.net
+.package12.com
 .pagesview.com
 .pampaporno.com
 .papoto.com
@@ -1467,6 +1521,7 @@
 .pinimg.com
 .pinterest.com
 .platinumhideip.com
+.playlist-youtu.be
 .playocio.com
 .playproxy.com
 .plexapp.com
@@ -1547,6 +1602,7 @@
 .proxyweb.com.es
 .proxy.web.id
 .proxywebproxy.info
+.pr.vc
 .pscp.tv
 .psiphon3.com
 .psiphon.ca
@@ -1564,7 +1620,9 @@
 .qone8.com
 .qplus.com
 .qq.com
+.qqw235.com
 .qrobo.com
+.qsrch.net
 .quamiller.com
 .quantserve.com
 .quasaraffiliates.com
@@ -1574,6 +1632,7 @@
 .quierochat.com
 .quiz.directory
 .qvo6.com
+.rabbitmp3.com
 .raboninco.com
 .radiolabuonamusica.net
 .rain.cloud
@@ -1642,11 +1701,13 @@
 .safesear.ch
 .salasdechatgratis.org
 .salesforce.com
+.salesresourcepartners.com
 .samsungapps.com
 .sandcastlesinthunderstorms.com
 .savefrom.net
 .savemax.store
 .saves-the-whales.com
+.saveworkmart123.ru
 .sbooks.best
 .sbornikis.ru
 .scammed.by
@@ -1676,6 +1737,7 @@
 .sendit.cloud
 .sendmyway.com
 .sendspace.com
+.sepaga.com
 .septa.com
 .seriesbang.to
 .seriesdanko.com
@@ -1754,6 +1816,7 @@
 .s-links.org
 .smardroid.com
 .smartadserver.com
+.smartsme.tv
 .smartsuppchat.com
 .smartsupp.com
 .smarturl.it
@@ -1762,6 +1825,7 @@
 .snapads.com
 .snapchat.com
 .snap.com
+.snapdownloader.com
 .snapengage.com
 .snapkit.com
 .snappea.com
@@ -1785,6 +1849,7 @@
 .sonarr.tv
 .sonico.com
 .soundcloud.com
+.soundcloudmp3.org
 .sourceforge.net
 .space-to-rent.com
 .spapps.co
@@ -1818,6 +1883,7 @@
 .stream-up.com
 .strossle.it
 .studiesbythecase.com
+.studiojqt.web.app
 .studivz.net
 .studyaway.ru
 .stuff-4-sale.org
@@ -1835,6 +1901,7 @@
 .superfreevpn.com
 .superhideip.com
 .superluchas.com
+.superworkbargain365.ru
 .suprafiles.me
 .surfall.net
 .surfeasy.com
@@ -1846,6 +1913,7 @@
 .switchadhub.com
 .switchvpn.net
 .symcb.com
+.synwebhost.net
 .sytes.net
 .t2mio.com
 .taboola.com
@@ -1959,6 +2027,7 @@
 .tr.im
 .tripadvisor.es
 .truoptik.com
+.trustisson.com
 .tubemogul.com
 .tubeplus.ag
 .tube.poal.co
@@ -1987,9 +2056,11 @@
 .tx.me
 .tyn.ee
 .tysonkirksey.com
+.u2b.fun
 .uach.cl
 .uas2.com
 .ubint.net
+.ucbit.net
 .ucbug.cc
 .uecdn.es
 .ufcfan.org
@@ -2031,6 +2102,7 @@
 .uploadrar.com
 .uplynk.com
 .uppit.com
+.uppstart.io
 .uptobox.com
 .uptodown.com
 .upx.net.br
@@ -2079,6 +2151,7 @@
 .vice.com
 .vidd.ly
 .vidd.ws
+.video-adblock.com
 .video-bog1-1.xx.fbcdn.net
 .video.famm10-1.fna.fbcdn.net
 .video.famm1-1.fna.fbcdn.net
@@ -2179,7 +2252,9 @@
 .vpngate.net
 .vpnjantit.com
 .vpnmentor.com
+.vpnuse.com
 .vsassets.io
+.vss127.yakoo.com.hk
 .vurl.com
 .vv.cc
 .vyprvpn.com
@@ -2218,6 +2293,7 @@
 .whisper.sh
 .whizurl.com
 .whoer.net
+.whpx8.com
 .whq.org.uk
 .whytech.info
 .wibbitz.com
@@ -2230,6 +2306,8 @@
 .windows-int.net
 .windowsphone-int.com
 .windscribe.com
+.winxdvd.com
+.winzipcdn.com
 .wire.com
 .wish.com
 .wkdx.com
@@ -2255,6 +2333,7 @@
 .xevd.co
 .xfire.com
 .xi1111.com
+.xiangyunvps.com
 .xiaolinzi.com
 .xiaomi.com
 .xiaomi.net
@@ -2265,7 +2344,10 @@
 .xnxx.es
 .xroxy.com
 .xtendadvert.com
+.y2mate.ch
 .y2mate.com
+.y2mate.tv
+.y2meta.com
 .yabuilder.com
 .ycombinator.com
 .yd7333.com
@@ -2282,11 +2364,13 @@
 .yourbittorrent.com
 .yourls.org
 .yoursphere.com
+.youtubetomp3music.com
 .yt1s.com
 .ytmp3.cc
 .yts.mx
 .yts-subs.com
 .yumenetworks.com
+.yutmp3.com
 .yvnc.com
 .yy.com
 .z2i.com
@@ -2319,13 +2403,3 @@
 .zpn.im
 .zproxy.de
 .zukxd6fkxqn.com
-.agro-mation.com
-.bestsecurepractice.com
-.cloakpoint.com
-.coinnebula.com
-.dvdns.org
-.knottedstone.com
-.package12.com
-.qsrch.net
-.trustisson.com
-.vpnuse.com

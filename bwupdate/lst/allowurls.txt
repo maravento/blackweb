@@ -1039,6 +1039,8 @@
 .history.google.com
 .history.l.google.com
 .hk.doubleclick.net
+.hstspreload.appspot.com
+.hstspreload.org
 .html5rocks.com
 .i18napis.appspot.com
 .i1-v6exp3-v4.metric.gstatic.com
@@ -24616,6 +24618,7 @@
 .cdn.jsdelivr.net
 .cdnpk.net
 .cdp1.public-trust.com
+.cdn.rmprepusb.com
 .cedia.org.ec
 .centralbancompany.com
 .centralops.net
@@ -25078,6 +25081,7 @@
 .refinancia.com.co
 .regions.com
 .research.net
+.rmprepusb.com
 .rootcapital.org
 .ruda.slm.cloud
 .runt.com.co
@@ -25127,6 +25131,7 @@
 .squidblacklist.org
 .squid-cache.org
 .sslcom.crl.certum.pl
+.ssllabs.com
 .sstatic.net
 .stackexchange.com
 .stackoverflow.com
