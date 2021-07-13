@@ -15,6 +15,7 @@
 .academy
 .ac.ae
 .ac.at
+.ac.bd
 .ac.be
 .accenture
 .ac.cn
@@ -386,6 +387,7 @@
 .co.at
 .co.au
 .co.ba
+.co.bd
 .co.be
 .co.bw
 .co.ca
@@ -1286,6 +1288,7 @@
 .inf.cu
 .infiniti
 .info
+.info.bd
 .info.cy
 .info.ec
 .info.et
@@ -1588,6 +1591,7 @@
 .mil
 .mil.ac
 .mil.ae
+.mil.bd
 .mil.be
 .mil.bo
 .mil.br
@@ -2432,6 +2436,7 @@
 .suzuki
 .sv
 .swatch
+.sw.bd
 .swiftcover
 .swiss
 .sx
@@ -2543,6 +2548,7 @@
 .tur.br
 .tushu
 .tv
+.tv.bd
 .tv.bo
 .tv.br
 .tvs
