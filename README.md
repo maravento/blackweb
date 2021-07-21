@@ -100,11 +100,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 ```bash
 pkgs='wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python2 squid'
 if ! dpkg -s $pkgs >/dev/null 2>&1; then
-        echo "Install Dependencies..."
-        apt -y install $pkgs >/dev/null 2>&1
-        echo Done
-    else
-        echo "Do Nothing"
+  apt-get install $pkgs
 fi
 ```
 
