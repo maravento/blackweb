@@ -30,6 +30,7 @@
 127.0.0.1 51modo.cc
 127.0.0.1 52yq.net
 127.0.0.1 723847238742748217070.blogspot.com
+127.0.0.1 741.com
 127.0.0.1 768535328.cn
 127.0.0.1 7cups.com
 127.0.0.1 8w8w8w.com.cn
@@ -73,6 +74,7 @@
 127.0.0.1 adturtle.biz
 127.0.0.1 aeropilates.cl
 127.0.0.1 agro-mation.com
+127.0.0.1 aipad.co
 127.0.0.1 airtelbroadband.in
 127.0.0.1 airtime.com
 127.0.0.1 ala-internet.com
@@ -127,6 +129,7 @@
 127.0.0.1 atharori.net
 127.0.0.1 atlassian.com
 127.0.0.1 auditorius.ru
+127.0.0.1 aujourdhui.com
 127.0.0.1 aurumrock.ru
 127.0.0.1 autohideip.com
 127.0.0.1 aventisnetwork.com
@@ -322,6 +325,7 @@
 127.0.0.1 coin-hive.com
 127.0.0.1 coinhive.com
 127.0.0.1 coinimp.com
+127.0.0.1 coinlab.biz
 127.0.0.1 coinnebula.com
 127.0.0.1 coinpirate.cf
 127.0.0.1 coinurl.com
@@ -464,6 +468,7 @@
 127.0.0.1 dogado.eu
 127.0.0.1 domainhostingonline.xyz
 127.0.0.1 domaiq.com
+127.0.0.1 donrapi.com
 127.0.0.1 dontexist.com
 127.0.0.1 dontexist.net
 127.0.0.1 dontexist.org
@@ -579,6 +584,7 @@
 127.0.0.1 exitosseries.com
 127.0.0.1 exogripper.com
 127.0.0.1 exoshare.com
+127.0.0.1 exovueplatform.com
 127.0.0.1 expressvpn.com
 127.0.0.1 eyeem.com
 127.0.0.1 eztv.ag
@@ -967,6 +973,7 @@
 127.0.0.1 inside-shops.com
 127.0.0.1 insidethehotel.com
 127.0.0.1 insightexpressai.com
+127.0.0.1 inspectorclick.com
 127.0.0.1 instagaram.com
 127.0.0.1 instageam.com
 127.0.0.1 instagra.com
@@ -1132,6 +1139,7 @@
 127.0.0.1 kickstarter.com
 127.0.0.1 kidstaff.net
 127.0.0.1 kiemtien188.com
+127.0.0.1 kiennhay.vn
 127.0.0.1 kik.com
 127.0.0.1 ki.ms
 127.0.0.1 kinozal.website
@@ -1379,6 +1387,7 @@
 127.0.0.1 navegasinley.com
 127.0.0.1 naver.jp
 127.0.0.1 nbyts.online
+127.0.0.1 nd.co.th
 127.0.0.1 ne1.ca
 127.0.0.1 ne8.org
 127.0.0.1 nearbysluts.net
@@ -1919,6 +1928,7 @@
 127.0.0.1 synwebhost.net
 127.0.0.1 sytes.net
 127.0.0.1 t2mio.com
+127.0.0.1 t5080.com
 127.0.0.1 taboola.com
 127.0.0.1 tagesanzeiger.ch
 127.0.0.1 tagged.com
@@ -2269,6 +2279,7 @@
 127.0.0.1 wayfair.com
 127.0.0.1 wayn.com
 127.0.0.1 wcscoiledtubing.com
+127.0.0.1 web24news.com
 127.0.0.1 webhop.biz
 127.0.0.1 webhop.info
 127.0.0.1 webhop.me

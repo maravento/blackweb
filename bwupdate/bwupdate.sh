@@ -85,23 +85,28 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 		    echo ERROR "$1"
     fi
     }
-	    blurls 'http://adaway.org/hosts.txt' && sleep 1
+        blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
 	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	    blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+	    blurls 'https://adaway.org/hosts.txt' && sleep 1
 	    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	    blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	    blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	    blurls 'https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt' && sleep 1
+	    blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/lockdn' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
 	    blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
+	    blurls 'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt' && sleep 1
 	    blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	    blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
 	    blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	    blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
 	    blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	    blurls 'https://openphish.com/feed.txt' && sleep 1
+	    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
+	    blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
 	    blurls 'https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt' && sleep 1
 	    blurls 'https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt' && sleep 1
 	    blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
@@ -113,21 +118,23 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
-	    blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/lockdn' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
@@ -157,6 +164,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
 	    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
+	    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Airelle-trc.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/BillStearns.txt' && sleep 1
@@ -164,6 +172,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Kowabit.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Ads.txt' && sleep 1
+	    blurls 'https://v.firebog.net/hosts/Prigent-Crypto.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Phishing.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Shalla-mal.txt' && sleep 1
