@@ -67,12 +67,14 @@
 .adpop.me
 .adshort.co
 .adshort.live
+.adsk2.co
 .adsrt.live
 .adsrt.me
 .adsrt.net
 .adsrvr.org
 .adturtle.biz
 .aeropilates.cl
+.afy11.net
 .agro-mation.com
 .aipad.co
 .airtelbroadband.in
@@ -142,7 +144,6 @@
 .awsdns-26.net
 .awsdns-55.com
 .awsdns-56.org
-.awstrack.me
 .ayads.co
 .ayboll.com
 .b1t.it
@@ -168,6 +169,7 @@
 .beastvila.info
 .bebee.com
 .beeline.ru
+.beeppool.org
 .bellsyscdn.com
 .benglishsolutions.com
 .bestmobiworld.com
@@ -257,6 +259,7 @@
 .cdn77.org
 .cdninstagram.com
 .cechire.com
+.cedricchenevert.com
 .celebflix.us
 .cellufun.com
 .celtichr.com
@@ -476,6 +479,7 @@
 .dontorrent.to
 .doomdns.com
 .doomdns.org
+.doors.kg
 .doremizone.com
 .do-search.com
 .dosearches.com
@@ -563,6 +567,7 @@
 .ep-surveillance.com
 .equipoiseconsulting.com
 .erne.co
+.erotism.net
 .espncdn.com
 .est-a-la-maison.com
 .est-a-la-masion.com
@@ -892,6 +897,7 @@
 .hipstamatic.com
 .hislink.net
 .hitfake.eu
+.hittail.com
 .hiveam.com
 .hobby-site.com
 .hobby-site.org
@@ -954,6 +960,7 @@
 .iamallama.com
 .ibibo.com
 .ibytedtos.com
+.icdownloads.com
 .icecyber.org
 .idope.se
 .if-cdn.com
@@ -1111,6 +1118,7 @@
 .jscdndel.com
 .jsecoin.com
 .jsfiddle.net
+.jsin.ru
 .jtkf120.com
 .juegosfriv2018.link
 .juegosfriv.com
@@ -1134,6 +1142,7 @@
 .kernvpn.com
 .key-find.com
 .kickass.cd
+.kickass.ws
 .kicks-ass.net
 .kicks-ass.org
 .kickstarter.com
@@ -1193,9 +1202,11 @@
 .liadm.com
 .licdn.com
 .lightux.com
+.like108.com
 .likescandy.com
 .likes-pie.com
 .limetorrents.info
+.limetorrents.pro
 .linclik.com
 .line.me
 .lingpao8.com
@@ -1299,6 +1310,7 @@
 .miniclip.com
 .miniprox.com
 .miniprox.info
+.mipromalo.cm
 .miradetodo.co
 .mirrorace.com
 .mirrored.to
@@ -1337,14 +1349,18 @@
 .mouse-meter.com
 .movetv.com
 .mp3.es
+.mp3kick.ru
 .mp3leo.com
+.mp3quack.lol
 .mp3-youtube-converter.org
 .mrunblock.com
+.mrunblock.surf
 .mrveggy.com
 .msgamestudios.com
 .mshare.xyz
 .ms-studiosmedia.com
 .mtvk.pl
+.mudounet.com
 .multifilemirror.com
 .multiply.com
 .multiup.org
@@ -1366,7 +1382,9 @@
 .myftp.org
 .myheritage.com
 .myiphide.com
+.mylink.vc
 .mylivechat.com
+.myl.li
 .mymediapc.net
 .mypets.ws
 .myphotos.cc
@@ -1464,6 +1482,7 @@
 .omgfractal.com
 .omiga-plus.com
 .onaudience.com
+.onefamilycatering.com
 .onelink.to
 .onewebproxy.com
 .oninstagram.com
@@ -1526,6 +1545,7 @@
 .petametrics.com
 .pgafan.net
 .photo-cms.com
+.phptrader.com
 .pictify.com
 .pingit.im
 .pingit.link
@@ -1712,7 +1732,6 @@
 .s3xified.com
 .safesear.ch
 .salasdechatgratis.org
-.salesforce.com
 .salesresourcepartners.com
 .samsungapps.com
 .sandcastlesinthunderstorms.com
@@ -1751,6 +1770,7 @@
 .sendspace.com
 .sepaga.com
 .septa.com
+.serbianforum.org
 .seriesbang.to
 .seriesdanko.com
 .seriesenmega.com
@@ -1812,6 +1832,7 @@
 .simple-url.com
 .sina.cn
 .sintonizzate.me
+.sirens.rocks
 .sistine.gov.ve
 .site2unblock.com
 .siteco.com.co
@@ -1973,8 +1994,10 @@
 .the4orce.net
 .thebrighttag.com
 .thedrivingschool.xyz
+.thelyricarchive.com
 .themoviedb.com
 .thenewslens.com
+.thepiratebay10.org
 .thepiratebay-proxylist.org
 .thetvdb.com
 .theurl.co
@@ -1989,6 +2012,7 @@
 .tiktok.com
 .tiktok.org
 .tiktokv.com
+.time786.com
 .tinder.com
 .tinyarro.ws
 .tinyarrows.com
@@ -2005,7 +2029,6 @@
 .tntapk.com
 .todaysnews.live
 .toddandsarahrainey.com
-.todo1.com
 .todocomics.home.blog
 .todofullxd.com
 .todoxmega.me
@@ -2031,6 +2054,7 @@
 .toursingles.com
 .toutiao.com
 .tozein.com
+.tradeads.eu
 .traeumtgerade.de
 .trafficbetter.biz
 .travbuddy.com
@@ -2150,6 +2174,7 @@
 .vampirefreaks.com
 .vanisher.us
 .vascat.es
+.vdownloaderfiles.com
 .velaro.com
 .verizondigitalmedia.com
 .vermangasporno.com
@@ -2255,6 +2280,7 @@
 .vine.co
 .virtequip.com
 .visitpyrmontultimo.com.au
+.vivafascino.com
 .vk.com
 .vload.net
 .vnpt.vn
@@ -2378,6 +2404,7 @@
 .yourbittorrent.com
 .yourls.org
 .yoursphere.com
+.youthdeveloper.com
 .youtubetomp3music.com
 .yt1s.com
 .ytmp3.cc

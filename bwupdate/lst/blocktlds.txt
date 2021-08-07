@@ -4,6 +4,7 @@
 .club
 .crypto
 .download
+.games
 .onion
 .poker
 .porn
