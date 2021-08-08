@@ -350,7 +350,7 @@ echo "OK"
 # ADD BLOCKLIST BLOCKTLDS
 echo "${bw16[${en}]}"
 # add blockurls, blocktlds
-cat lst/{blockurls,blocktlds}.txt >> hit.txt
+sed '/^$/d; /#/d' lst/{blockurls,blocktlds}.txt | sort -u >> hit.txt
 # clean hit
 grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blockurls,blocktlds}.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb.txt
 echo "OK"

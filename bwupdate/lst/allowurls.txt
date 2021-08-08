@@ -25085,6 +25085,7 @@
 .research.net
 .rmprepusb.com
 .rootcapital.org
+.root-servers.net
 .ruda.slm.cloud
 .runt.com.co
 .s1.symcb.com
