@@ -1,3 +1,4 @@
+127.0.0.1 000a.biz
 127.0.0.1 007cpa.com
 127.0.0.1 0daydown.com
 127.0.0.1 1001tracklists.com
@@ -14,6 +15,7 @@
 127.0.0.1 22apple.com
 127.0.0.1 24liveplus.com
 127.0.0.1 2fh.co
+127.0.0.1 2giga.link
 127.0.0.1 2proxy.de
 127.0.0.1 301.li
 127.0.0.1 320ytmp3.com
@@ -26,14 +28,18 @@
 127.0.0.1 4everproxy.com
 127.0.0.1 4kdownload.com
 127.0.0.1 4shared.com
+127.0.0.1 5000airdrop.com
 127.0.0.1 500px.com
 127.0.0.1 51modo.cc
 127.0.0.1 52yq.net
 127.0.0.1 723847238742748217070.blogspot.com
 127.0.0.1 741.com
 127.0.0.1 768535328.cn
+127.0.0.1 777best.ru
 127.0.0.1 7cups.com
 127.0.0.1 8w8w8w.com.cn
+127.0.0.1 90degrees.digital
+127.0.0.1 9japaded.com
 127.0.0.1 9w9.org
 127.0.0.1 a2ztex.com
 127.0.0.1 aartemis.com
@@ -46,6 +52,7 @@
 127.0.0.1 acharnes-bdo.online
 127.0.0.1 aclabink.com
 127.0.0.1 acortalo.net
+127.0.0.1 activationkeysfree.com
 127.0.0.1 activetect.net
 127.0.0.1 actual.bz
 127.0.0.1 ad5.eu
@@ -67,12 +74,14 @@
 127.0.0.1 adpop.me
 127.0.0.1 adshort.co
 127.0.0.1 adshort.live
+127.0.0.1 adsk2.co
 127.0.0.1 adsrt.live
 127.0.0.1 adsrt.me
 127.0.0.1 adsrt.net
 127.0.0.1 adsrvr.org
 127.0.0.1 adturtle.biz
 127.0.0.1 aeropilates.cl
+127.0.0.1 afy11.net
 127.0.0.1 agro-mation.com
 127.0.0.1 aipad.co
 127.0.0.1 airtelbroadband.in
@@ -87,6 +96,7 @@
 127.0.0.1 amap.com
 127.0.0.1 amgload.net
 127.0.0.1 amnserver.com
+127.0.0.1 amozao.com
 127.0.0.1 amung.us
 127.0.0.1 angelsvsdevils-angelstar11.blogspot.com
 127.0.0.1 anime4mega.net
@@ -110,6 +120,7 @@
 127.0.0.1 anysy.com
 127.0.0.1 applicationinsights.io
 127.0.0.1 applicationinsights.net
+127.0.0.1 applicationlaboratorygift.com
 127.0.0.1 appsflyer.com
 127.0.0.1 apster.com
 127.0.0.1 aptrixx.com
@@ -119,6 +130,7 @@
 127.0.0.1 arcai.com
 127.0.0.1 arenabg.com
 127.0.0.1 argstudio.com
+127.0.0.1 arpa.org
 127.0.0.1 articlix.com
 127.0.0.1 aserdefa.ru
 127.0.0.1 ashleymadison.com
@@ -142,7 +154,6 @@
 127.0.0.1 awsdns-26.net
 127.0.0.1 awsdns-55.com
 127.0.0.1 awsdns-56.org
-127.0.0.1 awstrack.me
 127.0.0.1 ayads.co
 127.0.0.1 ayboll.com
 127.0.0.1 b1t.it
@@ -168,6 +179,7 @@
 127.0.0.1 beastvila.info
 127.0.0.1 bebee.com
 127.0.0.1 beeline.ru
+127.0.0.1 beeppool.org
 127.0.0.1 bellsyscdn.com
 127.0.0.1 benglishsolutions.com
 127.0.0.1 bestmobiworld.com
@@ -209,6 +221,7 @@
 127.0.0.1 boldlygoingnowhere.org
 127.0.0.1 bongacams.com
 127.0.0.1 bounceme.net
+127.0.0.1 bozlar.com
 127.0.0.1 brasilia.me
 127.0.0.1 break.com
 127.0.0.1 brightcove.com
@@ -224,6 +237,7 @@
 127.0.0.1 bullguard.com
 127.0.0.1 bumble.com
 127.0.0.1 bumlam.com
+127.0.0.1 busa345.com
 127.0.0.1 busloadbrittleheadroom.info
 127.0.0.1 buud.co
 127.0.0.1 buycpc.com
@@ -240,12 +254,15 @@
 127.0.0.1 cable-modem.org
 127.0.0.1 cactuscreekcoffee.com
 127.0.0.1 cafemom.com
+127.0.0.1 calq.io
 127.0.0.1 campoamor.org
+127.0.0.1 camstudiofiles.org
 127.0.0.1 canalchat.net
 127.0.0.1 canalchat.org
 127.0.0.1 candid.zone
 127.0.0.1 capsulink.com
 127.0.0.1 care2.com
+127.0.0.1 carfax.com
 127.0.0.1 caringbridge.org
 127.0.0.1 carpartsviet31.site
 127.0.0.1 cars.com
@@ -257,6 +274,7 @@
 127.0.0.1 cdn77.org
 127.0.0.1 cdninstagram.com
 127.0.0.1 cechire.com
+127.0.0.1 cedricchenevert.com
 127.0.0.1 celebflix.us
 127.0.0.1 cellufun.com
 127.0.0.1 celtichr.com
@@ -288,6 +306,7 @@
 127.0.0.1 chinaplant.xyz
 127.0.0.1 choseyour.com
 127.0.0.1 chosic.com
+127.0.0.1 chungcheng.net
 127.0.0.1 chuporno.com
 127.0.0.1 ciancenter.org
 127.0.0.1 ciblo.net
@@ -317,6 +336,7 @@
 127.0.0.1 cloudflane.com
 127.0.0.1 cloudmobi.net
 127.0.0.1 cmcm.com
+127.0.0.1 cngr.cn
 127.0.0.1 cnhv.co
 127.0.0.1 coffeemeetsbagel.com
 127.0.0.1 coinbase.com
@@ -331,6 +351,7 @@
 127.0.0.1 coinurl.com
 127.0.0.1 collegefan.org
 127.0.0.1 colombiancupid.com
+127.0.0.1 com-f.ru
 127.0.0.1 comlaude.com
 127.0.0.1 comm100.com
 127.0.0.1 com-nett.info
@@ -359,6 +380,7 @@
 127.0.0.1 cpashka.ru
 127.0.0.1 cpavhits.com
 127.0.0.1 cpmlink.net
+127.0.0.1 cracksurl.com
 127.0.0.1 craftshopsindia.com
 127.0.0.1 crazyegg.com
 127.0.0.1 creativecdn.com
@@ -413,6 +435,7 @@
 127.0.0.1 del.icio.us
 127.0.0.1 delta-homes.com
 127.0.0.1 demoaiindustries.com
+127.0.0.1 demoparlour.com
 127.0.0.1 depositfiles.com
 127.0.0.1 depositfiles.org
 127.0.0.1 descargaenpas.com
@@ -436,6 +459,7 @@
 127.0.0.1 directvnow.com
 127.0.0.1 dirtytorrents.com
 127.0.0.1 discordapp.com
+127.0.0.1 discountfifacoins.com
 127.0.0.1 disorderstatus.ru
 127.0.0.1 disq.us
 127.0.0.1 disquscdn.com
@@ -476,9 +500,11 @@
 127.0.0.1 dontorrent.to
 127.0.0.1 doomdns.com
 127.0.0.1 doomdns.org
+127.0.0.1 doors.kg
 127.0.0.1 doremizone.com
 127.0.0.1 do-search.com
 127.0.0.1 dosearches.com
+127.0.0.1 dothome.co.kr
 127.0.0.1 douban.com
 127.0.0.1 douploads.net
 127.0.0.1 downcargas.com
@@ -487,6 +513,7 @@
 127.0.0.1 dq33tynpwunh.cloudfront.net
 127.0.0.1 dragonvape.org
 127.0.0.1 drift.com
+127.0.0.1 driveadmin.com
 127.0.0.1 dropitto.me
 127.0.0.1 dtdsoft.net
 127.0.0.1 duapps.com
@@ -527,6 +554,7 @@
 127.0.0.1 dyndns.ws
 127.0.0.1 dynns.com
 127.0.0.1 dyn-o-saur.com
+127.0.0.1 dzcp-addons.eu
 127.0.0.1 e93-apps.com
 127.0.0.1 eaeurope.eu
 127.0.0.1 easy-hide-ip.com
@@ -563,6 +591,7 @@
 127.0.0.1 ep-surveillance.com
 127.0.0.1 equipoiseconsulting.com
 127.0.0.1 erne.co
+127.0.0.1 erotism.net
 127.0.0.1 espncdn.com
 127.0.0.1 est-a-la-maison.com
 127.0.0.1 est-a-la-masion.com
@@ -661,6 +690,7 @@
 127.0.0.1 flixster.com
 127.0.0.1 flurry.com
 127.0.0.1 flvto.ch
+127.0.0.1 flyboytees.com
 127.0.0.1 fly-unicorn.com
 127.0.0.1 fmovie.sc
 127.0.0.1 focus.com
@@ -789,6 +819,7 @@
 127.0.0.1 gasolina.ml
 127.0.0.1 gatherproxy.com
 127.0.0.1 gdanstum.net
+127.0.0.1 gde.ru
 127.0.0.1 geekgalaxy.com
 127.0.0.1 geekproxy.com
 127.0.0.1 geekstechnicalsupport.com
@@ -814,6 +845,7 @@
 127.0.0.1 gmboxx.com
 127.0.0.1 gnula.nu
 127.0.0.1 goeoffice.com
+127.0.0.1 goharpc.com
 127.0.0.1 goldenfrog.com
 127.0.0.1 golffan.us
 127.0.0.1 gomoviesfree.sc
@@ -825,6 +857,7 @@
 127.0.0.1 gotdns.com
 127.0.0.1 gotdns.org
 127.0.0.1 govtsmartjob.com
+127.0.0.1 gpemail.de
 127.0.0.1 gplinks.co
 127.0.0.1 gplinks.in
 127.0.0.1 gpsonextra.net
@@ -848,6 +881,7 @@
 127.0.0.1 hall.com
 127.0.0.1 haloapps.com
 127.0.0.1 ham-radio-op.net
+127.0.0.1 haohutu.com
 127.0.0.1 happn.com
 127.0.0.1 haproxy.org
 127.0.0.1 hatsurewhim.info
@@ -890,8 +924,10 @@
 127.0.0.1 hinge.co
 127.0.0.1 hipchat.com
 127.0.0.1 hipstamatic.com
+127.0.0.1 hiqualityguesthouse.com
 127.0.0.1 hislink.net
 127.0.0.1 hitfake.eu
+127.0.0.1 hittail.com
 127.0.0.1 hiveam.com
 127.0.0.1 hobby-site.com
 127.0.0.1 hobby-site.org
@@ -947,6 +983,7 @@
 127.0.0.1 huiqituan.com
 127.0.0.1 hulu.com
 127.0.0.1 humaribit.win
+127.0.0.1 hurirk.net
 127.0.0.1 hyperurl.co
 127.0.0.1 hypstarcdn.com
 127.0.0.1 hyves.nl
@@ -954,7 +991,11 @@
 127.0.0.1 iamallama.com
 127.0.0.1 ibibo.com
 127.0.0.1 ibytedtos.com
+127.0.0.1 icdownloads.com
 127.0.0.1 icecyber.org
+127.0.0.1 id176140.top
+127.0.0.1 id176143.top
+127.0.0.1 id176148.top
 127.0.0.1 idope.se
 127.0.0.1 if-cdn.com
 127.0.0.1 ignitioncrazycacti.info
@@ -1094,6 +1135,7 @@
 127.0.0.1 is-very-nice.org
 127.0.0.1 is-very-sweet.org
 127.0.0.1 is-with-theband.com
+127.0.0.1 itfactormodels.com
 127.0.0.1 itsmy.com
 127.0.0.1 itw.me
 127.0.0.1 jacktekpro.com
@@ -1111,6 +1153,7 @@
 127.0.0.1 jscdndel.com
 127.0.0.1 jsecoin.com
 127.0.0.1 jsfiddle.net
+127.0.0.1 jsin.ru
 127.0.0.1 jtkf120.com
 127.0.0.1 juegosfriv2018.link
 127.0.0.1 juegosfriv.com
@@ -1134,6 +1177,7 @@
 127.0.0.1 kernvpn.com
 127.0.0.1 key-find.com
 127.0.0.1 kickass.cd
+127.0.0.1 kickass.ws
 127.0.0.1 kicks-ass.net
 127.0.0.1 kicks-ass.org
 127.0.0.1 kickstarter.com
@@ -1142,6 +1186,7 @@
 127.0.0.1 kiennhay.vn
 127.0.0.1 kik.com
 127.0.0.1 ki.ms
+127.0.0.1 kinoxxonline.ru
 127.0.0.1 kinozal.website
 127.0.0.1 kissdoujin.com
 127.0.0.1 kisshentai.net
@@ -1149,6 +1194,7 @@
 127.0.0.1 kiwifarms.net
 127.0.0.1 kiwiirc.com
 127.0.0.1 kkl-luzern.ch
+127.0.0.1 klm.net.pl
 127.0.0.1 kmindex.ru
 127.0.0.1 kmpropertysales.com
 127.0.0.1 knottedstone.com
@@ -1193,9 +1239,11 @@
 127.0.0.1 liadm.com
 127.0.0.1 licdn.com
 127.0.0.1 lightux.com
+127.0.0.1 like108.com
 127.0.0.1 likescandy.com
 127.0.0.1 likes-pie.com
 127.0.0.1 limetorrents.info
+127.0.0.1 limetorrents.pro
 127.0.0.1 linclik.com
 127.0.0.1 line.me
 127.0.0.1 lingpao8.com
@@ -1207,6 +1255,7 @@
 127.0.0.1 linksearch.cf
 127.0.0.1 linkshrink.net
 127.0.0.1 linkto.net
+127.0.0.1 li.org
 127.0.0.1 liveappsearch.com
 127.0.0.1 livechat.com
 127.0.0.1 livechatinc.com
@@ -1222,7 +1271,10 @@
 127.0.0.1 loader.to
 127.0.0.1 localhost.com
 127.0.0.1 loginto.me
+127.0.0.1 logoinn.me
 127.0.0.1 longbridgesocial.com
+127.0.0.1 longtailvideo.com
+127.0.0.1 lopeordelaweb.li
 127.0.0.1 losslessdl.com
 127.0.0.1 lpg02.com
 127.0.0.1 lstu.fr
@@ -1274,6 +1326,7 @@
 127.0.0.1 mejorenvo.com
 127.0.0.1 mellowads.com
 127.0.0.1 meneame.net
+127.0.0.1 meowbify.com
 127.0.0.1 merca.net.co
 127.0.0.1 mercy.ga
 127.0.0.1 merseine.com
@@ -1286,6 +1339,7 @@
 127.0.0.1 mgd.de
 127.0.0.1 mgid.com
 127.0.0.1 mibbit.com
+127.0.0.1 microsofts.info
 127.0.0.1 midosoo.com
 127.0.0.1 migre.me
 127.0.0.1 mi-idc.com
@@ -1299,7 +1353,9 @@
 127.0.0.1 miniclip.com
 127.0.0.1 miniprox.com
 127.0.0.1 miniprox.info
+127.0.0.1 mipromalo.cm
 127.0.0.1 miradetodo.co
+127.0.0.1 mirovideoconverterfiles.com
 127.0.0.1 mirrorace.com
 127.0.0.1 mirrored.to
 127.0.0.1 misconfused.org
@@ -1336,15 +1392,20 @@
 127.0.0.1 mopub.com
 127.0.0.1 mouse-meter.com
 127.0.0.1 movetv.com
+127.0.0.1 mp3collection.ru
 127.0.0.1 mp3.es
+127.0.0.1 mp3kick.ru
 127.0.0.1 mp3leo.com
+127.0.0.1 mp3quack.lol
 127.0.0.1 mp3-youtube-converter.org
 127.0.0.1 mrunblock.com
+127.0.0.1 mrunblock.surf
 127.0.0.1 mrveggy.com
 127.0.0.1 msgamestudios.com
 127.0.0.1 mshare.xyz
 127.0.0.1 ms-studiosmedia.com
 127.0.0.1 mtvk.pl
+127.0.0.1 mudounet.com
 127.0.0.1 multifilemirror.com
 127.0.0.1 multiply.com
 127.0.0.1 multiup.org
@@ -1366,7 +1427,9 @@
 127.0.0.1 myftp.org
 127.0.0.1 myheritage.com
 127.0.0.1 myiphide.com
+127.0.0.1 mylink.vc
 127.0.0.1 mylivechat.com
+127.0.0.1 myl.li
 127.0.0.1 mymediapc.net
 127.0.0.1 mypets.ws
 127.0.0.1 myphotos.cc
@@ -1383,6 +1446,7 @@
 127.0.0.1 myway.com
 127.0.0.1 nahnoji.cz
 127.0.0.1 nanigans.com
+127.0.0.1 nashertva.com
 127.0.0.1 nationzoom.com
 127.0.0.1 navegasinley.com
 127.0.0.1 naver.jp
@@ -1400,6 +1464,7 @@
 127.0.0.1 netlog.com
 127.0.0.1 netsneak.com
 127.0.0.1 nettohikari.com
+127.0.0.1 networkrxez.ru
 127.0.0.1 newhometab.com
 127.0.0.1 newipnow.com
 127.0.0.1 newminersage.com
@@ -1422,6 +1487,7 @@
 127.0.0.1 ninjaweb.xyz
 127.0.0.1 nintenderos.com
 127.0.0.1 nitroflare.com
+127.0.0.1 njcasio.com
 127.0.0.1 nk.pl
 127.0.0.1 nntime.com
 127.0.0.1 no-ip.biz
@@ -1464,6 +1530,7 @@
 127.0.0.1 omgfractal.com
 127.0.0.1 omiga-plus.com
 127.0.0.1 onaudience.com
+127.0.0.1 onefamilycatering.com
 127.0.0.1 onelink.to
 127.0.0.1 onewebproxy.com
 127.0.0.1 oninstagram.com
@@ -1500,6 +1567,7 @@
 127.0.0.1 passgen.icu
 127.0.0.1 pastepvp.org
 127.0.0.1 pastewma.com
+127.0.0.1 patchcracks.com
 127.0.0.1 path.com
 127.0.0.1 payplay.fm
 127.0.0.1 payskip.org
@@ -1524,8 +1592,11 @@
 127.0.0.1 perfect-player.com
 127.0.0.1 perf-serving.com
 127.0.0.1 petametrics.com
+127.0.0.1 petstare.com
 127.0.0.1 pgafan.net
+127.0.0.1 pginludhiana.com
 127.0.0.1 photo-cms.com
+127.0.0.1 phptrader.com
 127.0.0.1 pictify.com
 127.0.0.1 pingit.im
 127.0.0.1 pingit.link
@@ -1572,14 +1643,18 @@
 127.0.0.1 pr0gramm.com
 127.0.0.1 predocontentdelivery.info
 127.0.0.1 preyproject.com
+127.0.0.1 priceporter.com
 127.0.0.1 primartists.com
 127.0.0.1 primeproxy23.info
 127.0.0.1 privateinternetaccess.com
 127.0.0.1 privatetunnel.com
 127.0.0.1 privatevpn.com
 127.0.0.1 privatizehealthinsurance.net
+127.0.0.1 procrackerz.org
+127.0.0.1 procrackpc.com
 127.0.0.1 programasfullmega.com
 127.0.0.1 prohome.info
+127.0.0.1 proserialcrack.com
 127.0.0.1 protect.re
 127.0.0.1 protonvpn.com
 127.0.0.1 proxfree.com
@@ -1712,7 +1787,6 @@
 127.0.0.1 s3xified.com
 127.0.0.1 safesear.ch
 127.0.0.1 salasdechatgratis.org
-127.0.0.1 salesforce.com
 127.0.0.1 salesresourcepartners.com
 127.0.0.1 samsungapps.com
 127.0.0.1 sandcastlesinthunderstorms.com
@@ -1736,7 +1810,9 @@
 127.0.0.1 scuseami.net
 127.0.0.1 sdpaste.com
 127.0.0.1 searchcompletion.com
+127.0.0.1 searchsmail.com
 127.0.0.1 sectordescargas.com
+127.0.0.1 secureddownloadcdn.com
 127.0.0.1 securitytactics.com
 127.0.0.1 sefaireaider.com
 127.0.0.1 selfip.biz
@@ -1751,6 +1827,7 @@
 127.0.0.1 sendspace.com
 127.0.0.1 sepaga.com
 127.0.0.1 septa.com
+127.0.0.1 serbianforum.org
 127.0.0.1 seriesbang.to
 127.0.0.1 seriesdanko.com
 127.0.0.1 seriesenmega.com
@@ -1812,6 +1889,7 @@
 127.0.0.1 simple-url.com
 127.0.0.1 sina.cn
 127.0.0.1 sintonizzate.me
+127.0.0.1 sirens.rocks
 127.0.0.1 sistine.gov.ve
 127.0.0.1 site2unblock.com
 127.0.0.1 siteco.com.co
@@ -1924,6 +2002,7 @@
 127.0.0.1 sweet-page.com
 127.0.0.1 switchadhub.com
 127.0.0.1 switchvpn.net
+127.0.0.1 sya.org.np
 127.0.0.1 symcb.com
 127.0.0.1 synwebhost.net
 127.0.0.1 sytes.net
@@ -1932,6 +2011,7 @@
 127.0.0.1 taboola.com
 127.0.0.1 tagesanzeiger.ch
 127.0.0.1 tagged.com
+127.0.0.1 taiwebs.com
 127.0.0.1 takefile.link
 127.0.0.1 talko.cc
 127.0.0.1 talktalkenglish.vn
@@ -1973,8 +2053,10 @@
 127.0.0.1 the4orce.net
 127.0.0.1 thebrighttag.com
 127.0.0.1 thedrivingschool.xyz
+127.0.0.1 thelyricarchive.com
 127.0.0.1 themoviedb.com
 127.0.0.1 thenewslens.com
+127.0.0.1 thepiratebay10.org
 127.0.0.1 thepiratebay-proxylist.org
 127.0.0.1 thetvdb.com
 127.0.0.1 theurl.co
@@ -1989,6 +2071,7 @@
 127.0.0.1 tiktok.com
 127.0.0.1 tiktok.org
 127.0.0.1 tiktokv.com
+127.0.0.1 time786.com
 127.0.0.1 tinder.com
 127.0.0.1 tinyarro.ws
 127.0.0.1 tinyarrows.com
@@ -2005,7 +2088,6 @@
 127.0.0.1 tntapk.com
 127.0.0.1 todaysnews.live
 127.0.0.1 toddandsarahrainey.com
-127.0.0.1 todo1.com
 127.0.0.1 todocomics.home.blog
 127.0.0.1 todofullxd.com
 127.0.0.1 todoxmega.me
@@ -2031,6 +2113,7 @@
 127.0.0.1 toursingles.com
 127.0.0.1 toutiao.com
 127.0.0.1 tozein.com
+127.0.0.1 tradeads.eu
 127.0.0.1 traeumtgerade.de
 127.0.0.1 trafficbetter.biz
 127.0.0.1 travbuddy.com
@@ -2102,6 +2185,7 @@
 127.0.0.1 unknownproxy.com
 127.0.0.1 unoadsrv.com
 127.0.0.1 unrulymedia.com
+127.0.0.1 unstoppabledomains.com
 127.0.0.1 unusualperson.com
 127.0.0.1 up-4ever.org
 127.0.0.1 upantool.com
@@ -2150,6 +2234,7 @@
 127.0.0.1 vampirefreaks.com
 127.0.0.1 vanisher.us
 127.0.0.1 vascat.es
+127.0.0.1 vdownloaderfiles.com
 127.0.0.1 velaro.com
 127.0.0.1 verizondigitalmedia.com
 127.0.0.1 vermangasporno.com
@@ -2255,8 +2340,10 @@
 127.0.0.1 vine.co
 127.0.0.1 virtequip.com
 127.0.0.1 visitpyrmontultimo.com.au
+127.0.0.1 vivafascino.com
 127.0.0.1 vk.com
 127.0.0.1 vload.net
+127.0.0.1 vlsoft.net
 127.0.0.1 vnpt.vn
 127.0.0.1 vobas.com
 127.0.0.1 vpnbook.com
@@ -2317,6 +2404,8 @@
 127.0.0.1 widdit.com
 127.0.0.1 widespace.com
 127.0.0.1 win2url.com
+127.0.0.1 windowactivator.org
+127.0.0.1 windowsactivationkey.com
 127.0.0.1 windows-int.net
 127.0.0.1 windowsphone-int.com
 127.0.0.1 windscribe.com
@@ -2373,11 +2462,13 @@
 127.0.0.1 yftp.org
 127.0.0.1 y-medialink.com
 127.0.0.1 ynns.com
+127.0.0.1 yolox.net
 127.0.0.1 youhide.com
 127.0.0.1 younime.net
 127.0.0.1 yourbittorrent.com
 127.0.0.1 yourls.org
 127.0.0.1 yoursphere.com
+127.0.0.1 youthdeveloper.com
 127.0.0.1 youtubetomp3music.com
 127.0.0.1 yt1s.com
 127.0.0.1 ytmp3.cc
