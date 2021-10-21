@@ -1,5 +1,9 @@
 # [Blackweb](https://www.maravento.com/p/blackweb.html)
 
+[![GPL v3+](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![last commit](https://img.shields.io/github/last-commit/maravento/blackweb)](https://github.com/maravento/blackweb/)
+[![Twitter Follow](https://img.shields.io/twitter/follow/maraventostudio.svg?style=social)](https://twitter.com/maraventostudio)
+
 **Blackweb** is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/)
 
 **Blackweb** es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc.) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/)
@@ -10,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4115772|98,5 MB|
+|blackweb.txt|4143825|99,3 MB|
 
 ## GIT CLONE
 
@@ -247,7 +251,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
 - [bigdargon](https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt) and [webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
-- [Capitole - Direction du Système d'Information (DSI)](http://dsi.ut-capitole.fr/blacklists/download/)
 - [Carl Spam](http://www.carl.net/spam/access.txt)
 - [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
 - [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
@@ -276,7 +279,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [malspam emotet list](https://github.com/MBThreatIntel/malspam)
 - [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
-- [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/mitchellkrogza/Ultimate.Hosts.Blacklist))
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
 - [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
@@ -302,6 +304,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 - [Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 - [txthinking](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
+- [Université Toulouse 1 Capitole)](https://dsi.ut-capitole.fr/blacklists/index_en.php)
 - [URLhaus Malicious URL Blocklist](https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt)
 - [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
@@ -319,6 +322,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
+- [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
@@ -347,19 +351,17 @@ Blackweb: Done 06/05/2019 15:47:14
 ### Debug
 
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Hosts](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
-- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/add)
-- [UltraSurf related domains](https://gitlab.com/maravento/lockstring/-/raw/master/lockdn)
+- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
 ### Worktools
 
 - [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/parse_domain.py))
-- [Debug internal lst](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debuglst.sh))
+- [Debug internal lst](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debuglst.sh)
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh)
@@ -397,11 +399,9 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 
-## LICENCES
+## BUILD
 
 ---
-
-[![GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.txt)
 
 © 2021 [Maravento Studio](http://www.maravento.com)
 

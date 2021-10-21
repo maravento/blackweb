@@ -3,7 +3,7 @@
 # Parse Domain TLD: Check Valid TLD
 # from https://github.com/lsemel/python-parse-domain
 # fork https://github.com/hmgle/python-parse-domain
-# note: compare with 2 list
+# note: compare with 1 list
 # -------------------------------------------------
 
 from urlparse import urlparse
@@ -47,15 +47,13 @@ def parse_domain(url, levels=2):
     return domain[1:]
 
 clean = set(d.strip() for d in open("tlds.txt").readlines())
-valid = set(d.strip() for d in open('urls.txt').readlines())
 
 filename = 'capture'
 domains  = [d.strip('.\n') for d in file(filename).readlines()]
-domains = [d for d in domains if '.'+d not in valid]
 
 D = dict()
 for domain in domains:
-  D[parse_domain('http://'+domain)] = 0
+   D[parse_domain('http://'+domain)] = 0
 
 for d in D:
   if d: print d

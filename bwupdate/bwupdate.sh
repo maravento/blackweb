@@ -94,7 +94,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	    blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	    blurls 'https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt' && sleep 1
-	    blurls 'https://gitlab.com/maravento/lockstring/-/raw/master/lockdn' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
 	    blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
@@ -204,15 +203,15 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	    targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
 
-    function tgz() {
-    wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-    if [ $? -eq 0 ]; then
-		    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf "$F" -i; done >/dev/null 2>&1
-	    else
-		    echo ERROR "$1"
-    fi
-    }
-	    tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
+    #function tgz() {
+    #wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
+    #if [ $? -eq 0 ]; then
+	#	    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf "$F" -i; done >/dev/null 2>&1
+	#    else
+	#	    echo ERROR "$1"
+    #fi
+    #}
+	#    tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
 
     echo "OK"
 
@@ -261,11 +260,11 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     # add oldurls.txt to capture
     tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
     # unblock remote
-    #sed '/^$/d; /#/d' add/remote.txt | sort -u >> urls.txt
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
     # block remote
-    #sed '/^$/d; /#/d' add/remote.txt | sort -u >> capture
-    # update hosts file (optional. for other purposes)
-    sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > add/hosts.txt
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
+    # convert to hosts file (optional)
+    #sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > lst/hosts.txt
     # uniq capture
     sort -o capture -u capture
     echo "OK"
