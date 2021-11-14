@@ -24882,7 +24882,6 @@
 .ft.com
 .fult.com
 .funiber.org
-.gateproxy.com
 .geforce.cn
 .geforce.com
 .geotrust.com
