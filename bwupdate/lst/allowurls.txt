@@ -24734,6 +24734,7 @@
 .crt.usertrust.com
 .cs-g2-crl.thawte.com
 .custhelp.com
+.cvcanadaimmigration.com
 .cybercrime-tracker.net
 .dafont.com
 .datacredito.com.co
@@ -25216,6 +25217,7 @@
 .soydebuenaventura.com
 .speedtest.net
 .splash-screen.net
+.square.site
 .squidblacklist.org
 .squid-cache.org
 .sslcom.crl.certum.pl
