@@ -424,6 +424,12 @@ Therefore / Por tanto
 
 are terms that have nothing to do with racial discrimination / son términos que no tienen ninguna relación con la discriminación racial
 
+## NOTICE
+
+---
+
+The urls included in the acl `allowurls.txt` and` blockurls.txt`, may be notified to the admin, via email and will have a period of 72 hours to accept or reject the inclusion. After the deadline, the inclusion will be permanent, unless the object or url changes, or is included in a public block list / Las urls incluidas en las acl `allowurls.txt` y `blockurls.txt`, podrán ser notificadas al admin, via mail y tendrá un plazo de 72 horas para aceptar o rechazar la inclusión. Superado el plazo, la inclusión será permanente, excepto que cambie el objeto o url, o sea incluida en alguna lista de bloqueo pública
+
 ## DISCLAIMER
 
 ---
