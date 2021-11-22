@@ -106,12 +106,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://openphish.com/feed.txt' && sleep 1
 	    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
 	    blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt' && sleep 1
-	    blurls 'https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
@@ -299,7 +293,7 @@ fi
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
 # pp = parallel processes (high resource consumption!)
-pp="400"
+pp="200"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then

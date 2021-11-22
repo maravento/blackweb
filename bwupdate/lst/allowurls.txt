@@ -24734,7 +24734,6 @@
 .crt.usertrust.com
 .cs-g2-crl.thawte.com
 .custhelp.com
-.cvcanadaimmigration.com
 .cybercrime-tracker.net
 .dafont.com
 .datacredito.com.co
@@ -24916,6 +24915,9 @@
 .hipertextual.com
 .hncbank.com
 .home.blog
+.homelinux.com
+.homelinux.net
+.homelinux.org
 .hora724.com
 .hostsfile.mine.nu
 .hosts-file.net
