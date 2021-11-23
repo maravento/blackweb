@@ -248,6 +248,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [adblock-leadgenerator-list](https://github.com/Rpsl/adblock-leadgenerator-list)
 - [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [anudeepND Blocklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
+- [BBcan177 lists](https://github.com/BBcan177/) (included: [spammers](https://github.com/BBcan177/referrer-spam-blacklist), [minerchk hostlist](https://github.com/BBcan177/minerchk), [MS-2](https://gist.github.com/BBcan177/4a8bf37c131be4803cb2))
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
 - [bigdargon](https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt) and [webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
@@ -364,7 +365,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Debug internal lst](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debuglst.sh)
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh)
+- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scr/bandwidth.sh)
 
 ## BACKLINKS
 

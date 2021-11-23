@@ -8639,3 +8639,5 @@
 .zwei.audio
 .zytrade.cn
 .zzzort10xtest123.com
+.kymovil.com
+.protegent360.com
