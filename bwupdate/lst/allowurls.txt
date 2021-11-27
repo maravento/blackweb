@@ -25090,7 +25090,6 @@
 .openphish.com
 .opensource.org
 .openstreetmap.org
-.openx.net
 .opera.com
 .ops-oms.org
 .oracle.com
@@ -25206,7 +25205,6 @@
 .simbogota.com.co
 .simit.org.co
 .simple.co
-.sitescout.com
 .sld.cu
 .slidesharecdn.com
 .slideshare.net

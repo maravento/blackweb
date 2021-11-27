@@ -756,6 +756,7 @@
 .bailamecuba.com
 .baitcalculator.com
 .baituljannah.com
+.bajalandia.com
 .bajalogratis.com
 .bajapelishd.com
 .bajarpelisgratis.com
@@ -799,6 +800,7 @@
 .basarteks.com
 .baseballtivy.com
 .basedow-bilder.de
+.basis.net
 .basketballninja.com
 .baskinyourthoughtcrime.com
 .baskisanati.com
@@ -952,6 +954,7 @@
 .binbox.io
 .bingolfm.com
 .binhminh-group.com
+.binomo-web.com
 .bin.wf
 .biocarbon.com.ec
 .biocoresystem.com
@@ -1528,6 +1531,7 @@
 .cobra-iptv.com
 .cocc.ro
 .cocoadaisy.com
+.coconutsumptuousreseptivereseptive.com
 .codanuscorp.com
 .codeaweb.net
 .codedwap.com
@@ -1655,6 +1659,7 @@
 .costadelhome.com
 .couchpotatofries.org
 .couchsurfing.org
+.couriersticky.com
 .courtesyweb.it
 .covepointcottage.com
 .cozyculmy.com
@@ -2442,6 +2447,7 @@
 .ethical.market
 .etikdeals.com
 .etoc.biz
+.etoro.com
 .ettvdl.com
 .ettvtorrents.com
 .etwestern.com
@@ -2722,6 +2728,7 @@
 .floridaautostereo.com
 .florisvanbommel.com
 .flowersleds.com
+.flowsearch.info
 .fluidbalance.com.au
 .fluritreuhand.ch
 .flurrbinh.net
@@ -2771,6 +2778,7 @@
 .formatwerbung.de
 .for-more.biz
 .formulatv.com
+.fororecursos.com
 .for-our.info
 .forrestsignsonline.com
 .forshawssalads.co.uk
@@ -3056,6 +3064,7 @@
 .getproactive.ca
 .getraenke-weichmann.de
 .gets-it.net
+.getsmartyapp.com
 .gewerbeverein-auggen.de
 .gewinnspiel-sachsenhausen.de
 .gezgininpusulasi.com
@@ -3519,9 +3528,6 @@
 .homeftp.org
 .homeguardsocialclub.com
 .homeip.net
-.homelinux.com
-.homelinux.net
-.homelinux.org
 .homemadebakeryindonesia.com
 .home.pl
 .homeproxy.net
@@ -3597,6 +3603,7 @@
 .hottao.cn
 .hottopic.com
 .hottubsreview.com
+.hotvevosongs.com
 .ho.ua
 .houdenbags.com
 .houkou-onchi.com
@@ -3890,6 +3897,7 @@
 .ipv6forum.com
 .ipv6proxy.net
 .ipvanish.com
+.iqbroker.com
 .iqfurniture.co.uk
 .iqinternal.com
 .iqoption.com
@@ -4206,6 +4214,7 @@
 .kaspersky.host
 .katallog.pl
 .katfile.com
+.katflys.com
 .kathollowell.com
 .kathymerrill.com
 .katzenhaifischer.de
@@ -4385,6 +4394,7 @@
 .kvnysoho.com
 .kwiry.com
 .kwlbroadcast.com
+.kymovil.com
 .kyotoeyewear.com
 .kytheraproperty.com
 .kzprojekt.pl
@@ -5336,6 +5346,7 @@
 .neutrogenateen.com
 .nevinka.ws
 .nevis-football.com
+.newanothernew2.com
 .newday-inc.com
 .newerasportsperformance.com
 .newgeneration2010.it
@@ -6055,6 +6066,7 @@
 .prosperite.eu
 .prospower.com
 .protect.re
+.protegent360.com
 .protei.me
 .protescil.net
 .protonvpn.com
@@ -6131,6 +6143,7 @@
 .purevpn.com
 .purplebug.net
 .purse.io
+.push-news.org
 .puslapiai.lt
 .puttechnologies.com
 .puy-narnia.eu
@@ -6595,8 +6608,10 @@
 .sdr.co.nz
 .sds-india.org
 .sdwsgs.com
+.se03.biz
 .seaf.ch
 .seanlara.com
+.searchbip.com
 .searchcompletion.com
 .searchthruster.com
 .seasofbeauty.com
@@ -7611,6 +7626,7 @@
 .trapallan.com
 .trauchgauer-weihnachtsmarkt.de
 .travbuddy.com
+.travelapix.com
 .travellersstop.com
 .travelpricecheck.com
 .travelvoice.com
@@ -7618,6 +7634,7 @@
 .travislusk.com
 .travoice.ca
 .trchosetrilhs.blogspot.com
+.trcked.me
 .trebleimp.com
 .trehoada.org
 .trello.com
@@ -7749,6 +7766,7 @@
 .uitindrachten.nl
 .uiz.one
 .ukbusinesssupplies.co.uk
+.ukjamz.com
 .ukl.me.uk
 .ukmarkets.net
 .ukrasnogomosta.ru
@@ -7897,6 +7915,7 @@
 .valpit.ru
 .valsystem.cl
 .valtho.com
+.valvabox.com
 .vampirefreaks.com
 .vanachte.be
 .vanaken.nu
@@ -8268,6 +8287,7 @@
 .welovetofish.org
 .welsell.com
 .welte.pl
+.wemovedigital.com
 .wenger-werkzeugbau.de
 .weproxy.me
 .weserve.world
@@ -8365,6 +8385,7 @@
 .worldusana.com
 .worse-than.tv
 .wo.to
+.wowcontent.site
 .wphone3c.com
 .wplay.co
 .wplift.com
@@ -8639,5 +8660,3 @@
 .zwei.audio
 .zytrade.cn
 .zzzort10xtest123.com
-.kymovil.com
-.protegent360.com
