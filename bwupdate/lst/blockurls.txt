@@ -519,6 +519,7 @@
 .applicationinsights.net
 .appoutpost.com
 .appsflyer.com
+.appsonwindows.com
 .aproso.de
 .apster.com
 .aptrixx.com
@@ -645,6 +646,7 @@
 .atlantaelectronics.co.id
 .atlantisjuwelier.nl
 .atlassian.com
+.atomixhq.one
 .atriym-stroy.ru
 .atronis.com
 .atspace.com
@@ -1108,6 +1110,7 @@
 .briarhurst.org
 .bridgeplacements.com
 .bridleridgehorses.com
+.brid.tv
 .brightcove.com
 .brightest.com
 .brighttrading.net
@@ -1738,6 +1741,7 @@
 .cuevana3.io
 .cuevanagt.com
 .cuevana.uno
+.cuevanavideo.com
 .cugaituoianthai.com
 .cuisines-aviva.com
 .cultural-ecology.com
@@ -1979,6 +1983,8 @@
 .dirkdj.nl
 .dirtytorrents.com
 .discordapp.com
+.discord.com
+.discord.gg
 .discountfifacoins.com
 .discoverstillwater.com
 .discoveryourevent.com
@@ -1996,6 +2002,7 @@
 .divalane.com
 .diverporno.com
 .divxatope.com
+.divxtotal.app
 .divxtotal.la
 .divyabooks.com
 .diwsj.com
@@ -2072,6 +2079,7 @@
 .dontorrent.to
 .dont.pl
 .dood.la
+.dood.to
 .dood.ws
 .doolotto.com
 .doomdns.com
@@ -2097,6 +2105,7 @@
 .downloadne.co.in
 .downloadroot.com
 .downloadtorrentfile.com
+.downloadtube.net
 .downshouji.cn
 .downxsoft.com
 .dozensby.loan
@@ -2143,6 +2152,7 @@
 .dtburakakin.com
 .dtinsani.com
 .dtmx.pl
+.d.tube
 .duapps.com
 .dubaidolphinarium.ae
 .dubaifridays.com
@@ -2605,6 +2615,7 @@
 .felicecremesini.com
 .felipebueno.com
 .felixsolis.mobi
+.fembed.com
 .fenglin.to
 .fensterversand.com
 .fergrealty.com
@@ -2986,6 +2997,7 @@
 .games.com
 .game-server.cc
 .gammat.net
+.gamovideo.com
 .ganadineroconencuestas.com
 .gandhi.io
 .ganwen.cn
@@ -3097,6 +3109,7 @@
 .ginesmayor.com
 .gintreja.lt
 .gioilda.com
+.giphy.com
 .giraudnet.co.uk
 .gistraxx.eu
 .gitter.im
@@ -3231,6 +3244,7 @@
 .grandmasplace1.com
 .granitgjana.com
 .granmarquise.com.br
+.grantorrents.org
 .graph.org
 .graph-video.facebook.com
 .gravatar.com
@@ -3387,6 +3401,7 @@
 .hcyxtc.com
 .hdbrts.co.in
 .hdfull.co
+.hdfull.li
 .hd-full.org
 .hdjum.com
 .hdmedia.pl
@@ -4471,6 +4486,9 @@
 .lawalsh.com
 .lawyerpublicity.com
 .lbbc.pt
+.lbry.com
+.lbry.org
+.lbry.tech
 .lcn.cc
 .ldsl8m.bid
 .leadcapital.net
@@ -5538,6 +5556,7 @@
 .odnoklassniki.ru
 .odownloader.com
 .odtahova-sluzba-praha.eu
+.odysee.com
 .odzs.cz
 .oegllc.net
 .ofertacar.com
@@ -5844,6 +5863,7 @@
 .persianinoz.com
 .personalizar.net
 .personalizedleatherbracelet.com
+.personalpricing.com
 .personne.ru
 .perspektive-fuer-kinder.de
 .pertclinic.com
@@ -5907,10 +5927,12 @@
 .pinuserror.com
 .pioneerschina.com
 .piotrprzewozy.pl
+.pipocamoz.com
 .piqd.de
 .piratebay1.info
 .piratebay1.top
 .piratebay.live
+.pirate-filmes.org
 .pivno.com
 .pixelacker.de
 .pizzelli.eu
@@ -5996,15 +6018,18 @@
 .portret-tekening.nl
 .portuense.it
 .poseidonhd.live
+.poseidonhd.nz
 .positivelystoned.com
 .poslovnekomunikacije.si
 .postaldigitalrs.com.br
 .postimg.cc
 .postrelease.com
+.pouvideo.cc
 .power4speed.com
 .power514.com
 .powercomm.ie
 .powerlinks.com
+.powvideo.net
 .pox23.io
 .pozsgaiingatlan.hu
 .ppf.com.pk
@@ -6338,6 +6363,7 @@
 .resboiu.ro
 .rescuemed.ca
 .residencegardenia.it
+.resilient-mackenzie-unique.nl
 .resortphotographics.com
 .restaurantelburladero.com
 .restaurantrigiblick.ch
@@ -6686,6 +6712,7 @@
 .serienplaner.com
 .seriesbang.to
 .seriesdanko.com
+.series-de.online
 .seriesdesuperheroes.com
 .seriesenmega.com
 .serieshdpormega.com
@@ -7048,6 +7075,7 @@
 .sporttechie.com
 .spotbros.com
 .spotify.com
+.spotlightr.com
 .spottrender.com
 .spotxchange.com
 .spotx.tv
@@ -7055,6 +7083,7 @@
 .spreaker.com
 .sprigs.com
 .springfielddentalcenter.com
+.sproutvideo.com
 .spruielldrilling.com
 .spys.one
 .square100.com
@@ -7695,6 +7724,7 @@
 .tsurayya.com
 .tsx.com
 .tt-comp.ru
+.ttlinks.live
 .ttliuliang.com
 .ttrutesheim.de
 .ttvtelecom.vn
@@ -7809,6 +7839,7 @@
 .unblock-proxy.com
 .unblocksites.online
 .unblockyoutube.xyz
+.undefine.nl
 .und.pw
 .unicdoc.com
 .unice.it
@@ -7911,6 +7942,7 @@
 .utopianpal.com
 .utopiapal.com
 .utorrent.com
+.utreon.com
 .uvitacr.com
 .uwi-ugi.com
 .uwzorg.info
@@ -8083,6 +8115,7 @@
 .video-mia3-1.xx.fbcdn.net
 .video-mia3-2.xx.fbcdn.net
 .videoplaza.tv
+.videoshub.com
 .videospornocolombia.com
 .video.twimg.com
 .video.xx.fbcdn.net
@@ -8373,7 +8406,9 @@
 .wish.com
 .wishtrip.net
 .wiskundebijles.nu
+.wistia.com
 .witakowski.eu
+.wizandroidmz.com
 .wkdx.com
 .wklm.it
 .wkreation.com

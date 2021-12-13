@@ -32,3 +32,8 @@
 .wallet
 .x
 .zil
+# media
+.tv
+.video
+.live
+.tube

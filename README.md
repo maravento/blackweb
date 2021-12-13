@@ -292,6 +292,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 - [Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [phishing.army](https://phishing.army/download/phishing_army_blocklist_extended.txt)
+- [Public-Intelligence-Feeds - dom-bl](https://github.com/CriticalPathSecurity/Public-Intelligence-Feeds/)
 - [Quedlin](https://github.com/quedlin/blacklist/blob/master/domains)
 - [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt))
 - [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
