@@ -646,7 +646,10 @@
 .atlantaelectronics.co.id
 .atlantisjuwelier.nl
 .atlassian.com
+.atomixhq.com
+.atomixhq.net
 .atomixhq.one
+.atomtt.com
 .atriym-stroy.ru
 .atronis.com
 .atspace.com
@@ -956,6 +959,7 @@
 .binbox.io
 .bingolfm.com
 .binhminh-group.com
+.binomo.com
 .binomo-web.com
 .bin.wf
 .biocarbon.com.ec
@@ -7479,6 +7483,7 @@
 .thegoldclubs.com
 .thehiddenbay.com
 .thehotelandrea.com
+.theicongenerator.com
 .theinversionstudios.com
 .thejonesact.com
 .thelashboutiquefresno.com
