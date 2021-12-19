@@ -209,6 +209,7 @@
 .actual.bz
 .acumahk.com
 .acuvue-pro.jp
+.ad131m.com
 .ad5.eu
 .ad7.biz
 .adafor.com
@@ -246,6 +247,7 @@
 .adriandomini.com.ar
 .adshort.co
 .adshort.live
+.adshort.space
 .adsk2.co
 .adsnight.com
 .adsrt.live
@@ -844,6 +846,7 @@
 .bcvc.live
 .bddja.com
 .bdfxb.com
+.bdupload.in
 .beachbreak.com
 .beachhouseplans.com
 .beamit.be
@@ -937,6 +940,7 @@
 .bigfishcasting.com
 .bigfooters.loan
 .bighosted.com
+.bigoilwish.top
 .bigtrust.co.kr
 .bigwerks.com
 .bigwintour.com
@@ -1448,6 +1452,8 @@
 .cidadehoje.pt
 .cielitodrive.com
 .cignitech.com
+.cima4film.buzz
+.cimapelicula.com
 .cimetieremontroyal.com
 .cimri.com
 .cinecalidad2.com
@@ -1516,9 +1522,11 @@
 .cloudmobi.net
 .cloudrepublic.com.au
 .cloudserviceaccount.com
+.cloudvideo.tv
 .clubchasseetpechedesamis.com
 .clubipadel.com
 .clubofmalw.ws
+.clubpeli.com
 .clubrotor.ru
 .cmacos.com
 .cmcfabrication.com
@@ -1796,6 +1804,7 @@
 .dadaniu.cn
 .dadou0531.com
 .daemon-hentai.com
+.daewonit.com
 .daffamedia.com
 .dahuahdcvi.com
 .dailymotion.com
@@ -1917,6 +1926,7 @@
 .descargandoxmega.com
 .descargarcapitulos.com
 .descargarserie.com
+.descargasdd.net
 .descargasok.com
 .descargasok.org
 .descargaspormega.com
@@ -2698,6 +2708,7 @@
 .finanzaeinvestimenti.it
 .finaudio.com
 .finchvpn.com
+.find-riverpalmscasino-com.blogspot.com 
 .finglassafetyforum.ie
 .finishcar.de
 .finleyandoliver.com
@@ -2779,6 +2790,7 @@
 .forbrent.com
 .force9.co.uk
 .force-download.es
+.fordlandr3.instructure.com
 .forestg.com
 .foreveralive.com
 .forevergarmindo.com
@@ -2812,6 +2824,7 @@
 .foto-aeree.it
 .fotografia-dg.com
 .fotosdelburgo.com
+.foumovies.se 
 .foundationapparelco.com
 .foundersomaha.net
 .foursquare.com
@@ -2947,8 +2960,10 @@
 .fullpeliculashd.tv
 .fullseriesworld.com
 .fullservicetech.com
+.fulltv.com.mx 
 .fullversionforever.com
 .fullvicio.com
+.fundacaojoaofdacunha.com.br
 .fundaciontehuelche.com.ar
 .funlux.com
 .funnyordie.com
@@ -4120,6 +4135,7 @@
 .jeweldiva.com
 .j.gs
 .jhfree.net
+.jiab.net
 .jia-li.net
 .jiger.ru
 .jiguangie.com
@@ -4130,6 +4146,7 @@
 .jin109.com
 .jingaiwang.com
 .jinghua532.com
+.jjbworks.com
 .jkshea.com
 .jlhack.com
 .jltl.net
@@ -4208,6 +4225,7 @@
 .jyra.online
 .jyxiangqin.com
 .jzcolorful.com
+.jzip.com
 .k2s.cc
 .kafemar.com
 .kahane.fr
@@ -4256,6 +4274,7 @@
 .kdm.pl
 .keditube.com
 .keener-music.com
+.keeplinks.org
 .kekjacint.hu
 .kel52.com
 .kemerealty.com
@@ -4399,6 +4418,7 @@
 .kuaffur.ru
 .kuai-go.com
 .kuangfenxian.com
+.kudoflow.com
 .kudujuce.com
 .kujunduskuur.com
 .kuldkaru.ee
@@ -4808,6 +4828,7 @@
 .materlux.ru
 .maternalserenity.co.uk
 .matern-eger.de
+.mathstoche.fr
 .mathtag.com
 .matternomatter.com
 .matthewmccright.org
@@ -4816,6 +4837,7 @@
 .mautau.it
 .mavicicek.com
 .mavisehirrotaract.org
+.maxcine.net
 .maxeffortmuscle.com
 .maxgames.com
 .maxhotel.it
@@ -4899,6 +4921,7 @@
 .mega.nz
 .megapaste.xyz
 .megapeliculasrip.net
+.megapg.com
 .megapowercash.com
 .megaproxy.com
 .megaproxy.com.ar
@@ -5047,6 +5070,7 @@
 .mitmproxy.org
 .miui.com
 .mixcracked.net
+.mixdrop.co
 .mixer.com
 .mixi.jp
 .mk-beauty.de
@@ -5823,6 +5847,7 @@
 .peliculashdpormega.cyou
 .peliculas-mp4.com
 .peliculasmp4hd.com
+.peliculas.pub
 .pelis-123.net
 .pelisap.com
 .pelisenhd.net
@@ -5835,6 +5860,7 @@
 .pelismegahd.pe
 .pelismega.net
 .pelisnow.to
+.pelis-online.net 
 .pelispedia.tv
 .pelis-play.com
 .pelisplus2.io
@@ -5957,6 +5983,7 @@
 .player4dtogel.net
 .playlist-youtu.be
 .playocio.com
+.playpilot.com
 .playproxy.com
 .playtres.com.ar
 .plexapp.com
@@ -6479,6 +6506,7 @@
 .royaldetail.net
 .royal-furniture.net
 .royaloakripon.co.uk
+.rozwanairomantyczna1995xbr.blogspot.com
 .rqsd.com.ar
 .rs6.net
 .rsahosting.com
@@ -6621,6 +6649,7 @@
 .scarlattigarage.com
 .sc-cdn.net
 .sccxtx.com
+.scene-double.co.uk
 .sc-gw.com
 .schefman.info
 .schjtx.com
@@ -7204,6 +7233,7 @@
 .styleexteriors.com
 .stylus-shop.be
 .subang.go.id
+.subdl.com
 .sublimeshop.co.uk
 .subscene.com
 .subtorrents.la
@@ -7496,6 +7526,7 @@
 .themoneysource.com
 .themoviedb.com
 .themovienation.com
+.thenewproxy.com
 .thenewslens.com
 .thenomadhostel.com
 .theoneflooring.com
@@ -8010,6 +8041,7 @@
 .vermangasporno.com
 .vernpucka.net
 .verox.dk
+.verpeliculasultra.com
 .verpelislhiyxa.blogspot.com
 .verseriesonline.org
 .versols.com
@@ -8117,6 +8149,7 @@
 .video.fscl8-1.fna.fbcdn.net
 .video.fscl9-1.fna.fbcdn.net
 .video-iad3-1.xx.fbcdn.net
+.videomega.co
 .video-mia3-1.xx.fbcdn.net
 .video-mia3-2.xx.fbcdn.net
 .videoplaza.tv
@@ -8124,6 +8157,7 @@
 .videospornocolombia.com
 .video.twimg.com
 .video.xx.fbcdn.net
+.vidfast.co
 .vidible.tv
 .vidimus.lt
 .vid.mint.lgbt
@@ -8201,6 +8235,7 @@
 .vmastera.ru
 .vmuka.com
 .vn-market.com
+.vnorthwest.com
 .vnpt.vn
 .vobas.com
 .vocatie.ro
@@ -8566,6 +8601,7 @@
 .ygdzzb.com
 .yiddishbookcenter.org
 .yifruit.com
+.yifysubtitles.vip
 .yikson.com
 .yikyakapp.com
 .yimage365.com

@@ -90,8 +90,12 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	    blurls 'https://adaway.org/hosts.txt' && sleep 1
+	    blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
 	    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
 	    blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
+	    blurls 'https://easylist-downloads.adblockplus.org/advblock.txt' && sleep 1
+	    blurls 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt' && sleep 1
+	    blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
 	    blurls 'https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw/77eee956303e8d6ff2f4df61d3e2c0b60d023268/MS-2' && sleep 1
 	    blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
 	    blurls 'https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt' && sleep 1
@@ -102,7 +106,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	    blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
 	    blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
-	    blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
 	    blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	    blurls 'https://openphish.com/feed.txt' && sleep 1
 	    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
@@ -119,19 +122,23 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/CriticalPathSecurity/Public-Intelligence-Feeds/master/dom-bl.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
@@ -151,7 +158,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
-	    blurls 'https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
@@ -160,6 +167,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
 	    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
 	    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
+	    blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
@@ -175,6 +183,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://v.firebog.net/hosts/Shalla-mal.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
 	    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+	    blurls 'https://www.zoso.ro/pages/rolist.txt' && sleep 1
 	    blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
@@ -188,7 +197,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	    blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	    blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	    
+	    	    
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {
     wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null

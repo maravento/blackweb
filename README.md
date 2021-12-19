@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4445060|108.8 MB|
+|blackweb.txt|4502466|111.9 MB|
 
 ## GIT CLONE
 
@@ -245,6 +245,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - [ABPindo indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [Adaway](https://adaway.org/hosts.txt)
+- [Adblock Warning Removal List](https://easylist-downloads.adblockplus.org/antiadblockfilters.txt)
 - [adblock-leadgenerator-list](https://github.com/Rpsl/adblock-leadgenerator-list)
 - [Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [anudeepND Blocklist](https://github.com/anudeepND/blacklist) (included: [coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt), [adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt))
@@ -260,6 +261,15 @@ Blackweb: Done 06/05/2019 15:47:14
 - [DandelionSprout adfilt](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt)
 - [Dawsey21 List](https://github.com/Dawsey21/Lists)
 - [Disconnect.me](https://disconnect.me/) (included: [simple_ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt), [simple_malvertising](https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt), [simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt))
+- [EasyList Bulgarian](http://stanev.org/abp/adblock_bg.txt)
+- [EasyList Chinese CJX's Annoyance List](https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt)
+- [EasyList Chinese](https://easylist-downloads.adblockplus.org/easylistchina.txt)
+- [Easylist Czech/Slovak](https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt)
+- [EasyList Hebrew](https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt)
+- [EasyList Icelandic](https://adblock.gardar.net/is.abp.txt)
+- [EasyList Indonesian](https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt)
+- [EasyList Romanian](https://www.zoso.ro/pages/rolist.txt)
+- [EasyList Russian](https://easylist-downloads.adblockplus.org/advblock.txt)
 - [ethanr dns](https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
 - [FadeMind Risk](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts)
 - [FadeMind Spam](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts)
@@ -284,7 +294,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
 - [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [NoCoin adblock list](https://github.com/hoshsadiq/adblock-nocoin-list)
-- [notabug latvian-list](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [nothingblock](https://github.com/dorxmi/nothingblock)
 - [Oleksiig](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish](https://openphish.com/feed.txt)
@@ -292,6 +301,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Perflyst](https://github.com/Perflyst) (included: [android-tracking](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt), [SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt))
 - [Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [phishing.army](https://phishing.army/download/phishing_army_blocklist_extended.txt)
+- [Prebake - Filter Obtrusive Cookie Notices](https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt)
 - [Public-Intelligence-Feeds - dom-bl](https://github.com/CriticalPathSecurity/Public-Intelligence-Feeds/)
 - [Quedlin](https://github.com/quedlin/blacklist/blob/master/domains)
 - [quidsup](https://gitlab.com/quidsup) (included: [notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt), [notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt))
@@ -302,10 +312,9 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Someonewhocares](http://someonewhocares.org/hosts/hosts)
 - [StevenBlack](https://github.com/StevenBlack) (included: [add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts), [add.Risk](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts), [fakenews-gambling-porn-social](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts), [hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts), [spam](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts), [uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts))
 - [Stopforumspam Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
-- [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 - [Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 - [txthinking](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
-- [Université Toulouse 1 Capitole)](https://dsi.ut-capitole.fr/blacklists/index_en.php)
+- [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
 - [URLhaus Malicious URL Blocklist](https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt)
 - [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
@@ -318,21 +327,23 @@ Blackweb: Done 06/05/2019 15:47:14
 *Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `oldurls.txt`*
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
+- [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
+- [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
+- [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
+- [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
+- [Ransomware Abuse (Ransomware Tracker has been discontinued on Dec 8th, 2019)](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
+- [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
-- [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
-- [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
-- [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
-- [Ransomware Abuse (Ransomware Tracker has been discontinued on Dec 8th, 2019)](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
 
 ### ALLOWLISTS (URL/TLD)
 
