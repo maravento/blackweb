@@ -73,6 +73,7 @@
 .3d0cb547.space
 .3ddentalimage.com
 .3d-schilling.de
+.3dstyle.in.ua
 .3ks.nl
 .3lift.com
 .3overpar.com
@@ -459,6 +460,7 @@
 .anderlaw.com
 .andresarlemijn.nl
 .andrewclark.com.au
+.androidreport.com
 .aneggaday.com
 .angads.com.au
 .angelfire.com
@@ -517,6 +519,7 @@
 .append.pl
 .appeum.com
 .appleleafabstracting.com
+.application-77my.com
 .applicationinsights.io
 .applicationinsights.net
 .appoutpost.com
@@ -1951,6 +1954,7 @@
 .devartfund.org
 .devere-uk.co.uk
 .deviantart.com
+.devyog.com
 .devzendo.org
 .dewekker.nl
 .dexingtang120.com
@@ -2672,6 +2676,7 @@
 .fightingtommyriley.com
 .fightsportuk.com
 .figuren-spiele.de
+.file8desktop.com
 .filebulldog.com
 .filecat.net
 .filecloud.io
@@ -3667,6 +3672,7 @@
 .hstfood.com
 .htgcgs.net
 .htk.com.vn
+.ht.ly
 .htmldrop.com
 .htocvt.org
 .huanlitools.com
@@ -4087,6 +4093,7 @@
 .izoyalitim.com
 .izww.cn
 .j4l.com
+.j69i-browser.com
 .jachin.co.kr
 .jahanexchange.com
 .jakartanotebook.com
@@ -4111,6 +4118,7 @@
 .javwide.com
 .jawar.eu
 .jayacoat-industries.com.my
+.jayedahmed.com
 .jaysilverdp.com
 .jazztel.es
 .jbec.kz
@@ -4496,6 +4504,7 @@
 .lastnamebrewing.com
 .laszloiparcikk.hu
 .latenhaet.com
+.latestphptutorials.com
 .latiendadelalujuria.com
 .latinchat.biz
 .latinchats.net
@@ -4714,6 +4723,7 @@
 .luxurylineautorental.com
 .luxurylivingph.com
 .lvyeqingtian.com
+.lycostal.com
 .lyhsz.com
 .lzclient.com
 .lzeshine.com
@@ -4933,6 +4943,7 @@
 .megaup.net
 .megawarez.org
 .megaxserie.me
+.megmaprintopack.com
 .meilleurs-sites-turf.fr
 .mei-mei.jp
 .meirin.jp
@@ -6138,6 +6149,7 @@
 .protegent360.com
 .protei.me
 .protescil.net
+.protoanic.com
 .protonvpn.com
 .pro-units.ru
 .providentfilms.org
@@ -6331,6 +6343,7 @@
 .real-hide-ip.com
 .realmcdn.net
 .reasonsecurity.com
+.rebrand.ly
 .rebrandly.com
 .re-bu-il-der.xyz
 .recaswine.ro
@@ -8458,6 +8471,7 @@
 .wmcs.pl
 .wmlead.ru
 .wmunigeria.org
+.wolfstream.tv
 .womenalia.com
 .womensrogaine.ca
 .wonderfullydiamonds.com
@@ -8520,6 +8534,7 @@
 .xaydungtruonghung.com
 .xback.be
 .xceramics.com
+.x.co
 .xender.com
 .xevd.co
 .xf915.com
@@ -8726,6 +8741,7 @@
 .zigor.es
 .zilton.com
 .zinger.nl
+.zinobe.com
 .zipansion.com
 .zippyshare.com
 .ziskant.com
@@ -8760,4 +8776,3 @@
 .zwei.audio
 .zytrade.cn
 .zzzort10xtest123.com
-.zinobe.com

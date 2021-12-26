@@ -1,6 +1,5 @@
-# Domain Abuse Activity Reporting (DAAR)
+# Domain Abuse Activity Reporting (DAAR) 
 # https://www.icann.org/octo-ssr/daar
-# https://data.iana.org/TLD/tlds-alpha-by-domain.txt
 .adult
 .bar
 .beer
@@ -20,7 +19,7 @@
 .shop
 .vodka
 .xxx
-# Unverified domain extensions
+# Unverified Domain Extensions
 .888
 .bitcoin
 .blockchain
@@ -32,8 +31,22 @@
 .wallet
 .x
 .zil
-# media
+# Media Content Domain Extensions
+.cam
+.camera
+.fm
+.live
+.media
+.photo
+.photos
+.pictures
+.radio
+.stream
+.tube
 .tv
 .video
-.live
-.tube
+.watch
+.webcam
+# Web Domain Extensions
+.link
+.social

@@ -86,6 +86,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     fi
     }
         blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
+        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
+        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
+        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
+        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
 	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	    blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
@@ -105,7 +109,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt' && sleep 1
 	    blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
 	    blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
-	    blurls 'https://hosts.ubuntu101.co.za/domains.list' && sleep 1
 	    blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
 	    blurls 'https://openphish.com/feed.txt' && sleep 1
 	    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
