@@ -32,7 +32,7 @@ route="/etc/acl"
 if [ ! -d "$route" ]; then sudo mkdir -p "$route"; fi
 
 # CHECKING DOWNLOAD BANDWIDTH (Optional)
-# https://gitlab.com/maravento/gateproxy/-/raw/master/conf/scripts/bandwidth.sh
+# https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scripts/bandwidth.sh
 echo "${bw03[${en}]}"
 dlmin="1.00"
 mb="Mbit/s"
@@ -85,11 +85,11 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 		    echo ERROR "$1"
     fi
     }
-        blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
-        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
-        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
-        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
-        blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
 	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	    blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1

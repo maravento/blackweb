@@ -1620,6 +1620,7 @@
 .com-reward.com
 .com-scan.live
 .comyr.com
+.conceptcar.ee
 .concime.com
 .concretesoftware.com
 .conduit-data.com
@@ -2097,7 +2098,10 @@
 .dontorrent.to
 .dont.pl
 .dood.la
+.dood.so
+.doodstream.com
 .dood.to
+.dood.video
 .dood.ws
 .doolotto.com
 .doomdns.com
@@ -3350,6 +3354,7 @@
 .gury.com.br
 .gus.host
 .gussacks.com
+.gustdeficitwry.com
 .gustoitalia.ru
 .guymorgandaily.com
 .gva.es
@@ -3477,6 +3482,7 @@
 .heroesofrpg.com
 .hersheyplazadental.com
 .herstedhus.dk
+.hetaruvg.com
 .hetvliegendwiel.be
 .hexinjituan.com
 .hey-people.com
@@ -4030,6 +4036,7 @@
 .is-leet.com
 .is-lost.org
 .isnssdk.com
+.israbox-music.com
 .isriir.com
 .is-saved.org
 .is-slick.com
@@ -5997,6 +6004,7 @@
 .playpilot.com
 .playproxy.com
 .playtres.com.ar
+.playvideo.cyou
 .plexapp.com
 .plex.bz
 .plexipr.com
@@ -6699,6 +6707,7 @@
 .seanlara.com
 .searchbip.com
 .searchcompletion.com
+.searchlossless.com
 .searchthruster.com
 .seasofbeauty.com
 .seasy.in
@@ -8180,6 +8189,7 @@
 .vidtoe.com
 .vietbet.eu
 .view-ads.de
+.viewsb.com
 .viglink.com
 .vigneshflats.com
 .viki-s.com
@@ -8336,6 +8346,7 @@
 .web24news.com
 .webandtext.com
 .webberm.com
+.webbg.com
 .webcam-newzealand.info
 .webdigita.net
 .weber-rechtenbach.de
@@ -8553,6 +8564,7 @@
 .xitesite.com
 .xixiaxianggua.com
 .xlr8services.com
+.xm.com
 .xmjietuo.com
 .xmo.gr
 .xmx.de
