@@ -210,19 +210,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 		    echo ERROR "$1"
     fi
     }
-	    targz 'http://www.shallalist.de/Downloads/shallalist.tar.gz' && sleep 2
 	    targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
-
-    #function tgz() {
-    #wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
-    #if [ $? -eq 0 ]; then
-	#	    $wgetd "$1" && for F in *.tgz; do R=$RANDOM ; mkdir bwtmp/$R ; tar -C bwtmp/$R -zxvf "$F" -i; done >/dev/null 2>&1
-	#    else
-	#	    echo ERROR "$1"
-    #fi
-    #}
-	#    tgz 'http://squidguard.mesd.k12.or.us/blacklists.tgz' && sleep 2
-
     echo "OK"
 
     # DOWNLOADING ALLOWURLS

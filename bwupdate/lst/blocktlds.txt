@@ -47,6 +47,6 @@
 .video
 .watch
 .webcam
-# Web Domain Extensions
+# Various Extensions
 .link
 .social
