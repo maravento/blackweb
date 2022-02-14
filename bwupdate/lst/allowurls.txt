@@ -24925,6 +24925,7 @@
 .hoydiariodelmagdalena.com.co
 .hp.com
 .hsbc.com
+.humanitarianresponse.info
 .huntington.com
 .iadb.org
 .iana.org
@@ -24959,6 +24960,7 @@
 .keystonesolutions.io
 .kiusys.com
 .kiusys.net
+.kobotoolbox.org
 .ksmobile.com
 .kwiqflick.com
 .laguajirahoy.com
