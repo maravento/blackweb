@@ -222,6 +222,7 @@
 .adaptnetwork.com
 .adasulamasistemleri.com
 .adbull.me
+.adclic.pro
 .adcrun.ch
 .addevweb.com
 .addic7ed.com
@@ -739,6 +740,7 @@
 .azerltd.com
 .azetapiemonte.it
 .azmusclemart.com
+.azpelis.com
 .azrodandclassic.com
 .aztechnologies.co.uk
 .b1t.it
@@ -869,6 +871,7 @@
 .beauty-link.jp
 .bebee.com
 .bebmila.it
+.becascanada2022.nextpelis.com
 .becfd.com
 .beckmenvineyards.com
 .bedrifg.org
@@ -1073,6 +1076,7 @@
 .bold360.com
 .boldlygoingnowhere.org
 .boldrini.org.br
+.bolicheintercambios.net
 .bolizarsospos.com
 .bolloevcenter.ru
 .bonares.pl
@@ -1268,6 +1272,7 @@
 .canals.cn
 .candid.zone
 .candobetter.net
+.cangshui.net
 .cannabisculture.com
 .canonsupervideo4k.ws
 .canstore.ca
@@ -1424,6 +1429,7 @@
 .china0315.com
 .chinabest-ent.com
 .chinafanin.com
+.chinancce.com
 .chinasymbolic.com
 .chocolaterie-servant.com
 .chocolatesindustrial.com
@@ -1516,12 +1522,14 @@
 .clickdesk.com
 .clickjv.com
 .clicksfly.com
+.clideo.com
 .client.jp
 .climairuk.com
 .clinicaharvard.com
 .clinicatafur.com
 .clinicavesalius.com
 .clinic.gov.ua
+.clipchamp.com
 .clk.im
 .clk.ink
 .cloakpoint.com
@@ -1764,8 +1772,12 @@
 .cuevana2espanol.com
 .cuevana2.io
 .cuevana2.nl
+.cuevana2.so
 .cuevana3.cc
+.cuevana3.club
+.cuevana3.icu
 .cuevana3.io
+.cuevana3.live
 .cuevanagt.com
 .cuevana.uno
 .cuevanavideo.com
@@ -1995,6 +2007,7 @@
 .dienmaykhanhhuy.com
 .dierenspeciaalzaakaanhuis.nl
 .digi9.in
+.digiboy.ir
 .digicap.net
 .digitalmediacommunications.com
 .digital-print.ru
@@ -2139,6 +2152,7 @@
 .downloadgeral.com
 .downloadne.co.in
 .downloadroot.com
+.download-soundtracks.com
 .downloadtorrentfile.com
 .downloadtube.net
 .downshouji.cn
@@ -3118,6 +3132,7 @@
 .gestyy.com
 .gesund-fit-leben.com
 .getedendiet.com
+.getfvid.com
 .geti2p.net
 .getintopc.com
 .getmyip.com
@@ -3757,6 +3772,7 @@
 .icdsarch.com
 .icecyber.org
 .icefon.eu
+.icerbox.com
 .ichannel.com.sg
 .ichinoyado.com
 .ichr.de
@@ -4287,6 +4303,7 @@
 .kannste.net
 .kan-therm.ru
 .kapiti-alpaca.co.nz
+.kapwing.com
 .karacanalbum.com
 .karakascit.com
 .kardborren.se
@@ -4718,6 +4735,7 @@
 .lorienglobal.com
 .lorihoneycutt.com
 .losatec.com.mx
+.losslessbox.do.am
 .losslessdl.com
 .loterotal.net
 .lothaller.net
@@ -5121,6 +5139,7 @@
 .mixdrop.co
 .mixer.com
 .mixi.jp
+.mjiop.com
 .mk-beauty.de
 .mkis.org
 .mksystems.co.in
@@ -5275,6 +5294,7 @@
 .musicaaeu.blogspot.com
 .musical.ly
 .musicbarpriatelia.sk
+.musicbay.org
 .musicfrombali.com
 .musicphilicwinds.org
 .musicrecruiting.com
@@ -5300,6 +5320,7 @@
 .myboatplans.net
 .myboosting.com
 .mybusinessendorsements.com
+.mychemicalromance.com
 .mycrypto.com
 .mycyberset.com
 .mydailybar.com
@@ -6007,6 +6028,7 @@
 .pinuserror.com
 .pioneerschina.com
 .piotrprzewozy.pl
+.pipipan.com
 .pipocamoz.com
 .piqd.de
 .piratebay1.info
@@ -6169,6 +6191,7 @@
 .profit-group.sk
 .profitmonster.com
 .programasfullmega.com
+.programasvirtualespc.net
 .programosy.pl
 .proguard-pest.com
 .prohome.info
@@ -7206,6 +7229,7 @@
 .stacon.eu
 .stadiumwebshop.com
 .stainlessengineeringintl.com
+.stampsy.com
 .standardfederalproperties.com
 .standartmedya.com
 .standbyhosting.nl
@@ -7833,6 +7857,7 @@
 .ttliuliang.com
 .ttrutesheim.de
 .ttvtelecom.vn
+.tu.ac.th
 .tubeload.co
 .tubemogul.com
 .tubeplus.ag
@@ -7894,6 +7919,7 @@
 .tyn.ee
 .tysonkirksey.com
 .tzabanga.com
+.u062.com
 .uach.cl
 .uae4all.com
 .uasm.de
@@ -8114,6 +8140,7 @@
 .vermangasporno.com
 .vernpucka.net
 .verox.dk
+.verpeliculasonline.org
 .verpeliculasultra.com
 .verpelislhiyxa.blogspot.com
 .verseriesonline.org
@@ -8717,9 +8744,12 @@
 .yourwellnessprescription.com
 .youthdeveloper.com
 .youthmaida.net
+.youtube4kdownloader.com
+.youtubecut.com
 .ypgg.kr
 .yru.ac.th
 .yt1s.com
+.ytcutter.com
 .yt-download.org
 .ythongye.com
 .ythub.cc

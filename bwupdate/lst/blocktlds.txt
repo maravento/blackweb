@@ -31,7 +31,7 @@
 .wallet
 .x
 .zil
-# Media Content Domain Extensions
+# Domain Abuse (Media Content Domain Extensions)
 .cam
 .camera
 .fm
@@ -47,6 +47,10 @@
 .video
 .watch
 .webcam
-# Various Extensions
+# Domain Abuse (Various)
 .link
 .social
+# Related to the war against Ukraine
+.ru
+.su
+.by
