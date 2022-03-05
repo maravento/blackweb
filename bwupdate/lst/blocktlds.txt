@@ -50,7 +50,7 @@
 # Domain Abuse (Various)
 .link
 .social
-# Related to the war against Ukraine
+# ccTLD War Against Ukraine
 .ru
 .su
 .by

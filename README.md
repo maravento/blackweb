@@ -61,21 +61,69 @@ acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 
-### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended to use) / Reglas Avanzadas (recomendadas para usar)
+### [Squid-Cache](http://www.squid-cache.org/) Advanced Rules (recommended) / Reglas Avanzadas (recomendadas)
 
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
 - Use `allowdomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
-- Use blockdomains.txt to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
+- Use `blockdomains.txt` to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```bash
+# Allow Domains
 acl allowdomains dstdomain "/path_to/allowdomains.txt"
-acl blockdomains dstdomain "/path_to/blockdomains.txt"
-acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access allow allowdomains
+# Block Domains
+acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
+```
+
+- Use `blocktlds.txt` to block Top Level Domains (TLDs) and country code (ccTLDs), for example: / Use `blocktlds.txt` para bloquear Top Level Domains (TLD) y country code (ccTLD), por ejemplo:
+
+Rule:
+
+```bash
+acl blocktlds dstdomain "/path_to/blocktlds.txt"
+http_access deny blocktlds
+```
+
+Requests:
+
+```bash
+https://www.porndomain.xxx
+https://subdomain.porndomain.xxx
+https://www.government.ru
+https://www.porndomain.adult
+https://www.porndomain.com
+https://www.porndomain.porn
+```
+
+Block:
+
+```bash
+.adult
+.porn
+.porndomain.com
+.ru
+.xxx
+```
+
+#### Advanced Rules Summary
+
+```bash
+# Allow Domains
+acl allowdomains dstdomain "/path_to/allowdomains.txt"
+http_access allow allowdomains
+# Block Domains
+acl blockdomains dstdomain "/path_to/blockdomains.txt"
+http_access deny blockdomains
+# Block TLD/ccTLD
+acl blocktlds dstdomain "/path_to/blocktlds.txt"
+http_access deny blocktlds
+# Blackweb
+acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
+
 
 ## IMPORTANT
 
@@ -195,29 +243,6 @@ HIT google.com
 FAULT testfaultdomain.com
 ```
 
-#### TLD Block
-
->Add Block TLDs to block any domain that contains one. Edit `blocktlds.txt` and add or remove the TLDs you want to block / Agrega Block TLDs para bloquear cualquier dominio que contenga alguno. Edite `blocktlds.txt` y agrege o elimine los TLDs que quiera bloquear
-
-```bash
-.adult
-.porn
-.xxx
-.domain.adult
-.domain.porn
-.subdomain.domain.xxx
-.domain.com
-```
-
-outfile:
-
-```bash
-.adult
-.porn
-.xxx
-.domain.com
-```
-
 #### Run Squid-Cache with Blackweb
 
 >Run Squid-Cache with Blackweb and any error sends it to `SquidError.txt` on your desktop / Corre Squid-Cache con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio
@@ -274,7 +299,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [FadeMind Risk](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts)
 - [FadeMind Spam](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts)
 - [fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
-- [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
+- [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 - [frogeye](https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt)
 - [gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
 - [Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
@@ -332,6 +357,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 - [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
 - [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
+- [firebog.net](firebog.net) (included: [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt))
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)

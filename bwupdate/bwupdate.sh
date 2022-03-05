@@ -173,8 +173,8 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
-	    blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
-	    blurls 'https://v.firebog.net/hosts/Airelle-trc.txt' && sleep 1
+	    #blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
+	    #blurls 'https://v.firebog.net/hosts/Airelle-trc.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/BillStearns.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
@@ -344,12 +344,12 @@ sed '/^FAULT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u >
 sed '/^HIT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
 echo "OK"
 
-# ADD BLOCKLIST BLOCKTLDS
+# ADD BLOCKLIST
 echo "${bw16[${en}]}"
-# add blockurls, blocktlds
-sed '/^$/d; /#/d' lst/{blockurls,blocktlds}.txt | sort -u >> hit.txt
+# add blockurls
+sed '/^$/d; /#/d' lst/blockurls.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/{blockurls,blocktlds}.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE
