@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4801769|120.3 MB|
+|blackweb.txt|4687542|120.4 MB|
 
 ## GIT CLONE
 
@@ -66,43 +66,43 @@ http_access deny blackweb
 **Blackweb** contains millions of domains, therefore it is recommended: / **Blackweb** contiene millones de dominios, por tanto se recomienda:
 
 - Use `allowdomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives / Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos
+
+```bash
+acl allowdomains dstdomain "/path_to/allowdomains.txt"
+http_access allow allowdomains
+```
+
 - Use `blockdomains.txt` to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc) / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.)
 
 ```bash
-# Allow Domains
-acl allowdomains dstdomain "/path_to/allowdomains.txt"
-http_access allow allowdomains
-# Block Domains
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 ```
 
-- Use `blocktlds.txt` to block Top Level Domains (TLDs) and country code (ccTLDs), for example: / Use `blocktlds.txt` para bloquear Top Level Domains (TLD) y country code (ccTLD), por ejemplo:
-
-Rule:
+- Use `blocktlds.txt` to block Top Level Domains (TLDs) and country code (ccTLDs) / Use `blocktlds.txt` para bloquear Top Level Domains (TLD) y country code (ccTLD)
 
 ```bash
 acl blocktlds dstdomain "/path_to/blocktlds.txt"
 http_access deny blocktlds
 ```
 
-Requests:
+URLs requests:
 
 ```bash
-https://www.porndomain.xxx
-https://subdomain.porndomain.xxx
-https://www.government.ru
-https://www.porndomain.adult
-https://www.porndomain.com
-https://www.porndomain.porn
+https://www.bardomain.xxx
+https://subdomain.bardomain.xxx
+https://www.bardomain.ru
+https://www.bardomain.adult
+https://www.foodomain.com
+https://www.foodomain.porn
 ```
 
-Block:
+Squid Block:
 
 ```bash
 .adult
 .porn
-.porndomain.com
+.foodomain.com
 .ru
 .xxx
 ```
@@ -110,6 +110,7 @@ Block:
 #### Advanced Rules Summary
 
 ```bash
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 # Allow Domains
 acl allowdomains dstdomain "/path_to/allowdomains.txt"
 http_access allow allowdomains
@@ -123,7 +124,6 @@ http_access deny blocktlds
 acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
-
 
 ## IMPORTANT
 
@@ -348,7 +348,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 #### Inactive, Discontinued or Private
 
-*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `oldurls.txt`*
+*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to `oldurls.txt`*
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
@@ -383,7 +383,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 #### Inactive, Discontinued or Private
 
-*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to: `allowurls.txt`*
+*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to `allowurls.txt`*
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) ([No longer support](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 

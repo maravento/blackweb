@@ -173,8 +173,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
-	    #blurls 'https://v.firebog.net/hosts/Airelle-hrsk.txt' && sleep 1
-	    #blurls 'https://v.firebog.net/hosts/Airelle-trc.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/BillStearns.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
@@ -270,8 +268,9 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     # DEBUGGING DOMAINS
     echo "${bw10[${en}]}"
     # parse domains
-    cat lst/fault.tar.gz* | tar xzf -
-    grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
+    #cat lst/fault.tar.gz* | tar xzf -
+    #grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
+    grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
     echo "OK"
 
     # DEBUGGING TLDS
@@ -287,7 +286,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     grep --color='auto' -P "[^[:ascii:]]" idnlst > idntmp
     grep -Fvxf <(cat idntmp) idnlst | sort -u > cleanidn
     #grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
-    grep -Fvxf <(cat {urls,tlds,fault}.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u > cleandns
+    grep -Fvxf <(cat {urls,tlds}.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u > cleandns
     echo "OK"
   else
     cd "$bwupdate"
@@ -349,7 +348,7 @@ echo "${bw16[${en}]}"
 # add blockurls
 sed '/^$/d; /#/d' lst/blockurls.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb.txt
 echo "OK"
 
 # RELOAD SQUID-CACHE
