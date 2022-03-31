@@ -34,6 +34,7 @@
 .1919wan.com
 .198zc.com
 .1axb.com
+.1cloudfile.com
 .1c-option.com
 .1fichier.com
 .1gouw.com
@@ -51,6 +52,7 @@
 .24abcd.ru
 .24hourprintshop.com
 .24liveplus.com
+.24musicplay.com
 .24x7telugu.com
 .25mm.ru
 .2bconstruction.co.uk
@@ -377,6 +379,7 @@
 .allard-g.be
 .allcalidad.com
 .allcalidad.info
+.allcalidad.is
 .allcalidad.la
 .alldayoption.com
 .allergymachine.com
@@ -746,6 +749,7 @@
 .azpelis.com
 .azrodandclassic.com
 .aztechnologies.co.uk
+.azultorrent.com
 .b1t.it
 .b54.in
 .baankonkoh.com
@@ -1106,6 +1110,7 @@
 .bounceme.net
 .bouwpartnerzaagenschaaf.nl
 .bowdenbabies.com
+.bowfile.com
 .bozlar.com
 .bperes.com.br
 .bppaste.com
@@ -1487,8 +1492,11 @@
 .cinecalidad.de
 .cinecalidad.in
 .cinecalidad.is
+.cinecalidad.la
 .cinecalidad.link
+.cinecalidad.lol
 .cinecalidad.movie
+.cinecalidad.nz
 .cinecalidad.pro
 .cinecalidad.tv
 .cinecalidad.vip
@@ -1527,6 +1535,7 @@
 .click4.net
 .clickdesk.com
 .clickjv.com
+.clicknupload.cc
 .clicksfly.com
 .clideo.com
 .client.jp
@@ -1702,6 +1711,7 @@
 .cosentinoarredamenti.com
 .cosmobalance.com
 .costadelhome.com
+.coub.com
 .couchpotatofries.org
 .couchsurfing.org
 .couriersticky.com
@@ -1786,6 +1796,8 @@
 .cuevana3.io
 .cuevana3.live
 .cuevanagt.com
+.cuevana.nz
+.cuevana.pro
 .cuevana.uno
 .cuevanavideo.com
 .cugaituoianthai.com
@@ -1958,6 +1970,7 @@
 .depraetere.net
 .descargacineclasico.net
 .descargaenpas.com
+.descargaenpas.org
 .descargandoxmega.com
 .descargarcapitulos.com
 .descargarserie.com
@@ -2054,7 +2067,9 @@
 .diverporno.com
 .divxatope.com
 .divxtotal.app
+.divxtotal.com
 .divxtotal.la
+.divxtotal.re
 .divyabooks.com
 .diwsj.com
 .diyejuicecolombia.com
@@ -2127,6 +2142,7 @@
 .dontexist.net
 .dontexist.org
 .dontfilter.us
+.dontorrent.re
 .dontorrent.to
 .dont.pl
 .dood.la
@@ -2190,6 +2206,7 @@
 .drive-mir.ru
 .drmulchandani.com
 .dronetech.no
+.drop.download
 .dropitto.me
 .dropsheep.com
 .drpampe.com
@@ -2453,6 +2470,7 @@
 .epegasus.pl
 .epicgames.com
 .epictorrents.com
+.episode-torrent.com
 .eplasalle.es
 .eplotery.pl
 .epmedia.it
@@ -2525,6 +2543,7 @@
 .eugenelabs.com
 .eunoia.tech
 .eupos.org
+.eurekaddl.network
 .euriskosrl.it
 .eurofruits.com
 .euromac.es
@@ -2622,6 +2641,7 @@
 .famoid.com
 .famouscouponcodes.com
 .fanart.tv
+.fanpelis.ac
 .fanpool.ru
 .fantasyleague.cc
 .farbybialystok.pl
@@ -3041,6 +3061,7 @@
 .fzkjxy.com
 .g2cteknoloji.com
 .g2el.com
+.g3g.sbs
 .g5196b.bid
 .gabrielconde.com.uy
 .gabriellesrestaurant.com
@@ -3072,6 +3093,7 @@
 .gamovideo.com
 .ganadineroconencuestas.com
 .gandhi.io
+.gangster.su
 .ganwen.cn
 .gardenoakshomes.com
 .garenanow.com
@@ -3151,6 +3173,7 @@
 .getprivate.net
 .getproactive.ca
 .getraenke-weichmann.de
+.getrockmusic.net 
 .gets-it.net
 .getsmartyapp.com
 .gewerbeverein-auggen.de
@@ -3246,6 +3269,7 @@
 .goedvanstart.nu
 .goeoffice.com
 .go-fewo.com
+.gofile.io
 .gogeshop.com
 .gogo4win.com
 .gogzmermedia.com
@@ -3320,6 +3344,7 @@
 .grandmasplace1.com
 .granitgjana.com
 .granmarquise.com.br
+.grantorrent.co
 .grantorrents.org
 .graph.org
 .graph-video.facebook.com
@@ -3582,6 +3607,7 @@
 .hi-segno.com
 .hislink.net
 .historielag.org
+.hitfile.net
 .hit-muzik.ru
 .hittail.com
 .hiveam.com
@@ -3944,7 +3970,6 @@
 .instegram.com
 .instgram.com
 .instragram.com
-.instructure.com
 .insurance-space.xyz
 .intagram.com
 .integrativenutritionaltherapies.com
@@ -3963,6 +3988,7 @@
 .internetwarriors.net
 .inteza.pl
 .in-the-band.net
+.intmusic.net
 .intracorp.ca
 .intralab.co.id
 .inventionsteel.com
@@ -5026,6 +5052,7 @@
 .meiriqj.com
 .meiwen.com.cn
 .mejorenvo.com
+.mejortorrent.nz
 .mekka.com.br
 .melakatropical.com
 .melbourneacousticduo.com
@@ -5055,6 +5082,7 @@
 .metainvesting.com
 .metalalbumszipkbps10.blogspot.com
 .metal-jukebox.net
+.metalnaveia66.com
 .metaltechnics.pl
 .metastead.com
 .metavial.com
@@ -5313,6 +5341,7 @@
 .muscleinjuries.com
 .musguhefty.com
 .musicaaeu.blogspot.com
+.musica-descarga-todo-digital-mega.blogspot.com
 .musical.ly
 .musicbarpriatelia.sk
 .musicbay.org
@@ -5771,6 +5800,7 @@
 .opakowania.info
 .opendiary.com
 .openload.co
+.openmega2020.blogspot.com
 .openroadsolutions.com
 .openspace.pro
 .opensubtitles.org
@@ -5912,6 +5942,7 @@
 .paynterroofing.com
 .payplay.fm
 .payskip.org
+.pb82-my.sharepoint.com
 .pblossom.com
 .pbna.eu
 .pccrackbox.com
@@ -5945,8 +5976,10 @@
 .pelisap.com
 .pelisenhd.net
 .peliseucip.blogspot.com
+.pelisflix2.vip
 .pelisflix.club
 .pelisflix.li
+.pelisflix.top
 .pelisforte.co
 .pelisgratiseyh1.blogspot.com
 .pelismart.com
@@ -5954,6 +5987,7 @@
 .pelismega.net
 .pelisnow.to
 .pelis-online.net 
+.pelispedia.io
 .pelispedia.tv
 .pelis-play.com
 .pelisplus2.io
@@ -5961,9 +5995,11 @@
 .pelisplushd.net
 .pelisplus.icu
 .pelisplus.io
+.pelisplus.lat
 .pelisplus.live
 .pelisplus.me
 .pelispop.com
+.pelispop.me
 .pelispunto.net
 .pelisxmegahd.com
 .pensionwoehler.de
@@ -6370,6 +6406,7 @@
 .rabavolgy.hu
 .rabbitmp3.com
 .raboninco.com
+.racaty.net
 .racechip.eu
 .racedayworld.com
 .racersguide.com
@@ -6715,6 +6752,7 @@
 .sandmmotorsports.net
 .sandpiperchorus.us
 .sandrahenderson.net
+.sanet.st
 .sanitaskliniek.nl
 .sanjanatextile.com
 .sanjustoshopping.com.ar
@@ -6752,6 +6790,7 @@
 .sbaky.com
 .sbcdnvideo.com
 .sbdma.com
+.sbfast.com
 .sbooks.best
 .sbornikis.ru
 .sc9v.cn
@@ -6862,6 +6901,7 @@
 .series-de.online
 .seriesdesuperheroes.com
 .seriesenmega.com
+.seriesfullpormegatwo.blogspot.com
 .serieshdpormega.com
 .serieshdpormega.xyz
 .serieslandia.com
@@ -7173,6 +7213,7 @@
 .sotaygiadinh.net
 .soulchance.com
 .soulscooter.com
+.soundcitiz.com
 .soundcloud.com
 .soundcloudmp3.org
 .sourceforge.net
@@ -7354,6 +7395,7 @@
 .subdl.com
 .sublimeshop.co.uk
 .subscene.com
+.subtorrents.do
 .subtorrents.la
 .subuys.com
 .subys.com
@@ -7791,11 +7833,14 @@
 .torlook.info
 .torproject.org
 .torqall.com
+.torrentdeseries.blogspot.com
+.torrentdosfilmes2.tv
 .torrentdosfilmes.tv
 .torrentdownloads.me
 .torrentfreak.com
 .torrentfunk.com
 .torrentgalaxy.to
+.torrentlatino.cc
 .torrent-music.pro
 .torrent.pw
 .torrentrapid.com
@@ -8043,6 +8088,7 @@
 .update-apps.com
 .updatespc.com
 .upgrade-anytime.co.uk
+.uploadbuzz.cc
 .uploaded.net
 .upload.ee
 .uploading.site
@@ -8195,6 +8241,7 @@
 .viacon.lt
 .viadeo.com
 .viagracn.com
+.vibejamz.com
 .viber.com
 .vibrantdeal.com
 .vibrantlove.co.uk
@@ -8680,6 +8727,7 @@
 .xmo.gr
 .xmx.de
 .xn--72c6awi9b2bj7ixcg4c.com
+.xn--divxtotl-fza.com
 .xn--hastabakc-2pbb.net
 .xnkmanhtien.com
 .xn--pasaer-spb.pl

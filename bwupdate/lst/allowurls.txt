@@ -24832,6 +24832,7 @@
 .eset.no
 .eset.sg
 .esigna.me
+.esignabox.com
 .etb.net.co
 .etrade.com
 .eum-appdynamics.com
@@ -24945,6 +24946,7 @@
 .intel.com
 .intel.la
 .inter.la
+.instructure.com
 .isrg.trustid.ocsp.identrust.com
 .itagil.com
 .java.com

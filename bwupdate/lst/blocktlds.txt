@@ -1,8 +1,8 @@
-# Domain Abuse Activity Reporting (DAAR) 
-# https://www.icann.org/octo-ssr/daar
+# Reputation Block Lists (RBLs)
 .adult
 .bar
 .beer
+.cash
 .chat
 .click
 .club
@@ -10,6 +10,8 @@
 .fun
 .game
 .games
+.link
+.money
 .play
 .poker
 .porn
@@ -17,21 +19,10 @@
 .sex
 .sexy
 .shop
+.social
 .vodka
 .xxx
-# Unverified Domain Extensions
-.888
-.bitcoin
-.blockchain
-.coin
-.crypto
-.dao
-.nft
-.onion
-.wallet
-.x
-.zil
-# Domain Abuse (Media Content Domain Extensions)
+# Media Content Domains
 .cam
 .camera
 .fm
@@ -47,10 +38,19 @@
 .video
 .watch
 .webcam
-# Domain Abuse (Various)
-.link
-.social
-# ccTLD War Against Ukraine
+# Unverified Domains
+.888
+.bitcoin
+.blockchain
+.coin
+.crypto
+.dao
+.nft
+.onion
+.wallet
+.x
+.zil
+# War Against Ukraine
 .ru
 .su
 .by
