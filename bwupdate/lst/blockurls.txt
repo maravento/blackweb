@@ -56,6 +56,7 @@
 .24x7telugu.com
 .25mm.ru
 .2bconstruction.co.uk
+.2conv.com
 .2fh.co
 .2giga.link
 .2jikai-p.net
@@ -134,8 +135,10 @@
 .956aa.com
 .975thefanatic.com
 .99progame.com
+.9convert.com
 .9japaded.com
 .9w9.org
+.9xbuddy.com
 .a1hose.com
 .a1match.dk
 .a1plus2.de
@@ -1968,6 +1971,7 @@
 .depositfiles.com
 .depositfiles.org
 .depraetere.net
+.desbloqueador.site
 .descargacineclasico.net
 .descargaenpas.com
 .descargaenpas.org
@@ -1996,6 +2000,7 @@
 .destyy.com
 .detectodecolombia.com
 .detik.com
+.deturl.com
 .devartfund.org
 .devere-uk.co.uk
 .deviantart.com
@@ -4376,6 +4381,8 @@
 .keditube.com
 .keener-music.com
 .keeplinks.org
+.keepv.id
+.keepvid.works
 .kekjacint.hu
 .kel52.com
 .kemerealty.com
@@ -5039,6 +5046,7 @@
 .megaproxy.com.ar
 .megapush.online
 .megared.net.mx
+.megaserie.me
 .megasolucoesti.com
 .megatelevisionhd.tk
 .megaupload2.com
@@ -5783,6 +5791,7 @@
 .onlinehome.us
 .online-metrix.net
 .onlinepregnancycare.com
+.onlinevideoconverter.pro
 .onl.li
 .onlylads.com
 .onored.com
@@ -6906,6 +6915,7 @@
 .serieshdpormega.xyz
 .serieslandia.com
 .serieslatinoamerica.tv
+.seriesohoh.com
 .seriesypelis-maturin.blogspot.com
 .seriesytv.net
 .seriesytv.tv
@@ -8334,6 +8344,7 @@
 .videoshub.com
 .videospornocolombia.com
 .video.twimg.com
+.videovor.com
 .video.xx.fbcdn.net
 .vidfast.co
 .vidible.tv
@@ -8692,6 +8703,7 @@
 .wz.cz
 .x18.eu
 .x2convert.com
+.x2download.com
 .x3w.org
 .xa12580.com
 .xaltba.com
@@ -8827,14 +8839,19 @@
 .youthmaida.net
 .youtube4kdownloader.com
 .youtubecut.com
+.youtubedownloader.sh
+.youtubevideodownloader.site
 .ypgg.kr
 .yru.ac.th
 .yt1s.com
+.yt2mp3.ws
+.ytb.rip
 .ytcutter.com
 .yt-download.org
 .ythongye.com
 .ythub.cc
 .ytmp3.cc
+.ytmp3.net
 .ytn168.net
 .yts.mx
 .yts-subs.com
