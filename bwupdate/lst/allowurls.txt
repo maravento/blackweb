@@ -1,4 +1,4 @@
-# GOOGLE
+#GOOGLE
 .0.blogger.gmodules.com
 .0.client-channel.google.com
 .0.docs.google.com
@@ -4743,7 +4743,7 @@
 .ytimg.l.google.com
 .ytstatic.l.google.com
 .yt-video-upload.l.google.com
-# MICROSOFT
+#MICROSOFT
 .064d.mgd.microsoft.com
 .10.ds.mrs.microsoft.com
 .10.tlu.dl.delivery.mp.microsoft.com
@@ -16855,7 +16855,7 @@
 .tmsha.mmd.microsoft.com
 .tms.mmd.microsoft.com
 .tmsqaha.mmd.microsoft.com
-# YAHOO
+#YAHOO
 .ads.yahoo.com
 .ad.yieldmanager.com
 .amp.yahoo.com
@@ -17065,7 +17065,7 @@
 .yp.yahoo.com
 .ysm.yahoo.com
 .yvap.query.yahoo.com
-# GOV
+#GOV
 .511wi.gov
 .9-11commission.gov
 .911commission.gov
@@ -20913,7 +20913,7 @@
 .zionsville-in.gov
 .spaceflorida.gov
 .spaceweather.gov
-# EDU
+#EDU
 .aaa.edu
 .aarnet.edu.au
 .aauj.edu
@@ -24441,7 +24441,7 @@
 .uu.edu
 .uvm.edu
 .uwa.edu
-# VARIOUS
+#VARIOUS
 .180gradosquindio.com
 .280blocker.net
 .360.com
@@ -24926,6 +24926,7 @@
 .hoydiariodelmagdalena.com.co
 .hp.com
 .hsbc.com
+.hubspot.net
 .humanitarianresponse.info
 .huntington.com
 .iadb.org
@@ -25206,6 +25207,7 @@
 .serverfault.com
 .servientrega.com
 .shallalist.de
+.siiwebsas.com
 .simbogota.com.co
 .simit.org.co
 .simple.co

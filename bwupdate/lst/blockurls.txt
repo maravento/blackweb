@@ -1043,6 +1043,7 @@
 .blogdns.com
 .blogdns.net
 .blogdns.org
+.blog-peliculas.com
 .blogranking.net
 .blogsite.org
 .blogsyte.com
@@ -1507,6 +1508,7 @@
 .cinemaniahdd.net
 .cinemauae.com
 .cinemultimediaflix.com
+.cinestentativos.com
 .cineyseries.net
 .cintasuci.com
 .cioccolatopaolillo.it
@@ -1590,6 +1592,7 @@
 .codeaweb.net
 .codedwap.com
 .codelime.net
+.codere.com.co
 .codezigns.com
 .codoltaku.com
 .coffeemeetsbagel.com
@@ -1796,8 +1799,12 @@
 .cuevana3.cc
 .cuevana3.club
 .cuevana3.icu
+.cuevana-3.io
 .cuevana3.io
 .cuevana3.live
+.cuevana3.surf
+.cuevana3-v1.wtf
+.cuevana3.ws
 .cuevanagt.com
 .cuevana.nz
 .cuevana.pro
@@ -2784,7 +2791,7 @@
 .finanzaeinvestimenti.it
 .finaudio.com
 .finchvpn.com
-.find-riverpalmscasino-com.blogspot.com 
+.find-riverpalmscasino-com.blogspot.com
 .finglassafetyforum.ie
 .finishcar.de
 .finleyandoliver.com
@@ -2900,7 +2907,7 @@
 .foto-aeree.it
 .fotografia-dg.com
 .fotosdelburgo.com
-.foumovies.se 
+.foumovies.se
 .foundationapparelco.com
 .foundersomaha.net
 .foursquare.com
@@ -3037,7 +3044,8 @@
 .fullpeliculashd.tv
 .fullseriesworld.com
 .fullservicetech.com
-.fulltv.com.mx 
+.fulltv.com.ar
+.fulltv.com.mx
 .fullversionforever.com
 .fullvicio.com
 .fundacaojoaofdacunha.com.br
@@ -3178,7 +3186,7 @@
 .getprivate.net
 .getproactive.ca
 .getraenke-weichmann.de
-.getrockmusic.net 
+.getrockmusic.net
 .gets-it.net
 .getsmartyapp.com
 .gewerbeverein-auggen.de
@@ -3745,6 +3753,7 @@
 .hpdnet.com
 .hppl.net
 .hqpornt.com
+.hqq.to
 .hqseconsulting.com
 .hqunit.com
 .hradsovinec.cz
@@ -5176,6 +5185,7 @@
 .miradetodo.co
 .mirageaudiovisual.com
 .mirandopeliculas.com
+.mirapeliculasde.com
 .mirificapueraria.com
 .mirofusion.com
 .mirokou.com
@@ -5982,7 +5992,9 @@
 .peliculasmp4hd.com
 .peliculas.pub
 .pelis-123.net
+.pelis24.gratis
 .pelisap.com
+.pelisencastellano.com
 .pelisenhd.net
 .peliseucip.blogspot.com
 .pelisflix2.vip
@@ -5991,11 +6003,12 @@
 .pelisflix.top
 .pelisforte.co
 .pelisgratiseyh1.blogspot.com
+.pelislatino.org
 .pelismart.com
 .pelismegahd.pe
 .pelismega.net
 .pelisnow.to
-.pelis-online.net 
+.pelis-online.net
 .pelispedia.io
 .pelispedia.tv
 .pelis-play.com
@@ -7197,6 +7210,7 @@
 .solmachine.cl
 .solmevini.com
 .solootakusml.wordpress.com
+.solopeliculashd.com
 .solpad.com
 .solubiz.com
 .soma-holidays.co.uk
@@ -7975,6 +7989,7 @@
 .tuttoggi.info
 .tu.tv
 .tuurbo.be
+.tuxplay.com
 .tuzikaze.com
 .tvblanket.com
 .tvcm.com.br
@@ -8114,6 +8129,7 @@
 .uptobox.com
 .uptodown.com
 .upx.net.br
+.uqload.com
 .uraltrak.hu
 .urbania.ca
 .urbani.com.au
@@ -8229,6 +8245,7 @@
 .verox.dk
 .verpeliculasonline.org
 .verpeliculasultra.com
+.verpelis.app
 .verpelislhiyxa.blogspot.com
 .verseriesonline.org
 .versols.com
@@ -8896,6 +8913,7 @@
 .zatcurr.com
 .zbaszynek.pl
 .zdaspb.ru
+.zdescargas.org
 .zealcon.com
 .zealotfun.com
 .zechsal.pl

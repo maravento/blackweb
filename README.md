@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4687542|120.4 MB|
+|blackweb.txt|5024038|128,9 MB|
 
 ## GIT CLONE
 
@@ -278,7 +278,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [betterwebleon dga-feed](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
 - [bigdargon](https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt) and [webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
-- [Carl Spam](http://www.carl.net/spam/access.txt)
 - [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
 - [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
 - [cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt)
@@ -353,6 +352,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
+- [Carl Spam](http://www.carl.net/spam/access.txt)
 - [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 - [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))

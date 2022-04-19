@@ -193,7 +193,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
 	    blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
-	    blurls 'http://www.carl.net/spam/access.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	    blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
