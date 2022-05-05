@@ -1692,6 +1692,7 @@
 .conviva.com
 .conxibit.com
 .coolbits.org
+.coolmusicz.net
 .coolnshop.com
 .coolvwstuff.com
 .coombeabbey.com
@@ -1802,6 +1803,7 @@
 .cuevana-3.io
 .cuevana3.io
 .cuevana3.live
+.cuevana3.plus
 .cuevana3.surf
 .cuevana3-v1.wtf
 .cuevana3.ws
@@ -1990,6 +1992,7 @@
 .descargasok.org
 .descargaspormega.com
 .descargatelocorp.com
+.descargatelocorp.plus
 .descargatelotodo.com
 .descargatepelis.com
 .deschelpenshop.nl
@@ -2671,6 +2674,7 @@
 .fastdl-server.biz
 .fastest-proxy.com.de
 .fastfine.ru
+.fastream.to
 .fastretail.be
 .fastum.asia
 .fastusaproxy.com
@@ -2814,6 +2818,7 @@
 .fiveclean.com
 .fixproxy.com
 .fixrepair.ch
+.flacrock.com
 .flagships.de
 .flamingo-shop.eu
 .flashtalking.com
@@ -3516,6 +3521,7 @@
 .hcyxtc.com
 .hdbrts.co.in
 .hdfull.co
+.hdfull.fun
 .hdfull.li
 .hd-full.org
 .hdjum.com
@@ -4564,6 +4570,7 @@
 .kzprojekt.pl
 .labnat.fr
 .lacadosmurcia.com
+.lacapitaldelsol.com
 .lacasainc.net
 .lacosturera.es
 .lacrima.ru
@@ -4705,6 +4712,7 @@
 .like108.com
 .likescandy.com
 .likes-pie.com
+.likn.xyz
 .lilabners.com
 .lilxtreme.com
 .lilypasted.com
@@ -5201,6 +5209,7 @@
 .mistresspenny.co.uk
 .misyteserver1.com
 .mitmproxy.org
+.mitorrent.eu
 .miui.com
 .mixcracked.net
 .mixdrop.co
@@ -5307,6 +5316,7 @@
 .mp3leo.com
 .mp3quack.lol
 .mp3teca.ws
+.mp3va.com
 .mp3xa.cc
 .mp3-youtube-converter.org
 .mpcloudcollection.website
@@ -5446,6 +5456,7 @@
 .myzen.co.uk
 .naacllc.com
 .naama-yeshayahu.com
+.naamusiq.com
 .naarndonau.at
 .nablussweet.com
 .nacirembalagens.com.br
@@ -5947,6 +5958,7 @@
 .pasfox.com
 .pasquaautonoleggi.it
 .passgen.icu
+.pastea.me
 .pastelesallegro.mx
 .pastelin.com
 .pastepvp.org
@@ -5999,6 +6011,7 @@
 .peliseucip.blogspot.com
 .pelisflix2.vip
 .pelisflix.club
+.pelisflix.in
 .pelisflix.li
 .pelisflix.top
 .pelisforte.co
@@ -6015,11 +6028,13 @@
 .pelisplus2.io
 .pelisplus.co
 .pelisplushd.net
+.pelisplushd.uno
 .pelisplus.icu
 .pelisplus.io
 .pelisplus.lat
 .pelisplus.live
 .pelisplus.me
+.pelisplus.one
 .pelispop.com
 .pelispop.me
 .pelispunto.net
@@ -6530,6 +6545,7 @@
 .remaxofnanaimo.com
 .remixsarkilar.com
 .remontim.pl
+.remontnavideo.ru
 .remotecam.nu
 .removsport.cz
 .rencontreparis.org
@@ -6548,6 +6564,7 @@
 .repair-service.london
 .repelises.com
 .repelisgfyddh.blogspot.com
+.repelis-hd.com
 .repelis.li
 .repelislisbj.blogspot.com
 .repelistigkrl.blogspot.com
@@ -6637,6 +6654,7 @@
 .rockaor.com
 .rocketsrange.com
 .rockfile.co
+.rockflac.net
 .rockrak.com
 .rocks.io
 .rockstargames.com
@@ -6713,6 +6731,7 @@
 .ryderpogy.com
 .ryrszs.com
 .ryseinteractive.com
+.rytmp3.com
 .ryze.com
 .rzai.ru
 .s0ft4pc.com
@@ -6927,7 +6946,9 @@
 .serieshdpormega.com
 .serieshdpormega.xyz
 .serieslandia.com
+.serieslatinoamerica.org
 .serieslatinoamerica.tv
+seriesmetro.net
 .seriesohoh.com
 .seriesypelis-maturin.blogspot.com
 .seriesytv.net
@@ -8160,6 +8181,7 @@
 .userproxy.com
 .userscloud.com
 .usersdrive.com
+.usersfiles.com
 .usessh001.com
 .usfinf.net
 .ushcgshots.com
@@ -8982,6 +9004,7 @@
 .zproxy.de
 .zpwang.net
 .zrise.top
+.zseriesmegadrive.xyz
 .zssmayak.ru
 .zuerich-gewerbe.ch
 .zukxd6fkxqn.com
