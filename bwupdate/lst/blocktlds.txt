@@ -50,7 +50,14 @@
 .wallet
 .x
 .zil
-# War Against Ukraine
-.ru
-.su
-.by
+# Top level domains by country
+# included:
+# State sponsors of terrorism
+# Financial Action Task Force FATF-GAFI
+#.by
+#.cu
+#.ir
+#.kp
+#.ru
+#.su
+#.sy

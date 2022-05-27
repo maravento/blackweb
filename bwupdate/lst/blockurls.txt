@@ -23,6 +23,7 @@
 .1337x.pl
 .1337x.tw
 .1337xx.to
+.1337xxx.to
 .13thmaidenhead.org.uk
 .151.ru
 .15yb.com
@@ -106,6 +107,7 @@
 .50engineersroad.com
 .50mi.cn
 .50webs.com
+.51-75-61-78.xyz
 .51modo.cc
 .51steel.org
 .51w9.com
@@ -202,6 +204,7 @@
 .aclabink.com
 .acnek.com
 .aconetrick.com
+.acortalink.me
 .acpm.fr
 .actionforresults.com
 .actiononsports.com
@@ -262,6 +265,7 @@
 .adsrt.live
 .adsrt.me
 .adsrt.net
+.adsrt.org
 .adsrvr.org
 .adturtle.biz
 .adultmagstore.co.uk
@@ -295,6 +299,7 @@
 .agorarestaurant.ro
 .agora-services.com
 .agrasentechnical.com
+.agregatorgod.xyz
 .agricom.it
 .agridiving.net
 .agriturismobellaria.net
@@ -306,6 +311,7 @@
 .agrourbis.com
 .agyemang.com
 .ahatv.com.au
+.ahcnena.net
 .ahlbrandt.eu
 .ahmetaksan.com
 .ahsqbeospcdrngfv.info
@@ -489,6 +495,7 @@
 .animeflv.net
 .anime-foreversite.net
 .animestock.ga
+.animesyseries.online
 .animeteatr.ru
 .anime-tuner.square7.ch
 .aniview.com
@@ -667,6 +674,8 @@
 .atomixhq.com
 .atomixhq.net
 .atomixhq.one
+.atomixhq.tel
+.atomixhq.xyz
 .atomtt.com
 .atriym-stroy.ru
 .atronis.com
@@ -862,6 +871,7 @@
 .bcakidz.com
 .bc-kes.com
 .bclas.ru
+.bclikeqt.com
 .bc.vc
 .bcvc.live
 .bddja.com
@@ -909,6 +919,7 @@
 .bernardchandran.com
 .bernardlaks.info
 .berrysbarber.com
+.berserk22.info
 .bertedu.com
 .bestblackfriday.com
 .bestbuylocal.com
@@ -980,6 +991,7 @@
 .billdickeymasonry.com
 .billionsfamily.com
 .billiwa.com
+.billsfarm.com.au
 .binarytradesignal.com
 .binbox.io
 .bingolfm.com
@@ -1236,6 +1248,7 @@
 .bzgthg.com
 .bzhualin.com
 .c0.pl
+.c10000m.com
 .caballerobustamante.com.pe
 .cabanaionela.ro
 .cabana.it
@@ -1505,6 +1518,7 @@
 .cinecalidad.tv
 .cinecalidad.vip
 .cinecallidad.xyz
+.cine-familia1.webnode.es
 .cinemaniahdd.net
 .cinemauae.com
 .cinemultimediaflix.com
@@ -1657,6 +1671,7 @@
 .computerservice-utrechtse-heuvelrug.nl
 .com-reward.com
 .com-scan.live
+.comunidad.unitec.mx
 .comyr.com
 .conceptcar.ee
 .concime.com
@@ -1704,6 +1719,7 @@
 .cordcuttersnews.com
 .corecon.com
 .corefitness.info
+.corejamz.com
 .cor-huizer.nl
 .corights.net
 .corinnenewton.ca
@@ -1791,6 +1807,7 @@
 .csuca.org
 .ctrlalt.de
 .cttcleaning.com
+.ctvout.buzz
 .cu5.io
 .cubee.lt
 .cuevana2espanol.com
@@ -1803,6 +1820,7 @@
 .cuevana-3.io
 .cuevana3.io
 .cuevana3.live
+.cuevana3.pe
 .cuevana3.plus
 .cuevana3.surf
 .cuevana3-v1.wtf
@@ -1987,6 +2005,9 @@
 .descargandoxmega.com
 .descargarcapitulos.com
 .descargarserie.com
+.descargartorrent.club
+.descargas2020.net
+.descargas2020.org
 .descargasdd.net
 .descargasok.com
 .descargasok.org
@@ -2060,6 +2081,7 @@
 .directprotectsolutions.co.uk
 .directvnow.com
 .dirkdj.nl
+.dirproxy.org
 .dirtytorrents.com
 .discordapp.com
 .discord.com
@@ -2217,7 +2239,9 @@
 .drgolfcars.com
 .drgravity.com
 .drift.com
+.drillplug.com
 .driveadmin.com
+.drivelinks.me
 .drive-mir.ru
 .drmulchandani.com
 .dronetech.no
@@ -2424,6 +2448,7 @@
 .eliteproxyswitcher.com
 .elitesingles.com
 .elitetorrent.biz
+.elitetorrentez.com
 .elitetorrent.nl
 .elixe.net
 .elizabethwright.co.uk
@@ -2437,6 +2462,7 @@
 .el-sklep.com
 .eltede.com
 .elvox.pl
+.emasiono.blogspot.com
 .embedsb.com
 .embutidosanezcar.com
 .emcartaz.net.br
@@ -2479,6 +2505,8 @@
 .entersukses.com
 .entiendas.com
 .entrepeliculasyseries.io
+.entrepeliculasyseries.nu
+.entrepeliculasyseries.nz
 .envi-herzog.de
 .environment.ae
 .envisorusa.com
@@ -2692,6 +2720,7 @@
 .fb.gg
 .fbl.com.sg
 .fb.me
+.fbmedia-bls.com
 .fbsbx.com
 .fbstone.com
 .fc2.com
@@ -2755,6 +2784,7 @@
 .fightingtommyriley.com
 .fightsportuk.com
 .figuren-spiele.de
+.file4safe.com
 .file8desktop.com
 .filebulldog.com
 .filecat.net
@@ -2782,6 +2812,7 @@
 .filmoxmvlpve.blogspot.com
 .filmpxksvbn.blogspot.com
 .filmslocker.com
+.filmtfqyrvp.blogspot.com
 .filmweb.pl
 .filmymima.net
 .filomak.com
@@ -2831,6 +2862,7 @@
 .fleury.net
 .flexdeal.net
 .flexfitent.com
+.flexyhit.com
 .flickw.com
 .fliegendergaertner.at
 .flipax.net
@@ -2960,9 +2992,11 @@
 .freevpn.me
 .freewarefiles.com
 .freewebproxy.us
+.freexpr.blogspot.com
 .frejasvej.dk
 .frembud.pl
 .fremonttwnshp.com
+.freshers-live.com
 .freshhabesha.co.uk
 .freshservices.se
 .friedensschlag.de
@@ -3186,6 +3220,7 @@
 .getedendiet.com
 .getfvid.com
 .geti2p.net
+.getinmac.com
 .getintopc.com
 .getmyip.com
 .getprivate.net
@@ -3363,6 +3398,7 @@
 .granitgjana.com
 .granmarquise.com.br
 .grantorrent.co
+grantorrent.se
 .grantorrents.org
 .graph.org
 .graph-video.facebook.com
@@ -3462,7 +3498,10 @@
 .habets.info
 .habitatotel.com
 .hackshort.me
+.hackstore.la
 .hackstore.net
+.hackstore.tv
+.hacktorrent.net
 .hair4real.in
 .hairchinadirect.com
 .hairflicksmodelphotography.co.uk
@@ -3520,10 +3559,12 @@
 .hcgdietinfo.com
 .hcyxtc.com
 .hdbrts.co.in
+.hdfull.be
 .hdfull.co
 .hdfull.fun
 .hdfull.li
 .hd-full.org
+.hdfull.top
 .hdjum.com
 .hdmedia.pl
 .hdtv9.com
@@ -3602,12 +3643,14 @@
 .hidenseek.org
 .hideoxy.com
 .hideproxy.me
+.hides.at
 .hidester.com
 .hificorp.co.za
 .highend-audiopc.com
 .highlakehill.be
 .highlandsolar.ca
 .highpressurewelding.co.uk
+.hihonor.com
 .hildaseir.com
 .hillhouseoutdoor.com
 .himado.com
@@ -3852,6 +3895,7 @@
 .idareu.co
 .idealfa.com
 .idealuze.com
+.identi.io
 .identita.dk
 .ididp.com
 .idiomestarradellas.com
@@ -3910,6 +3954,7 @@
 .impregui.com
 .impresadeambrosis.it
 .impressivewritings.com
+.impunitywatch.org
 .imqq.com
 .imzahrwl.xyz
 .inadcod.com
@@ -3930,6 +3975,7 @@
 .infinitecorp.ca
 .infocuscreative.net
 .infodoza.biz
+.infomaniakos.net
 .infomazza.com
 .infomoneynews.com
 .infoportugal.pt
@@ -3950,6 +3996,7 @@
 .ingservice.ro
 .injected.in
 .injectorholder.com
+.inkapelis.in
 .inmobi.com
 .inmopromo.com
 .innogenap.com
@@ -4332,6 +4379,7 @@
 .justhorseriders.co.uk
 .justjessethejack.com
 .justowin.it
+.justpic.info
 .justproductions.co.uk
 .justproxy.co.uk
 .just-say-yes.nl
@@ -4430,6 +4478,7 @@
 .kiakolacity.ir
 .kiannaghsh.ir
 .kickass.cd
+.kickasstorrents.to
 .kickass.ws
 .kicks-ass.net
 .kicks-ass.org
@@ -4629,6 +4678,7 @@
 .latinchats.net
 .latinchats.org
 .latinomegahd.net
+.latinouhd.com
 .laundryonwheels.ca
 .lauraleedonnelly.com
 .laurenward.me
@@ -4968,6 +5018,7 @@
 .mathtag.com
 .matternomatter.com
 .matthewmccright.org
+.mauchopt.net
 .maule.biz
 .maurocesari.it
 .mautau.it
@@ -5049,6 +5100,7 @@
 .megadescargas.net
 .megadescargas-new.blogspot.com
 .mega-estrenos.org
+.megafly.in
 .mega-hd-full.com
 .me-ga.info
 .mega.io
@@ -5077,6 +5129,7 @@
 .meiriqj.com
 .meiwen.com.cn
 .mejorenvo.com
+.mejortorrent.ma
 .mejortorrent.nz
 .mekka.com.br
 .melakatropical.com
@@ -5208,6 +5261,7 @@
 .missinglynxsystems.com
 .mistresspenny.co.uk
 .misyteserver1.com
+.mitly.us
 .mitmproxy.org
 .mitorrent.eu
 .miui.com
@@ -5293,6 +5347,7 @@
 .mothership.sg
 .motionelements.com
 .motionsystems.eu
+.motivateseries.blogspot.com
 .motorisationplus.com
 .motorkote.org
 .motortecnica.org
@@ -5300,8 +5355,12 @@
 .mouse-meter.com
 .movetv.com
 .movewithgrace.ca
+.movie-download.cz
 .moviefone.com
+.movieknowing.com
+.movienna.com
 .movierulz.video
+.moviesbark.com
 .movietimes.com.au
 .moxo-adhdtest.com
 .moydom.by
@@ -5374,6 +5433,7 @@
 .musicbarpriatelia.sk
 .musicbay.org
 .musicfrombali.com
+.music.innt.me
 .musicphilicwinds.org
 .musicrecruiting.com
 .musicyoullliketoo.blogspot.com
@@ -5426,6 +5486,7 @@
 .mymusictools.com
 .mynamepixs.com
 .mynetcologne.de
+.mynewsmedia.co
 .mynigeriandwarfs.com
 .mynjobs.com
 .mypcdaddy.com
@@ -5469,6 +5530,7 @@
 .namesilo.com
 .nanigans.com
 .naomihawkins.com
+.naranjatorrent.com
 .narifashion.com
 .narquee.xyz
 .naschmarkt-deli.at
@@ -5666,6 +5728,7 @@
 .northerncards.com
 .nortra-cables.com
 .noss.co.za
+.nostalgia.ar
 .notariadiez.cl
 .notariestoyou.com
 .notes-cloud.dk
@@ -5691,6 +5754,7 @@
 .ntracecloud.com
 .ntsantas.com
 .nttinc.com
+.nucleohd.com
 .nugentconstruction.com
 .nui.tokyo
 .nulled.to
@@ -5770,6 +5834,7 @@
 .olivierimmobiliare.com
 .ollyandfriends.de
 .olok.in
+.olssons.com.au
 .olze.info
 .omahatrackequipment.us
 .omegle.onl
@@ -5848,6 +5913,7 @@
 .orad.it
 .ora.life
 .orane.co
+.orangefiles.me
 .orcamybunnies.com
 .orchidealito.it
 .ordermytix.com
@@ -5921,6 +5987,7 @@
 .paintituppottery.com
 .pakage.com.au
 .pakar.com.my
+.paky3.me
 .palangkaraya.go.id
 .palekar.com
 .paletteswapninja.com
@@ -5948,6 +6015,7 @@
 .paraspokeri.net
 .parenclub-devilsenangels.nl
 .parentchildmothergoose.com
+.parisonitl.xyz
 .parliamentaryresearch.com
 .paronleather.com
 .parroquiansg.org
@@ -5997,11 +6065,13 @@
 .peliculaonlinehd.com
 .peliculas1mega.com
 .peliculas-dvdrip.com
+.peliculasgd.net
 .peliculasgoogledrive.info
 .peliculasgoogleone.net
 .peliculashdpormega.cyou
 .peliculas-mp4.com
 .peliculasmp4hd.com
+.peliculasonline4k.net
 .peliculas.pub
 .pelis-123.net
 .pelis24.gratis
@@ -6016,7 +6086,10 @@
 .pelisflix.top
 .pelisforte.co
 .pelisgratiseyh1.blogspot.com
+.pelisgratishd.io
+.peliskcdculkx.blogspot.com
 .pelislatino.org
+.pelismaraton.me
 .pelismart.com
 .pelismegahd.pe
 .pelismega.net
@@ -6104,6 +6177,7 @@
 .physioandpain.com
 .piaristesafriquecentrale.org
 .pickiris.org
+.picofile.com
 .piconsul.it
 .picparts.com
 .pictify.com
@@ -6151,10 +6225,12 @@
 .player4dtogel.net
 .playlist-youtu.be
 .playocio.com
+.playpaste.com
 .playpilot.com
 .playproxy.com
 .playtres.com.ar
 .playvideo.cyou
+.playwarez.cc
 .plexapp.com
 .plex.bz
 .plexipr.com
@@ -6301,6 +6377,7 @@
 .promologicllc.com
 .promumedical.com
 .prongai.com
+.propas.net
 .propfisher.com
 .proporr.com
 .proserialcrack.com
@@ -6474,6 +6551,7 @@
 .rapidgator.net
 .rapidnet.ir
 .rapidshare.com
+.rapidshare.io
 .rarbgdata.org
 .rarbg.me
 .rarbg.to
@@ -6568,6 +6646,7 @@
 .repelis.li
 .repelislisbj.blogspot.com
 .repelistigkrl.blogspot.com
+.repelis.tube
 .repelisuzefs.blogspot.com
 .repka.eu
 .reporter-studio.ru
@@ -6623,6 +6702,7 @@
 .rikuzentakata-mpf.org
 .rimiller.com
 .rimpro.ru
+.rincondelteam24.blogspot.com
 .ringbalor.com
 .riojadental.com
 .rioual.com
@@ -6717,6 +6797,7 @@
 .rusbb.ru
 .rusdram.com.ua
 .rusfolder.com
+.rushbet.co
 .rushftworth.com
 .rutlandhall.com
 .rutracker.org
@@ -6902,6 +6983,7 @@
 .seferworld.com
 .seffafkartvizitim.com
 .segufin.com.mx
+.seireshd.com
 .seishin-ec.co.jp
 .seishinhk.com
 .seism-impex.ro
@@ -6936,12 +7018,14 @@
 .serbianforum.org
 .sergloform.com
 .serial-production.com
+.serienjunkies.io
 .serienplaner.com
 .seriesbang.to
 .seriesdanko.com
 .series-de.online
 .seriesdesuperheroes.com
 .seriesenmega.com
+.seriesestreno.com
 .seriesfullpormegatwo.blogspot.com
 .serieshdpormega.com
 .serieshdpormega.xyz
@@ -6978,6 +7062,7 @@ seriesmetro.net
 .server-web.com
 .servesarcasm.com
 .servicewelt24.de
+.serviciosdealmacenamientoenlanubeco.com
 .servicos.ws
 .servilanz.es
 .serving-sys.com
@@ -7245,6 +7330,7 @@ seriesmetro.net
 .song.link
 .sonico.com
 .sonlightministries.com
+.sonpelishd.net
 .sonsytaint.com
 .soonerfans.com
 .soonmarketing.com
@@ -7368,6 +7454,7 @@ seriesmetro.net
 .ste4you.at
 .stealthy.co
 .steamanalyst.com
+.steampiay.cc
 .steelbeamcalculator.co.uk
 .steelfs.com.mx
 .steelpars.com
@@ -7381,6 +7468,7 @@ seriesmetro.net
 .stephaniemiddendorp.nl
 .stethsalum.com
 .stevetoulch.com
+.stfly.io
 .stfly.me
 .stickam.com
 .stickyadstv.com
@@ -7400,7 +7488,10 @@ seriesmetro.net
 .strangermeetup.com
 .stratega-online.de
 .strato-hosting.eu
+.streamaxuhd.com
+.streamboox.com
 .streamium.xyz
+.streamplay.to
 .streamservices.de
 .streamtape.com
 .streamtheworld.com
@@ -7440,6 +7531,8 @@ seriesmetro.net
 .subdl.com
 .sublimeshop.co.uk
 .subscene.com
+.subtitulamos.tv
+.subtorrents.ch
 .subtorrents.do
 .subtorrents.la
 .subuys.com
@@ -7759,6 +7852,7 @@ seriesmetro.net
 .theservantsoflove.com
 .theshopwiz.com
 .thesprezzatura.com
+.thesubfactory.net
 .thesurfbreak.com
 .thetestserver.net
 .thetravelbug.org
@@ -7814,6 +7908,7 @@ seriesmetro.net
 .tinybit.cc
 .tiny.cc
 .tinychat.com
+.tinylinks.co
 .tiny.tw
 .tinyurl.com
 .tipografiacouto.pt
@@ -7867,6 +7962,7 @@ seriesmetro.net
 .top5vpn.de
 .topcarshop.ir
 .topcracked.com
+.topdescargartorrent.com
 .topdissertations.com
 .topfireart.com
 .topstoneisland.com
@@ -7887,6 +7983,7 @@ seriesmetro.net
 .torrentgalaxy.to
 .torrentlatino.cc
 .torrent-music.pro
+.torrentpelis.com
 .torrent.pw
 .torrentrapid.com
 .torrents.me
@@ -8002,6 +8099,7 @@ seriesmetro.net
 .turn.com
 .turnsocial.com
 .turnsocial.now.sh
+.tuseriefavoritas.com
 .tusfiles.com
 .tusrecetas.net
 .tutmacli.com
@@ -8017,6 +8115,7 @@ seriesmetro.net
 .tvctraffic.com
 .tvernedra.ru
 .tvoy-android.com
+.tvstock.net
 .twardo.eu
 .twdct.com
 .twilightparadox.com
@@ -8077,6 +8176,7 @@ seriesmetro.net
 .uloz.to
 .ulozto.net
 .ultimatepro.us
+.ultimosestrenosenmega.blogspot.com
 .ul.to
 .ultrasurfing.com
 .ultrasurf.us
@@ -8124,6 +8224,7 @@ seriesmetro.net
 .unrulymedia.com
 .uns.ac.id
 .unstoppabledomains.com
+.untallen.com
 .unusualperson.com
 .unykmanagement.com
 .unykmodels.com
@@ -8454,6 +8555,7 @@ seriesmetro.net
 .vjumamel.com
 .vkastrologer.com
 .vk.com
+.vkstreaming.net
 .vktechs.com
 .vladial.ru
 .vlc.cl
@@ -8835,6 +8937,8 @@ seriesmetro.net
 .yesplz.co
 .yespos.co.uk
 .yessyber.com
+.yestorrent.cx
+.yestorrent.net
 .yewtu.be
 .yftp.org
 .ygc1688.com
@@ -8892,6 +8996,7 @@ seriesmetro.net
 .ytmp3.cc
 .ytmp3.net
 .ytn168.net
+.yts.monster
 .yts.mx
 .yts-subs.com
 .yu1paintingco.com
@@ -9000,6 +9105,7 @@ seriesmetro.net
 .zophotos.com
 .zopim.com
 .zorpia.com
+.zpaste.net
 .zpn.im
 .zproxy.de
 .zpwang.net
