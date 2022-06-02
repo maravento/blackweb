@@ -1,3 +1,4 @@
+# GENERIC TOP LEVEL DOMAIN (gTLD)
 # Reputation Block Lists (RBLs)
 .adult
 .bar
@@ -50,14 +51,18 @@
 .wallet
 .x
 .zil
-# Top level domains by country
-# included:
-# State sponsors of terrorism
-# Financial Action Task Force FATF-GAFI
+# COUNTRY CODE TOP LEVEL DOMAIN (ccTLD)
+# Sponsors of terrorism / Financial Action Task Force FATF-GAFI
 #.by
 #.cu
+#.cn
 #.ir
 #.kp
+#.rf
 #.ru
 #.su
 #.sy
+# Punycode / ASCII DNS name
+#.xn--p1ai
+#.xn--fiqs8s
+#.xn--fiqz9s
