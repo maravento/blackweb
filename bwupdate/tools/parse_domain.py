@@ -4,9 +4,10 @@
 # from https://github.com/lsemel/python-parse-domain
 # fork https://github.com/hmgle/python-parse-domain
 # note: compare with 2 list
+# IMPORTANT: USE PYTHON 3X
 # -------------------------------------------------
 
-from urlparse import urlparse
+from urllib.parse import urlparse
 import re
 
 def parse_domain(url, levels=2):
@@ -50,7 +51,7 @@ clean = set(d.strip() for d in open("tlds.txt").readlines())
 valid = set(d.strip() for d in open('urls.txt').readlines())
 
 filename = 'capture'
-domains  = [d.strip('.\n') for d in file(filename).readlines()]
+domains  = [d.strip('.\n') for d in open(filename).readlines()]
 domains = [d for d in domains if '.'+d not in valid]
 
 D = dict()
@@ -58,4 +59,4 @@ for domain in domains:
   D[parse_domain('http://'+domain)] = 0
 
 for d in D:
-  if d: print d
+  if d: print (d)

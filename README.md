@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5024038|128,9 MB|
+|blackweb.txt|5162674|133,1 MB|
 
 ## GIT CLONE
 
@@ -127,7 +127,7 @@ http_access deny blackweb
 
 ## IMPORTANT
 
-**Blackweb** is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments ([DNSMasq](https://en.wikipedia.org/wiki/Dnsmasq), [Pi-Hole](https://pi-hole.net/), [Hosts File](https://en.wikipedia.org/wiki/Hosts_(file)), etc.), as it could slow it down or block it. **Use it at your own risk** / Blackweb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos ([DNSMasq](https://es.wikipedia.org/wiki/Dnsmasq), [Pi-Hole](https://pi-hole.net/), [Hosts File](https://es.wikipedia.org/wiki/Archivo_hosts), etc.), ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**
+**Blackweb** is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk** / Blackweb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**
 
 For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
 
@@ -149,8 +149,10 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 #### Dependencies
 
+>Update requires python 3x and bash 5x / La actualización requiere python 3x y bash 5x
+
 ```bash
-pkgs='wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python2 squid'
+pkgs='wget git subversion curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python3 squid'
 if ! dpkg -s $pkgs >/dev/null 2>&1; then
   apt-get install $pkgs
 fi
@@ -247,7 +249,7 @@ FAULT testfaultdomain.com
 
 >Run Squid-Cache with Blackweb and any error sends it to `SquidError.txt` on your desktop / Corre Squid-Cache con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio
 
-#### Check execution (/var/log/syslog):
+#### Check execution (/var/log/syslog)
 
 ```bash
 Blackweb: Done 06/05/2019 15:47:14
@@ -310,7 +312,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Joelotz URL](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
 - [Joewein](http://www.joewein.de/sw/bl-text.htm)
 - [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
-- [malc0de](http://malc0de.com/bl/)
 - [malspam emotet list](https://github.com/MBThreatIntel/malspam)
 - [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
@@ -359,12 +360,13 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [firebog.net](firebog.net) (included: [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt))
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
+- [malc0de](http://malc0de.com/bl/)
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
-- [Ransomware Abuse (Ransomware Tracker has been discontinued on Dec 8th, 2019)](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist ](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
+- [Ransomware Abuse (Ransomware Tracker has been discontinued on Dec 8th, 2019)](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
 - [Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
@@ -423,6 +425,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Kerry Cordero. *Blocklists of Suspected Malicious IPs and URLs*](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
 - [stackoverflow.com. *Blacklist IP database*](https://stackoverflow.com/a/39516166/8747573)
 - [opensourcelibs](https://opensourcelibs.com/lib/blackweb)
+- [community ipfire]https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
 
 ## CONTRIBUTIONS
 
@@ -465,7 +468,7 @@ are terms that have nothing to do with racial discrimination / son términos que
 
 ---
 
-The urls included in the acl `allowurls.txt` and` blockurls.txt`, may be notified to the admin, via email and will have a period of 72 hours to accept or reject the inclusion. After the deadline, the inclusion will be permanent, unless the object or url changes, or is included in a public block list / Las urls incluidas en las acl `allowurls.txt` y `blockurls.txt`, podrán ser notificadas al admin, via mail y tendrá un plazo de 72 horas para aceptar o rechazar la inclusión. Superado el plazo, la inclusión será permanente, excepto que cambie el objeto o url, o sea incluida en alguna lista de bloqueo pública
+The urls included in the acl `allowurls.txt` and`blockurls.txt`, may be notified to the admin, via email and will have a period of 72 hours to accept or reject the inclusion. After the deadline, the inclusion will be permanent, unless the object or url changes, or is included in a public block list / Las urls incluidas en las acl `allowurls.txt` y `blockurls.txt`, podrán ser notificadas al admin, via mail y tendrá un plazo de 72 horas para aceptar o rechazar la inclusión. Superado el plazo, la inclusión será permanente, excepto que cambie el objeto o url, o sea incluida en alguna lista de bloqueo pública
 
 ## DISCLAIMER
 

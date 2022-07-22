@@ -549,6 +549,7 @@
 .applicationinsights.io
 .applicationinsights.net
 .appoutpost.com
+.appscyborg.com
 .appsflyer.com
 .appsonwindows.com
 .aproso.de
@@ -748,6 +749,8 @@
 .awesomehp.com
 .awinsider.com
 .awlandneedle.ca
+.awlinks.live
+.awlinks.xyz
 .awsdns-04.co.uk
 .awsdns-26.net
 .awsdns-55.com
@@ -1380,6 +1383,7 @@
 .ceffdffbdf.xyz
 .ceil.hk
 .celebflix.us
+.celerystem.icu
 .cellufun.com
 .celtichr.com
 .cementossj.cl
@@ -1524,7 +1528,6 @@
 .cinecalidad.tv
 .cinecalidad.vip
 .cinecallidad.xyz
-.cine-familia1.webnode.es
 .cinemaniahdd.net
 .cinemauae.com
 .cinemultimediaflix.com
@@ -2374,6 +2377,7 @@
 .eazel.com
 .ebgboz.nl
 .ebnmp.com
+.ebookworld.biz
 .ebuddy.com
 .ebusiness-articles.com
 .ec-echt.de
@@ -2515,6 +2519,7 @@
 .enricobasili.com
 .enrico.ru
 .ensaenerji.com
+.ens.domains
 .entelligy.com
 .entersukses.com
 .entiendas.com
@@ -3365,6 +3370,7 @@
 .golfnauvoo.com
 .golifecapsule.com
 .golodg.com
+.goltelevision.com
 .gomelnaushnik.com
 .gomlektube.com
 .gomoviesfree.sc
@@ -3638,6 +3644,7 @@ grantorrent.se
 .hetaruvg.com
 .hetvliegendwiel.be
 .hexinjituan.com
+.hexupload.net
 .hey-people.com
 .heyzap.com
 .hfhhk.com
@@ -4206,6 +4213,7 @@ grantorrent.se
 .islandspirits.ca
 .is-leet.com
 .is-lost.org
+.ismatube.com
 .isnssdk.com
 .israbox-music.com
 .isriir.com
@@ -4358,6 +4366,7 @@ grantorrent.se
 .johnlongstreth.com
 .johnsonfashion.com.tw
 .joinjohnhart.com
+.joinpeertube.org
 .jomran.com
 .jonastore.com
 .jonathankimsey.com
@@ -4850,6 +4859,7 @@ grantorrent.se
 .lmbbhutan.com
 .lmp3.org
 .lmprojekte.de
+.lnk.to
 .lntproductions.com
 .loader.to
 .loaditsoft.com
@@ -5068,6 +5078,7 @@ grantorrent.se
 .mayone.us
 .maypak.com
 .mayrice.net
+.mazterize.com
 .mbarathi.com
 .mbcampaigns.co.uk
 .mbdvacations.com
@@ -5409,6 +5420,7 @@ grantorrent.se
 .mplaylist.com
 .mprdaquaticstaff.com
 .mprotectcorp.com
+.mqdownload.com
 .mrtowrva.com
 .mrunblock.com
 .mrunblock.surf
@@ -5726,6 +5738,7 @@ grantorrent.se
 .nobody.jp
 .nobrainer.rocks
 .nobu-naga.net
+.nocensor.sbs
 .nocookiesluckyorange.org
 .nocreditcard.net
 .noellafashion.dk
@@ -6334,6 +6347,7 @@ grantorrent.se
 .poseidonhd.nz
 .positivelystoned.com
 .poslovnekomunikacije.si
+.po.st
 .postaldigitalrs.com.br
 .postimg.cc
 .postrelease.com
@@ -7041,6 +7055,7 @@ grantorrent.se
 .sellflash.com
 .sellsyourhome.org
 .selonija.lv
+.selsoft.net
 .semasio.net
 .semes.sk
 .semeystvo.com.ua
@@ -7142,6 +7157,7 @@ seriesmetro.net
 .shangtaomao.com
 .shanty-chor-neuengoers.de
 .shaolinsoccer.it
+.share2downloads.com
 .share-online.biz
 .sharethis.com
 .shauninman.com
@@ -7172,6 +7188,7 @@ seriesmetro.net
 .shopsshops.de
 .shopyb.com
 .shorten.me
+.short.es
 .shorte.st
 .shorto.net
 .short.pe
@@ -7408,6 +7425,7 @@ seriesmetro.net
 .sparkle-painting.com
 .sparky.com
 .spartania.de
+.spaste.com
 .spay.samsung.com
 .spb.ru
 .speakrz.com
@@ -7950,6 +7968,7 @@ seriesmetro.net
 .timwhid.com
 .tinder.com
 .tin.it
+.tinurll.com
 .tinyarro.ws
 .tinyarrows.com
 .tinybearshop.com
@@ -8014,6 +8033,7 @@ seriesmetro.net
 .topdissertations.com
 .topfireart.com
 .topstoneisland.com
+.toptal.com
 .topura.com
 .tor2web.org
 .torbellon.com
@@ -8282,6 +8302,7 @@ seriesmetro.net
 .upav.org
 .update-apps.com
 .updatespc.com
+.updatestar.com
 .upgrade-anytime.co.uk
 .uploadbuzz.cc
 .uploaded.net
@@ -8720,6 +8741,7 @@ seriesmetro.net
 .webmine.cz
 .webminepool.com
 .webmine.pro
+.webnode.es
 .weborama.com
 .weboriginal.eu
 .webpanel.info
@@ -9014,6 +9036,7 @@ seriesmetro.net
 .yombasim.com
 .yomu.ru
 .yoobux.com
+.yoodownload.com
 .yoohoofishing.com
 .yorkshire-pm.com
 .youhaoyouduo.com

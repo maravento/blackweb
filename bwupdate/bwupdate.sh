@@ -91,7 +91,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
 	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
-	    blurls 'http://malc0de.com/bl/ZONES' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	    blurls 'https://adaway.org/hosts.txt' && sleep 1
 	    blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1

@@ -11,7 +11,9 @@
 .fun
 .game
 .games
+.guru
 .link
+.lotto
 .money
 .play
 .poker
@@ -23,12 +25,21 @@
 .social
 .vodka
 .xxx
-# Media Content Domains
+# Social / Media Content
 .cam
 .camera
+.entertainment
 .fm
 .live
+.market
+.marketing
+.markets
 .media
+.meet
+.meme
+.mov
+.movie
+.music
 .photo
 .photos
 .pictures
@@ -51,11 +62,12 @@
 .wallet
 .x
 .zil
+.eth
 # COUNTRY CODE TOP LEVEL DOMAIN (ccTLD)
 # Sponsors of terrorism / Financial Action Task Force FATF-GAFI
 #.by
-#.cu
 #.cn
+#.cu
 #.ir
 #.kp
 #.rf
