@@ -4,31 +4,31 @@
 .bar
 .beer
 .cash
-.chat
+.cheap
 .click
 .club
 .download
 .fun
-.game
-.games
 .guru
 .link
 .lotto
 .money
-.play
-.poker
 .porn
+.promo
+.pub
 .racing
 .sex
 .sexy
 .shop
-.social
 .vodka
 .xxx
-# Social / Media Content
+# Social / Media Content / Market
 .cam
 .camera
+.channel
+.chat
 .entertainment
+.fan
 .fm
 .live
 .market
@@ -44,12 +44,23 @@
 .photos
 .pictures
 .radio
+.rocks
+.social
+.song
 .stream
 .tube
 .tv
 .video
 .watch
 .webcam
+# Games / Play
+.bingo
+.casino
+.game
+.games
+.play
+.poker
+.win
 # Unverified Domains
 .888
 .bitcoin
@@ -57,12 +68,12 @@
 .coin
 .crypto
 .dao
+.eth
 .nft
 .onion
 .wallet
 .x
 .zil
-.eth
 # COUNTRY CODE TOP LEVEL DOMAIN (ccTLD)
 # Sponsors of terrorism / Financial Action Task Force FATF-GAFI
 #.by
@@ -75,6 +86,6 @@
 #.su
 #.sy
 # Punycode / ASCII DNS name
-#.xn--p1ai
 #.xn--fiqs8s
 #.xn--fiqz9s
+#.xn--p1ai
