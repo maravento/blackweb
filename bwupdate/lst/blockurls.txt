@@ -1477,6 +1477,7 @@
 .chemes.eu
 .chewysissy.net
 .chiesacattolica.it
+.chikiporn.com
 .childrensheartfoundation.org
 .childrenshouse.co.za
 .chillijacksnewcastle.com
@@ -3357,7 +3358,6 @@
 .globalremoteservices.com
 .globissys.co.id
 .globoart.es
-.globoplay.globo.com
 .gloobusservicebus.com
 .gloriajeanscoffees.co.th
 .glosalonline.com
@@ -5188,6 +5188,7 @@ grantorrent.se
 .megadede.in
 .megadescargas.net
 .megadescargas-new.blogspot.com
+.megadiscografiascompletas.xyz
 .mega-estrenos.org
 .megafly.in
 .mega-hd-full.com
@@ -6367,7 +6368,6 @@ grantorrent.se
 .plugin-torrent.com
 .plus39italiandesign.com
 .plus.com
-.plus.espn.com
 .plusideaad.com
 .pluto.tv
 .pmfaccountant.com
@@ -7240,7 +7240,6 @@ seriesmetro.net
 .shagle.com
 .shagunproperty.com
 .shahanabiomedicals.com
-.shahid.mbc.net
 .shakysomal.com
 .shamanic-extracts.biz
 .shampooherbal.com
@@ -8350,6 +8349,7 @@ seriesmetro.net
 .ulewicky.net
 .uloz.to
 .ulozto.net
+.ulozto.sk
 .ultimatepro.us
 .ultimosestrenosenmega.blogspot.com
 .ul.to

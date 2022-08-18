@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5162674|133,1 MB|
+|blackweb.txt|5245759|135,9 MB|
 
 ## GIT CLONE
 
@@ -425,7 +425,9 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Kerry Cordero. *Blocklists of Suspected Malicious IPs and URLs*](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
 - [stackoverflow.com. *Blacklist IP database*](https://stackoverflow.com/a/39516166/8747573)
 - [opensourcelibs](https://opensourcelibs.com/lib/blackweb)
-- [community ipfire]https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
+- [community ipfire](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
+- [WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
+- [Jason Trost. Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
 
 ## CONTRIBUTIONS
 
