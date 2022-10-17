@@ -3463,10 +3463,9 @@
 .granitgjana.com
 .granmarquise.com.br
 .grantorrent.co
-grantorrent.se
+.grantorrent.se
 .grantorrents.org
 .graph.org
-.graph-video.facebook.com
 .gravatar.com
 .graveyardsofmilwaukee.org
 .gray-associates.co.uk
@@ -8081,6 +8080,7 @@ seriesmetro.net
 .tisystems.cz
 .titreplus.ca
 .tiurll.com
+.tivify.es
 .tkdami.net
 .tmblr.co
 .tmcaster.com

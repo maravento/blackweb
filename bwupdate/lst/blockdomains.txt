@@ -1,4 +1,4 @@
-# GOOGLE
+# GOOGLE VIDEO
 .ggpht.com
 .googlesyndication.com
 .googlevideo.com
@@ -20,7 +20,19 @@
 .youtube.ru
 .ytimg.com
 .ytimg.l.google.com
-# FACEBOOK
+# MICROSOFT UPDATE/TELEMETRY
+.binaries.templates.cdn.office.net
+.client.wns.windows.com
+.delivery.mp.microsoft.com
+.download.microsoft.com
+.telemetry.microsoft.com
+.trafficmanager.net
+.update.microsoft.com
+.windowsupdate.com
+.windowsupdate.microsoft.com
+.xboxab.com
+.xboxlive.com
+# FACEBOOK VIDEO
 .edge-video-shv-01-ams2.fbcdn.net
 .edge-video-shv-01-arn2.fbcdn.net
 .edge-video-shv-01-atl3.fbcdn.net
