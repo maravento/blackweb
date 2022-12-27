@@ -1547,6 +1547,7 @@
 .cinecalidad.movie
 .cinecalidad.nz
 .cinecalidad.pro
+.cinecalidad.run
 .cinecalidad.tv
 .cinecalidad.vip
 .cinecallidad.xyz
@@ -7818,7 +7819,6 @@ seriesmetro.net
 .tanzecampus.com
 .taotao500.cn
 .taowaisou.com
-.tapad.com
 .tapecontent.net
 .taphaco.com
 .ta-pu.ir
