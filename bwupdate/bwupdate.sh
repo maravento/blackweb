@@ -95,13 +95,12 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://adaway.org/hosts.txt' && sleep 1
 	    blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
 	    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
-	    blurls 'https://data.netlab.360.com/feeds/dga/dga.txt' && sleep 1
 	    blurls 'https://easylist-downloads.adblockplus.org/advblock.txt' && sleep 1
 	    blurls 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt' && sleep 1
 	    blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
 	    blurls 'https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw/77eee956303e8d6ff2f4df61d3e2c0b60d023268/MS-2' && sleep 1
 	    blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
-	    blurls 'https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt' && sleep 1
+	    blurls 'https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
 	    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
 	    blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
@@ -172,15 +171,12 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
-	    blurls 'https://v.firebog.net/hosts/BillStearns.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Kowabit.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Ads.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Crypto.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
-	    blurls 'https://v.firebog.net/hosts/Prigent-Phishing.txt' && sleep 1
-	    blurls 'https://v.firebog.net/hosts/Shalla-mal.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
 	    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
 	    blurls 'https://www.zoso.ro/pages/rolist.txt' && sleep 1
@@ -189,14 +185,13 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
-	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
 	    blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	    blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	    blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	    	    
+
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {
     wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null

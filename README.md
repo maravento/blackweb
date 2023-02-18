@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5251230|136.3 MB|
+|blackweb.txt|5245193|136,3 MB|
 
 ## GIT CLONE
 
@@ -300,7 +300,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [FadeMind Risk](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts)
 - [FadeMind Spam](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts)
 - [fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
-- [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [BillStearns](https://v.firebog.net/hosts/BillStearns.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
+- [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 - [frogeye](https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt)
 - [gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
 - [Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
@@ -317,7 +317,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts))
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
-- [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [NoCoin adblock list](https://github.com/hoshsadiq/adblock-nocoin-list)
 - [nothingblock](https://github.com/dorxmi/nothingblock)
 - [Oleksiig](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
@@ -339,12 +338,12 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Taz SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 - [txthinking](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
 - [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
-- [URLhaus Malicious URL Blocklist](https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter.txt)
+- [URLhaus Malicious URL Blocklist](https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt)
 - [vokins yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
 - [Winhelp2002](http://winhelp2002.mvps.org/hosts.txt)
 - [YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
-- [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt), [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt))
+- [zerodot1 CoinBlockerLists](https://gitlab.com/ZeroDot1/CoinBlockerLists) (included: [Host](https://zerodot1.gitlab.io/CoinBlockerLists/hosts), [host_browser](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser), [host_optional](https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional), [list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt), [list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt))
 
 #### Inactive, Discontinued or Private
 
@@ -353,6 +352,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
+- [BillStearns](https://v.firebog.net/hosts/BillStearns.txt)
 - [Carl Spam](http://www.carl.net/spam/access.txt)
 - [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
@@ -360,14 +360,18 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [firebog.net](firebog.net) (included: [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt))
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
+- [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt)
 - [malc0de](http://malc0de.com/bl/)
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
+- [Netlab360 DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [Passwall SpamAssassin](http://www.passwall.com/blacklist.txt)
+- [Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt)
 - [Ransomware Abuse (Ransomware Tracker has been discontinued on Dec 8th, 2019)](https://ransomwaretracker.abuse.ch/blocklist/) (included: [CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt), [Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt), [Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt), [Ransomware Abuse](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt) ,[URL Blocklist](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt),[TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt))
 - [Shallalist.de](http://www.shallalist.de/Downloads/shallalist.tar.gz)
+- [Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt)
 - [squidblacklist.org](https://www.squidblacklist.org/) (included: [dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl), [dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl))
 - [tankmohit UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)

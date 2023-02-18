@@ -2708,8 +2708,6 @@
 .facebook.co
 .facebook.com
 .facebook.com.br
-.facebook.com.edgekey.net
-.facebook.com.edgesuite.net
 .facebook.de
 .facebook.fr
 .facebook.it
