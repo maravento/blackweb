@@ -718,6 +718,7 @@
 .audreyetsteve.fr
 .aujourdhui.com
 .auntsallyembroidery.com
+.aurainnayaab.com
 .aurarad.is
 .australiandietitian.com
 .australiasupportemail.com
@@ -2708,6 +2709,8 @@
 .facebook.co
 .facebook.com
 .facebook.com.br
+.facebook.com.edgekey.net
+.facebook.com.edgesuite.net
 .facebook.de
 .facebook.fr
 .facebook.it
