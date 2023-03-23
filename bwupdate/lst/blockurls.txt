@@ -1892,11 +1892,14 @@
 .customrestaurantapps.com
 .cutillas.fr
 .cutout.es
+.cutty.app
 .cutwell.ca
 .cutw.in
+.cuty.io
 .cvanchen.com
 .cvoicechat.com
 .cvshopfactory.com
+.cwctv.me
 .cwdelaware.com
 .cwsnet.com.au
 .cwv.cc
@@ -3443,6 +3446,7 @@
 .gotdns.org
 .gothamserver.net
 .gouri-gouri.com
+.gourlpro.com
 .gourmetlimes.com
 .govtsmartjob.com
 .gpd24.pl
@@ -4497,6 +4501,7 @@
 .karakascit.com
 .karanpc.com
 .karanpccrack.com
+.karanpc-software.work
 .kardborren.se
 .karelia.ru
 .karens.com.au
@@ -5260,6 +5265,7 @@
 .metooo.io
 .metrapol.net
 .metro.ru
+.mexa.sh
 .mexusconsulting.com
 .mfa-uz.com
 .mgascca.com
@@ -5997,6 +6003,7 @@
 .onthewifi.com
 .ontimesupplies.com
 .onushilon.org
+.onx.la
 .oogur.com
 .ooomaksim.ru
 .ooyala.com
@@ -6782,6 +6789,7 @@
 .repelis.tube
 .repelisuzefs.blogspot.com
 .repka.eu
+.repl.co
 .reporter-studio.ru
 .republika.pl
 .rerda.com
@@ -7298,6 +7306,7 @@ seriesmetro.net
 .shuklaenterprises.in
 .shurt.pw
 .shuswaphandyman.com
+.shycloud.one
 .shydnt.com
 .shzgjx88.com
 .siamimplement.co.th
@@ -7455,6 +7464,7 @@ seriesmetro.net
 .softether.org
 .softonic.com
 .softpedia.com
+.softvela.com
 .software24x7.us
 .software-unlimited.at
 .sofwerx.org
@@ -8441,6 +8451,7 @@ seriesmetro.net
 .urlike.net
 .url.ng
 .urlof.site
+.urlpay.net
 .urlsh.me
 .ur.ly
 .usaegisgroup.com

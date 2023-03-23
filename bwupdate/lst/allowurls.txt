@@ -7127,6 +7127,8 @@
 .colsts.msn.com
 .columbia.adexpert.msn.com
 .columbia.rnr.adexpert.msn.com
+.com.edgekey.net
+.com.edgesuite.net
 .com600.brazilsouth.cloudapp.azure.com
 .com600v.brazilsouth.cloudapp.azure.com
 .com600w.brazilsouth.cloudapp.azure.com
@@ -25234,6 +25236,8 @@
 .sstatic.net
 .stackexchange.com
 .stackoverflow.com
+.starlinkisp.net
+.starlink.com
 .statestreet.com
 .status.rapidssl.com
 .stopforumspam.com
