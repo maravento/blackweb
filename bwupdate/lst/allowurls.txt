@@ -18833,6 +18833,7 @@
 .in.gov
 .inl.gov
 .innocencecommission-nc.gov
+.ins.gov.co
 .insurekidsnow.gov
 .integrity.gov
 .intelligence.gov
@@ -19961,6 +19962,7 @@
 .projectsafechildhood.gov
 .projectsafeneighborhoods.gov
 .proni.gov.uk
+.pronosticosyalertas.gov.co
 .prosperidadsocial.gov.co
 .prospertx.gov
 .protecciondelconsumidor.gov
@@ -20098,6 +20100,7 @@
 .rpvca.gov
 .rrb.gov
 .rtvc.gov.co
+.ruaf.gov.co
 .ruidoso-nm.gov
 .rulewatchohio.gov
 .rumsonnj.gov
@@ -24486,6 +24489,8 @@
 .allus.com.co
 .alterserv.com
 .amazonaws.com
+.amazonaws.com.cn
+.amazonaws.cn
 .amazon.com
 .amcore.com
 .amd.com
@@ -24833,8 +24838,9 @@
 .eset-la.com
 .eset.no
 .eset.sg
-.esigna.me
+.esigma.me
 .esignabox.com
+.esigna.me
 .etb.net.co
 .etrade.com
 .eum-appdynamics.com
@@ -24848,8 +24854,10 @@
 .fastly.com
 .fastly.net
 .fcfbank.com
+.fdcservers.net
 .fedearroz.com.co
 .fedex.com
+.fedoraproject.org
 .fenalco.com.co
 .fenavi.org
 .fes.de
@@ -24857,6 +24865,7 @@
 .file.org
 .finagro.com.co
 .firebog.net
+.firefox.com
 .firefox.settings.services.mozilla.com
 .firstbankpr.com
 .firstbanks.com
@@ -24923,6 +24932,7 @@
 .homelinux.net
 .homelinux.org
 .hora724.com
+.hosteur.com
 .hostsfile.mine.nu
 .hosts-file.net
 .hostsfile.org
@@ -24946,11 +24956,11 @@
 .indicedetransparencia.org.co
 .infospyware.com
 .infoworld.com
+.instructure.com
 .intel.cn
 .intel.com
 .intel.la
 .inter.la
-.instructure.com
 .isrg.trustid.ocsp.identrust.com
 .itagil.com
 .java.com
@@ -24968,6 +24978,7 @@
 .kiusys.net
 .kobotoolbox.org
 .ksmobile.com
+.kuleuven.be
 .kwiqflick.com
 .laguajirahoy.com
 .lair.io
@@ -24984,6 +24995,9 @@
 .launchpad.net
 .lavoz.com.ar
 .lavoz.com.co
+.legis.co
+.legis.com.co
+.lencr.org
 .lenovo.com
 .letsencrypt.org
 .libretamilitar.mil.co
@@ -24999,6 +25013,7 @@
 .list-manage1.com
 .llanoalmundo.com
 .llanosietedias.com
+.lockproxy.com
 .lookproxy.com
 .lpsmedia.net
 .lumendatabase.org
@@ -25174,6 +25189,7 @@
 .referencistas.com
 .refinancia.com.co
 .regions.com
+.render.com
 .research.net
 .risaraldahoy.com
 .rmprepusb.com
@@ -25181,6 +25197,7 @@
 .root-servers.net
 .ruda.slm.cloud
 .runt.com.co
+.ryslabs.io
 .s1.symcb.com
 .s2.symcb.com
 .s3.amazonaws.com
@@ -25196,10 +25213,13 @@
 .satena.shop
 .schwab.com
 .scribd.com
+.scaleway.com
 .scrootca1.ocsp.secomtrust.net
+.scw.cloud
 .sdccu.com
 .secomtrust.net
 .secrepo.com
+.sectigo.com
 .secure.globalsign.com
 .secureserver.net
 .seguimiento.co
@@ -25211,8 +25231,10 @@
 .sertigo.com
 .serverfault.com
 .servientrega.com
+.sfx.ms
 .shallalist.de
 .siiwebsas.com
+.sik.sites.net
 .simbogota.com.co
 .simit.org.co
 .simple.co
@@ -25222,6 +25244,7 @@
 .snapcraft.io
 .sni.cloudflaressl.com
 .soficas.com
+.software-colombia.com
 .solipagosonline.com.co
 .someonewhocares.org
 .somersettechsolutions.co.uk
@@ -25236,8 +25259,8 @@
 .sstatic.net
 .stackexchange.com
 .stackoverflow.com
-.starlinkisp.net
 .starlink.com
+.starlinkisp.net
 .statestreet.com
 .status.rapidssl.com
 .stopforumspam.com
@@ -25393,3 +25416,4 @@
 .zonacero.com
 .zonapagos.com
 .zoom.us
+.zopim.com

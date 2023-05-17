@@ -85,11 +85,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 		    echo ERROR "$1"
     fi
     }
-	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
-	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
-	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
-	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
-	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
 	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	    blurls 'https://adaway.org/hosts.txt' && sleep 1
@@ -132,8 +127,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
@@ -161,6 +158,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
+	    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
 	    blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
@@ -246,8 +247,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     echo "${bw09[${en}]}"
     # create urls.txt
     sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u > urls.txt
-    # add oldurls.txt to capture
-    tar -xvzf lst/oldurls.tar.gz -O >> capture 2> /dev/null
     # unblock remote
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
     # block remote

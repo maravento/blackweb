@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5261386|136,5 MB|
+|blackweb.txt|5708988|144,7 MB|
 
 ## GIT CLONE
 
@@ -303,6 +303,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 - [frogeye](https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt)
 - [gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
+- [hagezi dns-blocklists](https://github.com/hagezi/dns-blocklists)
 - [Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 - [hBlock](https://hblock.molinero.dev/hosts_domains.txt)
 - [hexxium](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
@@ -347,8 +348,6 @@ Blackweb: Done 06/05/2019 15:47:14
 
 #### Inactive, Discontinued or Private
 
-*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to `oldurls.txt`*
-
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
 - [BambenekConsulting](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
@@ -388,8 +387,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
 #### Inactive, Discontinued or Private
-
-*Recovered by [Wayback Machine](https://archive.org/web/), debugged and added to `allowurls.txt`*
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) ([No longer support](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
