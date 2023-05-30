@@ -396,7 +396,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Old URls](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 
 ### Worktools
@@ -429,6 +428,13 @@ Blackweb: Done 06/05/2019 15:47:14
 - [community ipfire](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
 - [WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
 - [Jason Trost. Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
+
+## STARGAZERS
+
+---
+
+<p align="center"><a href="https://github.com/maravento/blackweb/stargazers"><img alt="" src="https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?theme=dark&user=maravento&repo=blackweb"/></a></p>
+
 
 ## CONTRIBUTIONS
 

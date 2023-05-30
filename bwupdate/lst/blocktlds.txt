@@ -23,6 +23,13 @@
 .shop
 .vodka
 .xxx
+# Abuse TLDs
+.beauty
+.dev
+.mov
+.wtf
+.zip
+.beauty
 # Social / Media Content / Market
 .cam
 .camera

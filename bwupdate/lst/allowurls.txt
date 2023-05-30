@@ -24838,7 +24838,6 @@
 .eset-la.com
 .eset.no
 .eset.sg
-.esigma.me
 .esignabox.com
 .esigna.me
 .etb.net.co
@@ -25013,6 +25012,7 @@
 .list-manage1.com
 .llanoalmundo.com
 .llanosietedias.com
+.lleida.net
 .lockproxy.com
 .lookproxy.com
 .lpsmedia.net
