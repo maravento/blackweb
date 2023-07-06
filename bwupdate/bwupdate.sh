@@ -85,7 +85,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 		    echo ERROR "$1"
     fi
     }
-	    blurls 'http://cybercrime-tracker.net/all.php' && sleep 1
 	    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
 	    blurls 'https://adaway.org/hosts.txt' && sleep 1
 	    blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
@@ -180,18 +179,19 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
 	    blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
 	    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
-	    blurls 'https://www.zoso.ro/pages/rolist.txt' && sleep 1
 	    blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_optional' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
 	    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
+	    blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
 	    blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
 	    blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 	    blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	    blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+
 
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {

@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5708988|144,7 MB|
+|blackweb.txt|4863428|129,6 MB|
 
 ## GIT CLONE
 
@@ -281,7 +281,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [bigdargon](https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts)
 - [BlackJack8 iOSAdblockList](https://github.com/BlackJack8/iOSAdblockList) (included: [iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt) and [webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
 - [chadmayfield](https://github.com/chadmayfield) (included: [porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list), [porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list))
-- [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
 - [cobaltdisco Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt)
 - [crazy-max WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 - [DandelionSprout adfilt](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt)
@@ -355,6 +354,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Carl Spam](http://www.carl.net/spam/access.txt)
 - [cedia.org.ec](https://mirror.cedia.org.ec) (included: [domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt), [immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt))
 - [CHEF-KOCH BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
+- [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
 - [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
 - [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [firebog.net](firebog.net) (included: [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt))
