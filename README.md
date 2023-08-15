@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4863428|129,6 MB|
+|blackweb.txt|4564168|124,0 MB|
 
 ## GIT CLONE
 
@@ -450,7 +450,7 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
 
-## LICENCES
+## LICENSES
 
 ---
 
