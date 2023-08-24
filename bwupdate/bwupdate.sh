@@ -192,7 +192,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	    blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
 	    blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
 
-
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {
     wget --no-check-certificate --timeout=10 --tries=1 --method=HEAD "$1" &>/dev/null
