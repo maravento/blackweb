@@ -390,7 +390,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) ([No longer support](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
 
-### Debug
+### Debug Lts
 
 - [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
@@ -400,12 +400,12 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ### Worktools
 
-- [Debug Squid-Cache Errors](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debug_error.py)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/parse_domain.py))
-- [Debug internal lst](https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/tools/debuglst.sh)
+- [Debug Squid-Cache Errors](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
+- [Debug internal lst](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/gateproxy/master/conf/scr/bandwidth.sh)
+- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/vault/master/scripts/bash/bandwidth.sh)
 
 ## BACKLINKS
 

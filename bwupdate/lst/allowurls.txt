@@ -25112,6 +25112,7 @@
 .omtrdc.net
 .onlinemd5.com
 .opanoticias.com
+.openai.com
 .openphish.com
 .opensource.org
 .openstreetmap.org
