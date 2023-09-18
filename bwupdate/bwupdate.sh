@@ -31,34 +31,8 @@ route="/etc/acl"
 # CREATE PATH
 if [ ! -d "$route" ]; then sudo mkdir -p "$route"; fi
 
-# CHECKING DOWNLOAD BANDWIDTH (Optional)
-# https://raw.githubusercontent.com/maravento/vault/master/scripts/bash/bandwidth.sh
-echo "${bw03[${en}]}"
-dlmin="1.00"
-mb="Mbit/s"
-dl=$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --simple --no-upload | grep 'Download:')
-resume=$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --simple)
-dlvalue=$(echo "$dl" | awk '{print $2}')
-dlmb=$(echo "$dl" | awk '{print $3}')
-
-function bandwidth() {
-	if (($(echo "$dlvalue $dlmin" | awk '{print ($1 < $2)}'))); then
-		echo "WARNING! Bandwidth Download Slow: $dlvalue $dlmb < $dlmin $mb (min value)"
-		notify-send "WARNING! Bandwidth Download Slow:" "$dlvalue $dlmb < $dlmin $mb (min value)" -i checkbox
-	else
-		echo "OK"
-	fi
-}
-
-if [[ "$mb" == "$dlmb" ]]; then
-	bandwidth
-else
-	echo "Incorrect Value. Abort: $resume"
-	notify-send "Incorrect Value. Abort:" "$resume" -i checkbox
-	exit
-fi
-
 clear
+echo
 echo "Blackweb Project"
 echo "${bw01[${en}]}"
 
@@ -136,7 +110,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
 	blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt' && sleep 1
 	blurls 'https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
@@ -187,7 +160,9 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	blurls 'https://v.firebog.net/hosts/Prigent-Crypto.txt' && sleep 1
 	blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
 	blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
+	blurls 'https://winhelp2002.mvps.org/hosts.txt' && sleep 1
 	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+	blurls 'https://www.taz.net.au/Mail/SpamDomains' && sleep 1
 	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser' && sleep 1
@@ -195,11 +170,8 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
 	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
 	blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
-	blurls 'http://winhelp2002.mvps.org/hosts.txt' && sleep 1
-	blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
-	blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
-	blurls 'http://www.malwaredomainlist.com/hostslist/hosts.txt' && sleep 1
-	blurls 'http://www.taz.net.au/Mail/SpamDomains' && sleep 1
+	#blurls 'http://www.joewein.net/dl/bl/dom-bl-base.txt' && sleep 1
+	#blurls 'http://www.joewein.net/dl/bl/dom-bl.txt' && sleep 1
 
 	# DOWNLOADING BIG BLOCKLISTS
 	function targz() {
@@ -378,5 +350,4 @@ if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
 
 # END
 sudo bash -c 'echo "Blackweb Done: $(date)" | tee -a /var/log/syslog'
-notify-send "Blackweb Update Done" "$(date)" -i checkbox
 echo "${bw18[${en}]}"

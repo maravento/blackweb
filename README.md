@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4531171|123,5 MB|
+|blackweb.txt|4532261|123,3 MB|
 
 ## GIT CLONE
 
@@ -158,10 +158,6 @@ if ! dpkg -s $pkgs >/dev/null 2>&1; then
 fi
 ```
 
-#### Bandwidth Check (optional)
-
->To guarantee update execution, before starting, script check bandwidth (with [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). If it is > 1 Mbit/s, update continues; else, it shows warning messages and it is recommended to interrupt update / Para garantizar la ejecución de la actualización, antes de comenzar, el script verifica el acho de banda (con [Speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py)). Si es > 1 Mbit/s, la actualización continúa; de lo contrario, muestra mensajes de advertencia y se recomienda interrumpir la actualización
-
 #### Capture Public Blocklists
 
 >Capture domains from downloaded public blocklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file / Captura los dominios de las listas de bloqueo públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo
@@ -301,7 +297,6 @@ Blackweb: Done 06/05/2019 15:47:14
 - [fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
 - [firebog.net](firebog.net) (included: [AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt), [Admiral](https://v.firebog.net/hosts/Admiral.txt), [Easylist](https://v.firebog.net/hosts/Easylist.txt), [Easyprivacy](https://v.firebog.net/hosts/Easyprivacy.txt), [Kowabit](https://v.firebog.net/hosts/Kowabit.txt), [Prigent-Ads](https://v.firebog.net/hosts/Prigent-Ads.txt), [Prigent-Malware](https://v.firebog.net/hosts/Prigent-Malware.txt), [Prigent-Crypto](https://v.firebog.net/hosts/Prigent-Crypto.txt), [WaLLy3K](https://v.firebog.net/hosts/static/w3kbl.txt))
 - [frogeye](https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt)
-- [gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
 - [hagezi dns-blocklists](https://github.com/hagezi/dns-blocklists)
 - [Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 - [hBlock](https://hblock.molinero.dev/hosts_domains.txt)
@@ -310,10 +305,9 @@ Blackweb: Done 06/05/2019 15:47:14
 - [iploggerfilter](https://github.com/piperun/iploggerfilter)
 - [Jawz101 Potencial Trackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
 - [Joelotz URL](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
-- [Joewein](http://www.joewein.de/sw/bl-text.htm)
+- [Joewein](http://www.joewein.de/sw/bl-text.htm) (under review for possible inactivity)
 - [KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
 - [malspam emotet list](https://github.com/MBThreatIntel/malspam)
-- [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [Matomo-org](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
 - [mitchellkrogza](https://github.com/mitchellkrogza) (included: [Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains), [Hacked Malware Web Sites](https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/.dev-tools/_strip_domains/domains.txt), [Nginx Ultimate Bad Bot Blocker](https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list), [The Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list), [Ultimate Hosts Blacklist](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts))
 - [NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
@@ -358,10 +352,12 @@ Blackweb: Done 06/05/2019 15:47:14
 - [dshield.org](http://www.dshield.org) (included: [Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt), [Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt), [High](https://www.dshield.org/feeds/suspiciousdomains_High.txt))
 - [Easylist Latvian](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [firebog.net](firebog.net) (included: [Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt), [Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt))
+- [gfmaster adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
 - [hosts-file.net](https://hosts-file.net) (included: [ad_servers](https://hosts-file.net/ad_servers.txt), [emd](https://hosts-file.net/emd.txt), [grm](https://hosts-file.net/grm.txt), [hosts](http://hosts-file.net/download/hosts.txt), [psh](https://hosts-file.net/psh.txt))
 - [list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt)
 - [malc0de](http://malc0de.com/bl/)
 - [Malware Domains](http://mirror1.malwaredomains.com/files/justdomains)
+- [Malwaredomainlist Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
 - [margevicius easylistlithuania](http://margevicius.lt/easylistlithuania.txt)
 - [MESD](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Neohost](https://hosts.nfz.moe/full/hosts)
@@ -376,36 +372,26 @@ Blackweb: Done 06/05/2019 15:47:14
 - [UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
 - [Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
 
-### ALLOWLISTS (URL/TLD)
+### DEBUG LISTS
 
-#### Active
-
+- [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
+- [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+- [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 - [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
+- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-#### Inactive, Discontinued or Private
-
-- [O365IPAddresses](https://support.content.office.net/en-us/static/O365IPAddresses.xml) ([No longer support](ocs.microsoft.com/es-es/office365/enterprise/urls-and-ip-address-ranges?redirectSourcePath=%252fen-us%252farticle%252fOffice-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2))
-
-### Debug Lts
-
-- [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-
-### Worktools
+### WORKTOOLS
 
 - [Debug Squid-Cache Errors](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [Debug internal lst](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [speedtest](https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py) and [bandwidth](https://raw.githubusercontent.com/maravento/vault/master/scripts/bash/bandwidth.sh)
 
 ## BACKLINKS
 
@@ -433,8 +419,7 @@ Blackweb: Done 06/05/2019 15:47:14
 
 ---
 
-<p align="center"><a href="https://github.com/maravento/blackweb/stargazers"><img alt="" src="https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?theme=dark&user=maravento&repo=blackweb"/></a></p>
-
+[![Stargazers repo roster for @maravento/blackweb](https://reporoster.com/stars/maravento/blackweb)](https://github.com/maravento/blackweb/stargazers)
 
 ## CONTRIBUTIONS
 
@@ -444,7 +429,7 @@ We thank all those who have contributed to this project. Those interested can co
 
 Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
-# DONATE
+## DONATE
 
 ---
 
