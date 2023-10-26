@@ -23846,6 +23846,7 @@
 .forbes.com
 .force.com
 .forms.gle
+.forwardemail.net
 .franzinfra.com
 .freefilesync.org
 .freegeoip.net
@@ -23915,6 +23916,7 @@
 .identrust.com
 .ifx.net.co
 .ilovepdf.com
+.improvmx.com
 .inboxsdk.com
 .inconcertcc.com
 .indicedetransparencia.org.co
@@ -23986,7 +23988,9 @@
 .maganguehoy.co
 .mailchimp.com
 .mailgrupobancolombia.com.co
+.mailgun.net
 .mailtrack.io
+.mailtie.com
 .malc0de.com
 .malwaredomainlist.com
 .malware-domains.com

@@ -1,43 +1,48 @@
-# GENERIC TOP LEVEL DOMAIN (gTLD)
-# Reputation Block Lists (RBLs)
+## GENERIC TOP LEVEL DOMAIN (gTLD)
+# TLDs Abused (Based on Reputation Block Lists RBLs)
 .adult
 .bar
 .beer
 .cash
+.cf
 .cheap
 .click
 .club
 .download
 .fun
+.gq
 .guru
 .link
 .lol
 .lotto
+.ml
 .money
+.mov
 .porn
 .promo
 .pub
 .racing
 .sex
 .sexy
-.shop
+.tk
 .vodka
-.xxx
-# Abuse TLDs
-.beauty
-.dev
-.mov
 .wtf
+.xxx
 .zip
+## OPTIONAL
+# Social / Media / Market / Games
 .beauty
-# Social / Media Content / Market
+.bingo
 .cam
 .camera
+.casino
 .channel
 .chat
 .entertainment
 .fan
 .fm
+.game
+.games
 .live
 .market
 .marketing
@@ -51,8 +56,11 @@
 .photo
 .photos
 .pictures
+.play
+.poker
 .radio
 .rocks
+.shop
 .social
 .song
 .stream
@@ -61,13 +69,6 @@
 .video
 .watch
 .webcam
-# Games / Play
-.bingo
-.casino
-.game
-.games
-.play
-.poker
 .win
 # Unverified Domains
 .888
@@ -82,7 +83,7 @@
 .wallet
 .x
 .zil
-# COUNTRY CODE TOP LEVEL DOMAIN (ccTLD) (Optional)
+## COUNTRY CODE TOP LEVEL DOMAIN (ccTLD)
 # Sponsors of terrorism / Financial Action Task Force FATF-GAFI
 #.by
 #.cn

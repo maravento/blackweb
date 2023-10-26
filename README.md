@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4559263|123,7 MB|
+|blackweb.txt|4563766|123,8 MB|
 
 ## GIT CLONE
 
@@ -141,7 +141,9 @@ This section is only to explain how update and optimization process works. It is
 
 #### Blackweb Update
 
->The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh` / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`
+>The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`. / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`.
+
+>The script will request privileges when required. / El script solicitará privilegios cuando lo requiera.
 
 ```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
@@ -255,8 +257,8 @@ Blackweb: Done 06/05/2019 15:47:14
 
 - The default path of **blackweb** is `/etc/acl`. You can change it for your preference / El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el de su preferencia
 - `bwupdate.sh` includes lists of domains related to remote support (Teamviewer, Anydesk, logmein, etc). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos
-- If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the **DNS Loockup** part (3 verification steps), it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de **DNS Loockup** (3 pasos de verificación), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
-- During the execution of `bipupdate.sh` it will request privileges when needed / Durante la ejecución de `bipupdate.sh` solicitará privilegios cuando los necesite
+- If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
+- If someone believes that any URL, included in `allowurls.txt` and `blockurls.txt`, should not be in these lists, can create an [Issue](https://github.com/maravento/blackweb/issues) and notify to remove it. / Si alguien considera que alguna URL, incluida en `allowurls.txt` y `blockurls.txt`, no debería estar en estas listas, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificar para removerla.
 
 ## SOURCES
 
@@ -440,30 +442,31 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Debug Squid-Cache Errors](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [Debug internal lst](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 
-## BACKLINKS
+## REFERENCES
 
 ---
 
-- [OSINT Framework. *Domain Name/Domain Blacklists/Blackweb*](https://osintframework.com/)
-- [Wikipedia. *Blacklist_(computing)*](https://en.wikipedia.org/wiki/Blacklist_(computing)#:~:text=There%20are%20also%20free%20blacklists%20for%20Squid%20(software)%20proxy%2C%20such%20as%20Blackweb)
-- [Zeltser. *Free Blocklists of Suspected Malicious IPs and URLs*](https://zeltser.com/malicious-ip-blocklists/)
-- [Segu-Info. *Análisis de malware y sitios web en tiempo real*](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
-- [covert.io. *Getting Started with DGA Domain Detection Research*](http://www.covert.io/getting-started-with-dga-research/)
-- [Keystone Solutions. *blocklists*](https://keystonesolutions.io/solutions/blocklists/)
-- [Secrepo. *Samples of Security Related Data*](http://www.secrepo.com/)
-- [Soficas. *CiberSeguridad - Protección Activa*](https://soficas.com/noticias/proteccion-ciberseguridad.html)
-- [Xploitlab. *Projects using WindowsSpyBlocker*](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
-- [Awesome Open Source. *Blackweb*](https://awesomeopensource.com/project/maravento/blackweb)
-- [Lifars. *Sites with blocklist of malicious IPs and URLs*](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
-- [Kerry Cordero. *Blocklists of Suspected Malicious IPs and URLs*](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
-- [stackoverflow.com. *Blacklist IP database*](https://stackoverflow.com/a/39516166/8747573)
-- [opensourcelibs](https://opensourcelibs.com/lib/blackweb)
-- [community ipfire](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
-- [WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
-- [Jason Trost. Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
+- [Awesome Open Source: Blackweb](https://awesomeopensource.com/project/maravento/blackweb)
+- [community ipfire: url filter and self updating blacklists](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
+- [covert.io: Getting Started with DGA Domain Detection Research](http://www.covert.io/getting-started-with-dga-research/)
+- [crazymax: WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
+- [Jason Trost: Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
+- [kandi.openweaver: Domains Blocklist for Squid-Cache](https://kandi.openweaver.com/shell/maravento/blackweb)
+- [Kerry Cordero: Blocklists of Suspected Malicious IPs and URLs](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
+- [Keystone Solutions: blocklists](https://keystonesolutions.io/solutions/blocklists/)
+- [Lifars: Sites with blocklist of malicious IPs and URLs](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
+- [opensourcelibs: Blackweb](https://opensourcelibs.com/lib/blackweb)
+- [OSINT Framework: Domain Name/Domain Blacklists/Blackweb](https://osintframework.com/)
+- [Secrepo: Samples of Security Related Data](http://www.secrepo.com/)
+- [Segu-Info: Análisis de malware y sitios web en tiempo real](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
+- [Soficas: CiberSeguridad - Protección Activa](https://soficas.com/noticias/proteccion-ciberseguridad.html)
+- [stackoverflow: Blacklist IP database](https://stackoverflow.com/a/39516166/8747573)
+- [Wikipedia: Blacklist_(computing)](https://en.wikipedia.org/wiki/Blacklist_(computing)#:~:text=There%20are%20also%20free%20blacklists%20for%20Squid%20(software)%20proxy%2C%20such%20as%20Blackweb)
+- [Xploitlab: Projects using WindowsSpyBlocker](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
+- [Zeltser: Free Blocklists of Suspected Malicious IPs and URLs](https://zeltser.com/malicious-ip-blocklists/)
 
 ## STARGAZERS
 
@@ -514,10 +517,4 @@ Therefore / Por tanto
 
 **blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist**, **etc.**
 
-are terms that have nothing to do with racial discrimination / son términos que no tienen ninguna relación con la discriminación racial
-
-## NOTICE
-
----
-
-The urls included in the acl `allowurls.txt` and`blockurls.txt`, may be notified to the admin, via email and will have a period of 72 hours to accept or reject the inclusion. After the deadline, the inclusion will be permanent, unless the object or url changes, or is included in a public block list / Las urls incluidas en las acl `allowurls.txt` y `blockurls.txt`, podrán ser notificadas al admin, via mail y tendrá un plazo de 72 horas para aceptar o rechazar la inclusión. Superado el plazo, la inclusión será permanente, excepto que cambie el objeto o url, o sea incluida en alguna lista de bloqueo pública
+**Are terms that have nothing to do with racial discrimination / Son términos que no tienen ninguna relación con la discriminación racial**
