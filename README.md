@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4563766|123,8 MB|
+|blackweb.txt|4582994|124,2 MB|
 
 ## GIT CLONE
 
@@ -375,7 +375,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [zerodot1 list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt)
 - [zerodot1 list_optional](https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt)
 
-#### Inactive, Discontinued or Private
+#### Inactive, Offline, Discontinued or Private
 
 - [280blocker](https://280blocker.net/files/280blocker_domain.txt)
 - [adblockplus malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
@@ -467,12 +467,13 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Wikipedia: Blacklist_(computing)](https://en.wikipedia.org/wiki/Blacklist_(computing)#:~:text=There%20are%20also%20free%20blacklists%20for%20Squid%20(software)%20proxy%2C%20such%20as%20Blackweb)
 - [Xploitlab: Projects using WindowsSpyBlocker](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
 - [Zeltser: Free Blocklists of Suspected Malicious IPs and URLs](https://zeltser.com/malicious-ip-blocklists/)
+- [zenarmor: How-to-enable-web-filtering-on-OPNsense-proxy?](https://www.zenarmor.com/docs/network-security-tutorials/how-to-set-up-caching-proxy-in-opnsense#how-to-enable-web-filtering-on-opnsense-proxy)
 
 ## STARGAZERS
 
 ---
 
-[![Stargazers repo roster for @maravento/blackweb](https://reporoster.com/stars/maravento/blackweb)](https://github.com/maravento/blackweb/stargazers)
+[![Stargazers](https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?user=maravento&repo=blackweb)](https://github.com/maravento/blackweb/stargazers)
 
 ## CONTRIBUTIONS
 
@@ -482,7 +483,7 @@ We thank all those who have contributed to this project. Those interested can co
 
 Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
-## DONATE
+## SPONSOR THIS PROJECT
 
 ---
 
