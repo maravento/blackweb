@@ -438,6 +438,7 @@
 .altadevelopers.com
 .altaro.com
 .altbalaji.com
+.alterupload.com
 .altorelevo.net
 .alt-torrent.com
 .alu-bel.com
@@ -1585,6 +1586,7 @@
 .cjglobal.co
 .cjhdxz.com
 .cjohnsonmakeup.com
+.cjoint.net
 .claas.fr
 .clarity.ms
 .clarkesupports.com
@@ -2100,6 +2102,7 @@
 .deserial.com
 .desertkingwaterproofing.com
 .desertleather.com
+.desfichiers.com
 .design-ekb.ru
 .designera.org
 .designercabochons.co.uk
@@ -2199,6 +2202,7 @@
 .djprestige.net
 .djsevoo.com
 .dkck.com.tw
+.dl4free.com
 .dlive.tv
 .dljtjt.com
 .dlldump.com
@@ -5248,6 +5252,7 @@
 .megadescargas.net
 .megadescargas-new.blogspot.com
 .megadiscografiascompletas.xyz
+.megadl.fr
 .mega-estrenos.org
 .megafilesxl.com
 .megafly.in
@@ -5304,6 +5309,7 @@
 .merinnaa.com
 .merseine.com
 .merseine.org
+.mesfichiers.org
 .meshok.com.ua
 .mesohair.pl
 .messenger.com
@@ -6383,6 +6389,7 @@
 .pictify.com
 .pidaco.com
 .pidara.nl
+.piecejoince.net
 .pierre-adam.de
 .pietroconfalonieri.com
 .pileanoted.com
@@ -8017,6 +8024,7 @@ seriesmetro.net
 .tenalpsebooks.com
 .tengalo.com
 .tenji-guide.com
+.tenvoi.com
 .teothemes.com
 .teotozmaskesi.com
 .teracom.co.id

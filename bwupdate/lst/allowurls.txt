@@ -22312,7 +22312,6 @@
 .sebc.edu
 .sebec.edu.mx
 .sebts.edu
-.sectigo.com
 .se.edu
 .sehs.sa.edu.au
 .sek.edu
@@ -23702,7 +23701,6 @@
 .crt.rootca1.amazontrust.com
 .crt.rootg2.amazontrust.com
 .crt.sca1b.amazontrust.com
-.crt.sectigo.com
 .crt.usertrust.com
 .cs-g2-crl.thawte.com
 .custhelp.com
@@ -24070,7 +24068,6 @@
 .ocsp.rootg2.amazontrust.com
 .ocsp.sca1b.amazontrust.com
 .ocsp.secomtrust.net
-.ocsp.sectigo.com
 .ocsp.starfieldtech.com
 .ocsp.thawte.com
 .ocsp.usertrust.com
@@ -24202,7 +24199,6 @@
 .sertigo.com
 .serverfault.com
 .servientrega.com
-.sfx.ms
 .shallalist.de
 .siiwebsas.com
 .sik.sites.net

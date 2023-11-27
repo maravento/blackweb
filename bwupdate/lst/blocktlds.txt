@@ -17,7 +17,6 @@
 .lotto
 .ml
 .money
-.mov
 .porn
 .promo
 .pub
@@ -29,8 +28,7 @@
 .wtf
 .xxx
 .zip
-## OPTIONAL
-# Social / Media / Market / Games
+# Social / Media / Market / Games (Optional)
 .beauty
 .bingo
 .cam
@@ -70,7 +68,7 @@
 .watch
 .webcam
 .win
-# Unverified Domains
+# Unverified Domains (Optional)
 .888
 .bitcoin
 .blockchain
@@ -83,18 +81,27 @@
 .wallet
 .x
 .zil
-## COUNTRY CODE TOP LEVEL DOMAIN (ccTLD)
-# Sponsors of terrorism / Financial Action Task Force FATF-GAFI
+## COUNTRY CODE TOP LEVEL DOMAIN (ccTLD) (Optional)
+# Financial Action Task Force FATF-GAFI / OFAC's Sanctions List
 #.by
 #.cn
 #.cu
+#.et
+#.iq
 #.ir
 #.kp
+#.lb
+#.ly
+#.ml
+#.ni
 #.rf
 #.ru
+#.ss
 #.su
 #.sy
-# Punycode / ASCII DNS name
+#.ye
+#.zw
+# Punycode / ASCII DNS name (Optional)
 #.xn--fiqs8s
 #.xn--fiqz9s
 #.xn--p1ai
