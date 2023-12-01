@@ -39,236 +39,243 @@ echo "${bw01[${en}]}"
 # CHECK DNSLOOKUP1
 if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
-	# DELETE OLD REPOSITORY
-	if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
+    # DELETE OLD REPOSITORY
+    if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
 
-	# DOWNLOAD BLACKWEB
-	echo "${bw04[${en}]}"
-	svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
-	if [ -d "$bwupdate" ]; then
-		cd "$bwupdate" || {
-			echo "Access Error: $bwupdate"
-			exit 1
-		}
-	else
-		echo "Does not exist: $bwupdate"
-		exit 1
-	fi
-	mkdir -p bwtmp >/dev/null 2>&1
-	echo "OK"
+    # DOWNLOAD BLACKWEB
+    echo "${bw04[${en}]}"
+    svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
+    if [ -d "$bwupdate" ]; then
+        cd "$bwupdate" || {
+            echo "Access Error: $bwupdate"
+            exit 1
+        }
+    else
+        echo "Does not exist: $bwupdate"
+        exit 1
+    fi
+    mkdir -p bwtmp >/dev/null 2>&1
+    echo "OK"
 
-	# DOWNLOADING BLOCKURLS
-	echo "${bw05[${en}]}"
-	# download files
-	function blurls() {
-		curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-		if [ $? -eq 0 ]; then
-			$wgetd "$1" -O - >>bwtmp/bw
-		else
-			echo ERROR "$1"
-		fi
-	}
-	blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
-	blurls 'https://adaway.org/hosts.txt' && sleep 1
-	blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
-	blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
-	blurls 'https://easylist-downloads.adblockplus.org/advblock.txt' && sleep 1
-	blurls 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt' && sleep 1
-	blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
-	blurls 'https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt' && sleep 1
-	blurls 'https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw/77eee956303e8d6ff2f4df61d3e2c0b60d023268/MS-2' && sleep 1
-	blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
-	blurls 'https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt' && sleep 1
-	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
-	blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
-	blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
-	blurls 'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt' && sleep 1
-	blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
-	blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
-	blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
-	blurls 'http://someonewhocares.org/hosts/hosts' && sleep 1
-	blurls 'https://openphish.com/feed.txt' && sleep 1
-	blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
-	blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/BBcan177/minerchk/master/hostslist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/BBcan177/referrer-spam-blacklist/master/spammers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/CriticalPathSecurity/Public-Intelligence-Feeds/master/dom-bl.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv' && sleep 1
-	blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
-	blurls 'https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/neodevpro/neodevhost/master/domain' && sleep 1
-	blurls 'https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
-	blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Rpsl/adblock-leadgenerator-list/master/list/list.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
-	blurls 'https://raw.githubusercontent.com/ryanbr/fanboy-adblock/master/fake-news.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/sayomelu/nothingblock/master/filter.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
-	blurls 'https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
-	blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
-	blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
-	blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
-	blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
-	blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
-	blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
-	blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Kowabit.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Prigent-Ads.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Prigent-Crypto.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
-	blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
-	blurls 'https://winhelp2002.mvps.org/hosts.txt' && sleep 1
-	blurls 'https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt' && sleep 1
-	blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
-	blurls 'https://www.taz.net.au/Mail/SpamDomains' && sleep 1
-	blurls 'http://sysctl.org/cameleon/hosts' && sleep 1
-	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
-	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
-	blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt' && sleep 1
-	blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
+    # DOWNLOADING BLOCKURLS
+    echo "${bw05[${en}]}"
+    # download files
+    function blurls() {
+        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
+        if [ $? -eq 0 ]; then
+            $wgetd "$1" -O - >>bwtmp/bw
+        else
+            echo ERROR "$1"
+        fi
+    }
+    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
+    blurls 'https://adaway.org/hosts.txt' && sleep 1
+    blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
+    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
+    blurls 'https://easylist-downloads.adblockplus.org/advblock.txt' && sleep 1
+    blurls 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt' && sleep 1
+    blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
+    blurls 'https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt' && sleep 1
+    blurls 'https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw/77eee956303e8d6ff2f4df61d3e2c0b60d023268/MS-2' && sleep 1
+    blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
+    blurls 'https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt' && sleep 1
+    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
+    blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
+    blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
+    blurls 'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt' && sleep 1
+    blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
+    blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
+    blurls 'https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt' && sleep 1
+    blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
+    blurls 'https://openphish.com/feed.txt' && sleep 1
+    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
+    blurls 'https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt' && sleep 1
+    blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/BBcan177/minerchk/master/hostslist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/BBcan177/referrer-spam-blacklist/master/spammers.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
+    blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
+    blurls 'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/CriticalPathSecurity/Public-Intelligence-Feeds/master/dom-bl.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv' && sleep 1
+    blurls 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
+    blurls 'https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains' && sleep 1
+    blurls 'https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/master/_generator_lists/bad-referrers.list' && sleep 1
+    blurls 'https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hacked-domains.list' && sleep 1
+    blurls 'https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/neodevpro/neodevhost/master/domain' && sleep 1
+    blurls 'https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
+    blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
+    blurls 'https://raw.githubusercontent.com/RooneyMcNibNug/pihole-stuff/master/SNAFU.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Rpsl/adblock-leadgenerator-list/master/list/list.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ryanbr/fanboy-adblock/master/fake-news.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/sayomelu/nothingblock/master/filter.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
+    blurls 'https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
+    blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
+    blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
+    blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
+    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt' && sleep 1
+    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt' && sleep 1
+    blurls 'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt' && sleep 1
+    blurls 'https://someonewhocares.org/hosts/hosts' && sleep 1
+    blurls 'https://sysctl.org/cameleon/hosts' && sleep 1
+    blurls 'http://stanev.org/abp/adblock_bg.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/AdguardDNS.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Admiral.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Easylist.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Easyprivacy.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Kowabit.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/neohostsbasic.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Prigent-Ads.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Prigent-Crypto.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/Prigent-Malware.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/RPiList-Malware.txt' && sleep 1
+    blurls 'https://v.firebog.net/hosts/static/w3kbl.txt' && sleep 1
+    blurls 'https://winhelp2002.mvps.org/hosts.txt' && sleep 1
+    blurls 'https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt' && sleep 1
+    blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
+    blurls 'https://www.taz.net.au/Mail/SpamDomains' && sleep 1
+    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
+    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt' && sleep 1
+    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
+    blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
 
-	# DOWNLOADING BIG BLOCKLISTS
-	function targz() {
-		curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-		if [ $? -eq 0 ]; then
-			$wgetd "$1" && for F in *.tar.gz; do
-				R=$RANDOM
-				mkdir bwtmp/$R
-				tar -C bwtmp/$R -zxvf "$F" -i
-			done >/dev/null 2>&1
-		else
-			echo ERROR "$1"
-		fi
-	}
-	targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
-	echo "OK"
+    # DOWNLOADING BIG BLOCKLISTS
+    function targz() {
+        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
+        if [ $? -eq 0 ]; then
+            $wgetd "$1" && for F in *.tar.gz; do
+                R=$RANDOM
+                mkdir bwtmp/$R
+                tar -C bwtmp/$R -zxvf "$F" -i
+            done >/dev/null 2>&1
+        else
+            echo ERROR "$1"
+        fi
+    }
+    targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
+    echo "OK"
 
-	# DOWNLOADING ALLOWURLS
-	echo "${bw06[${en}]}"
-	# download world_universities_and_domains
-	function univ() {
-		curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-		if [ $? -eq 0 ]; then
-			$wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >>lst/allowurls.txt
-		else
-			echo ERROR "$1"
-		fi
-	}
-	univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
-	echo "OK"
+    # DOWNLOADING ALLOWURLS
+    echo "${bw06[${en}]}"
+    # download world_universities_and_domains
+    function univ() {
+        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
+        if [ $? -eq 0 ]; then
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >>lst/allowurls.txt
+        else
+            echo ERROR "$1"
+        fi
+    }
+    univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
+    echo "OK"
 
-	# UPDATE TLDS
-	echo "${bw07[${en}]}"
-	function publicsuffix() {
-		curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-		if [ $? -eq 0 ]; then
-			$wgetd "$1" -O - >>lst/sourcetlds.txt
-		else
-			echo ERROR "$1"
-		fi
-	}
-	publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
-	publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
-	publicsuffix 'https://www.whoisxmlapi.com/support/supported_gtlds.php'
-	grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" | sed 's/^\.//' | awk '{print "." $1}' | sort -u >tlds.txt
-	echo "OK"
+    # UPDATE TLDS
+    echo "${bw07[${en}]}"
+    function publicsuffix() {
+        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
+        if [ $? -eq 0 ]; then
+            $wgetd "$1" -O - >>lst/sourcetlds.txt
+        else
+            echo ERROR "$1"
+        fi
+    }
+    publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
+    publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
+    publicsuffix 'https://www.whoisxmlapi.com/support/supported_gtlds.php'
+    grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" | sed 's/^\.//' | awk '{print "." $1}' | sort -u >tlds.txt
+    echo "OK"
 
-	# CAPTURING DOMAINS
-	echo "${bw08[${en}]}"
-	# capturing
-	find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; >captmp1
-	piconv -f cp1252 -t UTF-8 <captmp1 >captmp2
-	sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "." $1}' | sort -u >capture
-	echo "OK"
+    # CAPTURING DOMAINS
+    echo "${bw08[${en}]}"
+    # capturing
+    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; >captmp1
+    piconv -f cp1252 -t UTF-8 <captmp1 >captmp2
+    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "." $1}' | sort -u >capture
+    echo "OK"
 
-	# JOIN AND UPDATE LIST
-	echo "${bw09[${en}]}"
-	# create urls.txt
-	sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u >urls.txt
-	# unblock remote
-	#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
-	# block remote
-	#sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
-	# convert to hosts file (optional)
-	#sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > lst/hosts.txt
-	# uniq capture
-	sort -o capture -u capture
-	echo "OK"
+    # JOIN AND UPDATE LIST
+    echo "${bw09[${en}]}"
+    # create urls.txt
+    sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u >urls.txt
+    # unblock remote
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
+    # block remote
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
+    # convert to hosts file (optional)
+    #sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > lst/hosts.txt
+    # uniq capture
+    sort -o capture -u capture
+    echo "OK"
 
-	# DEBUGGING DOMAINS
-	echo "${bw10[${en}]}"
-	# parse domains
-	#cat lst/fault.tar.gz* | tar xzf -
-	#grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
-	grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u >outparse
-	echo "OK"
+    # DEBUGGING DOMAINS
+    echo "${bw10[${en}]}"
+    # parse domains
+    #cat lst/fault.tar.gz* | tar xzf -
+    #grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
+    grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u >outparse
+    echo "OK"
 
-	# DEBUGGING TLDS
-	echo "${bw11[${en}]}"
-	# check tlds
-	grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u >cleantlds
-	echo "OK"
+    # DEBUGGING TLDS
+    echo "${bw11[${en}]}"
+    # check tlds
+    grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u >cleantlds
+    echo "OK"
 
-	# DEBUGGING IDN
-	echo "${bw12[${en}]}"
-	sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u >idnlst
-	grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >>idnlst
-	grep --color='auto' -P "[^[:ascii:]]" idnlst >idntmp
-	grep -Fvxf <(cat idntmp) idnlst | sort -u >cleanidn
-	#grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
-	grep -Fvxf <(cat {urls,tlds}.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u >cleandns
-	echo "OK"
+    # DEBUGGING IDN
+    echo "${bw12[${en}]}"
+    sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u >idnlst
+    grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >>idnlst
+    grep --color='auto' -P "[^[:ascii:]]" idnlst >idntmp
+    grep -Fvxf <(cat idntmp) idnlst | sort -u >cleanidn
+    #grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
+    grep -Fvxf <(cat {urls,tlds}.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u >cleandns
+    echo "OK"
 else
-	cd "$bwupdate"
+    cd "$bwupdate"
 fi
 
 # DNS LOCKUP
@@ -279,33 +286,33 @@ pp="200"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then
-	echo "${bw13[${en}]}"
-	sed 's/^\.//g' cleandns | sort -u >step1
-	if [ -s dnslookup1 ]; then
-		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
-	else
-		cat step1
-	fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup1
-	sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >hit.txt
-	sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>fault.txt
-	sort -o fault.txt -u fault.txt
-	echo "OK"
+    echo "${bw13[${en}]}"
+    sed 's/^\.//g' cleandns | sort -u >step1
+    if [ -s dnslookup1 ]; then
+        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
+    else
+        cat step1
+    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup1
+    sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >hit.txt
+    sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>fault.txt
+    sort -o fault.txt -u fault.txt
+    echo "OK"
 fi
 
 sleep 10
 
 # STEP 2:
 if [ ! -e "$bwupdate"/dnslookup3 ]; then
-	echo "${bw14[${en}]}"
-	sed 's/^\.//g' fault.txt | sort -u >step2
-	if [ -s dnslookup2 ]; then
-		awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
-	else
-		cat step2
-	fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup2
-	sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
-	sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
-	echo "OK"
+    echo "${bw14[${en}]}"
+    sed 's/^\.//g' fault.txt | sort -u >step2
+    if [ -s dnslookup2 ]; then
+        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
+    else
+        cat step2
+    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup2
+    sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
+    sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
+    echo "OK"
 fi
 
 sleep 10
@@ -314,9 +321,9 @@ sleep 10
 echo "${bw15[${en}]}"
 sed 's/^\.//g' fault.txt | sort -u >step3
 if [ -s dnslookup3 ]; then
-	awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup3 step3
+    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup3 step3
 else
-	cat step3
+    cat step3
 fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup3
 sed '/^FAULT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
 sed '/^HIT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
