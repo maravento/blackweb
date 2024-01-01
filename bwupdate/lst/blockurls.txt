@@ -215,6 +215,7 @@
 .aconetrick.com
 .acorn.tv
 .acortalink.me
+.acortame-esto.com
 .acpm.fr
 .actionforresults.com
 .actiononsports.com
@@ -830,6 +831,7 @@
 .bajalogratis.com
 .bajapelishd.com
 .bajarpelisgratis.com
+.bajarxmega.com
 .bajkowedekoracje.pl
 .bake-neko.net
 .bakufu.org
@@ -1897,6 +1899,7 @@
 .cuevana3.video
 .cuevana3.ws
 .cuevana-3.wtf
+.cuevana.biz
 .cuevana.fm
 .cuevanago.com
 .cuevanagt.com
@@ -4408,6 +4411,7 @@
 .jambe.in
 .jambola.com
 .jamesm.co.uk
+.jamsbase.com
 .janamackova.cz
 .jandoerrenhaus.de
 .janevalentine.co
@@ -7864,6 +7868,7 @@ seriesmetro.net
 .surl.im
 .surprise.co.in
 .surrogacyandadoption.com
+.surveymonkey.com
 .susanireland.com
 .sushi16.ru
 .sustainabletompkins.org
@@ -8690,6 +8695,7 @@ seriesmetro.net
 .verteleseriesonline.com
 .vertex-shop.ru
 .vertimex.ro
+.vertuspeliculas.com
 .verzekerikwel.nl
 .vesan.info
 .vescolub.nl
