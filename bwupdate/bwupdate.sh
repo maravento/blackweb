@@ -14,8 +14,8 @@ bw11=("Validating TLD..." "Validando TLD...")
 bw12=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
 bw13=("1st DNS Loockup..." "1ra Busqueda DNS...")
 bw14=("2nd DNS Loockup..." "2da Busqueda DNS...")
-bw15=("3rd DNS Loockup..." "3ra Busqueda DNS...")
-bw16=("Adding Additional Blocklist..." "Agregando Blocklist Adicionales...")
+bw15=("Adding Additional Blocklist..." "Agregando Blocklist Adicionales...")
+bw16=("Exclude Allow TLD..." "Excluir Allow TLD...")
 bw17=("Restarting Squid..." "Reiniciando Squid...")
 bw18=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
 test "${LANG:0:2}" == "en"
@@ -142,6 +142,14 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
     blurls 'https://raw.githubusercontent.com/ryanbr/fanboy-adblock/master/fake-news.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/sayomelu/nothingblock/master/filter.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/scamaNet/blocklist/main/blocklist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Adult' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Cryptocurrency' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Dating' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Gambling' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Risk' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Scam' && sleep 1
+    blurls 'https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/UrlShortener' && sleep 1
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts' && sleep 1
@@ -284,7 +292,7 @@ fi
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
 # pp = parallel processes (high resource consumption!)
-pp="200"
+pp="300"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then
@@ -304,40 +312,36 @@ fi
 sleep 10
 
 # STEP 2:
-if [ ! -e "$bwupdate"/dnslookup3 ]; then
-    echo "${bw14[${en}]}"
-    sed 's/^\.//g' fault.txt | sort -u >step2
-    if [ -s dnslookup2 ]; then
-        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
-    else
-        cat step2
-    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup2
-    sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
-    sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
-    echo "OK"
-fi
-
-sleep 10
-
-# STEP 3:
-echo "${bw15[${en}]}"
-sed 's/^\.//g' fault.txt | sort -u >step3
-if [ -s dnslookup3 ]; then
-    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup3 step3
+echo "${bw14[${en}]}"
+sed 's/^\.//g' fault.txt | sort -u >step2
+if [ -s dnslookup2 ]; then
+    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
 else
-    cat step3
-fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup3
-sed '/^FAULT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
-sed '/^HIT/d' dnslookup3 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
+    cat step2
+fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup2
+sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
+sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
 echo "OK"
 
 # ADD BLOCKLIST
-echo "${bw16[${en}]}"
+echo "${bw15[${en}]}"
 # add blockurls
 sed '/^$/d; /#/d' lst/blockurls.txt | sort -u >>hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u >blackweb.txt
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u >blackweb_tmp
 echo "OK"
+
+# EXCLUDE ALLOWTLDS
+echo "${bw16[${en}]}"
+# read allowtlds
+extensiones=$(grep -v '^#' lst/allowtlds.txt)
+# regex to exclude allowtlds
+regex_ext=$(echo lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
+# delete last pipe
+regex_ext="${regex_ext%|}"
+# filter
+grep -E -v "$regex_ext" blackweb_tmp > blackweb.txt
+grep -E "$regex_ext" blackweb_tmp > delete_tld
 
 # RELOAD SQUID-CACHE
 echo "${bw17[${en}]}"

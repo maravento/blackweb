@@ -1113,6 +1113,7 @@
 .bluemountain-church.org
 .blueprint-dsg.com
 .blueridgeautos.com
+.bluesen.com
 .blyts.net
 .bmcm.ml
 .bm-sports.com
@@ -1548,6 +1549,7 @@
 .cignitech.com
 .cima4film.buzz
 .cimapelicula.com
+.cimentbuilder.one
 .cimetieremontroyal.com
 .cimri.com
 .cinecalidad2.com
@@ -2837,6 +2839,7 @@
 .fbl.com.sg
 .fb.me
 .fbmedia-bls.com
+.fbmediafor.com
 .fbsbx.com
 .fbstone.com
 .fc2.com
@@ -3096,6 +3099,7 @@
 .freenet-hosting.de
 .freenetproject.org
 .freenode.net
+.freenom.com
 .freeoda.com
 .freeopenvpn.org
 .freepornvs.com
@@ -4690,6 +4694,7 @@
 .kmpropertysales.com
 .kms789.com
 .kmwine.ge
+.knaben.xyz
 .knapco.com
 .knaravan.org
 .kndbooks.com
@@ -5028,6 +5033,7 @@
 .lorienglobal.com
 .lorihoneycutt.com
 .losatec.com.mx
+.losslessbox.do.am
 .losslessdl.com
 .loterotal.net
 .lothaller.net
@@ -5173,6 +5179,7 @@
 .marvellrulesqq.com
 .marvicedo.com
 .masamaru.net
+.masboletos.mx
 .mascottepak.com
 .mashijiazu.net
 .masiled.es
@@ -5478,6 +5485,7 @@
 .mobius-group.com
 .mobpartner.com
 .mobpowertech.com
+.mobsuitem.com
 .mocca-lounge.at
 .mocospace.com
 .moda.com.pe
@@ -6796,6 +6804,7 @@
 .rangyinby.com
 .raovat4u.com
 .rapid7.com
+.rapidcloud.cc
 .rapidgator.net
 .rapidnet.ir
 .rapidshare.com
@@ -7367,6 +7376,7 @@ seriesmetro.net
 .share2downloads.com
 .share-online.biz
 .sharethis.com
+.sharing.wtf
 .shauninman.com
 .shawnbrothers.com
 .shbolaite.com
@@ -7903,6 +7913,7 @@ seriesmetro.net
 .symcb.com
 .syncfish.com
 .syngenta.bg
+.synthmuz.com
 .system-inka.de
 .systemrma.pl
 .sytes.net

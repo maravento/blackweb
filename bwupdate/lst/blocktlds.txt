@@ -12,7 +12,6 @@
 .fun
 .gq
 .guru
-.link
 .lol
 .lotto
 .ml
@@ -27,6 +26,16 @@
 .vodka
 .wtf
 .xxx
+# Most Suspicious TLDs by Blue Coat Systems - Symantec
+.country
+.cricket
+.gq
+.kim
+.link
+.party
+.review
+.science
+.work
 .zip
 # Social / Media / Market / Games (Optional)
 .beauty

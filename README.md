@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4756970|127.4 MB|
+|blackweb.txt|4857278|129.1 MB|
 
 ## GIT CLONE
 
@@ -200,12 +200,14 @@ outfile:
 ```bash
 .domain.exe
 .domain.com
+.domain.edu.ca
 ```
 
 outfile:
 
 ```bash
 .domain.com
+.domain.edu.ca
 ```
 
 #### Debugging Punycode-IDN
@@ -236,11 +238,36 @@ outfile:
 
 #### DNS Loockup
 
->Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains (see [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Then, a triple check of each domain is done (in 3 steps) via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes (vea [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)). Entonces se hace una verificación triple de cada dominio (en 3 pasos) vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda
+>Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains. Then, a double check of each domain is done (in 2 steps) via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes. Entonces se hace una verificación doble de cada dominio (en 2 pasos) vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda
 
 ```bash
 HIT google.com
+google.com has address 142.251.35.238
+google.com has IPv6 address 2607:f8b0:4008:80b::200e
+google.com mail is handled by 10 smtp.google.com.
+
 FAULT testfaultdomain.com
+Host testfaultdomain.com not found: 3(NXDOMAIN)
+```
+
+For more information, check [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
+
+#### Excludes government-related TLDs
+
+>Remove government domains (.gov) and other related TLDs from Blackweb. / Elimina de Blackweb los dominios de gobierno (.gov) y otros TLD relacionados.
+
+```bash
+www.argentina.gob.ar
+www.domain.com
+www.gob.mx
+www.gov.uk
+www.navy.mil
+```
+
+outfile:
+
+```bash
+www.domain.com
 ```
 
 #### Run Squid-Cache with Blackweb
@@ -361,6 +388,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Rpsl - adblock-leadgenerator-list](https://github.com/Rpsl/adblock-leadgenerator-list)
 - [ruvelro - Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 - [ryanbr - fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
+- [scamaNet - blocklist](https://raw.githubusercontent.com/scamaNet/blocklist/main/blocklist.txt)
 - [Someonewhocares - hosts](https://someonewhocares.org/hosts/hosts)
 - [stanev.org - Bulgarian adblock list](http://stanev.org/abp/adblock_bg.txt)
 - [StevenBlack - add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts)
@@ -426,6 +454,7 @@ Blackweb: Done 06/05/2019 15:47:14
 - [Netlab360 - DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [nfz.moe - hosts](https://hosts.nfz.moe/full/hosts)
 - [Passwall - SpamAssassin](http://www.passwall.com/blacklist.txt)
+- [ShadowWhisperer - BlockLists](https://github.com/ShadowWhisperer/BlockLists)
 - [Shallalist.de - shallalist](http://www.shallalist.de/Downloads/shallalist.tar.gz)
 - [squidblacklist.org - dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl)
 - [squidblacklist.org - dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl)
