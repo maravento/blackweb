@@ -333,15 +333,11 @@ echo "OK"
 
 # EXCLUDE ALLOWTLDS
 echo "${bw16[${en}]}"
-# read allowtlds
-extensiones=$(grep -v '^#' lst/allowtlds.txt)
-# regex to exclude allowtlds
-regex_ext=$(echo lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
-# delete last pipe
-regex_ext="${regex_ext%|}"
-# filter
-grep -E -v "$regex_ext" blackweb_tmp > blackweb.txt
-grep -E "$regex_ext" blackweb_tmp > delete_tld
+regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
+new_regex_ext="${regex_ext%|}"
+grep -E -v "$new_regex_ext" blackweb_tmp > blackweb.txt
+grep -E "$new_regex_ext" blackweb_tmp > delete_tld
+echo "OK"
 
 # RELOAD SQUID-CACHE
 echo "${bw17[${en}]}"

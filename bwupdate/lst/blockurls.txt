@@ -22,6 +22,7 @@
 .118.lv
 .119hu.com
 .1337x.pl
+.1337x.to
 .1337x.tw
 .1337xx.to
 .1337xxx.to
@@ -70,6 +71,7 @@
 .2zzz.ru
 .300tomoli.it
 .301.li
+.320download.info
 .320ytmp3.com
 .3322.org
 .360yield.com
@@ -84,6 +86,7 @@
 .3dstyle.in.ua
 .3ks.nl
 .3lift.com
+.3mp3.buzz
 .3overpar.com
 .3rock.ie
 .3shadz.com
@@ -1082,6 +1085,7 @@
 .blackdildo.net
 .blackplanet.com
 .blackrab.com
+.blacktorrent.ru
 .blaeberrycabin.com
 .blakslee.com
 .blassagephotography.com
@@ -1421,6 +1425,7 @@
 .ceffdffbdf.xyz
 .ceil.hk
 .celebflix.us
+.celebnob.com
 .celerystem.icu
 .cellufun.com
 .celtichr.com
@@ -2749,6 +2754,7 @@
 .extramileteam.com
 .extraslot.ru
 .extratorrents.ch
+.ext.to
 .eyeem.com
 .eyzimo.ru
 .ezar.ru
@@ -2969,6 +2975,7 @@
 .fiveclean.com
 .fixproxy.com
 .fixrepair.ch
+.flacit.com
 .flacrock.com
 .flagships.de
 .flamingo-shop.eu
@@ -3017,6 +3024,7 @@
 .focus.com
 .fodz.xyz
 .folddon.com
+.folkindie.blogspot.com
 .followmyleadatl.com
 .follyfoot.org
 .fondazioneprogenies.com
@@ -4068,6 +4076,7 @@
 .ikiartimatbaa.com
 .ikidane.com
 .ikrawane.net
+.ik-server.com
 .ikstrade.co.kr
 .ilasd.org
 .iliachtida.gr
@@ -4338,6 +4347,7 @@
 .ismatube.com
 .isnssdk.com
 .israbox-music.com
+.isra.cloud
 .isriir.com
 .is-saved.org
 .is-slick.com
@@ -4642,6 +4652,7 @@
 .kiakolacity.ir
 .kiannaghsh.ir
 .kickass.cd
+.kickass.ee
 .kickasstorrents.to
 .kickass.ws
 .kicks-ass.net
@@ -4789,6 +4800,7 @@
 .lacadosmurcia.com
 .lacapitaldelsol.com
 .lacasainc.net
+.laconquistadelpunk.blogspot.com
 .lacosturera.es
 .lacrima.ru
 .lacrosseplayground.com
@@ -5120,6 +5132,7 @@
 .makkie.com
 .makyajperisi.com
 .malavida.com
+.malianteo.com
 .malicioso.net
 .malusgigi.net
 .malvapraha.cz
@@ -5565,6 +5578,7 @@
 .mp3cielo.co
 .mp3collection.ru
 .mp3download.to
+.mp3era.xyz
 .mp3.es
 .mp3fordjs.com
 .mp3hq.org
@@ -5577,6 +5591,7 @@
 .mp3xa.cc
 .mp3-youtube-converter.org
 .mpcloudcollection.website
+.mphiphop.com
 .mphooseitutu.com
 .mplanning.com
 .mplaylist.com
@@ -5632,11 +5647,13 @@
 .musical.ly
 .musicbarpriatelia.sk
 .musicbay.org
+.musicforum.ga
 .musicfrombali.com
 .music.innt.me
 .musicphilicwinds.org
 .musicrecruiting.com
 .musicyoullliketoo.blogspot.com
+.musik-lyrics.com
 .mutiarafurniture.com
 .mutterundkind.com
 .mutuza.win
@@ -6448,6 +6465,8 @@
 .piratebay1.top
 .piratebay.live
 .pirate-filmes.org
+.pirateproxy.live
+.pirateproxylive.org
 .piratespc.net
 .pitadtag.jp
 .pivno.com
@@ -6483,6 +6502,7 @@
 .plex.tv
 .plightadvertising.com
 .plixid.com
+.plixid.net
 .plnbatubara.co.id
 .plookseri.net
 .plotn08.org
@@ -9110,6 +9130,7 @@ seriesmetro.net
 .www-searches.com
 .www-search.net
 .wxzm.sx
+.wynk.in
 .wysasys.com
 .wyvesnarl.info
 .wz.cz
