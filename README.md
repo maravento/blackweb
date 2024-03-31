@@ -14,7 +14,7 @@
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4957892|131.1 MB|
+|blackweb.txt|4937587|130.8 MB|
 
 ## GIT CLONE
 
@@ -33,13 +33,31 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 ### Download
 
 ```bash
-wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+```
+
+### If Multiparts Exist
+
+```bash
+#!/usr/bin/env bash
+base_url="https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz."
+
+for num in {000..999}; do
+    file="${base_url}${num}"
+    echo "Check: $file"
+    if wget --spider "$file" 2>/dev/null; then
+        wget -q -c --timestamping --no-check-certificate --retry-connrefused --timeout=10 --tries=4 --show-progress "$file"
+    else
+        break
+    fi
+done
+cat blackweb.tar.gz* | tar xzf -
 ```
 
 ### Checksum
 
 ```bash
-wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
+wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
 
@@ -529,7 +547,7 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 ---
 
-BTC: 3M84UKpz8AwwPADiYGQjT9spPKCvbqm4Bc
+[![Image](https://raw.githubusercontent.com/maravento/winexternal/master/img/maravento-paypal.png)](https://paypal.me/maravento)
 
 ## LICENSES
 
