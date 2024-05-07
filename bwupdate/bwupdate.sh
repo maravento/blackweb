@@ -44,7 +44,9 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # DOWNLOAD BLACKWEB
     echo "${bw04[${en}]}"
-    svn export "https://github.com/maravento/blackweb/trunk/bwupdate" >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py
+    chmod +x gitfolderdl.py
+    python gitfolderdl.py https://github.com/maravento/blackweb/bwupdate
     if [ -d "$bwupdate" ]; then
         cd "$bwupdate" || {
             echo "Access Error: $bwupdate"
@@ -68,7 +70,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
             echo ERROR "$1"
         fi
     }
-    blurls 'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
     blurls 'https://adaway.org/hosts.txt' && sleep 1
     blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
     blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
@@ -82,6 +83,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
     blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt' && sleep 1
     blurls 'https://hblock.molinero.dev/hosts_domains.txt' && sleep 1
+    blurls 'https://hole.cert.pl/domains/domains.txt' && sleep 1
     blurls 'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt' && sleep 1
     blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
     blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
@@ -90,12 +92,14 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://openphish.com/feed.txt' && sleep 1
     blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
     blurls 'https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt' && sleep 1
+    blurls 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
     blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/hosts.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/BBcan177/minerchk/master/hostslist.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/BBcan177/referrer-spam-blacklist/master/spammers.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt' && sleep 1
