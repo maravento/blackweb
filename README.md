@@ -1,12 +1,12 @@
-# [Blackweb](https://www.maravento.com/p/blackweb.html)
+# [BlackWeb](https://www.maravento.com/p/blackweb.html)
 
 [![status-stable](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/maravento/blackweb)
 [![last commit](https://img.shields.io/github/last-commit/maravento/blackweb)](https://github.com/maravento/blackweb)
 [![Twitter Follow](https://img.shields.io/twitter/follow/maraventostudio.svg?style=social)](https://twitter.com/maraventostudio)
 
-**Blackweb** is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/).
+BlackWeb is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/).
 
-**Blackweb** es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc.) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/).
+BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc.) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/).
 
 ## DATA SHEET
 
@@ -28,7 +28,7 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 
 ---
 
-**blackweb.txt** is already updated and optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule). / **blackweb.txt** ya viene actualizada y optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule).
+`blackweb.txt` is already updated and optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule). / `blackweb.txt` ya viene actualizada y optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule).
 
 ### Download
 
@@ -61,7 +61,7 @@ wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/checks
 md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
 ```
 
-### Blackweb Rule for [Squid-Cache](http://www.squid-cache.org/)
+### BlackWeb Rule for [Squid-Cache](http://www.squid-cache.org/)
 
 ---
 
@@ -83,7 +83,7 @@ http_access deny blackweb
 
 #### Advanced Rules
 
-Blackweb contains millions of domains, therefore it is recommended: / Blackweb contiene millones de dominios, por tanto se recomienda:
+BlackWeb contains millions of domains, therefore it is recommended: / BlackWeb contiene millones de dominios, por tanto se recomienda:
 
 | Allow Rule for Domains |
 | ---------------------- |
@@ -135,13 +135,10 @@ Output:
 | Block Rule for Punycode |
 | ----------------------- |
 
->Use this rule to block [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs or Domains), to prevent an [IDN homograph attack](https://en.wikipedia.org/wiki/IDN_homograph_attack). / Usar esta regla para bloquear [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs o Dominios), para prevenir un [Ataque homógrafo IDN](https://en.wikipedia.org/wiki/IDN_homograph_attack).
+>Use this rule to block [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs or Domains), to prevent an [IDN homograph attack](https://en.wikipedia.org/wiki/IDN_homograph_attack). For more information visit [welivesecurity: Homograph attacks](https://www.welivesecurity.com/2017/07/27/homograph-attacks-see-to-believe/) / Usar esta regla para bloquear [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs o Dominios), para prevenir un [Ataque homógrafo IDN](https://en.wikipedia.org/wiki/IDN_homograph_attack). Para mayor información visite [welivesecurity: Ataques homográficos](https://www.welivesecurity.com/la-es/2017/07/13/ataques-homograficos/)
 
 ```bash
-# Nomenclature:
-# \p{L} matches any Unicode character
-# unicode_regex is the ACL
-acl punycode unicode_regex -i \p{L}
+acl punycode dstdom_regex -i \.xn--.*
 http_access deny punycode
 ```
 
@@ -200,7 +197,7 @@ acl allowdomains dstdomain "/path_to/allowdomains.txt"
 http_access allow allowdomains
 
 # Block Rule for Punycode
-acl punycode unicode_regex -i \p{L}
+acl punycode dstdom_regex -i \.xn--.*
 http_access deny punycode
 
 # Block Rule for gTLD, sTLD, ccTLD
@@ -222,7 +219,7 @@ http_access deny blackweb
 
 ## IMPORTANT
 
-**Blackweb** is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**. / Blackweb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**.
+BlackWeb is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**. / BlackWeb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**.
 
 For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
 
@@ -363,7 +360,7 @@ For more information, check [internet live stats](https://www.internetlivestats.
 | Excludes government-related TLDs |
 | ---------------------------------|
 
->Remove government domains (.gov) and other related TLDs from Blackweb. / Elimina de Blackweb los dominios de gobierno (.gov) y otros TLD relacionados.
+>Remove government domains (.gov) and other related TLDs from BlackWeb. / Elimina de BlackWeb los dominios de gobierno (.gov) y otros TLD relacionados.
 
 Input:
 
@@ -381,21 +378,21 @@ Output:
 .mydomain.com
 ```
 
-| Run Squid-Cache with Blackweb |
+| Run Squid-Cache with BlackWeb |
 | ----------------------------- |
 
->Run Squid-Cache with Blackweb and any error sends it to `SquidError.txt` on your desktop. / Corre Squid-Cache con Blackweb y cualquier error lo envía a `SquidError.txt` en su escritorio.
+>Run Squid-Cache with BlackWeb and any error sends it to `SquidError.txt` on your desktop. / Corre Squid-Cache con BlackWeb y cualquier error lo envía a `SquidError.txt` en su escritorio.
 
 | Check execution (/var/log/syslog) |
 | --------------------------------- |
 
 ```bash
-Blackweb: Done 06/05/2023 15:47:14
+BlackWeb: Done 06/05/2023 15:47:14
 ```
 
-#### Important about Blackweb Update
+#### Important about BlackWeb Update
 
-- The default path of **blackweb** is `/etc/acl`. You can change it for your preference. / El path por default de **blackweb** es `/etc/acl`. Puede cambiarlo por el de su preferencia.
+- The default path of BlackWeb is `/etc/acl`. You can change it for your preference. / El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
 - `bwupdate.sh` includes lists of domains related to remote support (Teamviewer, Anydesk, logmein, etc). They are commented by default (unless their domains are in the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)). To block or exclude them you must activate the corresponding line in the script (# JOIN LIST), although is not recommended to avoid conflicts or false positives. / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc). Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar la línea correspondiente en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point. / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
 - If someone believes that any URL, included in `allowurls.txt` and `blockurls.txt`, should not be in these lists, can create an [Issue](https://github.com/maravento/blackweb/issues) and notify to remove it. / Si alguien considera que alguna URL, incluida en `allowurls.txt` y `blockurls.txt`, no debería estar en estas listas, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificar para removerla.

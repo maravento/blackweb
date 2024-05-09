@@ -365,5 +365,5 @@ cd ..
 if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
 
 # END
-sudo bash -c 'echo "Blackweb Done: $(date)" | tee -a /var/log/syslog'
+sudo bash -c 'echo "BlackWeb Done: $(date)" | tee -a /var/log/syslog'
 echo "${bw18[${en}]}"
