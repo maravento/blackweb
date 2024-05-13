@@ -3046,8 +3046,6 @@
 .forexcorporate.com
 .forextradingcentral.com
 .forex-trading.nl
-.forgot.her.name
-.forgot.his.name
 .forhealthatividadesfisicas.com
 .forlifepatios.com.au
 .formareal.com
@@ -3759,6 +3757,7 @@
 .herezera.com
 .heritagebaptistchurch.ca
 .herity.org
+.her.name
 .heroesofrpg.com
 .hersheyplazadental.com
 .herstedhus.dk
@@ -3816,6 +3815,7 @@
 .hiramteran.com
 .hi-segno.com
 .hislink.net
+.his.name
 .historielag.org
 .hitfile.net
 .hit-muzik.ru

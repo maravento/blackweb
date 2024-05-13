@@ -15,7 +15,7 @@ bw12=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
 bw13=("1st DNS Loockup..." "1ra Busqueda DNS...")
 bw14=("2nd DNS Loockup..." "2da Busqueda DNS...")
 bw15=("Adding Additional Blocklist..." "Agregando Blocklist Adicionales...")
-bw16=("Exclude Allow TLD..." "Excluir Allow TLD...")
+bw16=("Exclude Allow GOV..." "Excluir Allow GOV...")
 bw17=("Restarting Squid..." "Reiniciando Squid...")
 bw18=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
 test "${LANG:0:2}" == "en"
@@ -78,6 +78,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
     blurls 'https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt' && sleep 1
     blurls 'https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw/77eee956303e8d6ff2f4df61d3e2c0b60d023268/MS-2' && sleep 1
+    blurls 'https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt' && sleep 1
     blurls 'https://github.com/WaLLy3K/notrack/raw/master/malicious-sites.txt' && sleep 1
     blurls 'https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt' && sleep 1
     blurls 'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt' && sleep 1
@@ -259,6 +260,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
     # block remote
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
+    # unblock web3
+    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> urls.txt
+    # block web3
+    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
     # convert to hosts file (optional)
     #sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > lst/hosts.txt
     # uniq capture
