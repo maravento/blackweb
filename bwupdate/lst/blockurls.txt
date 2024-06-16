@@ -1893,11 +1893,13 @@
 .cuevana3.cc
 .cuevana3.ch
 .cuevana3.club
+.cuevana-3.fund
 .cuevana3.icu
 .cuevana-3.io
 .cuevana3.io
 .cuevana3.live
 .cuevana3.mu
+.cuevana-3.party
 .cuevana3.pe
 .cuevana3.plus
 .cuevana3.press
@@ -1912,6 +1914,7 @@
 .cuevanagt.com
 .cuevana.nz
 .cuevana.pro
+.cuevana-tv.com
 .cuevana.uno
 .cuevana.vegas
 .cuevanavideo.com
@@ -3448,6 +3451,7 @@
 .gns1.com
 .gnula2.org
 .gnula.nu
+.gnula.su
 .go2affise.com
 .go2cloud.org
 .goairlinkshuttle.com
@@ -5057,6 +5061,7 @@
 .louislechien.net
 .love860.com
 .lovealiy.com
+.loveitforever.biz
 .lovemydress.pl
 .loveweb.org
 .lowcostveterinarios.com
@@ -6268,6 +6273,7 @@
 .pastea.me
 .pastelesallegro.mx
 .pastelin.com
+.pastelink.net
 .pastepvp.org
 .pastewma.com
 .patchcracks.com
@@ -6329,6 +6335,7 @@
 .pelisflix.de
 .pelisflix.in
 .pelisflix.li
+.pelisflix.promo
 .pelisflix.red
 .pelisflix.top
 .pelisflix.uno
@@ -7629,6 +7636,7 @@ seriesmetro.net
 .sollove.com.br
 .solmachine.cl
 .solmevini.com
+.sololatino.net
 .solootakusml.wordpress.com
 .solopeliculashd.com
 .solpad.com
@@ -8920,10 +8928,12 @@ seriesmetro.net
 .wandashops.com
 .wanderburst.com
 .wannianli365.com
+.waploaded.com
 .wapv.net
 .warabuki.net
 .warisstyle.com
 .warmlyyours.com
+.intonaija.com
 .washingtonlionsclub.com
 .watchesheaven.com
 .watchmeninc.com

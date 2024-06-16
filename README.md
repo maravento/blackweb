@@ -14,7 +14,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5282084|137,4 MB|
+|blackweb.txt|5313000|138,1 MB|
 
 ## GIT CLONE
 
@@ -489,6 +489,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [notracking - hosts-blocklists](https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt)
 - [Oleksiig - Squid-BlackList](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish - feed](https://openphish.com/feed.txt)
+- [pengelana - domains blocklist](https://raw.githubusercontent.com/pengelana/blocklist/master/domain.txt)
 - [Perflyst - PiHoleBlocklist Android](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt)
 - [Perflyst - PiHoleBlocklist SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt)
 - [phishing.army - phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)

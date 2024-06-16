@@ -139,6 +139,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/neodevpro/neodevhost/master/domain' && sleep 1
     blurls 'https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
+    blurls 'https://raw.githubusercontent.com/pengelana/blocklist/master/domain.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
     blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1

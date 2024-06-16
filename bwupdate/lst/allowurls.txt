@@ -1,4 +1,4 @@
-#GOOGLE
+# GOOGLE
 .0.blogger.gmodules.com
 .0.client-channel.google.com
 .0.docs.google.com
@@ -3708,7 +3708,7 @@
 .ytimg.l.google.com
 .ytstatic.l.google.com
 .yt-video-upload.l.google.com
-#MICROSOFT
+# MICROSOFT
 .064d.mgd.microsoft.com
 .10.ds.mrs.microsoft.com
 .10.tlu.dl.delivery.mp.microsoft.com
@@ -15822,7 +15822,7 @@
 .tmsha.mmd.microsoft.com
 .tms.mmd.microsoft.com
 .tmsqaha.mmd.microsoft.com
-#YAHOO
+# YAHOO
 .ads.yahoo.com
 .ad.yieldmanager.com
 .amp.yahoo.com
@@ -16032,7 +16032,7 @@
 .yp.yahoo.com
 .ysm.yahoo.com
 .yvap.query.yahoo.com
-#GOV
+# GOV
 .511wi.gov
 .9-11commission.gov
 .911commission.gov
@@ -19883,7 +19883,7 @@
 .zionsville-in.gov
 .spaceflorida.gov
 .spaceweather.gov
-#EDU
+# EDU
 .aaa.edu
 .aarnet.edu.au
 .aauj.edu
@@ -23410,7 +23410,7 @@
 .uu.edu
 .uvm.edu
 .uwa.edu
-#VARIOUS
+# VARIOUS
 .180gradosquindio.com
 .280blocker.net
 .360.com
@@ -23452,9 +23452,9 @@
 .alexgorbatchev.com
 .allus.com.co
 .alterserv.com
+.amazonaws.cn
 .amazonaws.com
 .amazonaws.com.cn
-.amazonaws.cn
 .amazon.com
 .amcore.com
 .amd.com
@@ -23477,6 +23477,7 @@
 .aol.fr
 .aol.in
 .aol.jp
+.apache.org
 .apnic.net
 .apopo.org
 .aportesenlinea.com
@@ -23589,6 +23590,8 @@
 .care-international.org
 .care.org
 .cathaybank.com
+.cbsbank.com
+.cbsnews.com
 .ccb.org.co
 .cccartagena.org.co
 .ccc.org.co
@@ -23727,6 +23730,7 @@
 .disconnect.me
 .disney.com
 .dnd.ca
+.docker.com
 .docusign.com
 .domaintools.com
 .doubleverify.com
@@ -23964,6 +23968,7 @@
 .lencr.org
 .lenovo.com
 .letsencrypt.org
+.libero.it
 .libretamilitar.mil.co
 .licensebuttons.net
 .lifesizecloud.com
@@ -23987,8 +23992,8 @@
 .mailchimp.com
 .mailgrupobancolombia.com.co
 .mailgun.net
-.mailtrack.io
 .mailtie.com
+.mailtrack.io
 .malc0de.com
 .malwaredomainlist.com
 .malware-domains.com
@@ -24130,12 +24135,14 @@
 .protonmail.com
 .provbank.com
 .providentnj.com
+.provincia.tn.it
 .pse.com.co
 .ptp.com.co
 .public-trust.com
 .publimetro.co
 .pubmatic.com
 .pulzo.com
+.pypi.org
 .q10.com
 .qgis.org
 .qhubocali.com
@@ -24143,6 +24150,7 @@
 .qualtrics.com
 .rabobank.com
 .rae.es
+.rai.it
 .rapidssl.com
 .rawgit.com
 .raymondjames.com
@@ -24179,9 +24187,9 @@
 .satbancolombia.com
 .satena.com
 .satena.shop
+.scaleway.com
 .schwab.com
 .scribd.com
-.scaleway.com
 .scrootca1.ocsp.secomtrust.net
 .scw.cloud
 .sdccu.com
@@ -24212,6 +24220,7 @@
 .sni.cloudflaressl.com
 .soficas.com
 .software-colombia.com
+.sogei.it
 .solipagosonline.com.co
 .someonewhocares.org
 .somersettechsolutions.co.uk
@@ -24264,6 +24273,7 @@
 .tinypass.com
 .tiqcdn.com
 .tiquetesbaratos.com
+.tiscali.it
 .todo1.com
 .toffeeshare.com
 .toshiba.com
@@ -24312,6 +24322,7 @@
 .verisign.net
 .viajala.com.co
 .vigilanciasuperiorprocuraduria.org
+.virgilio.it
 .virtualearth.net
 .virtuallythere.com
 .virtualmin.com
