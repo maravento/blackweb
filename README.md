@@ -262,7 +262,7 @@ fi
 | Domain Debugging |
 | ---------------- |
 
->Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`allowurls.txt`). / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`allowurls.txt`).
+>Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`debugwl.txt`). / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`debugwl.txt`).
 
 Input:
 
@@ -395,7 +395,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - The default path of BlackWeb is `/etc/acl`. You can change it for your preference. / El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
 - `bwupdate.sh` includes lists of remote support related domains (Teamviewer, Anydesk, logmein, etc) and web3 domains. They are commented by default (unless their domains are in [SOURCES](https://github.com/maravento/blackweb#sources--sources)). To block or exclude them you must activate the corresponding lines in the script (# JOIN LIST), although it is not recommended to avoid conflicts or false positives. / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point. / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
-- If someone believes that any URL, included in `allowurls.txt` and `blockurls.txt`, should not be in these lists, can create an [Issue](https://github.com/maravento/blackweb/issues) and notify to remove it. / Si alguien considera que alguna URL, incluida en `allowurls.txt` y `blockurls.txt`, no debería estar en estas listas, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificar para removerla.
+- If someone considers that a domain should not be on Blackweb, they can create an [Issue](https://github.com/maravento/blackweb/issues) and notify it to remove it. / Si alguien considera que algún dominio no debería estár en Blackweb, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificarlo para removerlo.
 
 ## SOURCES
 
@@ -578,26 +578,18 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 ### DEBUG LISTS
 
-- [Allow DNS](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Allow URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Block TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
-- [Block URLs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [firebog sources](https://firebog.net/)
 - [google supported domains](https://www.google.com/supported_domains)
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
-- [Invalid TLDs](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
 - [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
 - [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
-- [Remote](https://github.com/maravento/blackweb/tree/master/bwupdate/lst)
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
 ### WORKTOOLS
 
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
-- [Debug internal lst](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
-- [Debug Squid-Cache Errors](https://github.com/maravento/blackweb/tree/master/bwupdate/tools)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 
@@ -651,7 +643,7 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 ---
 
 [![GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.txt)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en)
 
 ## DISCLAIMER
 

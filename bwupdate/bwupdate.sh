@@ -14,8 +14,8 @@ bw11=("Validating TLD..." "Validando TLD...")
 bw12=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
 bw13=("1st DNS Loockup..." "1ra Busqueda DNS...")
 bw14=("2nd DNS Loockup..." "2da Busqueda DNS...")
-bw15=("Adding Additional Blocklist..." "Agregando Blocklist Adicionales...")
-bw16=("Exclude Allow GOV..." "Excluir Allow GOV...")
+bw15=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
+bw16=("Exclude TLD..." "Excluir TLD...")
 bw17=("Restarting Squid..." "Reiniciando Squid...")
 bw18=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
 test "${LANG:0:2}" == "en"
@@ -59,7 +59,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     mkdir -p bwtmp >/dev/null 2>&1
     echo "OK"
 
-    # DOWNLOADING BLOCKURLS
+    # DOWNLOADING BLOCK URLS
     echo "${bw05[${en}]}"
     # download files
     function blurls() {
@@ -215,13 +215,13 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
     echo "OK"
 
-    # DOWNLOADING ALLOWURLS
+    # DOWNLOADING ALLOW URLS
     echo "${bw06[${en}]}"
     # download world_universities_and_domains
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >>lst/allowurls.txt
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >>lst/debugwl.txt
         else
             echo ERROR "$1"
         fi
@@ -255,18 +255,14 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # JOIN AND UPDATE LIST
     echo "${bw09[${en}]}"
-    # create urls.txt
-    sed '/^$/d; /#/d' lst/{allowurls,invalid}.txt | sort -u >urls.txt
     # unblock remote
-    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
     # block remote
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
     # unblock web3
-    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> urls.txt
+    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
     # block web3
     #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
-    # convert to hosts file (optional)
-    #sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/blockurls.txt | sort -u > lst/hosts.txt
     # uniq capture
     sort -o capture -u capture
     echo "OK"
@@ -275,8 +271,8 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     echo "${bw10[${en}]}"
     # parse domains
     #cat lst/fault.tar.gz* | tar xzf -
-    #grep -Fvxf <(cat {urls,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
-    grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u >outparse
+    #grep -Fvxf <(cat {invalid,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
+    grep -Fvxf <(cat {invalid,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u >outparse
     echo "OK"
 
     # DEBUGGING TLDS
@@ -292,7 +288,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     grep --color='auto' -P "[^[:ascii:]]" idnlst >idntmp
     grep -Fvxf <(cat idntmp) idnlst | sort -u >cleanidn
     #grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
-    grep -Fvxf <(cat {urls,tlds}.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u >cleandns
+    grep -Fvxf <(cat tlds.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u >cleandns
     echo "OK"
 else
     cd "$bwupdate"
@@ -333,15 +329,17 @@ sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
 echo "OK"
 
-# ADD BLOCKLIST
+# DEBUG BLACKLIST
 echo "${bw15[${en}]}"
-# add blockurls
-sed '/^$/d; /#/d' lst/blockurls.txt | sort -u >>hit.txt
+# add debug blacklist
+sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >>hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/blockurls.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u >blackweb_tmp
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u >blackweb_tmp
+# convert to hosts file (optional)
+#sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/debugbl.txt | sort -u > lst/hosts.txt
 echo "OK"
 
-# EXCLUDE ALLOWTLDS
+# EXCLUDE ALLOW TLDS
 echo "${bw16[${en}]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
