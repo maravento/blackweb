@@ -14,7 +14,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5313000|138,1 MB|
+|blackweb.txt|5341657|138,7 MB|
 
 ## GIT CLONE
 
@@ -85,8 +85,7 @@ http_access deny blackweb
 
 BlackWeb contains millions of domains, therefore it is recommended: / BlackWeb contiene millones de dominios, por tanto se recomienda:
 
-| Allow Rule for Domains |
-| ---------------------- |
+##### Allow Rule for Domains
 
 >Use `allowdomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives. / Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos.
 
@@ -95,8 +94,7 @@ acl allowdomains dstdomain "/path_to/allowdomains.txt"
 http_access allow allowdomains
 ```
 
-| Block Rule for Domains |
-| ---------------------- |
+##### Block Rule for Domains
 
 >Use `blockdomains.txt` to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc). / Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.).
 
@@ -105,8 +103,7 @@ acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 ```
 
-| Block Rule for gTLD, sTLD, ccTLD, etc. |
-| -------------------------------------- |
+##### Block Rule for gTLD, sTLD, ccTLD, etc.
 
 >Use `blocktlds.txt` to block gTLD, sTLD, ccTLD, etc. / Use `blocktlds.txt` para bloquear gTLD, sTLD, ccTLD, etc.
 
@@ -132,8 +129,7 @@ Output:
 .foodomain.com
 ```
 
-| Block Rule for Punycode |
-| ----------------------- |
+##### Block Rule for Punycode
 
 >Use this rule to block [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs or Domains), to prevent an [IDN homograph attack](https://en.wikipedia.org/wiki/IDN_homograph_attack). For more information visit [welivesecurity: Homograph attacks](https://www.welivesecurity.com/2017/07/27/homograph-attacks-see-to-believe/) / Usar esta regla para bloquear [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs o Dominios), para prevenir un [Ataque homógrafo IDN](https://en.wikipedia.org/wiki/IDN_homograph_attack). Para mayor información visite [welivesecurity: Ataques homográficos](https://www.welivesecurity.com/la-es/2017/07/13/ataques-homograficos/)
 
@@ -160,8 +156,7 @@ Output:
 .net
 ```
 
-| Block Rule for Words |
-| -------------------- |
+##### Block Rule for Words
 
 >Use this rule to block words (Optional. Can generate false positives) / Usar esta regla para bloquear palabras (Opcional. Puede generar falsos positivos)
 
@@ -231,8 +226,7 @@ For more information check [Issue 10](https://github.com/maravento/blackweb/issu
 
 This section is only to explain how update and optimization process works. It is not necessary for user to run it. This process can take time and consume a lot of hardware and bandwidth resources, therefore it is recommended to use test equipment. / Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas.
 
-| Bash Update |
-| ----------- |
+#### Bash Update
 
 >The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`. / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`.
 
@@ -242,25 +236,26 @@ This section is only to explain how update and optimization process works. It is
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
 ```
 
-| Dependencies |
-| ------------ |
+#### Dependencies
 
 >Update requires python 3x and bash 5x. / La actualización requiere python 3x y bash 5x.
 
 ```bash
-pkgs='wget git curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python3 squid'
+pkgs='wget git curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python3'
 if ! dpkg -s $pkgs >/dev/null 2>&1; then
   apt-get install $pkgs
 fi
+# For squid-cache
+apt install squid-openssl
+# or
+apt install squid
 ```
 
-| Capture Public Blocklists |
-| ------------------------- |
+#### Capture Public Blocklists
 
 >Capture domains from downloaded public blocklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file. / Captura los dominios de las listas de bloqueo públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo.
 
-| Domain Debugging |
-| ---------------- |
+#### Domain Debugging
 
 >Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`debugwl.txt`). / Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`debugwl.txt`).
 
@@ -291,8 +286,7 @@ Output:
 .domain.co.uk
 ```
 
-| TLD Validation |
-| ---------------|
+#### TLD Validation
 
 >Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs). / Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs).
 
@@ -311,8 +305,7 @@ Output:
 .domain.edu.ca
 ```
 
-| Debugging Punycode-IDN |
-| -----------------------|
+#### Debugging Punycode-IDN
 
 >Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (non ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format. / Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode).
 
@@ -340,8 +333,7 @@ Output:
 .xn--sendesk-wfb.com
 ```
 
-| DNS Loockup |
-| ------------|
+#### DNS Loockup
 
 >Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains. Then, a double check of each domain is done (in 2 steps) via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth. / La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes. Entonces se hace una verificación doble de cada dominio (en 2 pasos) vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda.
 
@@ -357,8 +349,7 @@ Host testfaultdomain.com not found: 3(NXDOMAIN)
 
 For more information, check [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
 
-| Excludes government-related TLDs |
-| ---------------------------------|
+#### Excludes government-related TLDs
 
 >Remove government domains (.gov) and other related TLDs from BlackWeb. / Elimina de BlackWeb los dominios de gobierno (.gov) y otros TLD relacionados.
 
@@ -378,13 +369,11 @@ Output:
 .mydomain.com
 ```
 
-| Run Squid-Cache with BlackWeb |
-| ----------------------------- |
+#### Run Squid-Cache with BlackWeb
 
 >Run Squid-Cache with BlackWeb and any error sends it to `SquidError.txt` on your desktop. / Corre Squid-Cache con BlackWeb y cualquier error lo envía a `SquidError.txt` en su escritorio.
 
-| Check execution (/var/log/syslog) |
-| --------------------------------- |
+#### Check execution (/var/log/syslog)
 
 ```bash
 BlackWeb: Done 06/05/2023 15:47:14
@@ -608,6 +597,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Lifars: Sites with blocklist of malicious IPs and URLs](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
 - [opensourcelibs: Blackweb](https://opensourcelibs.com/lib/blackweb)
 - [OSINT Framework: Domain Name/Domain Blacklists/Blackweb](https://osintframework.com/)
+- [osintbay: blackweb](https://osintbay.com/tool/blackweb)
 - [Secrepo: Samples of Security Related Data](http://www.secrepo.com/)
 - [Segu-Info: Análisis de malware y sitios web en tiempo real](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
 - [Segu-Info: Dominios/TLD dañinos que pueden ser bloqueados para evitar spam y #phishing](https://blog.segu-info.com.ar/2024/05/dominiostld-daninos-que-pueden-ser.html)

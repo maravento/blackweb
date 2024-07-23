@@ -65,7 +65,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function blurls() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - >>bwtmp/bw
+            $wgetd "$1" -O - >> bwtmp/bw
         else
             echo ERROR "$1"
         fi
@@ -221,7 +221,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >>lst/debugwl.txt
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/debugwl.txt
         else
             echo ERROR "$1"
         fi
@@ -234,7 +234,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function publicsuffix() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - >>lst/sourcetlds.txt
+            $wgetd "$1" -O - >> lst/sourcetlds.txt
         else
             echo ERROR "$1"
         fi
@@ -242,26 +242,27 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
     publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
     publicsuffix 'https://www.whoisxmlapi.com/support/supported_gtlds.php'
-    grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" | sed 's/^\.//' | awk '{print "." $1}' | sort -u >tlds.txt
+    grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" | sed 's/^\.//' | awk '{print "." $1}' | sort -u > tlds.txt
     echo "OK"
 
     # CAPTURING DOMAINS
     echo "${bw08[${en}]}"
     # capturing
-    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; >captmp1
-    piconv -f cp1252 -t UTF-8 <captmp1 >captmp2
-    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "." $1}' | sort -u >capture
+    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; > captmp1
+    piconv -f cp1252 -t UTF-8 <captmp1 > captmp2
+    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "." $1}' > capture
     echo "OK"
 
     # JOIN AND UPDATE LIST
     echo "${bw09[${en}]}"
+    sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sort -u > urls.txt
     # unblock remote
-    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
     # block remote
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
-    # unblock web3
-    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
-    # block web3
+    # unblock web3 (experimental)
+    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> urls.txt
+    # block web3 (experimental)
     #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
     # uniq capture
     sort -o capture -u capture
@@ -269,26 +270,29 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # DEBUGGING DOMAINS
     echo "${bw10[${en}]}"
-    # parse domains
-    #cat lst/fault.tar.gz* | tar xzf -
-    #grep -Fvxf <(cat {invalid,tlds,fault}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
-    grep -Fvxf <(cat {invalid,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u >outparse
+    grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
     echo "OK"
 
     # DEBUGGING TLDS
     echo "${bw11[${en}]}"
-    # check tlds
-    grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u >cleantlds
+    # debugging by domain extensions (option 1)
+    #grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u > cleantlds
+    # debugging by domain extensions (option 2)
+    sed 's/\./\\./g;s/^/.*/' tlds.txt > escaped_tlds.txt
+    grep -v -F -x -f tlds.txt outparse > filtered_outparse.txt
+    # slow part. wait...
+    grep -x -f escaped_tlds.txt filtered_outparse.txt > matched_lines.txt
+    sed -r '/[^a-z0-9.-]/d' matched_lines.txt | sort -u > cleantlds
     echo "OK"
 
     # DEBUGGING IDN
     echo "${bw12[${en}]}"
-    sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u >idnlst
-    grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >>idnlst
-    grep --color='auto' -P "[^[:ascii:]]" idnlst >idntmp
-    grep -Fvxf <(cat idntmp) idnlst | sort -u >cleanidn
+    sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u > idnlst
+    grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >> idnlst
+    grep --color='auto' -P "[^[:ascii:]]" idnlst > idntmp
+    grep -Fvxf <(cat idntmp) idnlst | sort -u > cleanidn
     #grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
-    grep -Fvxf <(cat tlds.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u >cleandns
+    grep -Fvxf <(cat tlds.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u > cleandns
     echo "OK"
 else
     cd "$bwupdate"
@@ -297,20 +301,23 @@ fi
 # DNS LOCKUP
 # FAULT: Unexist/Fail domain
 # HIT: Exist domain
-# pp = parallel processes (high resource consumption!)
-pp="300"
+# pp = parallel processes
+# WARNING: high resource consumption!
+# Xargs Limit: The limit is at least 127 on all systems (and on the author’s system it is 2147483647)
+# For more information, run: xargs --show-limits
+pp="100"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then
     echo "${bw13[${en}]}"
-    sed 's/^\.//g' cleandns | sort -u >step1
+    sed 's/^\.//g' cleandns | sort -u > step1
     if [ -s dnslookup1 ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
     else
         cat step1
-    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup1
-    sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >hit.txt
-    sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>fault.txt
+    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup1
+    sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
+    sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
     sort -o fault.txt -u fault.txt
     echo "OK"
 fi
@@ -319,22 +326,22 @@ sleep 10
 
 # STEP 2:
 echo "${bw14[${en}]}"
-sed 's/^\.//g' fault.txt | sort -u >step2
+sed 's/^\.//g' fault.txt | sort -u > step2
 if [ -s dnslookup2 ]; then
     awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
 else
     cat step2
-fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >>dnslookup2
-sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >>hit.txt
-sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >fault.txt
+fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup2
+sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
+sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
 echo "OK"
 
 # DEBUG BLACKLIST
 echo "${bw15[${en}]}"
 # add debug blacklist
-sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >>hit.txt
+sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u >blackweb_tmp
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
 # convert to hosts file (optional)
 #sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/debugbl.txt | sort -u > lst/hosts.txt
 echo "OK"
@@ -356,7 +363,7 @@ sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 sudo bash -c 'squid -k reconfigure' 2>sqerror && sleep 20
-sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >>sqerror
+sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> sqerror
 sort -o sqerror -u sqerror
 python tools/debug_error.py
 sort -o final -u final
