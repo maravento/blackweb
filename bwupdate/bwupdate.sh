@@ -305,7 +305,7 @@ fi
 # WARNING: high resource consumption!
 # Xargs Limit: The limit is at least 127 on all systems (and on the author’s system it is 2147483647)
 # For more information, run: xargs --show-limits
-pp="100"
+pp="50"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then

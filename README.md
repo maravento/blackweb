@@ -14,7 +14,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5341657|138,7 MB|
+|blackweb.txt|5312152|138,1 MB|
 
 ## GIT CLONE
 
@@ -103,7 +103,7 @@ acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 ```
 
-##### Block Rule for gTLD, sTLD, ccTLD, etc.
+##### Block Rule for gTLD, sTLD, ccTLD, etc
 
 >Use `blocktlds.txt` to block gTLD, sTLD, ccTLD, etc. / Use `blocktlds.txt` para bloquear gTLD, sTLD, ccTLD, etc.
 
@@ -228,9 +228,7 @@ This section is only to explain how update and optimization process works. It is
 
 #### Bash Update
 
->The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`. / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`.
-
->The script will request privileges when required. / El script solicitará privilegios cuando lo requiera.
+>The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`. The script will request privileges when required. / El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`. El script solicitará privilegios cuando lo requiera.
 
 ```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
@@ -245,10 +243,42 @@ pkgs='wget git curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-py
 if ! dpkg -s $pkgs >/dev/null 2>&1; then
   apt-get install $pkgs
 fi
-# For squid-cache
-apt install squid-openssl
-# or
-apt install squid
+```
+
+>Make sure your Squid is installed correctly. If you have any problems, run the following script: (`sudo ./squid_install.sh`):
+
+```bash
+#!/bin/bash
+
+# kill old version
+while pgrep squid > /dev/null; do
+    echo "Waiting for Squid to stop..."
+    killall -s SIGTERM squid &>/dev/null
+    sleep 5
+done
+
+# squid remove (if exist)
+apt purge -y squid* &>/dev/null
+rm -rf /var/spool/squid* /var/log/squid* /etc/squid* /dev/shm/* &>/dev/null
+
+# squid install (you can use 'squid-openssl' or 'squid')
+apt install -y squid-openssl squid-langpack squid-common squidclient squid-purge
+
+# create log
+if [ ! -d /var/log/squid ]; then
+    mkdir -p /var/log/squid
+fi &>/dev/null
+if [[ ! -f /var/log/squid/{access,cache,store,deny}.log ]]; then
+    touch /var/log/squid/{access,cache,store,deny}.log
+fi &>/dev/null
+
+# permissions
+chown -R proxy:proxy /var/log/squid
+
+# enable service
+systemctl enable squid.service
+systemctl start squid.service
+echo "Done"
 ```
 
 #### Capture Public Blocklists
@@ -384,6 +414,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - The default path of BlackWeb is `/etc/acl`. You can change it for your preference. / El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
 - `bwupdate.sh` includes lists of remote support related domains (Teamviewer, Anydesk, logmein, etc) and web3 domains. They are commented by default (unless their domains are in [SOURCES](https://github.com/maravento/blackweb#sources--sources)). To block or exclude them you must activate the corresponding lines in the script (# JOIN LIST), although it is not recommended to avoid conflicts or false positives. / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point. / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
+- If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: / Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`
 - If someone considers that a domain should not be on Blackweb, they can create an [Issue](https://github.com/maravento/blackweb/issues) and notify it to remove it. / Si alguien considera que algún dominio no debería estár en Blackweb, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificarlo para removerlo.
 
 ## SOURCES
