@@ -414,7 +414,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - The default path of BlackWeb is `/etc/acl`. You can change it for your preference. / El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
 - `bwupdate.sh` includes lists of remote support related domains (Teamviewer, Anydesk, logmein, etc) and web3 domains. They are commented by default (unless their domains are in [SOURCES](https://github.com/maravento/blackweb#sources--sources)). To block or exclude them you must activate the corresponding lines in the script (# JOIN LIST), although it is not recommended to avoid conflicts or false positives. / `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point. / Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
-- If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: / Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`
+- If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: / Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
 - If someone considers that a domain should not be on Blackweb, they can create an [Issue](https://github.com/maravento/blackweb/issues) and notify it to remove it. / Si alguien considera que algún dominio no debería estár en Blackweb, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificarlo para removerlo.
 
 ## SOURCES
@@ -464,7 +464,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Disconnect.me - simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
 - [dorxmi - nothingblock](https://github.com/dorxmi/nothingblock)
 - [EasyList - EasyListHebrew](https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt)
-- [ethanr - dns-blacklists](https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
+- [ethanr - dns-blacklists](https://bitbucket.org/ethanr/dns-blacklists/raw/master/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
 - [fabriziosalmi - blacklists](https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt)
 - [FadeMind - 2o7Net](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts)
 - [FadeMind - Risk](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts)
@@ -613,7 +613,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 - [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 
-## REFERENCES TO BLACKWEB
+## BACKLINKS
 
 ---
 

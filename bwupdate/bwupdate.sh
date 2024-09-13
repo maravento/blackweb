@@ -72,7 +72,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     }
     blurls 'https://adaway.org/hosts.txt' && sleep 1
     blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
-    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
+    blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/master/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
     blurls 'https://easylist-downloads.adblockplus.org/advblock.txt' && sleep 1
     blurls 'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt' && sleep 1
     blurls 'https://easylist-downloads.adblockplus.org/easylistchina.txt' && sleep 1
