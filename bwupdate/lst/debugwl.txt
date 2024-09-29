@@ -24333,6 +24333,7 @@
 .vlex.com
 .vsointernational.org
 .w3.org
+.wafaicloud.com
 .washingtonfederal.com
 .wbpr.com
 .webex.com
