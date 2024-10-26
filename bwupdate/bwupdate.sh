@@ -198,6 +198,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt' && sleep 1
     blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
     blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/eallion/uBlacklist-subscription-compilation/refs/heads/main/uBlacklist.txt' && sleep 1
 
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {

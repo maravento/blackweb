@@ -1397,6 +1397,7 @@
 .casarella.it
 .casaxavier.com.mx
 .caseycarrental.com
+.casio-colombia.com.co
 .cast4all.com
 .catchthismusic.com
 .catcsr.com
@@ -1913,8 +1914,10 @@
 .cuevana3.surf
 .cuevana3-v1.wtf
 .cuevana3.video
+.cuevana3.vip
 .cuevana3.ws
 .cuevana-3.wtf
+.cuevana4.me
 .cuevana.biz
 .cuevana.fm
 .cuevanago.com
@@ -6369,6 +6372,7 @@
 .pelisencastellano.com
 .pelisenhd.net
 .peliseucip.blogspot.com
+.pelisflix2.ing
 .pelisflix2.one
 .pelisflix2.vip
 .pelisflix.club
@@ -7037,6 +7041,7 @@
 .rimpro.ru
 .rincondelteam24.blogspot.com
 .ringbalor.com
+.rinku.me
 .riojadental.com
 .rioual.com
 .rippedknees.co.uk
@@ -8408,6 +8413,7 @@ seriesmetro.net
 .tozdance.com
 .tozein.com
 .tpb.party
+.tpi.li
 .tpllaw.com
 .trackingex.com
 .tradeads.eu
@@ -9223,6 +9229,7 @@ seriesmetro.net
 .xback.be
 .xceramics.com
 .x.co
+.xcuevana.tv
 .xender.com
 .xervoo.net
 .xevd.co
