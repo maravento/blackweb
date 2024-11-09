@@ -9,12 +9,12 @@
 <table align="center">
   <tr>
     <td align="center">
-      <span>English</span> | <a href="README-es.md">Español</a>
+      <a href="README.md">English</a> | <span>Español</span>
     </td>
   </tr>
 </table>
 
-BlackWeb is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with [Squid-Cache](http://www.squid-cache.org/).
+BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc.) para hacerlas compatibles con [Squid-Cache](http://www.squid-cache.org/).
 
 ## DATA SHEET
 
@@ -36,7 +36,7 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 
 ---
 
-`blackweb.txt` is already updated and optimized for [Squid-Cache](http://www.squid-cache.org/). Download it and unzip it in the path of your preference and activate [Squid-Cache RULE](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule).
+`blackweb.txt` ya viene actualizada y optimizada para [Squid-Cache](http://www.squid-cache.org/). Descárguela y descomprimala en la ruta de su preferencia y active la [REGLA de Squid-Cache](https://github.com/maravento/blackweb#regla-squid-cache--squid-cache-rule).
 
 ### Download
 
@@ -79,7 +79,7 @@ Edit:
 /etc/squid/squid.conf
 ```
 
-And add the following lines:
+Y agregue las siguientes líneas:
 
 ```bash
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
@@ -91,11 +91,11 @@ http_access deny blackweb
 
 #### Advanced Rules
 
-BlackWeb contains millions of domains, therefore it is recommended:
+BlackWeb contiene millones de dominios, por tanto se recomienda:
 
 ##### Allow Rule for Domains
 
->Use `allowdomains.txt` to exclude domains (e.g.: accounts.youtube.com [since Feb 2014, Google uses the subdomain accounts.youtube.com to authenticate its services](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) or false positives. / Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos.
+>Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos.
 
 ```bash
 acl allowdomains dstdomain "/path_to/allowdomains.txt"
@@ -104,7 +104,7 @@ http_access allow allowdomains
 
 ##### Block Rule for Domains
 
->Use `blockdomains.txt` to add domains not included in `blackweb.txt` (e.g.: .youtube.com .googlevideo.com, .ytimg.com, etc).
+>Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.).
 
 ```bash
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
@@ -113,7 +113,7 @@ http_access deny blockdomains
 
 ##### Block Rule for gTLD, sTLD, ccTLD, etc
 
->Use `blocktlds.txt` to block gTLD, sTLD, ccTLD, etc.
+>Use `blocktlds.txt` para bloquear gTLD, sTLD, ccTLD, etc.
 
 ```bash
 acl blocktlds dstdomain "/path_to/blocktlds.txt"
@@ -139,7 +139,7 @@ Output:
 
 ##### Block Rule for Punycode
 
->Use this rule to block [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs or Domains), to prevent an [IDN homograph attack](https://en.wikipedia.org/wiki/IDN_homograph_attack). For more information visit [welivesecurity: Homograph attacks](https://www.welivesecurity.com/2017/07/27/homograph-attacks-see-to-believe/).
+>Usar esta regla para bloquear [Punycode - RFC3492](https://datatracker.ietf.org/doc/html/rfc3492), IDN | Non-ASCII (TLDs o Dominios), para prevenir un [Ataque homógrafo IDN](https://en.wikipedia.org/wiki/IDN_homograph_attack). Para mayor información visite [welivesecurity: Ataques homográficos](https://www.welivesecurity.com/la-es/2017/07/13/ataques-homograficos/).
 
 ```bash
 acl punycode dstdom_regex -i \.xn--.*
@@ -166,7 +166,7 @@ Output:
 
 ##### Block Rule for Words
 
->Use this rule to block words (Optional. Can generate false positives).
+>Usar esta regla para bloquear palabras (Opcional. Puede generar falsos positivos).
 
 ```bash
 acl blockwords url_regex -i "/etc/acl/blockwords.txt"
@@ -222,7 +222,7 @@ http_access deny blackweb
 
 ## IMPORTANT
 
-BlackWeb is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**.
+BlackWeb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**.
 
 For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
 
@@ -232,11 +232,11 @@ For more information check [Issue 10](https://github.com/maravento/blackweb/issu
 
 ### ⚠️ WARNING: BEFORE YOU CONTINUE
 
-This section is only to explain how update and optimization process works. It is not necessary for user to run it. This process can take time and consume a lot of hardware and bandwidth resources, therefore it is recommended to use test equipment.
+Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas.
 
 #### Bash Update
 
->The update process of `blackweb.txt` consists of several steps and is executed in sequence by the script `bwupdate.sh`. The script will request privileges when required.
+>El proceso de actualización de `blackweb.txt` consta de varios pasos y es ejecutado en secuencia por el script `bwupdate.sh`. El script solicitará privilegios cuando lo requiera.
 
 ```bash
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
@@ -244,7 +244,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 #### Dependencies
 
->Update requires python 3x and bash 5x.
+>La actualización requiere python 3x y bash 5x.
 
 ```bash
 pkgs='wget git curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python3'
@@ -253,7 +253,7 @@ if ! dpkg -s $pkgs >/dev/null 2>&1; then
 fi
 ```
 
->Make sure your Squid is installed correctly. If you have any problems, run the following script: (`sudo ./squid_install.sh`):
+>Asegúrese de que Squid esté instalado correctamente. Si tiene algún problema, ejecute el siguiente script: (`sudo ./squid_install.sh`):
 
 ```bash
 #!/bin/bash
@@ -291,11 +291,11 @@ echo "Done"
 
 #### Capture Public Blocklists
 
->Capture domains from downloaded public blocklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file.
+>Captura los dominios de las listas de bloqueo públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo.
 
 #### Domain Debugging
 
->Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`debugwl.txt`).
+>Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`debugwl.txt`).
 
 Input:
 
@@ -326,7 +326,7 @@ Output:
 
 #### TLD Validation
 
->Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs).
+>Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs).
 
 Input:
 
@@ -345,7 +345,7 @@ Output:
 
 #### Debugging Punycode-IDN
 
->Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (non ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format.
+>Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode).
 
 Input:
 
@@ -373,7 +373,7 @@ Output:
 
 #### DNS Loockup
 
->Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains. Then, a double check of each domain is done (in 2 steps) via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth.
+>La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes. Entonces se hace una verificación doble de cada dominio (en 2 pasos) vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda.
 
 ```bash
 HIT google.com
@@ -385,11 +385,11 @@ FAULT testfaultdomain.com
 Host testfaultdomain.com not found: 3(NXDOMAIN)
 ```
 
-For more information, check [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
+Para obtener más información, consulte [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
 
 #### Excludes government-related TLDs
 
->Remove government domains (.gov) and other related TLDs from BlackWeb.
+>Elimina de BlackWeb los dominios de gobierno (.gov) y otros TLD relacionados.
 
 Input:
 
@@ -409,7 +409,7 @@ Output:
 
 #### Run Squid-Cache with BlackWeb
 
->Run Squid-Cache with BlackWeb and any error sends it to `SquidError.txt` on your desktop.
+>Corre Squid-Cache con BlackWeb y cualquier error lo envía a `SquidError.txt` en su escritorio.
 
 #### Check execution (/var/log/syslog)
 
@@ -419,11 +419,11 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 #### Important about BlackWeb Update
 
-- The default path of BlackWeb is `/etc/acl`. You can change it for your preference.
-- `bwupdate.sh` includes lists of remote support related domains (Teamviewer, Anydesk, logmein, etc) and web3 domains. They are commented by default (unless their domains are in [SOURCES](https://github.com/maravento/blackweb#sources--sources)). To block or exclude them you must activate the corresponding lines in the script (# JOIN LIST), although it is not recommended to avoid conflicts or false positives.
-- If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.
-- If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
-- If someone considers that a domain should not be on Blackweb, you can create an [Issue](https://github.com/maravento/blackweb/issues) and notify it to remove it.
+- El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
+- `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
+- Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
+- Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
+- Si alguien considera que algún dominio no debería estár en Blackweb, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificarlo para removerlo.
 
 ## SOURCES
 
@@ -658,7 +658,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 ---
 
-We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project.
+Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto.
 
 Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
@@ -679,18 +679,18 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 ---
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN CONTRACTUAL, EXTRACONTRACTUAL O DE OTRO MODO, QUE SURJA DE, A PARTIR DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U OTRAS OPERACIONES EN EL SOFTWARE.
 
 ## OBJECTION
 
 ---
 
-Due to recent arbitrary changes in computer terminology, it is necessary to clarify the meaning and connotation of the term **blacklist**, associated with this project: *In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used.*
+Debido a los recientes cambios arbitrarios en la terminología informática, es necesario aclarar el significado y connotación del término **blacklist**, asociado a este proyecto: *En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando.*
 
-Source [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
+Fuente [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
 
-Therefore,
+Por tanto,
 
 **blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist**, **etc.**
 
-are terms that have nothing to do with racial discrimination.
+son términos que no tienen ninguna relación con la discriminación racial.
