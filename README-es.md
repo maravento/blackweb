@@ -22,7 +22,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5281907|137,5 MB|
+|blackweb.txt|5318401|138,3 MB|
 
 ## GIT CLONE
 
@@ -685,12 +685,8 @@ EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O 
 
 ---
 
-Debido a los recientes cambios arbitrarios en la terminología informática, es necesario aclarar el significado y connotación del término **blacklist**, asociado a este proyecto: *En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando.*
+Debido a los recientes cambios arbitrarios en la terminología informática, es necesario aclarar el significado y connotación del término **blacklist**, asociado a este proyecto:
 
-Fuente [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
+*En informática, una lista negra, lista de denegación o lista de bloqueo es un mecanismo básico de control de acceso que permite a través de todos los elementos (direcciones de correo electrónico, usuarios, contraseñas, URL, direcciones IP, nombres de dominio, hashes de archivos, etc.), excepto los mencionados explícitamente. Esos elementos en la lista tienen acceso denegado. Lo opuesto es una lista blanca, lo que significa que solo los elementos de la lista pueden pasar por cualquier puerta que se esté utilizando.* Fuente [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
 
-Por tanto,
-
-**blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist**, **etc.**
-
-son términos que no tienen ninguna relación con la discriminación racial.
+Por tanto, **blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist** y similares, son términos que no tienen ninguna relación con la discriminación racial.

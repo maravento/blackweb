@@ -22,7 +22,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5281907|137,5 MB|
+|blackweb.txt|5318401|138,3 MB|
 
 ## GIT CLONE
 
@@ -685,12 +685,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-Due to recent arbitrary changes in computer terminology, it is necessary to clarify the meaning and connotation of the term **blacklist**, associated with this project: *In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used.*
+Due to recent arbitrary changes in computer terminology, it is necessary to clarify the meaning and connotation of the term **blacklist**, associated with this project:
 
-Source [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
+*In computing, a blacklist, denylist or blocklist is a basic access control mechanism that allows through all elements (email addresses, users, passwords, URLs, IP addresses, domain names, file hashes, etc.), except those explicitly mentioned. Those items on the list are denied access. The opposite is a whitelist, which means only items on the list are let through whatever gate is being used.* Source [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(computing))
 
-Therefore,
-
-**blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist**, **etc.**
-
-are terms that have nothing to do with racial discrimination.
+Therefore, **blacklist**, **blocklist**, **blackweb**, **blackip**, **whitelist** and similar, are terms that have nothing to do with racial discrimination.

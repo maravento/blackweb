@@ -83,6 +83,7 @@
 .3ainstrument.com
 .3d0cb547.space
 .3ddentalimage.com
+.3dpelicula.com
 .3d-schilling.de
 .3dstyle.in.ua
 .3ks.nl
@@ -105,6 +106,7 @@
 .4howcrack.com
 .4ix.com
 .4kdownload.com
+.4k-hdpelicula.com
 .4office.pl
 .4shared.com
 .4turka.com
@@ -727,6 +729,7 @@
 .auburnac.org
 .audehd.com
 .audetlaw.com
+.audiolatinohd.com
 .audit1040.com
 .auditcitoyen.be
 .auditorius.ru
@@ -1570,6 +1573,7 @@
 .cine-calidad.co
 .cine-calidad.com
 .cinecalidad.de
+.cinecalidad.ec
 .cinecalidad.gg
 .cinecalidad.hair
 .cinecalidad.in
@@ -1581,6 +1585,7 @@
 .cinecalidad.nz
 .cinecalidad.pro
 .cinecalidad.rest
+.cinecalidad.rs
 .cinecalidad.run
 .cinecalidad.so
 .cinecalidad.tv
@@ -1589,6 +1594,7 @@
 .cinemaniahdd.net
 .cinemauae.com
 .cinemultimediaflix.com
+.cinerama91.com
 .cinestentativos.com
 .cineyseries.net
 .cin.ink
@@ -1613,6 +1619,7 @@
 .clarkesupports.com
 .clarovideo.com
 .clashroyale.com
+.clasicosanimados.net
 .classiccinemaonline.com
 .classmates.com
 .clazbrokerageservices.com
@@ -1811,6 +1818,7 @@
 .couriersticky.com
 .courtesyweb.it
 .covepointcottage.com
+.coversfable.com
 .cozyculmy.com
 .cpashka.ru
 .cpavhits.com
@@ -1906,6 +1914,7 @@
 .cuevana-3.io
 .cuevana3.io
 .cuevana3.live
+.cuevana-3.lol
 .cuevana3.mu
 .cuevana-3.party
 .cuevana3.pe
@@ -1929,6 +1938,7 @@
 .cuevana.uno
 .cuevana.vegas
 .cuevanavideo.com
+.cuevanaweb.net
 .cugaituoianthai.com
 .cuisines-aviva.com
 .cultural-ecology.com
@@ -2024,6 +2034,7 @@
 .datagravity.com
 .datalinks.ir
 .dataprim.fr
+.datinglocator24.com
 .davepotterhonda.com.au
 .davetoll.com
 .davisdoherty.co.nz
@@ -2124,6 +2135,7 @@
 .descargas.com
 .descargasdd.net
 .descargaserieshd.com
+.descargasmegatotal.com
 .descargasok.com
 .descargasok.org
 .descargaspormega.com
@@ -2131,6 +2143,7 @@
 .descargatelocorp.plus
 .descargatelotodo.com
 .descargatepelis.com
+.descarga-todo-digital-mega.blogspot.com
 .descarga-todo-digital-mega-paginas.blogspot.com
 .deschelpenshop.nl
 .deserial.com
@@ -2203,6 +2216,7 @@
 .dirkdj.nl
 .dirproxy.org
 .dirtytorrents.com
+.discolink.top
 .discordapp.com
 .discord.com
 .discord.gg
@@ -3473,6 +3487,7 @@
 .gnihealth.com
 .gns1.com
 .gnula2.org
+.gnulahd.nu
 .gnula.nu
 .gnula.su
 .go2affise.com
@@ -4231,6 +4246,7 @@
 .intensivo.nl
 .interabc.nl
 .intercambiosvirtuales.co
+.intercambiosvirtualeshd.org
 .intercambiosvirtuales.org
 .inter-choix.com
 .intercom.com
@@ -4890,6 +4906,7 @@
 .latinchats.net
 .latinchats.org
 .latinomegahd.net
+.latinomegarip.net
 .latinouhd.com
 .laundryonwheels.ca
 .lauraleedonnelly.com
@@ -4990,6 +5007,7 @@
 .limpiezamecanizada.com.mx
 .limret.com
 .linclik.com
+.linclik.top
 .lincolnfarmsupply.com
 .lindafluge.no
 .line.me
@@ -5286,6 +5304,7 @@
 .mcmustard.com
 .mcpf.co.za
 .mcwhorterdesign.com
+.mdfef.blogspot.com
 .mdk-wear.ru
 .mdminiaussies.com
 .mdstrm.com
@@ -5327,6 +5346,7 @@
 .mega1080p.org
 .mega1link.com
 .mega-anime-kawai.blogspot.com
+.mega-cine.com
 .mega.co.nz
 .megadede.in
 .megadescarga-gratis.blogspot.com
@@ -5345,8 +5365,10 @@
 .mega-mkv.com
 .mega.nz
 .megapaste.xyz
+.megapeliculas.net
 .megapeliculasrip.com
 .megapeliculasrip.net
+.megapeliculas.xyz
 .megapg.com
 .megapowercash.com
 .megaproxy.com
@@ -5356,9 +5378,11 @@
 .megaserie.me
 .megaseries24.wordpress.com
 .megaserieshd.xyz
+.megaseries.xyz
 .megasolucoesti.com
 .megatelevisionhd.tk
 .megatube.club
+.megauniverso.club
 .megaupload2.com
 .megaup.net
 .megawarez.org
@@ -5615,6 +5639,7 @@
 .movierulz.video
 .moviesbark.com
 .moviesthenumber.blogspot.com
+.movies-web.com
 .movietimes.com.au
 .moxo-adhdtest.com
 .moydom.by
@@ -6158,6 +6183,7 @@
 .online-metrix.net
 .onlinepregnancycare.com
 .onlinevideoconverter.pro
+.onlipeli.net
 .onl.li
 .onlylads.com
 .onlypc.net
@@ -6359,16 +6385,20 @@
 .peliculasgoogledrive.info
 .peliculasgoogleone.net
 .peliculashdpormega.cyou
+.peliculasmega1k.com
 .peliculas-mp4.com
 .peliculasmp4hd.com
+.peliculasmp4hd.net
 .peliculasonline4k.net
 .peliculas.pub
 .pelis-123.net
 .pelis-123.org
+.pelis24.blog
 .pelis24.gratis
 .pelis28.net
 .pelisap.com
 .pelisdata.com
+.pelisen1080p.com
 .pelisencastellano.com
 .pelisenhd.net
 .peliseucip.blogspot.com
@@ -6390,6 +6420,7 @@
 .pelisgratishd.io
 .pelisgratishd.lat
 .pelisgratishd.live
+.pelishd4k.com
 .pelishouse.me
 .peliskcdculkx.blogspot.com
 .pelislatino.org
@@ -6424,6 +6455,7 @@
 .pelispop.me
 .pelispunto.net
 .pelisxmegahd.com
+.pelisypalomitas.com
 .pencalmpath.live
 .pensionwoehler.de
 .pentabox.net
@@ -6589,6 +6621,7 @@
 .policyforlife.com
 .poli-mec.it
 .poltec.com.au
+.poltulive.site
 .polykarpou.com
 .polywaste.co.zw
 .pomfe.co
@@ -6835,6 +6868,7 @@
 .quasaraffiliates.com
 .qubamosque.org
 .quellaplentyresolute.com
+.quemega.blogspot.com
 .quezy.xyz
 .quick-hide-ip.com
 .quicklight.co.uk
@@ -6886,6 +6920,7 @@
 .rapidshare.com
 .rapidshare.io
 .rarbgdata.org
+.rarbggo.org
 .rarbg.me
 .rarbg.to
 .raregemsgroup.com
@@ -7378,14 +7413,17 @@
 .seriesflix.video
 .seriesflv.me
 .seriesfullpormegatwo.blogspot.com
+.seriesgod.cc
 .serieshdpormega1.link
 .serieshdpormega.com
+.serieshdpormega.vip
 .serieshdpormega.xyz
 .serieslandia.com
 .serieslatinoamerica.org
 .serieslatinoamerica.tv
 .seriesly.nu
 .seriesly.top
+.seriesmega.org
 .seriesmegaxmediafire.net
 seriesmetro.net
 .seriesohoh.com
@@ -7702,6 +7740,7 @@ seriesmetro.net
 .somersetautotints.co.uk
 .something117.com
 .somosinvictos.com
+.somosmovies.com
 .somuchrecords.com
 .sonajp.com
 .sonarr.tv
@@ -7880,6 +7919,7 @@ seriesmetro.net
 .streamaxuhd.com
 .streamboox.com
 .streamium.xyz
+.streamovies.site
 .streamplay.to
 .streamservices.de
 .streamtape.com
@@ -8496,12 +8536,14 @@ seriesmetro.net
 .tubetitties.com
 .tubeunblock.me
 .tucinehd.com
+.tucinemega.com
 .tucows.com
 .tulapoligrafist.ru
 .tula.ru
 .tulink.cc
 .tumblr.com
 .tumegadescargas.com
+.tumegapelicula.net
 .tumejordescarga.com
 .tuminsaat.com
 .tunca.bel.tr
@@ -8981,6 +9023,7 @@ seriesmetro.net
 .waiverking.com
 .wakelet.com
 .waleshigh.com
+.walhe-dap.com
 .walica.cz
 .walkerandhall.co.uk
 .walkincareers.com
@@ -9279,6 +9322,7 @@ seriesmetro.net
 .xvideos2.com
 .xvideos.com
 .xvideoshq.org
+.xxiflix.com
 .xxmaoyi.com
 .xxxxxxxx.jp
 .xyego.com
@@ -9481,6 +9525,7 @@ seriesmetro.net
 .znany-lekarz.pl
 .zodee.com.au
 .zoekeith.com
+.zona-leros.com
 .zona-zero.net
 .zone-telechargement-albums.com
 .zonnit.com
