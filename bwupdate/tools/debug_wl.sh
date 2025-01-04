@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Debugging Whitelist: debugwl.txt
+
 infile="allowurls.txt"
 echo "Start debug..."
 sed '/^$/d; /#/d' $infile | sed 's/^\.//g' >clean
