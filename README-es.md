@@ -22,7 +22,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|5318401|138,3 MB|
+|blackweb.txt|4650673|118,3 MB|
 
 ## GIT CLONE
 
@@ -44,22 +44,52 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
 ```
 
-### If Multiparts Exist
+#### If Multiparts Exist
 
 ```bash
-#!/usr/bin/env bash
-base_url="https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz."
+#!/bin/bash
 
-for num in {000..999}; do
-    file="${base_url}${num}"
-    echo "Check: $file"
-    if wget --spider "$file" 2>/dev/null; then
-        wget -q -c --timestamping --no-check-certificate --retry-connrefused --timeout=10 --tries=4 --show-progress "$file"
+# Variables
+url="https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz"
+wgetd="wget -q -c --timestamping --no-check-certificate --retry-connrefused --timeout=10 --tries=4 --show-progress"
+
+# TMP folder
+output_dir="bwtmp"
+mkdir -p "$output_dir"
+
+# Download
+if $wgetd "$url"; then
+  echo "File downloaded: $(basename $url)"
+else
+  echo "Main file not found. Searching for multiparts..."
+
+  # Multiparts from a to z
+  all_parts_downloaded=true
+  for part in {a..z}{a..z}; do
+    part_url="${url%.*}.$part"
+    if $wgetd "$part_url"; then
+      echo "Part downloaded: $(basename $part_url)"
     else
-        break
+      echo "Part not found: $part"
+      all_parts_downloaded=false
+      break
     fi
-done
-cat blackweb.tar.gz* | tar xzf -
+  done
+
+  if $all_parts_downloaded; then
+    # Rebuild the original file in the current directory
+    cat blackweb.tar.gz.* > blackweb.tar.gz
+    echo "Multipart file rebuilt"
+  else
+    echo "Multipart process cannot be completed"
+    exit 1
+  fi
+fi
+
+# Unzip the file to the output folder
+tar -xzf blackweb.tar.gz -C "$output_dir"
+
+echo "Done"
 ```
 
 ### Checksum
@@ -244,13 +274,10 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 
 #### Dependencies
 
->La actualización requiere python 3x y bash 5x.
+>La actualización requiere python 3x y bash 5x. También requiere las siguientes dependencias:
 
 ```bash
-pkgs='wget git curl libnotify-bin idn2 perl tar rar unrar unzip zip python-is-python3'
-if ! dpkg -s $pkgs >/dev/null 2>&1; then
-  apt-get install $pkgs
-fi
+wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv
 ```
 
 >Asegúrese de que Squid esté instalado correctamente. Si tiene algún problema, ejecute el siguiente script: (`sudo ./squid_install.sh`):
@@ -333,14 +360,14 @@ Input:
 ```bash
 .domain.exe
 .domain.com
-.domain.edu.ca
+.domain.edu.co
 ```
 
 Output:
 
 ```bash
 .domain.com
-.domain.edu.ca
+.domain.edu.co
 ```
 
 #### Debugging Punycode-IDN
@@ -350,25 +377,27 @@ Output:
 Input:
 
 ```bash
-.президент.рф
-.mañana.com
-.bücher.com
-.café.fr
-.köln-düsseldorfer-rhein-main.de
-.mūsųlaikas.lt
-.sendesık.com
+bücher.com
+café.fr
+españa.com
+köln-düsseldorfer-rhein-main.de
+mañana.com
+mūsųlaikas.lt
+sendesık.com
+президент.рф
 ```
 
 Output:
 
 ```bash
-.xn--d1abbgf6aiiy.xn--p1ai
-.xn--maana-pta.com
-.xn--bcher-kva.com
-.xn--caf-dma.fr
-.xn--kln-dsseldorfer-rhein-main-cvc6o.de
-.xn--mslaikas-qzb5f.lt
-.xn--sendesk-wfb.com
+xn--bcher-kva.com
+xn--caf-dma.fr
+xn--d1abbgf6aiiy.xn--p1ai
+xn--espaa-rta.com
+xn--kln-dsseldorfer-rhein-main-cvc6o.de
+xn--maana-pta.com
+xn--mslaikas-qzb5f.lt
+xn--sendesk-wfb.com
 ```
 
 #### DNS Loockup
@@ -518,7 +547,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [notracking - hosts-blocklists](https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt)
 - [Oleksiig - Squid-BlackList](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish - feed](https://openphish.com/feed.txt)
-- [pengelana - domains blocklist](https://raw.githubusercontent.com/pengelana/blocklist/master/domain.txt)
+- [pengelana - domains blocklist](https://github.com/pengelana/blocklist/tree/master/src/blacklist)
 - [Perflyst - PiHoleBlocklist Android](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt)
 - [Perflyst - PiHoleBlocklist SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt)
 - [phishing.army - phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
@@ -547,6 +576,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [txthinking - bypass china domains](https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt)
 - [Ultimate Hosts Blacklist - hosts](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts)
 - [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
+- [Université Toulouse 1 Capitole - Blacklists UT1 - Olbat](https://github.com/olbat/ut1-blacklists/tree/master/blacklists)
 - [vokins - yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Winhelp2002 - hosts](http://winhelp2002.mvps.org/hosts.txt)
 - [yourduskquibbles - Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
@@ -620,7 +650,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 - [CTFR](https://github.com/UnaPibaGeek/ctfr)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/master/tools/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
+- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/refs/heads/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 
 ## BACKLINKS
 

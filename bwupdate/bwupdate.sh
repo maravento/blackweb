@@ -1,30 +1,39 @@
 #!/usr/bin/env bash
 # Language spa-eng
 bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea paciente...")
-bw02=("Installing Dependencies..." "Instalando Dependencias...")
-bw03=("Checking Bandwidth..." "Verificando Ancho de Banda...")
-bw04=("Downloading Blackweb..." "Descargando Blackweb...")
-bw05=("Downloading Blocklists..." "Descargando Listas de Bloqueo...")
-bw06=("Downloading Allowlist..." "Descargando Listas de Permitidos...")
-bw07=("TLD Update..." "Actualizando TLD...")
-bw08=("Capturing Domains..." "Capturando Dominios...")
-bw09=("Joining Lists..." "Uniendo Listas...")
-bw10=("Debugging Domains..." "Depurando Dominios...")
-bw11=("Validating TLD..." "Validando TLD...")
-bw12=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
-bw13=("1st DNS Loockup..." "1ra Busqueda DNS...")
-bw14=("2nd DNS Loockup..." "2da Busqueda DNS...")
-bw15=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
-bw16=("Exclude TLD..." "Excluir TLD...")
-bw17=("Restarting Squid..." "Reiniciando Squid...")
-bw18=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
+bw02=("Downloading Blackweb..." "Descargando Blackweb...")
+bw03=("Downloading Blocklists..." "Descargando Listas de Bloqueo...")
+bw04=("Downloading Allowlist..." "Descargando Listas de Permitidos...")
+bw05=("Capturing Domains..." "Capturando Dominios...")
+bw06=("Joining Lists..." "Uniendo Listas...")
+bw07=("Debugging Domains..." "Depurando Dominios...")
+bw08=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
+bw09=("1st DNS Loockup..." "1ra Busqueda DNS...")
+bw10=("2nd DNS Loockup..." "2da Busqueda DNS...")
+bw11=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
+bw12=("Exclude TLD..." "Excluir TLD...")
+bw13=("Restarting Squid..." "Reiniciando Squid...")
+bw14=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
 test "${LANG:0:2}" == "en"
 en=$?
+
+# DEPENDENCIES
+pkgs='wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2'
+for pkg in $pkgs; do
+    if ! dpkg -l | grep -q "^ii  $pkg"; then
+        echo "Error: $pkg is not installed. Abort."
+        exit 1
+    fi
+done
+if ! command -v iconv >/dev/null 2>&1; then
+    echo "Error: iconv is not installed. Abort."
+    exit 1
+fi
 
 # VARIABLES
 bwupdate=$(pwd)/bwupdate
 regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-wgetd='wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
+wgetd='wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
 xdesktop=$(xdg-user-dir DESKTOP)
 # PATH_TO_ACL (Change it to the directory of your preference)
 route="/etc/acl"
@@ -43,8 +52,8 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
 
     # DOWNLOAD BLACKWEB
-    echo "${bw04[${en}]}"
-    wget https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py
+    echo "${bw02[${en}]}"
+    $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py
     chmod +x gitfolderdl.py
     python gitfolderdl.py https://github.com/maravento/blackweb/bwupdate
     if [ -d "$bwupdate" ]; then
@@ -59,15 +68,16 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     mkdir -p bwtmp >/dev/null 2>&1
     echo "OK"
 
-    # DOWNLOADING BLOCK URLS
-    echo "${bw05[${en}]}"
+    # DOWNLOADING BLOCKLST URLS
+    echo "${bw03[${en}]}"
     # download files
     function blurls() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - >> bwtmp/bw
+            filename=$(echo "$1" | awk -F/ '{print $NF}' | sed 's/[^a-zA-Z0-9._-]/_/g')
+            $wgetd "$1" -O "bwtmp/$filename"
         else
-            echo ERROR "$1"
+            echo "ERROR $1"
         fi
     }
     blurls 'https://adaway.org/hosts.txt' && sleep 1
@@ -139,7 +149,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/neodevpro/neodevhost/master/domain' && sleep 1
     blurls 'https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
-    blurls 'https://raw.githubusercontent.com/pengelana/blocklist/master/domain.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
     blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
@@ -199,101 +208,91 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
     blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/eallion/uBlacklist-subscription-compilation/refs/heads/main/uBlacklist.txt' && sleep 1
-
+   
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {
-        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-        if [ $? -eq 0 ]; then
-            $wgetd "$1" && for F in *.tar.gz; do
-                R=$RANDOM
-                mkdir bwtmp/$R
-                tar -C bwtmp/$R -zxvf "$F" -i
-            done >/dev/null 2>&1
-        else
-            echo ERROR "$1"
-        fi
+        local url="$1"
+        $wgetd "$url" && for F in *.tar.gz; do
+            R=$RANDOM
+            mkdir -p bwtmp/$R
+            tar -C bwtmp/$R -zxvf "$F" -i
+        done >/dev/null 2>&1
+        return $?
     }
-    targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && sleep 2
+
+    if ! targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && \
+       ! targz 'ftp://ftp.ut-capitole.fr/pub/reseau/cache/squidguard_contrib/blacklists.tar.gz'; then
+        echo "ut-capitole.fr download failed. Switching to alt repo..."
+        cd bwtmp
+        $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
+        chmod +x gitfolderdl.py
+        python gitfolderdl.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+        rm gitfolderdl.py &>/dev/null
+        find . -type f -name "*.gz" | while read gzfile; do
+            gunzip "$gzfile" >/dev/null 2>&1
+            if [ $? -ne 0 ]; then
+                echo "Error unzipping: $gzfile"
+            fi
+        done
+        cd ..
+    fi
+    
+    # DOWNLOADING FOLDER
+    cd bwtmp
+    $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
+    chmod +x gitfolderdl.py
+    python gitfolderdl.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
+    rm gitfolderdl.py &>/dev/null
+    cd ..
     echo "OK"
 
-    # DOWNLOADING ALLOW URLS
-    echo "${bw06[${en}]}"
+    # DOWNLOADING ALLOWLST URLS
+    echo "${bw04[${en}]}"
     # download world_universities_and_domains
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{print "."$1}' | sort -u >> lst/debugwl.txt
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/debugwl.txt
         else
             echo ERROR "$1"
         fi
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
     echo "OK"
-
-    # UPDATE TLDS
-    echo "${bw07[${en}]}"
-    function publicsuffix() {
-        curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
-        if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - >> lst/sourcetlds.txt
-        else
-            echo ERROR "$1"
-        fi
-    }
-    publicsuffix 'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat'
-    publicsuffix 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt'
-    publicsuffix 'https://www.whoisxmlapi.com/support/supported_gtlds.php'
-    grep -v "//" lst/sourcetlds.txt | sed '/^$/d; /#/d' | grep -v -P "[^a-z0-9_.-]" | sed 's/^\.//' | awk '{print "." $1}' | sort -u > tlds.txt
-    echo "OK"
-
+    
     # CAPTURING DOMAINS
-    echo "${bw08[${en}]}"
+    echo "${bw05[${en}]}"
     # capturing
-    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; > captmp1
-    piconv -f cp1252 -t UTF-8 <captmp1 > captmp2
-    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' captmp2 | sed -r '/[^a-z0-9.-]/d' | sed -r '/^.\W+/d' | awk '{print "." $1}' > capture
+    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; > cap1
+    piconv -f cp1252 -t UTF-8 <cap1 > cap2
+    iconv -f UTF-8 -t WINDOWS-1252 cap2 > cap3
+    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' cap3 | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /[^[:print:]]/d; /\.{2,}/d' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > capture.txt
+    # EXPERIMENTAL
+    # remote
+    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture.txt
+    # web3
+    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture.txt
+    # uniq capture.txt
+    #sort -o capture.txt -u capture.txt
     echo "OK"
 
     # JOIN AND UPDATE LIST
-    echo "${bw09[${en}]}"
-    sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sort -u > urls.txt
-    # unblock remote
-    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> urls.txt
-    # block remote
-    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture
-    # unblock web3 (experimental)
-    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> urls.txt
-    # block web3 (experimental)
-    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture
-    # uniq capture
-    sort -o capture -u capture
+    echo "${bw06[${en}]}"
+    sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     echo "OK"
-
+    
     # DEBUGGING DOMAINS
-    echo "${bw10[${en}]}"
-    grep -Fvxf <(cat {urls,tlds}.txt) <(python tools/parse_domain.py | awk '{print "." $1}') | sort -u > outparse
-    echo "OK"
-
-    # DEBUGGING TLDS
-    echo "${bw11[${en}]}"
-    # debugging by domain extensions (option 1)
-    #grep -x -f <(sed 's/\./\\./g;s/^/.*/' tlds.txt) <(grep -v -F -x -f tlds.txt outparse) | sed -r '/[^a-z0-9.-]/d' | sort -u > cleantlds
-    # debugging by domain extensions (option 2)
-    sed 's/\./\\./g;s/^/.*/' tlds.txt > escaped_tlds.txt
-    grep -v -F -x -f tlds.txt outparse > filtered_outparse.txt
-    # slow part. wait...
-    grep -x -f escaped_tlds.txt filtered_outparse.txt > matched_lines.txt
-    sed -r '/[^a-z0-9.-]/d' matched_lines.txt | sort -u > cleantlds
+    echo "${bw07[${en}]}"
+    grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
+    $wgetd https://raw.githubusercontent.com/maravento/vault/refs/heads/master/scripts/python/domfilter.py -O domfilter.py >/dev/null 2>&1
+    python domfilter.py --input cleancapture.txt
+    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > outparse
     echo "OK"
 
     # DEBUGGING IDN
-    echo "${bw12[${en}]}"
-    sed '/[^.]\{64\}/d' cleantlds | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | grep -vP '^\.?[^-]{2}--' | grep -Pv '\-{3,}' | sed 's/^\.//g' | sort -u > idnlst
-    grep --color='auto' -P "[^[:ascii:]]" idnlst | idn2 >> idnlst
-    grep --color='auto' -P "[^[:ascii:]]" idnlst > idntmp
-    grep -Fvxf <(cat idntmp) idnlst | sort -u > cleanidn
-    #grep -vi -f <(sed 's:^\(.*\)$:^\\\1\$:' idntmp) idnlst | sort -u > cleanidn
-    grep -Fvxf <(cat tlds.txt) cleanidn | sed -r '/[^a-z0-9.-]/d' | sort -u > cleandns
+    echo "${bw08[${en}]}"
+    sed '/[^.]\{64\}/d' outparse | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | sed 's/^\.//g' | sort -u > idnlst
+    { LC_ALL=C grep -v '[^[:print:]]' idnlst ; grep -P "[^[:ascii:]]" idnlst | idn2 ; } | sort -u > finalclean
     echo "OK"
 else
     cd "$bwupdate"
@@ -306,12 +305,12 @@ fi
 # WARNING: high resource consumption!
 # Xargs Limit: The limit is at least 127 on all systems (and on the author’s system it is 2147483647)
 # For more information, run: xargs --show-limits
-pp="50"
+pp="100"
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then
-    echo "${bw13[${en}]}"
-    sed 's/^\.//g' cleandns | sort -u > step1
+    echo "${bw09[${en}]}"
+    sed 's/^\.//g' finalclean | sort -u > step1
     if [ -s dnslookup1 ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
     else
@@ -326,7 +325,7 @@ fi
 sleep 10
 
 # STEP 2:
-echo "${bw14[${en}]}"
+echo "${bw10[${en}]}"
 sed 's/^\.//g' fault.txt | sort -u > step2
 if [ -s dnslookup2 ]; then
     awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
@@ -338,29 +337,29 @@ sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u > f
 echo "OK"
 
 # DEBUG BLACKLIST
-echo "${bw15[${en}]}"
+echo "${bw11[${en}]}"
 # add debug blacklist
 sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
 grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
-# convert to hosts file (optional)
-#sed -r "s:^\.(.*):127.0.0.1 \1:g" lst/debugbl.txt | sort -u > lst/hosts.txt
 echo "OK"
 
-# EXCLUDE ALLOW TLDS
-echo "${bw16[${en}]}"
+# EXCLUDE DOMAINS WITH ALLOW TLDS (.gov, .mil, etc.) AND DELETE NO-ASCII AND TLDs lines
+echo "${bw12[${en}]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
-grep -E -v "$new_regex_ext" blackweb_tmp > blackweb.txt
-grep -E "$new_regex_ext" blackweb_tmp > delete_tld
+grep -E -v "$new_regex_ext" blackweb_tmp | grep -P "^[\x00-\x7F]+$" | sort -u > blackweb_tmp2
+comm -23 <(sort blackweb_tmp2) <(sort tlds.txt) > blackweb.txt
+# Optional
+#grep -E "$new_regex_ext" blackweb_tmp > delete_tld
 echo "OK"
 
 # RELOAD SQUID-CACHE
-echo "${bw17[${en}]}"
+echo "${bw13[${en}]}"
 # copy blaclweb to path
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # Squid Reload
-# First Edit /etc/squid/squid.conf and add lines:
+# Edit /etc/squid/squid.conf and add lines:
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 sudo bash -c 'squid -k reconfigure' 2>sqerror && sleep 20
@@ -378,4 +377,4 @@ if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
 
 # END
 sudo bash -c 'echo "BlackWeb Done: $(date)" | tee -a /var/log/syslog'
-echo "${bw18[${en}]}"
+echo "${bw14[${en}]}"
