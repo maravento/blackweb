@@ -252,7 +252,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/debugwl.txt
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/controlwl.txt
         else
             echo ERROR "$1"
         fi
@@ -278,13 +278,13 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # JOIN AND UPDATE LIST
     echo "${bw06[${en}]}"
-    sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
+    sed '/^$/d; /#/d' lst/{controlwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     echo "OK"
     
     # DEBUGGING DOMAINS
     echo "${bw07[${en}]}"
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
-    $wgetd https://raw.githubusercontent.com/maravento/vault/refs/heads/master/scripts/python/domfilter.py -O domfilter.py >/dev/null 2>&1
+    $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
     python domfilter.py --input cleancapture.txt
     grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > outparse
     echo "OK"
@@ -338,13 +338,12 @@ echo "OK"
 
 # DEBUG BLACKLIST
 echo "${bw11[${en}]}"
-# add debug blacklist
-sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
+sed '/^$/d; /#/d' lst/controlbl.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/controlbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
 echo "OK"
 
-# EXCLUDE DOMAINS WITH ALLOW TLDS (.gov, .mil, etc.) AND DELETE NO-ASCII AND TLDs lines
+# TLD FINAL FILTER (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines
 echo "${bw12[${en}]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
@@ -365,7 +364,7 @@ sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 sudo bash -c 'squid -k reconfigure' 2>sqerror && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> sqerror
 sort -o sqerror -u sqerror
-python tools/debug_error.py
+python tools/debugerror.py
 sort -o final -u final
 mv -f final blackweb.txt
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1

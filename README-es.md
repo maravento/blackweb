@@ -648,9 +648,8 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 ### WORKTOOLS
 
-- [CTFR](https://github.com/UnaPibaGeek/ctfr)
+- [Domain Filtering](https://github.com/maravento/vault/tree/master/dofi)
 - [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
-- [Parse Domains](https://raw.githubusercontent.com/lsemel/python-parse-domain/refs/heads/master/parse_domain.py) ([modified](https://github.com/maravento/blackweb/tree/master/bwupdate/tools))
 
 ## BACKLINKS
 
