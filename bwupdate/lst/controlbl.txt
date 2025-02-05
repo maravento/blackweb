@@ -1234,6 +1234,7 @@
 .chilloutradio.com
 .chimesmedia.com
 .china0315.com
+.chinancce.com
 .chinasymbolic.com
 .chitika.net
 .chocolaterie-servant.com
@@ -1269,6 +1270,7 @@
 .cimri.com
 .cinecalidad2.com
 .cinecalidad.ac
+.cinecalidad.bar
 .cine-calidad.co
 .cine-calidad.com
 .cinecalidad.de
@@ -1451,6 +1453,7 @@
 .conviva.com
 .coolbits.org
 .coolmusicz.net
+.coolnshop.com
 .coolvwstuff.com
 .coombeabbey.com
 .copperblues.ca
@@ -1511,6 +1514,7 @@
 .creativecdn.com
 .crecrec.com
 .credit-it.com
+.creditospresta.com
 .creditvalleyca.ca
 .creditwallet.net
 .crescenttourstravels.com
@@ -1576,6 +1580,7 @@
 .cuevana.nz
 .cuevana.pro
 .cuevana-tv.com
+.cuevanaultrahd.com
 .cuevana.uno
 .cuevana.vegas
 .cuevanavideo.com
@@ -1645,6 +1650,7 @@
 .daricacicekci.com
 .darita-bg.com
 .darkhollowcoffee.com
+.darkstatonmovies1.blogspot.com
 .darkville.com.mx
 .darkville.tv
 .daseolchi.com
@@ -2294,6 +2300,7 @@
 .eyeem.com
 .ezar.ru
 .ezertintafolt-electra.blogspot.com
+.ezimu.com
 .eztv.ag
 .eztv.re
 .f3322.org
@@ -2435,6 +2442,7 @@
 .filescdn.com
 .filesdiamond.com
 .fileserver.co.kr
+.filespayout.com
 .filesquicky.com
 .filesupload.org
 .fileswin.com
@@ -4093,6 +4101,7 @@
 .libertymanuals.com
 .librahost.com
 .library.hk
+.librolandia.cc
 .licdn.com
 .licensecrack.com
 .licensepc.com
@@ -5250,6 +5259,7 @@
 .pearltrees.com
 .pececitos.com
 .pedullaelectric.com
+.peelink2.com
 .peerbaba.com
 .peliculaonline4k.com
 .peliculaonlinehd.com
@@ -5317,6 +5327,7 @@
 .pelisplus.live
 .pelisplus.movie
 .pelisplus.one
+.pelispop.cc
 .pelispop.com
 .pelispop.me
 .pelispunto.net
@@ -5483,6 +5494,7 @@
 .portuense.it
 .poseidonhd.live
 .poseidonhd.nz
+.posicionamientoweb.click
 .positivelystoned.com
 .po.st
 .postaldigitalrs.com.br
@@ -6556,6 +6568,7 @@
 .strangled.net
 .stratega-online.de
 .strato-hosting.eu
+.stream4you.site
 .streamaxuhd.com
 .streamboox.com
 .streamium.xyz
@@ -6908,6 +6921,7 @@
 .timexcolombia.com.co
 .timwhid.com
 .tinder.com
+.tinhte.vn
 .tin.it
 .tinurll.com
 .tinyarro.ws
@@ -7650,6 +7664,7 @@
 .worldlinkup.org
 .worldmoviesz.com
 .worse-than.tv
+.wo.to
 .wow64.net
 .wplay.co
 .wplift.com
@@ -7814,6 +7829,7 @@
 .yupptv.com
 .yutmp3.com
 .yu-yake.com
+.yuzhuyuan.com
 .yvnc.com
 .yy.com
 .z2i.com
@@ -7840,12 +7856,14 @@
 .zbaszynek.pl
 .zdaspb.ru
 .zdescargas.org
+.zdescargas.pro
 .zealcon.com
 .zealotfun.com
 .zechsal.pl
 .zeddit.com
 .zee5.com
 .zeismanita.com
+.zelen-kh.ru
 .zelt-und-show.de
 .zemanta.com
 .zemlisochi.ru
@@ -7914,9 +7932,3 @@
 .zvonki.pro
 .zwei.audio
 .zytrade.cn
-.chinancce.com
-.coolnshop.com
-.ezimu.com
-.wo.to
-.yuzhuyuan.com
-.zelen-kh.ru

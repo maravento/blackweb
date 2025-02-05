@@ -22,7 +22,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4650673|118,3 MB|
+|blackweb.txt|4947561|124,2 MB|
 
 ## GIT CLONE
 
@@ -697,7 +697,7 @@ Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
 [![Image](https://raw.githubusercontent.com/maravento/winexternal/master/img/maravento-paypal.png)](https://paypal.me/maravento)
 
-## LICENSES
+## PROJECT LICENSES
 
 ---
 
