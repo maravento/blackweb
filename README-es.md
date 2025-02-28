@@ -199,6 +199,9 @@ Output:
 >Usar esta regla para bloquear palabras (Opcional. Puede generar falsos positivos).
 
 ```bash
+# Download ACL:
+sudo wget -P /etc/acl/ https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackword/blockwords.txt
+# Squid Rule to Block Words:
 acl blockwords url_regex -i "/etc/acl/blockwords.txt"
 http_access deny blockwords
 ```

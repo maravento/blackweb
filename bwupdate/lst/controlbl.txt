@@ -1530,6 +1530,7 @@
 .crossroadsmgmt.com
 .crossroadspd.com
 .cross.tv
+.crowdville.org
 .croxyproxy.com
 .crru.ac.th
 .crunchyroll.com
@@ -1549,6 +1550,7 @@
 .cttcleaning.com
 .ctvout.buzz
 .cu5.io
+.cubecobra.com
 .cuevana2espanol.com
 .cuevana2.io
 .cuevana2.nl
@@ -1562,6 +1564,7 @@
 .cuevana3.io
 .cuevana3.live
 .cuevana-3.lol
+.cuevana3.nu
 .cuevana-3.party
 .cuevana3.pe
 .cuevana3.press
@@ -1571,6 +1574,7 @@
 .cuevana3.vip
 .cuevana3.ws
 .cuevana-3.wtf
+.cuevana-4.com
 .cuevana4.me
 .cuevana.biz
 .cuevana.fm
@@ -1578,6 +1582,7 @@
 .cuevanagt.com
 .cuevanahd.art
 .cuevana.nz
+.cuevana.online
 .cuevana.pro
 .cuevana-tv.com
 .cuevanaultrahd.com
@@ -2430,6 +2435,7 @@
 .figuren-spiele.de
 .file4safe.com
 .filebulldog.com
+.filecatchers.com
 .filecat.net
 .filecloud.io
 .filecr.com
@@ -2443,6 +2449,7 @@
 .filesdiamond.com
 .fileserver.co.kr
 .filespayout.com
+.filespayouts.com
 .filesquicky.com
 .filesupload.org
 .fileswin.com
@@ -2453,6 +2460,7 @@
 .filmimpact.net
 .filmiqvluwq.blogspot.com
 .filmon.com
+.filmoves.net
 .filmoxmvlpve.blogspot.com
 .filmpxksvbn.blogspot.com
 .filmslocker.com
@@ -3097,7 +3105,6 @@
 .hdfull.be
 .hdfull.co
 .hdfulldominios.com
-.hdfull.fun
 .hdfull.li
 .hd-full.org
 .hdfull.org
@@ -5321,6 +5328,7 @@
 .pelisplusgo.com
 .pelisplushd.net
 .pelisplushd.ph
+.pelisplushd.to
 .pelisplushd.uno
 .pelisplus.io
 .pelisplus.lat
@@ -5861,6 +5869,7 @@
 .rioual.com
 .rippedknees.co.uk
 .ritskovanvliet.nl
+.rivalo.co
 .riverlifechurch.tv
 .riviera-ligure.it
 .riyuegu.net
@@ -6345,6 +6354,7 @@
 .sm3ha.cyou
 .smaatapps.com
 .smadwiwarna.net
+.smallestexpectedspecialty.com
 .smardroid.com
 .smartadserver.com
 .smartbus.at
@@ -7386,6 +7396,7 @@
 .videoshub.com
 .videospornocolombia.com
 .videovor.com
+.video-watch1.com
 .vidfast.co
 .vidible.tv
 .vidimus.lt
