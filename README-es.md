@@ -22,7 +22,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4947561|124,2 MB|
+|blackweb.txt|4898418|123,1 MB|
 
 ## GIT CLONE
 
@@ -679,6 +679,13 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Xploitlab: Projects using WindowsSpyBlocker](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
 - [Zeltser: Free Blocklists of Suspected Malicious IPs and URLs](https://zeltser.com/malicious-ip-blocklists/)
 - [zenarmor: How-to-enable-web-filtering-on-OPNsense-proxy?](https://www.zenarmor.com/docs/network-security-tutorials/how-to-set-up-caching-proxy-in-opnsense#how-to-enable-web-filtering-on-opnsense-proxy)
+
+## NOTICE
+
+---
+
+- Este proyecto incluye componentes de terceros.
+- Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.
 
 ## STARGAZERS
 
