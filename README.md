@@ -22,7 +22,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 |ACL|Blocked Domains|File Size|
 | :---: | :---: | :---: |
-|blackweb.txt|4898418|123,1 MB|
+|blackweb.txt|4927229|123,7 MB|
 
 ## GIT CLONE
 
@@ -573,13 +573,14 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [StevenBlack - spam](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts)
 - [StevenBlack - uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts)
 - [Stopforumspam - Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
+- [sumatipru - squid-blacklist](https://raw.githubusercontent.com/sumatipru/squid-blacklist/refs/heads/master/blacklist.txt)
 - [Taz - SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 - [tomasko126 - Easylist Czech and Slovak filter list](https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt)
 - [txthinking - blackwhite](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
 - [txthinking - bypass china domains](https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt)
 - [Ultimate Hosts Blacklist - hosts](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts)
-- [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
 - [Université Toulouse 1 Capitole - Blacklists UT1 - Olbat](https://github.com/olbat/ut1-blacklists/tree/master/blacklists)
+- [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
 - [vokins - yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Winhelp2002 - hosts](http://winhelp2002.mvps.org/hosts.txt)
 - [yourduskquibbles - Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
@@ -659,33 +660,58 @@ BlackWeb: Done 06/05/2023 15:47:14
 ---
 
 - [Awesome Open Source: Blackweb](https://awesomeopensource.com/project/maravento/blackweb)
-- [community ipfire: url filter and self updating blacklists](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
+- [Community IPfire: url filter and self updating blacklists](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
 - [covert.io: Getting Started with DGA Domain Detection Research](http://www.covert.io/getting-started-with-dga-research/)
-- [crazymax: WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
+- [Crazymax: WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
 - [Jason Trost: Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
-- [kandi.openweaver: Domains Blocklist for Squid-Cache](https://kandi.openweaver.com/shell/maravento/blackweb)
+- [Kandi Openweaver: Domains Blocklist for Squid-Cache](https://kandi.openweaver.com/shell/maravento/blackweb)
 - [Kerry Cordero: Blocklists of Suspected Malicious IPs and URLs](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
 - [Keystone Solutions: blocklists](https://keystonesolutions.io/solutions/blocklists/)
 - [Lifars: Sites with blocklist of malicious IPs and URLs](https://lifars.com/wp-content/uploads/2017/06/LIFARS_Guide_Sites-with-blocklist-of-malicious-IPs-and-URLs.pdf)
-- [opensourcelibs: Blackweb](https://opensourcelibs.com/lib/blackweb)
+- [Opensourcelibs: Blackweb](https://opensourcelibs.com/lib/blackweb)
 - [OSINT Framework: Domain Name/Domain Blacklists/Blackweb](https://osintframework.com/)
-- [osintbay: blackweb](https://osintbay.com/tool/blackweb)
+- [Osintbay: Blackweb](https://osintbay.com/tool/blackweb)
+- [Reddit: Blackweb](https://www.reddit.com/r/AskNetsec/comments/w1yqd9/does_anyone_know_any_free_database_for_url/)
 - [Secrepo: Samples of Security Related Data](http://www.secrepo.com/)
 - [Segu-Info: Análisis de malware y sitios web en tiempo real](https://blog.segu-info.com.ar/2019/07/analisis-de-malware-y-sitios-web-en.html)
 - [Segu-Info: Dominios/TLD dañinos que pueden ser bloqueados para evitar spam y #phishing](https://blog.segu-info.com.ar/2024/05/dominiostld-daninos-que-pueden-ser.html)
 - [Soficas: CiberSeguridad - Protección Activa](https://soficas.com/noticias/proteccion-ciberseguridad.html)
-- [stackoverflow: Blacklist IP database](https://stackoverflow.com/a/39516166/8747573)
+- [Stackoverflow: Blacklist IP database](https://stackoverflow.com/a/39516166/8747573)
 - [Wikipedia: Blacklist_(computing)](https://en.wikipedia.org/wiki/Blacklist_(computing)#:~:text=There%20are%20also%20free%20blacklists%20for%20Squid%20(software)%20proxy%2C%20such%20as%20Blackweb)
 - [Xploitlab: Projects using WindowsSpyBlocker](https://xploitlab.com/windowsspyblocker-block-spying-and-tracking-on-windows/)
 - [Zeltser: Free Blocklists of Suspected Malicious IPs and URLs](https://zeltser.com/malicious-ip-blocklists/)
-- [zenarmor: How-to-enable-web-filtering-on-OPNsense-proxy?](https://www.zenarmor.com/docs/network-security-tutorials/how-to-set-up-caching-proxy-in-opnsense#how-to-enable-web-filtering-on-opnsense-proxy)
+- [Zenarmor: How-to-enable-web-filtering-on-OPNsense-proxy?](https://www.zenarmor.com/docs/network-security-tutorials/how-to-set-up-caching-proxy-in-opnsense#how-to-enable-web-filtering-on-opnsense-proxy)
 
 ## NOTICE
 
 ---
 
 - This project includes third-party components.
-- Changes must be submitted via Issues. Pull requests are not accepted.
+- Changes must be proposed via Issues. Pull Requests are not accepted.
+- Blackweb is not a blacklist service itself. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.
+- If your domain appears in Blackweb and you believe this is an error, you should review the public sources [SOURCES](https://github.com/maravento/blackweb#sources), to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update.  
+  You can also use the following script to perform the same verification:
+
+```bash
+wget https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/tools/checksources.sh
+chmod +x checksources.sh
+./checksources.sh
+```
+e.g:
+
+```bash
+[?] Enter domain to search: kickass.to
+
+[*] Searching for 'kickass.to'...
+[+] Domain found in: https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt
+[+] Domain found in: https://hostsfile.org/Downloads/hosts.txt
+[+] Domain found in: https://raw.githubusercontent.com/blocklistproject/Lists/master/everything.txt
+[+] Domain found in: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt
+[+] Domain found in: https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0
+[+] Domain found in: https://sysctl.org/cameleon/hosts
+[+] Domain found in: https://v.firebog.net/hosts/Kowabit.txt
+Done
+```
 
 ## STARGAZERS
 

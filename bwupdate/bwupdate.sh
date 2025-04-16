@@ -80,6 +80,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
             echo "ERROR $1"
         fi
     }
+    # SOURCES
     blurls 'https://adaway.org/hosts.txt' && sleep 1
     blurls 'https://adblock.gardar.net/is.abp.txt' && sleep 1
     blurls 'https://bitbucket.org/ethanr/dns-blacklists/raw/master/bad_lists/Mandiant_APT1_Report_Appendix_D.txt' && sleep 1
@@ -128,6 +129,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt' && sleep 1
+    blurls 'https://raw.githubusercontent.com/eallion/uBlacklist-subscription-compilation/refs/heads/main/uBlacklist.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts' && sleep 1
@@ -171,6 +173,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts' && sleep 1
+    blurls 'https://raw.githubusercontent.com/sumatipru/squid-blacklist/refs/heads/master/blacklist.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list' && sleep 1
     blurls 'https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt' && sleep 1
@@ -207,7 +210,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt' && sleep 1
     blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
     blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
-    blurls 'https://raw.githubusercontent.com/eallion/uBlacklist-subscription-compilation/refs/heads/main/uBlacklist.txt' && sleep 1
+    # END_SOURCES
    
     # DOWNLOADING BIG BLOCKLISTS
     function targz() {
