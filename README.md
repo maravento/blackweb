@@ -253,12 +253,6 @@ acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 
-## IMPORTANT
-
-BlackWeb is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**.
-
-For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
-
 ## BLACKWEB UPDATE
 
 ---
@@ -455,7 +449,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - `bwupdate.sh` includes lists of remote support related domains (Teamviewer, Anydesk, logmein, etc) and web3 domains. They are commented by default (unless their domains are in [SOURCES](https://github.com/maravento/blackweb#sources--sources)). To block or exclude them you must activate the corresponding lines in the script (# JOIN LIST), although it is not recommended to avoid conflicts or false positives.
 - If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.
 - If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
-- If someone considers that a domain should not be on Blackweb, you can create an [Issue](https://github.com/maravento/blackweb/issues) and notify it to remove it.
 
 ## SOURCES
 
@@ -688,7 +681,8 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 - This project includes third-party components.
 - Changes must be proposed via Issues. Pull Requests are not accepted.
-- Blackweb is not a blacklist service itself. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.
+- BlackWeb is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**. For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
+- **Blackweb is NOT a blacklist service itself**. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.
 - If your domain appears in Blackweb and you believe this is an error, you should review the public sources [SOURCES](https://github.com/maravento/blackweb#sources), to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update.  
   You can also use the following script to perform the same verification:
 

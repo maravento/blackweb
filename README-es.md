@@ -253,12 +253,6 @@ acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 
-## IMPORTANT
-
-BlackWeb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**.
-
-For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
-
 ## BLACKWEB UPDATE
 
 ---
@@ -455,7 +449,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
 - Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
-- Si alguien considera que algún dominio no debería estár en Blackweb, puede crear un [Issue](https://github.com/maravento/blackweb/issues) y notificarlo para removerlo.
 
 ## SOURCES
 
@@ -688,7 +681,8 @@ BlackWeb: Done 06/05/2023 15:47:14
 
 - Este proyecto incluye componentes de terceros.
 - Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.
-- Blackweb no es un servicio de listas negras como tal. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.
+- BlackWeb está diseñado exclusivamente para [Squid-Cache](http://www.squid-cache.org/) y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlas al archivo Hosts File de Windows, ya que podría ralentizarlo o bloquearlo. **Úselo bajo su propio riesgo**. For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
+- **Blackweb NO es un servicio de listas negras como tal**. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.
 - Si su dominio aparece en Blackweb, y considera que esto es un error, debe revisar las fuentes públicas [SOURCES](https://github.com/maravento/blackweb/blob/master/README-es.md#sources), identificar en cuál(es) aparece, y contactar al responsable de dicha lista para solicitar su eliminación. Una vez que el dominio sea eliminado en la fuente original, desaparecerá automáticamente de Blackweb en la siguiente actualización.  
   También puede usar el siguiente script y obtener el mismo resultado de verificación:
 
