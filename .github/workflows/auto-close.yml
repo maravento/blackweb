@@ -1,0 +1,32 @@
+name: Auto Close Stale Issues and PRs
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
+jobs:
+  close-stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'This issue is stale because it has had no activity for 0 days.'
+          close-issue-message: 'Closed due to inactivity.'
+          stale-pr-message: 'This PR is stale because it has had no activity for 0 days.'
+          close-pr-message: 'Closed due to inactivity.'
+          days-before-stale: 90
+          days-before-pr-stale: 90
+          days-before-close: 90
+          days-before-pr-close: 90
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+
