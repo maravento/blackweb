@@ -14,7 +14,7 @@ mkdir -p downloaded_lists
 
 # Download bwupdate.sh
 echo "[*] Downloading source list..."
-#wget -q -O bwupdate.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
+wget -qO bwupdate.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
 
 # Extract URLs from # SOURCES block
 echo "[*] Extracting URLs..."

@@ -20,9 +20,9 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 ---
 
-|ACL|Blocked Domains|File Size|
+| ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-|blackweb.txt|4927229|123,7 MB|
+| blackweb.txt | 4927229 | 123,7 MB |
 
 ## GIT CLONE
 
@@ -125,7 +125,7 @@ BlackWeb contiene millones de dominios, por tanto se recomienda:
 
 ##### Allow Rule for Domains
 
->Usar `allowdomains.txt` para excluir dominios (ejemplo: accounts.youtube.com [desde Feb 2014, Google utiliza el subdominio accounts.youtube.com para autenticar sus servicios](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube)) o falsos positivos.
+>Usar `allowdomains.txt` para excluir dominios o subdominios esenciales, como `.accounts.google.com`, `.yahoo.com`, `.github.com`, etc. Según la [documentación de Squid](http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube), los subdominios `accounts.google.com` y `accounts.youtube.com` pueden ser utilizados por Google para la autenticación dentro de su ecosistema. Bloquearlos podría interrumpir el acceso a servicios como Gmail, Drive, Docs, entre otros.
 
 ```bash
 acl allowdomains dstdomain "/path_to/allowdomains.txt"
@@ -181,17 +181,17 @@ Input:
 ```bash
 .bücher.com
 .mañana.com
-.mydomain.org
-.net
+.google.com
+.auth.wikimedia.org
 .xn--fiqz9s
 .xn--p1ai
 ```
 
-Output:
+ASCII Output:
 
 ```bash
-.mydomain.org
-.net
+.google.com
+.auth.wikimedia.org
 ```
 
 ##### Block Rule for Words
