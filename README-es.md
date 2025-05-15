@@ -4,6 +4,7 @@
 
 [![status-stable](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/maravento/blackweb)
 [![last commit](https://img.shields.io/github/last-commit/maravento/blackweb)](https://github.com/maravento/blackweb)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/maravento/blackweb)
 [![Twitter Follow](https://img.shields.io/twitter/follow/maraventostudio.svg?style=social)](https://twitter.com/maraventostudio)
 
 <table align="center">
@@ -22,7 +23,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 4927229 | 123,7 MB |
+| blackweb.txt | 4899382 | 123,2 MB |
 
 ## GIT CLONE
 

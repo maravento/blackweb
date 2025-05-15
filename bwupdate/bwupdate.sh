@@ -255,7 +255,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/controlwl.txt
+            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/debugwl.txt
         else
             echo ERROR "$1"
         fi
@@ -281,7 +281,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # JOIN AND UPDATE LIST
     echo "${bw06[${en}]}"
-    sed '/^$/d; /#/d' lst/{controlwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
+    sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     echo "OK"
     
     # DEBUGGING DOMAINS
@@ -341,9 +341,9 @@ echo "OK"
 
 # DEBUG BLACKLIST
 echo "${bw11[${en}]}"
-sed '/^$/d; /#/d' lst/controlbl.txt | sort -u >> hit.txt
+sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/controlbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
 echo "OK"
 
 # TLD FINAL FILTER (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines
