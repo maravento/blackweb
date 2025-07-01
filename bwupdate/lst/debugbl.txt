@@ -516,6 +516,7 @@
 .articlix.com
 .artifax.net
 .artigianasalumi.com
+.artistapirata.vip
 .artlab.co.il
 .artmusic.dk
 .artrepublic.ro
@@ -1269,6 +1270,7 @@
 .cimetieremontroyal.com
 .cimri.com
 .cinecalidad2.com
+.cinecalidad3.io
 .cinecalidad.ac
 .cinecalidad.bar
 .cine-calidad.co
@@ -1568,6 +1570,7 @@
 .cuevana-3.party
 .cuevana3.pe
 .cuevana3.press
+.cuevana3.re
 .cuevana3.surf
 .cuevana3-v1.wtf
 .cuevana3.video
@@ -1613,6 +1616,7 @@
 .cxsd.com.cn
 .cxweixin.cn
 .cyberghostvpn.com
+.cybermania.ws
 .cyclingpromotion.com.au
 .cydotomasyon.com
 .cylooks.com
@@ -3766,6 +3770,7 @@
 .job0916.cn
 .jobgroup.it
 .jobsdeed.com
+.jobzhub.store
 .jockytours.com
 .joeppie.nl
 .joesrv.com
@@ -4495,6 +4500,7 @@
 .metrapol.net
 .metro.ru
 .mexa.sh
+.mexmovies.site
 .mexusconsulting.com
 .mfa-uz.com
 .mgascca.com
@@ -4683,6 +4689,7 @@
 .mplaylist.com
 .mprotectcorp.com
 .mqdownload.com
+.mrprogramas.com
 .mrunblock.com
 .mrunblock.surf
 .mrveggy.com
@@ -5322,8 +5329,10 @@
 .pelispedia.de
 .pelispedia.io
 .pelispedia.tv
+.pelisplanet.to
 .pelis-play.com
 .pelisplus2.ai
+.pelisplus2.io
 .pelisplus.co
 .pelisplusgo.com
 .pelisplushd.net
@@ -5333,6 +5342,7 @@
 .pelisplus.io
 .pelisplus.lat
 .pelisplus.live
+.pelisplus.me
 .pelisplus.movie
 .pelisplus.one
 .pelispop.cc
@@ -5568,6 +5578,7 @@
 .profit-group.sk
 .profitmonster.com
 .programasfullmega.com
+.programasfully.com
 .programasvirtualespc.net
 .programosy.pl
 .prohome.info
@@ -5802,6 +5813,7 @@
 .rentalcartours.net
 .rentmanager.ph
 .repair-service.london
+.repelis24.co
 .repelises.com
 .repelisgfyddh.blogspot.com
 .repelis-hd.com
@@ -6148,6 +6160,7 @@
 .seriesflv.me
 .seriesfullpormegatwo.blogspot.com
 .seriesgod.cc
+.seriesgod.com
 .serieshdpormega1.link
 .serieshdpormega.com
 .serieshdpormega.vip
@@ -6573,6 +6586,7 @@
 .stonemega.blogspot.com
 .stonerinsurance.com
 .storebet.ru
+.storjshare.io
 .stradalli.com
 .strangermeetup.com
 .strangled.net
@@ -6589,6 +6603,7 @@
 .streamtheworld.com
 .stream-up.com
 .strefa.pl
+.stripchat.com
 .strommarnas.se
 .strossle.it
 .stroymonolit.su
@@ -7449,6 +7464,7 @@
 .vitasave.ca
 .vitebsk.by
 .vithos.de
+.viuly.site
 .vivamax.net
 .viviendadelrincon.com
 .vivvn.com
@@ -7570,6 +7586,7 @@
 .webssearches.com
 .webychat.net
 .wechat.com
+.wecima.help
 .wedding-pix.net
 .weddingsonthefrenchriviera.com
 .wedding-spot.com
@@ -7944,7 +7961,3 @@
 .zvonki.pro
 .zwei.audio
 .zytrade.cn
-.viuly.site
-.wecima.help
-.mexmovies.site
-.stripchat.com

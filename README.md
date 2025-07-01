@@ -23,7 +23,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 4899382 | 123,2 MB |
+| blackweb.txt | 5048337 | 126 MB |
 
 ## GIT CLONE
 
@@ -318,7 +318,7 @@ echo "Done"
 
 >Capture domains from downloaded public blocklists (see [SOURCES](https://github.com/maravento/blackweb#fuentes--sources)) and unifies them in a single file.
 
-#### Domain Debugging
+#### Domains Debugging
 
 >Remove overlapping domains (`'.sub.example.com' is a subdomain of '.example.com'`), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with a allowlist (`debugwl.txt`).
 
@@ -370,7 +370,7 @@ Output:
 
 #### Debugging Punycode-IDN
 
->Remove hostnames larger than 63 characters ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) and other characters inadmissible by [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) and convert domains with international characters (non ASCII) and used for [homologous attacks](https://es.qwerty.wiki/wiki/IDN_homograph_attack) to [Punycode/IDNA](https://www.charset.org/punycode) format.
+>Remove hostnames larger than 63 characters (RFC 1035) and other characters inadmissible by IDN and convert domains with international characters (non ASCII) and used for homologous attacks to Punycode/IDNA format.
 
 Input:
 
@@ -398,9 +398,94 @@ xn--mslaikas-qzb5f.lt
 xn--sendesk-wfb.com
 ```
 
+#### Debugging non-ASCII characters
+
+>Removes entries with invalid encoding, non-printable characters, whitespace, disallowed symbols, and any content that does not conform to the strict ASCII format for valid domain names (CP1252, ISO-8859-1, corrupted UTF-8, etc.). Converts the output to plain text with `charset=us-ascii`, ensuring a clean, standardized list ready for validation, comparison, or DNS resolution:
+
+Input:
+
+```bash
+M-C$
+-$
+.$
+0$
+1$
+23andmÃª.com
+.Ã²utlook.com
+.ÄƒlibÄƒbÄƒ.com
+.ÄƒmÄƒzon.com
+.ÄƒvÄƒst.com
+.amÃ¹azon.com
+.amÉ™zon.com
+.avalÃ³n.com
+.bÄºnance.com
+.bitdáº¹fender.com
+.blÃ³ckchain.site
+.blockchaiÇ¹.com
+.cashpluÈ™.com
+.dáº¹ll.com
+.diÃ³cesisdebarinas.org
+.disnáº¹ylandparis.com
+.ebÄƒy.com
+.É™mÉ™zon.com
+.evo-bancÃ³.com
+.goglÄ™.com
+.gooÄŸle.com
+.googÄ¼Ä™.com
+.googlÉ™.com
+.google.com
+.ibáº¹ria.com
+.imgÃºr.com
+.lloydÅŸbank.com
+.mÃ½etherwallet.com
+.mrgreÄ™n.com
+.myáº¹tháº¹rwallet.com
+.myáº¹thernwallet.com
+.myetháº¹rnwallet.com
+.myetheá¹™wallet.com
+.myethernwalláº¹t.com
+.nÄ™tflix.com
+.paxfÃ¹ll.com
+.tÃ¼rkiyeisbankasi.com
+.tÅ™ezor.com
+.westernÃºnion.com
+.yÃ²utube.com
+.yÄƒhoo.com
+.yoÃ¼tÃ¼be.co
+.yoÃ¼tÃ¼be.com
+.yoÃ¼tu.be
+```
+
+Output:
+```bash
+.google.com
+```
+
 #### DNS Loockup
 
->Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid and nonexistent domains. Then, a double check of each domain is done (in 2 steps) via DNS and invalid and nonexistent are excluded from Blackweb. This process may take. By default it processes domains in parallel ≈ 6k to 12k x min, depending on the hardware and bandwidth.
+>Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid or nonexistent domains, so each domain is double-checked via DNS (in 2 steps) to exclude those entries from Blackweb. This process is performed in parallel and can be resource-intensive, depending on your hardware and network conditions. You can control concurrency with the `PROCS` variable:
+
+```bash
+PROCS=$(($(nproc)))        # Conservative (network-friendly)
+PROCS=$(($(nproc) * 2))    # Balanced
+PROCS=$(($(nproc) * 4))    # Aggressive (default)
+PROCS=$(($(nproc) * 8))    # Extreme (8 or higher, use with caution)
+```
+
+>For example, on a system with a Core i5 CPU (4 physical cores / 8 threads with Hyper-Threading):
+
+```bash
+nproc             → 8
+PROCS=$((8 * 4))  → 32 parallel queries
+```
+
+>⚠️ High `PROCS` values increase DNS resolution speed but may saturate your CPU or bandwidth, especially on limited networks like satellite links. Adjust accordingly. Real-time processing example:
+
+```bash
+Processed: 2463489 / 7244989 (34.00%)
+```
+
+Output:
 
 ```bash
 HIT google.com
@@ -411,8 +496,6 @@ google.com mail is handled by 10 smtp.google.com.
 FAULT testfaultdomain.com
 Host testfaultdomain.com not found: 3(NXDOMAIN)
 ```
-
-For more information, check [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
 
 #### Excludes government-related TLDs
 
@@ -647,7 +730,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 ### WORKTOOLS
 
 - [Domain Filtering](https://github.com/maravento/vault/tree/master/dofi)
-- [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 
 ## BACKLINKS
 

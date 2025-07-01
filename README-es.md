@@ -23,7 +23,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 4899382 | 123,2 MB |
+| blackweb.txt | 5048337 | 126 MB |
 
 ## GIT CLONE
 
@@ -318,7 +318,7 @@ echo "Done"
 
 >Captura los dominios de las listas de bloqueo públicas descargadas (ver [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)) y las unifica en un solo archivo.
 
-#### Domain Debugging
+#### Domains Debugging
 
 >Elimina dominios superpuestos (`'.sub.example.com' es un dominio de '.example.com'`), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (`debugwl.txt`).
 
@@ -349,7 +349,7 @@ Output:
 .domain.co.uk
 ```
 
-#### TLD Validation
+#### Debugging Punycode-IDN
 
 >Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs).
 
@@ -368,7 +368,7 @@ Output:
 .domain.edu.co
 ```
 
-#### Debugging Punycode-IDN
+#### Debugging non-ASCII characters
 
 >Elimina hostnames mayores a 63 caracteres ([RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)) y otros caracteres inadmisibles por [IDN](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html) y convierte dominios con caracteres internacionales (no ASCII) y usados para [ataques homográficos](https://es.qwerty.wiki/wiki/IDN_homograph_attack) al formato [Punycode/IDNA](https://www.charset.org/punycode).
 
@@ -398,9 +398,94 @@ xn--mslaikas-qzb5f.lt
 xn--sendesk-wfb.com
 ```
 
+#### Depuración de caracteres no ASCII
+
+>Elimina entradas con codificación incorrecta, caracteres no imprimibles, espacios en blanco, símbolos no permitidos y cualquier contenido que no se ajuste al formato ASCII estricto para nombres de dominio válidos (CP1252, ISO-8859-1, UTF-8 corrupto, etc.) y convierte la salida a texto sin formato `charset=us-ascii`, lo que garantiza una lista limpia y estandarizada, lista para validación, comparación o resolución DNS.
+
+Input:
+
+```bash
+M-C$
+-$
+.$
+0$
+1$
+23andmÃª.com
+.Ã²utlook.com
+.ÄƒlibÄƒbÄƒ.com
+.ÄƒmÄƒzon.com
+.ÄƒvÄƒst.com
+.amÃ¹azon.com
+.amÉ™zon.com
+.avalÃ³n.com
+.bÄºnance.com
+.bitdáº¹fender.com
+.blÃ³ckchain.site
+.blockchaiÇ¹.com
+.cashpluÈ™.com
+.dáº¹ll.com
+.diÃ³cesisdebarinas.org
+.disnáº¹ylandparis.com
+.ebÄƒy.com
+.É™mÉ™zon.com
+.evo-bancÃ³.com
+.goglÄ™.com
+.gooÄŸle.com
+.googÄ¼Ä™.com
+.googlÉ™.com
+.google.com
+.ibáº¹ria.com
+.imgÃºr.com
+.lloydÅŸbank.com
+.mÃ½etherwallet.com
+.mrgreÄ™n.com
+.myáº¹tháº¹rwallet.com
+.myáº¹thernwallet.com
+.myetháº¹rnwallet.com
+.myetheá¹™wallet.com
+.myethernwalláº¹t.com
+.nÄ™tflix.com
+.paxfÃ¹ll.com
+.tÃ¼rkiyeisbankasi.com
+.tÅ™ezor.com
+.westernÃºnion.com
+.yÃ²utube.com
+.yÄƒhoo.com
+.yoÃ¼tÃ¼be.co
+.yoÃ¼tÃ¼be.com
+.yoÃ¼tu.be
+```
+
+Output:
+```bash
+.google.com
+```
+
 #### DNS Loockup
 
->La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos e inexistentes. Entonces se hace una verificación doble de cada dominio (en 2 pasos) vía DNS y los inválidos e inexistentes se excluyen de Blackweb. Este proceso puede tardar. Por defecto procesa en paralelo dominios ≈ 6k a 12k x min, en dependencia del hardware y ancho de banda.
+>La mayoría de las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources) contienen millones de dominios inválidos o inexistentes, por lo que cada dominio se verifica mediante DNS (en dos pasos) para excluir esas entradas de Blackweb. Este proceso se realiza en paralelo y puede consumir muchos recursos, dependiendo del hardware y las condiciones de la red. Puede controlar la concurrencia con la variable `PROCS`:
+
+```bash
+PROCS=$(($(nproc)))        # Conservative (network-friendly)
+PROCS=$(($(nproc) * 2))    # Balanced
+PROCS=$(($(nproc) * 4))    # Aggressive (default)
+PROCS=$(($(nproc) * 8))    # Extreme (8 or higher, use with caution)
+```
+
+>Por ejemplo, en un sistema con una CPU Core i5 (4 núcleos físicos/8 subprocesos con Hyper-Threading):
+
+```bash
+nproc             → 8
+PROCS=$((8 * 4))  → 32 parallel queries
+```
+
+>⚠️ Los valores altos de `PROCS` aumentan la velocidad de resolución del DNS, pero pueden saturar la CPU o el ancho de banda, especialmente en redes limitadas como enlaces satelitales. Ajuste el sistema según corresponda. Ejemplo de procesamiento en tiempo real:
+
+```bash
+Processed: 2463489 / 7244989 (34.00%)
+```
+
+Output:
 
 ```bash
 HIT google.com
@@ -411,8 +496,6 @@ google.com mail is handled by 10 smtp.google.com.
 FAULT testfaultdomain.com
 Host testfaultdomain.com not found: 3(NXDOMAIN)
 ```
-
-Para obtener más información, consulte [internet live stats](https://www.internetlivestats.com/total-number-of-websites/)
 
 #### Excludes government-related TLDs
 
@@ -647,7 +730,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 ### WORKTOOLS
 
 - [Domain Filtering](https://github.com/maravento/vault/tree/master/dofi)
-- [idn2](http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html)
 
 ## BACKLINKS
 

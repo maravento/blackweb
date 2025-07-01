@@ -4,37 +4,45 @@ bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea pac
 bw02=("Downloading Blackweb..." "Descargando Blackweb...")
 bw03=("Downloading Blocklists..." "Descargando Listas de Bloqueo...")
 bw04=("Downloading Allowlist..." "Descargando Listas de Permitidos...")
-bw05=("Capturing Domains..." "Capturando Dominios...")
+bw05=("IDN Capture and Debugging..." "Captura y Depuracion IDN...")
 bw06=("Joining Lists..." "Uniendo Listas...")
 bw07=("Debugging Domains..." "Depurando Dominios...")
-bw08=("Debugging PunycodeIDN..." "Depurando Punycode-IDN...")
-bw09=("1st DNS Loockup..." "1ra Busqueda DNS...")
-bw10=("2nd DNS Loockup..." "2da Busqueda DNS...")
-bw11=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
-bw12=("Exclude TLD..." "Excluir TLD...")
-bw13=("Restarting Squid..." "Reiniciando Squid...")
-bw14=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
+bw08=("1st DNS Loockup..." "1ra Busqueda DNS...")
+bw09=("2nd DNS Loockup..." "2da Busqueda DNS...")
+bw10=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
+bw11=("Exclude TLD..." "Excluir TLD...")
+bw12=("Restarting Squid..." "Reiniciando Squid...")
+bw13=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
 test "${LANG:0:2}" == "en"
 en=$?
 
-# DEPENDENCIES
-pkgs='wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2'
-for pkg in $pkgs; do
-    if ! dpkg -l | grep -q "^ii  $pkg"; then
-        echo "Error: $pkg is not installed. Abort."
-        exit 1
-    fi
-done
-if ! command -v iconv >/dev/null 2>&1; then
-    echo "Error: iconv is not installed. Abort."
+# check no-root
+if [ "$(id -u)" == "0" ]; then
+    echo "❌ This script should not be run as root"
     exit 1
 fi
 
+# check SO
+UBUNTU_VERSION=$(lsb_release -rs)
+UBUNTU_ID=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
+if [[ "$UBUNTU_ID" != "ubuntu" || ( "$UBUNTU_VERSION" != "22.04" && "$UBUNTU_VERSION" != "24.04" ) ]]; then
+    echo "Unsupported system. Use at your own risk"
+    # exit 1
+fi
+
+# DEPENDENCIES
+pkgs='wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv'
+for pkg in $pkgs; do
+  if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
+    echo "❌ '$pkg' is not installed. Run:"
+    echo "sudo apt install $pkg"
+    exit 1
+  fi
+done
+
 # VARIABLES
-bwupdate=$(pwd)/bwupdate
-regexd='([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}'
-wgetd='wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
-xdesktop=$(xdg-user-dir DESKTOP)
+bwupdate="$(pwd)/bwupdate"
+wgetd="wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
 # PATH_TO_ACL (Change it to the directory of your preference)
 route="/etc/acl"
 # CREATE PATH
@@ -49,7 +57,7 @@ echo "${bw01[${en}]}"
 if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # DELETE OLD REPOSITORY
-    if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
+    rm -rf "$bwupdate" >/dev/null 2>&1
 
     # DOWNLOAD BLACKWEB
     echo "${bw02[${en}]}"
@@ -255,7 +263,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     function univ() {
         curl -k -X GET --connect-timeout 10 --retry 1 -I "$1" &>/dev/null
         if [ $? -eq 0 ]; then
-            $wgetd "$1" -O - | grep -oiE $regexd | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/debugwl.txt
+            $wgetd "$1" -O - | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u >> lst/debugwl.txt
         else
             echo ERROR "$1"
         fi
@@ -263,13 +271,29 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
     echo "OK"
     
-    # CAPTURING DOMAINS
+    # CAPTURING DOMAINS AND DEBUGGING IDN
     echo "${bw05[${en}]}"
-    # capturing
-    find bwtmp -type f -not -iname "*pdf" -execdir grep -oiE $regexd {} \; > cap1
-    piconv -f cp1252 -t UTF-8 <cap1 > cap2
-    iconv -f UTF-8 -t WINDOWS-1252 cap2 > cap3
-    sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' cap3 | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /[^[:print:]]/d; /\.{2,}/d' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > capture.txt
+    # CAPTURING DOMAINS
+    find bwtmp -type f -not -iname "*pdf" \
+      -execdir grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" {} \; \
+    | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' \
+    | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /\.{2,}/d' \
+    | sort -u > stage1
+
+    # RFC 1035 Partial
+    sed '/[^.]\{64\}/d' stage1 \
+    | grep -vP '[A-Z]' \
+    | grep -vP '(^|\.)-|-($|\.)' \
+    | sed 's/^\.//g' \
+    | sort -u > stage2
+
+    # DEBUGGING IDN
+    { 
+      LC_ALL=C grep -v '[^[:print:]]' stage2
+      grep -P "[^[:ascii:]]" stage2 | idn2 
+    } | grep -P '^[\x00-\x7F]+$' \
+      | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
+      | sort -u > capture.txt
     # EXPERIMENTAL
     # remote
     #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture.txt
@@ -289,36 +313,68 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
     python domfilter.py --input cleancapture.txt
-    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > outparse
-    echo "OK"
-
-    # DEBUGGING IDN
-    echo "${bw08[${en}]}"
-    sed '/[^.]\{64\}/d' outparse | grep -vP '[A-Z]' | grep -vP '(^|\.)-|-($|\.)' | sed 's/^\.//g' | sort -u > idnlst
-    { LC_ALL=C grep -v '[^[:print:]]' idnlst ; grep -P "[^[:ascii:]]" idnlst | idn2 ; } | sort -u > finalclean
+    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > finalclean
     echo "OK"
 else
     cd "$bwupdate"
 fi
 
-# DNS LOCKUP
-# FAULT: Unexist/Fail domain
-# HIT: Exist domain
-# pp = parallel processes
-# WARNING: high resource consumption!
-# Xargs Limit: The limit is at least 127 on all systems (and on the author’s system it is 2147483647)
-# For more information, run: xargs --show-limits
-pp="100"
+# DNS LOOKUP
+# FAULT: Nonexistent or failed domain
+# HIT: Resolved (existent) domain
+#
+# WARNING: High resource consumption!
+# This script uses parallel DNS queries. Adjust concurrency to avoid saturating your CPU or network (e.g., Starlink).
+#
+# Xargs Parallel Limit:
+# The practical limit for parallel jobs with xargs is usually high (at least 127; check your system with: xargs --show-limits)
+#
+# Number of parallel processes (PROCS) = Logical CPUs × multiplier
+# The multiplier (e.g., 2, 4) controls how aggressively to parallelize. More isn't always better.
+#
+# ┌───────────────────────────────────────────────────────┐
+# │ How to determine your CPU configuration (Linux only): │
+# └───────────────────────────────────────────────────────┘
+# Physical cores: grep '^core id' /proc/cpuinfo | sort -u | wc -l
+# Logical CPUs (threads): nproc
+#
+# Recommended:
+#   PROCS=$(($(nproc)))      # Conservative (network-friendly)
+#   PROCS=$(($(nproc) * 2))  # Balanced
+#   PROCS=$(($(nproc) * 4))  # Aggressive (default)
+#   PROCS=$(($(nproc) * 8))  # Extreme (8 or higher, use with caution)
+#
+# Example: Core i5 with 4 physical cores and 8 threads (Hyper-Threading)
+#   nproc          → 8
+#   PROCS=$((8 * 4)) → 32 parallel queries
+#
+# Adjust based on:
+# - Your CPU
+# - Your network (bandwidth/latency)
+# - Desired balance between speed and system load
+PROCS=$(($(nproc) * 4))
 
 # STEP 1:
 if [ ! -e "$bwupdate"/dnslookup2 ]; then
-    echo "${bw09[${en}]}"
+    echo "${bw08[${en}]}"
     sed 's/^\.//g' finalclean | sort -u > step1
+    total=$(wc -l < step1)
+    (
+        while sleep 1; do
+            processed=$(wc -l < dnslookup1 2>/dev/null)
+            percent=$(awk -v p="$processed" -v t="$total" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
+            printf "Processed: %d / %d (%s%%)\r" "$processed" "$total" "$percent"
+        done
+    ) &
+    progress_pid=$!
     if [ -s dnslookup1 ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
     else
         cat step1
-    fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup1
+    fi | xargs -I {} -P "$PROCS" sh -c "if host -W 1 {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup1
+    kill "$progress_pid" 2>/dev/null
+    echo
+
     sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
     sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
     sort -o fault.txt -u fault.txt
@@ -328,36 +384,48 @@ fi
 sleep 10
 
 # STEP 2:
-echo "${bw10[${en}]}"
+echo "${bw09[${en}]}"
 sed 's/^\.//g' fault.txt | sort -u > step2
+total=$(wc -l < step2)
+(
+    while sleep 1; do
+        processed=$(wc -l < dnslookup2 2>/dev/null)
+        percent=$(awk -v p="$processed" -v t="$total" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
+        printf "Processed: %d / %d (%s%%)\r" "$processed" "$total" "$percent"
+    done
+) &
+progress_pid=$!
 if [ -s dnslookup2 ]; then
     awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
 else
     cat step2
-fi | xargs -I {} -P "$pp" sh -c "if host {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup2
+fi | xargs -I {} -P "$PROCS" sh -c "if host -W 2 {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup2
+kill "$progress_pid" 2>/dev/null
+echo
+
 sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
 echo "OK"
 
 # DEBUG BLACKLIST
-echo "${bw11[${en}]}"
+echo "${bw10[${en}]}"
 sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
 grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
 echo "OK"
 
 # TLD FINAL FILTER (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines
-echo "${bw12[${en}]}"
+echo "${bw11[${en}]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
-grep -E -v "$new_regex_ext" blackweb_tmp | grep -P "^[\x00-\x7F]+$" | sort -u > blackweb_tmp2
+grep -E -v "$new_regex_ext" blackweb_tmp | sort -u > blackweb_tmp2
 comm -23 <(sort blackweb_tmp2) <(sort tlds.txt) > blackweb.txt
 # Optional
 #grep -E "$new_regex_ext" blackweb_tmp > delete_tld
 echo "OK"
 
 # RELOAD SQUID-CACHE
-echo "${bw13[${en}]}"
+echo "${bw12[${en}]}"
 # copy blaclweb to path
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # Squid Reload
@@ -365,18 +433,18 @@ sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 sudo bash -c 'squid -k reconfigure' 2>sqerror && sleep 20
-sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "$regexd"' >> sqerror
-sort -o sqerror -u sqerror
+sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
+sort -o sqerror.txt -u sqerror.txt
 python tools/debugerror.py
-sort -o final -u final
-mv -f final blackweb.txt
+sort -o final.txt -u final.txt
+iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt | grep -P '^[\x00-\x7F]+$' > blackweb.txt
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
-sudo bash -c 'squid -k reconfigure' 2>"$xdesktop"/SquidErrors.txt
+sudo bash -c 'squid -k reconfigure' 2> "$(xdg-user-dir DESKTOP)"/SquidErrors.txt
 
 # DELETE REPOSITORY (Optional)
 cd ..
-if [ -d "$bwupdate" ]; then rm -rf "$bwupdate"; fi
+rm -rf "$bwupdate" >/dev/null 2>&1
 
 # END
 sudo bash -c 'echo "BlackWeb Done: $(date)" | tee -a /var/log/syslog'
-echo "${bw14[${en}]}"
+echo "${bw13[${en}]}"
