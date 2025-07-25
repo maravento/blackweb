@@ -1,0 +1,11 @@
+.binaries.templates.cdn.office.net
+.client.wns.windows.com
+.delivery.mp.microsoft.com
+.download.microsoft.com
+.telemetry.microsoft.com
+.trafficmanager.net
+.update.microsoft.com
+.windowsupdate.com
+.windowsupdate.microsoft.com
+.xboxab.com
+.xboxlive.com

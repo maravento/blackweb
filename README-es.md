@@ -135,11 +135,13 @@ http_access allow allowdomains
 
 ##### Block Rule for Domains
 
->Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.).
+>Utilice `streaming.txt` para agregar dominios no incluidos en `blackweb.txt` (por ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.) y `blockdomains.txt` para cualquier otro dominio que desee incluir.
 
 ```bash
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
+acl streaming dstdomain "/path_to/streaming.txt"
+http_access deny streaming
 ```
 
 ##### Block Rule for gTLD, sTLD, ccTLD, etc
