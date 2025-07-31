@@ -23,7 +23,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5048337 | 126 MB |
+| blackweb.txt | 5086616 | 127 MB |
 
 ## GIT CLONE
 
@@ -135,11 +135,27 @@ http_access allow allowdomains
 
 ##### Block Rule for Domains
 
->Usar `blockdomains.txt` para agregar dominios no incluidos en `blackweb.txt` (ejemplo: .youtube.com .googlevideo.com, .ytimg.com, etc.).
+>Utilice `streaming.txt` para bloquear dominios de streaming, no incluidos en `blackweb.txt` (.youtube.com .googlevideo.com, .ytimg.com, etc.).
+
+```bash
+acl streaming dstdomain "/path_to/streaming.txt"
+http_access deny streaming
+```
+
+>Utilice `blockdomains.txt` para bloquear cualquier otro dominio, no incluido en `blackweb.txt`
 
 ```bash
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
+```
+
+>Nota: Las listas pueden contener dominios superpuestos. Es importante depurarlas manualmente según el objetivo deseado.
+>- Si deseas bloquear todo Facebook, conserva los dominios principales y elimina los subdominios específicos.
+>- Si solo deseas bloquear funcionalidades como el streaming de Facebook, mantén los subdominios específicos y elimina los dominios principales para no afectar el acceso general al sitio.
+
+```bash
+.fbcdn.net, facebook.com, etc            # Bloquea Facebook
+.z-p3-video.flpb1-1.fna.fbcdn.net, etc   # Solo bloquea streaming en Facebook
 ```
 
 ##### Block Rule for gTLD, sTLD, ccTLD, etc

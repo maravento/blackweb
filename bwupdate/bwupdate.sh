@@ -12,7 +12,7 @@ bw09=("2nd DNS Loockup..." "2da Busqueda DNS...")
 bw10=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
 bw11=("Exclude TLD..." "Excluir TLD...")
 bw12=("Restarting Squid..." "Reiniciando Squid...")
-bw13=("Check on your desktop Squid-Error.txt" "Verifique en su escritorio Squid-Error.txt")
+bw13=("Check Squid-Error.txt" "Verifique Squid-Error.txt")
 test "${LANG:0:2}" == "en"
 en=$?
 
@@ -439,7 +439,7 @@ python tools/debugerror.py
 sort -o final.txt -u final.txt
 iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt | grep -P '^[\x00-\x7F]+$' > blackweb.txt
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
-sudo bash -c 'squid -k reconfigure' 2> "$(xdg-user-dir DESKTOP)"/SquidErrors.txt
+sudo bash -c 'squid -k reconfigure' 2> "$(pwd)/SquidErrors.txt"
 
 # DELETE REPOSITORY (Optional)
 cd ..
