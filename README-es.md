@@ -135,27 +135,11 @@ http_access allow allowdomains
 
 ##### Block Rule for Domains
 
->Utilice `streaming.txt` para bloquear dominios de streaming, no incluidos en `blackweb.txt` (.youtube.com .googlevideo.com, .ytimg.com, etc.).
-
-```bash
-acl streaming dstdomain "/path_to/streaming.txt"
-http_access deny streaming
-```
-
 >Utilice `blockdomains.txt` para bloquear cualquier otro dominio, no incluido en `blackweb.txt`
 
 ```bash
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
-```
-
->Nota: Las listas pueden contener dominios superpuestos. Es importante depurarlas manualmente según el objetivo deseado.
->- Si deseas bloquear todo Facebook, conserva los dominios principales y elimina los subdominios específicos.
->- Si solo deseas bloquear funcionalidades como el streaming de Facebook, mantén los subdominios específicos y elimina los dominios principales para no afectar el acceso general al sitio.
-
-```bash
-.fbcdn.net, facebook.com, etc            # Bloquea Facebook
-.z-p3-video.flpb1-1.fna.fbcdn.net, etc   # Solo bloquea streaming en Facebook
 ```
 
 ##### Block Rule for gTLD, sTLD, ccTLD, etc
@@ -238,6 +222,24 @@ Output:
 ```bash
 https://www.google.com/search?q=mydomain
 .mydomain.com
+```
+
+##### Streaming (Optional)
+
+>Utilice `streaming.txt` para bloquear dominios de streaming, no incluidos en `blackweb.txt` (.youtube.com .googlevideo.com, .ytimg.com, etc.).
+
+```bash
+acl streaming dstdomain "/path_to/streaming.txt"
+http_access deny streaming
+```
+
+>Nota: Esta lista puede contener dominios superpuestos. Es importante depurarla manualmente según el objetivo propuesto. Ejemplo:
+>- Si el objetivo es bloquear Facebook, conserva los dominios principales y elimina los subdominios específicos.
+>- Si el objetivo es bloquear funcionalidades como el streaming de Facebook, mantén los subdominios específicos y elimina los dominios principales para no afectar el acceso general al sitio.
+
+```bash
+.fbcdn.net, facebook.com, etc            # Bloquea Facebook
+.z-p3-video.flpb1-1.fna.fbcdn.net, etc   # Solo bloquea streaming en Facebook
 ```
 
 #### Advanced Rules Summary

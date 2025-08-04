@@ -135,27 +135,11 @@ http_access allow allowdomains
 
 ##### Block Rule for Domains
 
->Use `streaming.txt` to block streaming domains not included in `blackweb.txt` (for example: .youtube.com .googlevideo.com, .ytimg.com, etc.).
-
-```bash
-acl streaming dstdomain "/path_to/streaming.txt"
-http_access deny streaming
-```
-
 >Use `blockdomains.txt` to block any other domain not included in `blackweb.txt`
 
 ```bash
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
-```
-
->Note: Lists may contain overlapping domains. It's important to manually refine them based on your intended purpose.
->- If you want to block all of Facebook, keep the primary domains and remove specific subdomains.
->- If you only want to block features like Facebook streaming, keep the specific subdomains and remove the primary domains to avoid affecting overall site access.
-
-```bash
-.fbcdn.net, facebook.com, etc.          # Blocks Facebook
-.z-p3-video.flpb1-1.fna.fbcdn.net, etc. # Only blocks streaming on Facebook
 ```
 
 ##### Block Rule for gTLD, sTLD, ccTLD, etc
@@ -238,6 +222,24 @@ Output:
 ```bash
 https://www.google.com/search?q=mydomain
 .mydomain.com
+```
+
+##### Streaming (Optional)
+
+>Use `streaming.txt` to block streaming domains not included in `blackweb.txt` (for example: .youtube.com .googlevideo.com, .ytimg.com, etc.).
+
+```bash
+acl streaming dstdomain "/path_to/streaming.txt"
+http_access deny streaming
+```
+
+>Note: This list may contain overlapping domains. It is important to manually clean it according to the proposed objective. Example:
+>- If your goal is to block Facebook, keep the primary domains and remove specific subdomains.
+>- If your goal is to block features like Facebook streaming, keep the specific subdomains and remove the primary domains to avoid impacting overall site access.
+
+```bash
+.fbcdn.net, facebook.com, etc.          # Blocks Facebook
+.z-p3-video.flpb1-1.fna.fbcdn.net, etc. # Only blocks streaming on Facebook
 ```
 
 #### Advanced Rules Summary

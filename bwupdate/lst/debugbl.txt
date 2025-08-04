@@ -1774,9 +1774,6 @@
 .dislytegame.com
 .disorderstatus.ru
 .disquesanciens.com
-.disq.us
-.disquscdn.com
-.disqus.com
 .disturbia.co.uk
 .ditchyourip.com
 .dit-inc.us
@@ -2110,10 +2107,7 @@
 .emmabeckerle.com
 .empirek9.com
 .empolio.com
-.emprendamosjuntos.com
-.encarguelo.com
 .end-motorsport.de
-.endoca.com
 .endofinternet.net
 .endofinternet.org
 .endoftheinternet.org
@@ -2514,6 +2508,7 @@
 .francogatta.it
 .frankfoeckler.de
 .frank-nickel.de
+.fraq-pz
 .frascuft.com
 .freakshare.com
 .frecuenciaurbana.es
@@ -3944,7 +3939,6 @@
 .lasercutlawncare.com
 .lasertopo.be
 .lasmeio.com
-.last.fm
 .laszloiparcikk.hu
 .latenhaet.com
 .latiendadelalujuria.com
@@ -4069,9 +4063,6 @@
 .livefyre.com
 .livehelpnow.net
 .livejasmin.com
-.liveperson.com
-.liveperson.net
-.livestreamlive.com
 .livingnetwork.co.za
 .lix.in
 .liyuesheng.com
@@ -4300,7 +4291,6 @@
 .mega-anime-kawai.blogspot.com
 .mega-cine.com
 .megacinefullhd.net
-.mega.co.nz
 .megadede.in
 .megadescarga-gratis.blogspot.com
 .megadescargas-new.blogspot.com
@@ -4311,10 +4301,8 @@
 .megafilesxl.com
 .megafly.in
 .me-ga.info
-.mega.io
 .megalinks.site
 .mega-mkv.com
-.mega.nz
 .megapaste.xyz
 .megapeliculasrip.com
 .megapeliculasrip.net
@@ -4471,7 +4459,6 @@
 .mmafan.biz
 .mmbeheer.nl
 .mmcomposite.dk
-.m.me
 .moatads.com
 .moat.com
 .mob.com
@@ -5013,9 +5000,8 @@
 .openspace.pro
 .opensubtitles.org
 .opentrackr.org
-.openvpn.net
+.openx.com
 .openx.net
-.oppo.com
 .opravaspotrebicov.sk
 .opravnatramvaji.cz
 .optimal-ketose.com
@@ -5212,6 +5198,7 @@
 .pelisplus.lat
 .pelisplus.live
 .pelisplus.one
+.pelisplus.to
 .pelispop.cc
 .pelispop.com
 .pelispop.me
@@ -5277,8 +5264,6 @@
 .pingstart.com
 .pinimg.com
 .pinkcherrywholesale.ca
-.pinna.be
-.pinterest.com
 .pinuserror.com
 .pioneerschina.com
 .pipipan.com
@@ -5746,6 +5731,7 @@
 .robertocostama.com
 .robertogori.it
 .roberttrocina.com
+.roboforex.com
 .robohold.com
 .robotforex.net
 .robsacks.com
@@ -5978,6 +5964,7 @@
 .send.cm
 .sendit.cloud
 .sendmyway.com
+.send.now
 .sendspace.com
 .sendthink.net
 .senja.io
