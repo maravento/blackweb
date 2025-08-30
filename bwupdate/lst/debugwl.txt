@@ -1494,11 +1494,6 @@
 .mua5.googleusercontent.com
 .mua6.ggpht.com
 .mua6.googleusercontent.com
-.music-china.l.google.com
-.music.google.com
-.music.googleusercontent.com
-.music-onebox.googleusercontent.com
-.music-streaming.l.google.com
 .mw1.google.com
 .mw2.google.com
 .mw-medium.l.google.com
@@ -6440,7 +6435,6 @@
 .int.mc.microsoft.com
 .int.mlx.microsoft.com
 .int.msdn.microsoft.com
-.int.musicpersonalization.mediaservices.microsoft.com
 .int.profileapi.services.microsoft.com
 .int.rewardsplatform.microsoft.com
 .int.services.social.microsoft.com
@@ -6488,7 +6482,6 @@
 .itera-transn-integration.westeurope.cloudapp.azure.com
 .it.msn.com
 .itsmex.partners.extranet.microsoft.com
-.itstreaming.microsoft.com
 .iur.partners.microsoft.com
 .ivarmini.northeurope.cloudapp.azure.com
 .ivruat.ectest.one.microsoft.com
@@ -6868,7 +6861,6 @@
 .login.microsoftonline-p.com
 .login.skype-apps.akadns.net
 .login.skype.com
-.login.sonos.music.microsoft.com
 .login-us.microsoftonline.com
 .login.windows.net
 .login.windows-ppe.net
@@ -7115,7 +7107,6 @@
 .mediaredirect.microsoft.com
 .mediaservices-beta.msn.com
 .mediaservices.msn.com
-.mediastream.microsoft.com
 .meetdf.microsoft.com
 .meet.mds.microsoft.com
 .meet.microsoft.com
@@ -7574,13 +7565,6 @@
 .msybidata.adcenter.microsoft.com
 .mtb.live.com
 .mucp.api.account.microsoft.com
-.musicimage.xboxlive.com
-.musicmatch-origin.int.microsoft.com
-.musicmatch-origin.microsoft.com
-.music.microsoft.com
-.music.msn.com
-.musicpersonalization.mediaservices.microsoft.com
-.musicstore.ca.msn.com
 .mva.microsoft.com
 .mvn.centralus.cloudapp.azure.com
 .mvp.microsoft.com
@@ -9431,7 +9415,6 @@
 .prod.rewardsplatform.microsoft.com
 .prod-rse-sf.centralus.cloudapp.azure.com
 .prod-rse-sf.eastus.cloudapp.azure.com
-.prod-streaming-video-msn-com.akamaized.net
 .produal-mytool.northeurope.cloudapp.azure.com
 .productactivation.one.microsoft.com
 .productcatalogservice.dce.mp.microsoft.com
@@ -10401,8 +10384,6 @@
 .sonic-jenkins.westus2.cloudapp.azure.com
 .sonic-jenkins.westus.cloudapp.azure.com
 .sonic-mlnx-jenkins.westus.cloudapp.azure.com
-.sonos.music.microsoft.com
-.sonos-ppe.music.microsoft.com
 .sopbtsperf.partners.extranet.microsoft.com
 .sopbtsservicedit.partners.extranet.microsoft.com
 .sopextserviceaocuat.partners.extranet.microsoft.com
@@ -11143,7 +11124,6 @@
 .unitedstates.tip2.api.bap.microsoft.com
 .unitedstates.tip2.api.cds.microsoft.com
 .unityfs.westeurope.cloudapp.azure.com
-.universalstore.streaming.mediaservices.windows.net
 .unms.eastus.cloudapp.azure.com
 .unms-private-service-cu.westeurope.cloudapp.azure.com
 .unms.westeurope.cloudapp.azure.com
@@ -19590,6 +19570,7 @@
 .flagstar.com
 .fnbcorporation.com
 .fnfg.com
+.fondoemprender.com
 .forbes.com
 .force.com
 .forms.gle

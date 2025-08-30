@@ -762,6 +762,7 @@
 .best-service.jp
 .bestsourcecode.com
 .bestyoutubeproxy.info
+.betaseries.com
 .betconstruct.com
 .betplay.com.co
 .bet.plus
@@ -1470,7 +1471,6 @@
 .creartnet.com
 .create-enable.com
 .createvalue.org
-.creativecdn.com
 .crecrec.com
 .credit-it.com
 .creditospresta.com
@@ -1519,6 +1519,7 @@
 .cuevana-3.lol
 .cuevana3.nu
 .cuevana3.re
+.cuevana3.rs
 .cuevana3.video
 .cuevana3.vip
 .cuevana3.ws
@@ -1720,6 +1721,7 @@
 .detectodecolombia.com
 .detik.com
 .deturl.com
+.dev-buzz.site
 .devere-uk.co.uk
 .deviantart.com
 .devyog.com
@@ -1774,9 +1776,6 @@
 .dislytegame.com
 .disorderstatus.ru
 .disquesanciens.com
-.disq.us
-.disquscdn.com
-.disqus.com
 .disturbia.co.uk
 .ditchyourip.com
 .dit-inc.us
@@ -1873,6 +1872,7 @@
 .douyu.com
 .dowfrecap.net
 .downcargas.com
+.downlaod-here.com
 .downloadgeral.com
 .downloadne.co.in
 .downloadpirate.com
@@ -2110,10 +2110,7 @@
 .emmabeckerle.com
 .empirek9.com
 .empolio.com
-.emprendamosjuntos.com
-.encarguelo.com
 .end-motorsport.de
-.endoca.com
 .endofinternet.net
 .endofinternet.org
 .endoftheinternet.org
@@ -2514,6 +2511,7 @@
 .francogatta.it
 .frankfoeckler.de
 .frank-nickel.de
+.fraq-pz
 .frascuft.com
 .freakshare.com
 .frecuenciaurbana.es
@@ -3116,6 +3114,7 @@
 .his.name
 .historielag.org
 .hitfile.net
+.hitmeup.space
 .hiveam.com
 .hiveapps.co
 .hjarne.dk
@@ -3264,6 +3263,7 @@
 .hwayou.com.tw
 .hydrodesign.net
 .hydroenergie.fr
+.hydrofiles.com
 .hyperurl.co
 .hypstarcdn.com
 .hyves.nl
@@ -3944,7 +3944,6 @@
 .lasercutlawncare.com
 .lasertopo.be
 .lasmeio.com
-.last.fm
 .laszloiparcikk.hu
 .latenhaet.com
 .latiendadelalujuria.com
@@ -4069,9 +4068,6 @@
 .livefyre.com
 .livehelpnow.net
 .livejasmin.com
-.liveperson.com
-.liveperson.net
-.livestreamlive.com
 .livingnetwork.co.za
 .lix.in
 .liyuesheng.com
@@ -4300,7 +4296,6 @@
 .mega-anime-kawai.blogspot.com
 .mega-cine.com
 .megacinefullhd.net
-.mega.co.nz
 .megadede.in
 .megadescarga-gratis.blogspot.com
 .megadescargas-new.blogspot.com
@@ -4311,10 +4306,8 @@
 .megafilesxl.com
 .megafly.in
 .me-ga.info
-.mega.io
 .megalinks.site
 .mega-mkv.com
-.mega.nz
 .megapaste.xyz
 .megapeliculasrip.com
 .megapeliculasrip.net
@@ -4471,7 +4464,6 @@
 .mmafan.biz
 .mmbeheer.nl
 .mmcomposite.dk
-.m.me
 .moatads.com
 .moat.com
 .mob.com
@@ -4543,6 +4535,7 @@
 .movienna.com
 .movierulz.video
 .moviesbark.com
+.movieshdwatch.to
 .moviesthenumber.blogspot.com
 .movies-web.com
 .movietimes.com.au
@@ -5013,9 +5006,8 @@
 .openspace.pro
 .opensubtitles.org
 .opentrackr.org
-.openvpn.net
+.openx.com
 .openx.net
-.oppo.com
 .opravaspotrebicov.sk
 .opravnatramvaji.cz
 .optimal-ketose.com
@@ -5212,6 +5204,7 @@
 .pelisplus.lat
 .pelisplus.live
 .pelisplus.one
+.pelisplus.to
 .pelispop.cc
 .pelispop.com
 .pelispop.me
@@ -5277,8 +5270,6 @@
 .pingstart.com
 .pinimg.com
 .pinkcherrywholesale.ca
-.pinna.be
-.pinterest.com
 .pinuserror.com
 .pioneerschina.com
 .pipipan.com
@@ -5316,6 +5307,7 @@
 .platinumrainbow.com
 .playdede.us
 .playlist-youtu.be
+.playlust-goddess.com
 .playocio.com
 .playpaste.com
 .playpilot.com
@@ -5746,6 +5738,7 @@
 .robertocostama.com
 .robertogori.it
 .roberttrocina.com
+.roboforex.com
 .robohold.com
 .robotforex.net
 .robsacks.com
@@ -5978,6 +5971,7 @@
 .send.cm
 .sendit.cloud
 .sendmyway.com
+.send.now
 .sendspace.com
 .sendthink.net
 .senja.io
@@ -6237,8 +6231,6 @@
 .smt112.com
 .smugmug.com
 .snapads.com
-.snapchat.com
-.snap.com
 .snapdownloader.com
 .snapengage.com
 .snapkit.com
@@ -6271,6 +6263,7 @@
 .software-unlimited.at
 .sofwerx.org
 .solar-cms.com
+.solarmovies.ms
 .soldabarra.com.br
 .solenapeak.com
 .solentim.com
@@ -6442,9 +6435,7 @@
 .streamboox.com
 .streamium.xyz
 .streamovies.site
-.streamplay.to
 .streamservices.de
-.streamtape.com
 .streamtheworld.com
 .stream-up.com
 .strefa.pl
@@ -6583,7 +6574,6 @@
 .tantella.com
 .tanzecampus.com
 .taotao500.cn
-.tapad.com
 .tapecontent.net
 .taranakitruckdismantlers.com
 .taranbeaty.com
@@ -6801,6 +6791,7 @@
 .tinylinks.co
 .tiny.tw
 .tinyurl.com
+.tinyzone.tv
 .tisystems.cz
 .titoseries.xyz
 .titreplus.ca
@@ -6951,6 +6942,7 @@
 .tube.poal.co
 .tubesb.com
 .tubetitties.com
+.tubitv.com
 .tucinehd.com
 .tucows.com
 .tula.ru
@@ -7373,6 +7365,7 @@
 .wapv.net
 .warabuki.net
 .warmlyyours.com
+.watchcartoonsonline.biz
 .watchmeninc.com
 .wattpad.com
 .way2lead.dk

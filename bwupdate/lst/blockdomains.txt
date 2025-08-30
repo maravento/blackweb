@@ -1,1 +1,5 @@
 .put-any-domain-here.com
+# example
+.mega.co.nz
+.mega.io
+.mega.nz

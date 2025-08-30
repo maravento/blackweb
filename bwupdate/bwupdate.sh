@@ -47,6 +47,8 @@ wgetd="wget -q -c --show-progress --no-check-certificate --retry-connrefused --t
 route="/etc/acl"
 # CREATE PATH
 if [ ! -d "$route" ]; then sudo mkdir -p "$route"; fi
+# Absolute path
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 clear
 echo
@@ -439,7 +441,7 @@ python tools/debugerror.py
 sort -o final.txt -u final.txt
 iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt | grep -P '^[\x00-\x7F]+$' > blackweb.txt
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
-sudo bash -c 'squid -k reconfigure' 2> "$(pwd)/SquidErrors.txt"
+sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"
 
 # DELETE REPOSITORY (Optional)
 cd ..
