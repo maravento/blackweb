@@ -2650,6 +2650,7 @@
 .g2cteknoloji.com
 .gabriellesrestaurant.com
 .gadget24.ro
+.gadgethon.weebly.com
 .gadtrento.it
 .gagaoolala.com
 .gages-56.com
@@ -2739,6 +2740,7 @@
 .geti2p.net
 .getinmac.com
 .getintopc.com
+.getmetal.club
 .getmyip.com
 .getprivate.net
 .getproactive.ca
@@ -3893,6 +3895,7 @@
 .kushbottles.com
 .kuszowka.pl
 .kutumobilya.com.tr
+.kuvda.mystrikingly.com
 .kvalitne.cz
 .kvedder.com
 .kveldeil.no
@@ -4317,6 +4320,7 @@
 .megaproxy.com.ar
 .megapush.online
 .megared.net.mx
+.megaripmaster.com
 .megaserie.me
 .megaseries24.wordpress.com
 .megaserieshd.xyz
@@ -5601,6 +5605,7 @@
 .rasbery.co.uk
 .ratingtoplist.com
 .rau.ro
+.rawkbawx.rocks
 .raycon.ph
 .rayjump.com
 .razor-blade.pl
