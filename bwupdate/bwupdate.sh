@@ -127,9 +127,7 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://hostsfile.mine.nu/hosts0.txt' && sleep 1
     blurls 'https://hostsfile.org/Downloads/hosts.txt' && sleep 1
     blurls 'https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt' && sleep 1
-    blurls 'https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt' && sleep 1
     blurls 'https://openphish.com/feed.txt' && sleep 1
-    blurls 'https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt' && sleep 1
     blurls 'https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt' && sleep 1
     blurls 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml' && sleep 1
     blurls 'https://phishing.army/download/phishing_army_blocklist_extended.txt' && sleep 1
@@ -180,7 +178,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf' && sleep 1
     blurls 'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/piperun/iploggerfilter/master/filterlist' && sleep 1
-    blurls 'https://raw.githubusercontent.com/quedlin/blacklist/master/domains' && sleep 1
     blurls 'https://raw.githubusercontent.com/RooneyMcNibNug/pihole-stuff/master/SNAFU.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/Rpsl/adblock-leadgenerator-list/master/list/list.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat' && sleep 1
@@ -233,9 +230,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls 'https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt' && sleep 1
     blurls 'https://www.stopforumspam.com/downloads/toxic_domains_whole.txt' && sleep 1
     blurls 'https://www.taz.net.au/Mail/SpamDomains' && sleep 1
-    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt' && sleep 1
-    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt' && sleep 1
-    blurls 'https://zerodot1.gitlab.io/CoinBlockerLists/list.txt' && sleep 1
     blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
     # END_SOURCES
     

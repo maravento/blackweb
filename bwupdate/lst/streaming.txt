@@ -562,9 +562,6 @@
 .ssl.catalog.video.msn.com
 .sslvideo-upload.l.google.com
 .starz.com
-.steamserver.net
-.streamplay.to
-.streamtape.com
 .s.youtube.com
 .tc.v10.cache1.googlevideo.com
 .tc.v10.cache2.googlevideo.com

@@ -10,6 +10,7 @@
 .bar
 .beauty
 .best
+.bet
 .bid
 .bio
 .boats

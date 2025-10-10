@@ -23,7 +23,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5042665 | 125,5 MB |
+| blackweb.txt | 5038320 | 123,5 MB |
 
 ## GIT CLONE
 
@@ -96,8 +96,9 @@ echo "Done"
 ### Checksum
 
 ```bash
-wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/checksum.md5
-md5sum blackweb.txt | awk '{print $1}' && cat checksum.md5 | awk '{print $1}'
+wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz && cat blackweb.tar.gz* | tar xzf -
+wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.txt.sha256
+LOCAL=$(sha256sum blackweb.txt | awk '{print $1}'); REMOTE=$(awk '{print $1}' blackweb.txt.sha256); echo "$LOCAL" && echo "$REMOTE" && [ "$LOCAL" = "$REMOTE" ] && echo OK || echo FAIL
 ```
 
 ### BlackWeb Rule for [Squid-Cache](http://www.squid-cache.org/)
@@ -597,7 +598,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Dawsey21 - adblock-list](https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt)
 - [Dawsey21 - main-blacklist](https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt)
 - [developerdan - ads-and-tracking-extended](https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt)
-- [digitalside - Threat-Intel](https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt)
 - [Disconnect.me - simple_ad](https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt)
 - [Disconnect.me - simple_malvertising](https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt)
 - [Disconnect.me - simple_tracking](https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt)
@@ -645,7 +645,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [molinero - hBlock](https://hblock.molinero.dev/hosts_domains.txt)
 - [NanoAdblocker - NanoFilters](https://github.com/NanoAdblocker/NanoFilters)
 - [neodevpro - neodevhost](https://raw.githubusercontent.com/neodevpro/neodevhost/master/domain)
-- [notabug - Latvian List](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [notracking - hosts-blocklists](https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt)
 - [Oleksiig - Squid-BlackList](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish - feed](https://openphish.com/feed.txt)
@@ -654,7 +653,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Perflyst - PiHoleBlocklist SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt)
 - [phishing.army - phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
 - [piperun - iploggerfilter](https://github.com/piperun/iploggerfilter)
-- [Quedlin - domains](https://github.com/quedlin/blacklist/blob/master/domains)
 - [quidsup - notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt)
 - [quidsup - notrack-malware](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt)
 - [reddestdream - MinimalHostsBlocker](https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts)
@@ -685,9 +683,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [yourduskquibbles - Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
 - [yous - YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
 - [yoyo - Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
-- [zerodot1 - CoinBlockerLists list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt)
-- [zerodot1 - CoinBlockerLists list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt)
-- [zerodot1 - CoinBlockerLists list_optional](https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt)
 - [zoso - Romanian Adblock List](https://zoso.ro/pages/rolist.txt)
 
 #### Inactive, Offline, Discontinued or Private
@@ -707,6 +702,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [cedia - immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt)
 - [CHEF-KOCH - BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
 - [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
+- [digitalside - Threat-Intel](https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt)
 - [dshield - High](https://www.dshield.org/feeds/suspiciousdomains_High.txt)
 - [dshield - Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt)
 - [dshield - Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt)
@@ -729,13 +725,18 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [MESD squidguard - blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
 - [Netlab360 - DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
 - [nfz.moe - hosts](https://hosts.nfz.moe/full/hosts)
+- [notabug - Latvian List](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
 - [Passwall - SpamAssassin](http://www.passwall.com/blacklist.txt)
+- [Quedlin - domains](https://github.com/quedlin/blacklist/blob/master/domains)
 - [ShadowWhisperer - BlockLists](https://github.com/ShadowWhisperer/BlockLists)
 - [Shallalist.de - shallalist](http://www.shallalist.de/Downloads/shallalist.tar.gz)
 - [squidblacklist.org - dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl)
 - [squidblacklist.org - dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl)
 - [tankmohit - UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
 - [UrlBlacklist - UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
+- [zerodot1 - CoinBlockerLists list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt)
+- [zerodot1 - CoinBlockerLists list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt)
+- [zerodot1 - CoinBlockerLists list_optional](https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt)
 - [zerodot1 - list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt)
 
 ### DEBUG LISTS

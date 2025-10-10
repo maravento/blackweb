@@ -4,6 +4,7 @@
 .023pc.cn
 .02seo.com
 .03k.org
+.054ii.com
 .0551gx.cn
 .0668.com
 .0898tz.com
@@ -96,6 +97,7 @@
 .51steel.org
 .52soca.com
 .52yq.net
+.56.com
 .59jd.com
 .59secondmedia.com
 .5v5.net
@@ -286,6 +288,7 @@
 .alabamataskforce1.com
 .aladdinscarpet.com
 .alaliengineering.net
+.alasdelonamerceriacreativa.es
 .alavatotal.com
 .albakrawe-uae.com
 .albany.asn.au
@@ -530,6 +533,7 @@
 .asknaija.com
 .aslfinance.eu
 .asmallworld.net
+.asolimte.es
 .asotelepathology.org
 .aspecta-aso.net
 .aspectdesigns.com.au
@@ -1122,6 +1126,7 @@
 .ccard.us
 .ccilfov.ro
 .cckms.nccu.edu.tw
+.ccl1.xyz
 .ccly.xyz
 .ccnrealestatellc.com
 .cctvhotdeals.com
@@ -1298,6 +1303,7 @@
 .clinicavesalius.com
 .clinic.gov.ua
 .clipchamp.com
+.clipwatching.com
 .clk.im
 .clk.ink
 .cloakpoint.com
@@ -1308,6 +1314,7 @@
 .cloudmobi.net
 .cloudrepublic.com.au
 .cloudserviceaccount.com
+.cloudvideo.com.co
 .cloudvideo.tv
 .clubchasseetpechedesamis.com
 .clubipadel.com
@@ -1512,6 +1519,7 @@
 .cuevana2.nl
 .cuevana3.cc
 .cuevana3.club
+.cuevana3.eu
 .cuevana3.icu
 .cuevana-3.io
 .cuevana3.io
@@ -1522,11 +1530,16 @@
 .cuevana3.rs
 .cuevana3.video
 .cuevana3.vip
+.cuevana3.wine
 .cuevana3.ws
 .cuevana-3.wtf
 .cuevana-4.com
 .cuevana4.me
+.cuevana-8.com
+.cuevana.be
+.cuevana.bet
 .cuevana.biz
+.cuevanaestrenos.tv
 .cuevana.fm
 .cuevanago.com
 .cuevanagt.com
@@ -1560,6 +1573,7 @@
 .cxsd.com.cn
 .cxweixin.cn
 .cyberghostvpn.com
+.cyberhome.ne.jp
 .cybermania.ws
 .cyclingpromotion.com.au
 .cydotomasyon.com
@@ -2205,6 +2219,7 @@
 .euro-support.be
 .eurweb.com
 .eusekkei.co.jp
+.eutraco.fr
 .evennode.com
 .eventbook.ro
 .eventsaigon.com
@@ -2650,7 +2665,6 @@
 .g2cteknoloji.com
 .gabriellesrestaurant.com
 .gadget24.ro
-.gadgethon.weebly.com
 .gadtrento.it
 .gagaoolala.com
 .gages-56.com
@@ -2692,6 +2706,7 @@
 .gbstamps4u.com
 .gbvm.nl
 .gcstechnology.net
+.gdaf.xyz
 .gdakompressor.com
 .gdanstum.net
 .gde.ru
@@ -2767,6 +2782,7 @@
 .gifyu.com
 .gigaga.de
 .gigapeta.com
+.gigasociety.net
 .gigistips.blogspot.com
 .gigpryer.com
 .ginesmayor.com
@@ -3895,7 +3911,6 @@
 .kushbottles.com
 .kuszowka.pl
 .kutumobilya.com.tr
-.kuvda.mystrikingly.com
 .kvalitne.cz
 .kvedder.com
 .kveldeil.no
@@ -4182,6 +4197,7 @@
 .mangdesign.com
 .mangetsudo.net
 .mangliks.com
+.manhattanstudio.es
 .manicureland.com
 .mannersfromtheheart.com
 .mantika.lt
@@ -4928,6 +4944,7 @@
 .ofertaestetica.com
 .office-on-the.net
 .official.pw
+.officialworldrecord.com
 .officinaomc.com
 .offroadhandel.de
 .offshegoes.ca
@@ -5065,6 +5082,7 @@
 .owkcon.com
 .ow.ly
 .owneriq.net
+.oxfordstreetra.com
 .oyasinsaat.com.tr
 .oysterworldwide.com
 .oyunbee.com
@@ -5168,6 +5186,7 @@
 .pelisflix2.ing
 .pelisflix2.one
 .pelisflix2.vip
+.pelisflix.cc
 .pelisflix.club
 .pelisflix.cyou
 .pelisflix.de
@@ -5309,6 +5328,7 @@
 .platimunjinoz.ws
 .platinumhideip.com
 .platinumrainbow.com
+.playdede.cc
 .playdede.us
 .playlist-youtu.be
 .playlust-goddess.com
@@ -5386,6 +5406,7 @@
 .power514.com
 .powercomm.ie
 .powerlinks.com
+.powvideo.me
 .powvideo.net
 .pox23.io
 .pozsgaiingatlan.hu
@@ -5439,6 +5460,7 @@
 .programasfully.com
 .programasvirtualespc.net
 .programosy.pl
+.progrockworld.info
 .project-group.pro
 .projectodetalhe.pt
 .proliferealestate.com
@@ -6403,6 +6425,7 @@
 .stealthy.co
 .steamanalyst.com
 .steampiay.cc
+.steamserver.net
 .steelbeamcalculator.co.uk
 .steelfs.com.mx
 .steelpars.com
@@ -6440,7 +6463,9 @@
 .streamboox.com
 .streamium.xyz
 .streamovies.site
+.streamplay.to
 .streamservices.de
+.streamtape.com
 .streamtheworld.com
 .stream-up.com
 .strefa.pl
@@ -7773,6 +7798,7 @@
 .zpaste.net
 .zpn.im
 .zproxy.de
+.zproxy.org
 .zpwang.net
 .zrise.top
 .zseriesmegadrive.xyz
