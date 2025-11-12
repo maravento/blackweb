@@ -23,7 +23,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5038320 | 123,5 MB |
+| blackweb.txt | 4970387 | 122,5 MB |
 
 ## GIT CLONE
 
@@ -571,14 +571,13 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [adblockplus - advblock Russian](https://easylist-downloads.adblockplus.org/advblock.txt)
 - [adblockplus - antiadblockfilters](https://easylist-downloads.adblockplus.org/antiadblockfilters.txt)
 - [adblockplus - easylistchina](https://easylist-downloads.adblockplus.org/easylistchina.txt)
-- [adblockplus. - easylistlithuania](https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt)
+- [adblockplus - easylistlithuania](https://easylist-downloads.adblockplus.org/easylistlithuania+easylist.txt)
 - [anudeepND - adservers](https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt)
 - [anudeepND - coinminer](https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt)
 - [AssoEchap - stalkerware-indicators](https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts)
 - [azet12 - KADhosts](https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt)
-- [badmojr - 1Hosts](https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/hosts.txt)
 - [BarbBlock - blacklists](https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt)
-- [BBcan177  - minerchk](https://github.com/BBcan177/minerchk)
+- [BBcan177 - minerchk](https://github.com/BBcan177/minerchk)
 - [BBcan177 - MS-2](https://gist.github.com/BBcan177/4a8bf37c131be4803cb2)
 - [BBcan177 - referrer-spam-blacklist](https://github.com/BBcan177/referrer-spam-blacklist)
 - [betterwebleon - slovenian-list](https://raw.githubusercontent.com/betterwebleon/slovenian-list/master/filters.txt)
@@ -592,7 +591,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [chainapsis - phishing-block-list](https://raw.githubusercontent.com/chainapsis/phishing-block-list/main/block-list.txt)
 - [cjx82630 - Chinese CJX's Annoyance List](https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt)
 - [cobaltdisco - Google-Chinese-Results-Blocklist](https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/GHHbD_perma_ban_list.txt)
-- [crazy-max - WindowsSpyBlocker](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 - [CriticalPathSecurity - Public-Intelligence-Feeds](https://github.com/CriticalPathSecurity/Public-Intelligence-Feeds/)
 - [DandelionSprout - adfilt](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt)
 - [Dawsey21 - adblock-list](https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt)
@@ -606,9 +604,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [EasyList - EasyListHebrew](https://raw.githubusercontent.com/easylist/EasyListHebrew/master/EasyListHebrew.txt)
 - [ethanr - dns-blacklists](https://bitbucket.org/ethanr/dns-blacklists/raw/master/bad_lists/Mandiant_APT1_Report_Appendix_D.txt)
 - [fabriziosalmi - blacklists](https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt)
-- [FadeMind - 2o7Net](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts)
-- [FadeMind - Risk](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts)
-- [FadeMind - Spam](https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts)
 - [firebog - AdguardDNS](https://v.firebog.net/hosts/AdguardDNS.txt)
 - [firebog - Admiral](https://v.firebog.net/hosts/Admiral.txt)
 - [firebog - Easylist](https://v.firebog.net/hosts/Easylist.txt)
@@ -625,13 +620,13 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [gardar - Icelandic ABP List](https://adblock.gardar.net/is.abp.txt)
 - [greatis - Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [hagezi - dns-blocklists](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt)
-- [heradhis - Indonesian ABPindo](https://raw.githubusercontent.com/heradhis/indonesianadblockrules/master/subscriptions/abpindo.txt)
 - [hexxium - threat-list/](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 - [hoshsadiq - adblock-nocoin-list](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt)
-- [hostsfile - hosts](https://hostsfile.org/Downloads/hosts.txt)
 - [jawz101 - potentialTrackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
 - [jdlingyu - ad-wars](https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts)
 - [joelotz - URL_Blacklist](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
+- [kaabir - AdBlock_Hosts](https://raw.githubusercontent.com/kaabir/AdBlock_Hosts/master/hosts)
+- [kevle1 - Windows-Telemetry-Blocklist - xiaomiblock](https://raw.githubusercontent.com/kevle1/Xiaomi-Telemetry-Blocklist/master/xiaomiblock.txt)
 - [liamja - Prebake Filter Obtrusive Cookie Notices](https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt)
 - [malware-filter - URLhaus Malicious URL Blocklist](https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt)
 - [malware-filter.- phishing-filter-hosts](https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt)
@@ -649,8 +644,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Oleksiig - Squid-BlackList](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish - feed](https://openphish.com/feed.txt)
 - [pengelana - domains blocklist](https://github.com/pengelana/blocklist/tree/master/src/blacklist)
-- [Perflyst - PiHoleBlocklist Android](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt)
-- [Perflyst - PiHoleBlocklist SmartTV](https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt)
 - [phishing.army - phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
 - [piperun - iploggerfilter](https://github.com/piperun/iploggerfilter)
 - [quidsup - notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt)
@@ -661,6 +654,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [ruvelro - Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 - [ryanbr - fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
 - [scamaNet - blocklist](https://raw.githubusercontent.com/scamaNet/blocklist/main/blocklist.txt)
+- [simeononsecurity/System-Wide-Windows-Ad-Blocker](https://raw.githubusercontent.com/simeononsecurity/System-Wide-Windows-Ad-Blocker/main/Files/hosts.txt)
 - [Someonewhocares - hosts](https://someonewhocares.org/hosts/hosts)
 - [stanev.org - Bulgarian adblock list](http://stanev.org/abp/adblock_bg.txt)
 - [StevenBlack - add.2o7Net](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts)
@@ -685,63 +679,8 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [yoyo - Peter Lowe’s Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [zoso - Romanian Adblock List](https://zoso.ro/pages/rolist.txt)
 
-#### Inactive, Offline, Discontinued or Private
-
-- [280blocker - 280blocker_domain](https://280blocker.net/files/280blocker_domain.txt)
-- [abuse.ch - Ransomware Abuse CryptoWall](https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt)
-- [abuse.ch - Ransomware Abuse Domain Blocklist](https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt)
-- [abuse.ch - Ransomware Abuse Locky](https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt)
-- [abuse.ch - Ransomware Abuse RW_URLB](https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt)
-- [abuse.ch - Ransomware Abuse TorrentLocker](https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt)
-- [abuse.ch - Ransomware Abuse URL Blocklist](https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt)
-- [abuse.ch - Zeustracker](https://zeustracker.abuse.ch/blocklist.php?download=squiddomain)
-- [adblockplus - malwaredomains_full](https://easylist-downloads.adblockplus.org/malwaredomains_full.txt)
-- [BambenekConsulting - dga-feed](http://osint.bambenekconsulting.com/feeds/dga-feed.txt)
-- [Carl - Spam](http://www.carl.net/spam/access.txt)
-- [cedia - domains](https://mirror.cedia.org.ec/malwaredomains/domains.txt)
-- [cedia - immortal_domains](https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt)
-- [CHEF-KOCH - BarbBlock-filter-list](https://github.com/CHEF-KOCH/BarbBlock-filter-list)
-- [Cibercrime-Tracker](http://cybercrime-tracker.net/all.php)
-- [digitalside - Threat-Intel](https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt)
-- [dshield - High](https://www.dshield.org/feeds/suspiciousdomains_High.txt)
-- [dshield - Low](http://www.dshield.org/feeds/suspiciousdomains_Low.txt)
-- [dshield - Medium](https://www.dshield.org/feeds/suspiciousdomains_Medium.txt)
-- [firebog - Airelle-hrsk](https://v.firebog.net/hosts/Airelle-hrsk.txt)
-- [firebog - Airelle-trc](https://v.firebog.net/hosts/Airelle-trc.txt)
-- [firebog - BillStearns](https://v.firebog.net/hosts/BillStearns.txt)
-- [firebog - Prigent-Phishing](https://v.firebog.net/hosts/Prigent-Phishing.txt)
-- [firebog - Shalla-mal](https://v.firebog.net/hosts/Shalla-mal.txt)
-- [gfmaster - adblock-korea](https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt)
-- [hosts-file - ad_servers](https://hosts-file.net/ad_servers.txt)
-- [hosts-file - emd](https://hosts-file.net/emd.txt)
-- [hosts-file - grm](https://hosts-file.net/grm.txt)
-- [hosts-file - hosts](http://hosts-file.net/download/hosts.txt)
-- [hosts-file - psh](https://hosts-file.net/psh.txt)
-- [Joewein - dom-bl-base](http://www.joewein.net/dl/bl/dom-bl-base.txt)
-- [Joewein - dom-bl](http://www.joewein.net/dl/bl/dom-bl.txt)
-- [malc0de - bl](http://malc0de.com/bl/)
-- [Malware Domains - justdomains](http://mirror1.malwaredomains.com/files/justdomains)
-- [Malwaredomainlist - Hosts](http://www.malwaredomainlist.com/hostslist/hosts.txt)
-- [MESD squidguard - blacklists](http://squidguard.mesd.k12.or.us/blacklists.tgz)
-- [Netlab360 - DGA Domains](https://data.netlab.360.com/feeds/dga/dga.txt)
-- [nfz.moe - hosts](https://hosts.nfz.moe/full/hosts)
-- [notabug - Latvian List](https://notabug.org/latvian-list/adblock-latvian/raw/master/lists/latvian-list.txt)
-- [Passwall - SpamAssassin](http://www.passwall.com/blacklist.txt)
-- [Quedlin - domains](https://github.com/quedlin/blacklist/blob/master/domains)
-- [ShadowWhisperer - BlockLists](https://github.com/ShadowWhisperer/BlockLists)
-- [Shallalist.de - shallalist](http://www.shallalist.de/Downloads/shallalist.tar.gz)
-- [squidblacklist.org - dg-ads](https://www.squidblacklist.org/downloads/dg-ads.acl)
-- [squidblacklist.org - dg-malicious.acl](https://www.squidblacklist.org/downloads/dg-malicious.acl)
-- [tankmohit - UnifiedHosts](https://raw.githubusercontent.com/tankmohit/UnifiedHosts/master/hosts.all)
-- [UrlBlacklist - UrlBlacklist](https://web.archive.org/web/*/http://urlblacklist.com)
-- [zerodot1 - CoinBlockerLists list_browser](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt)
-- [zerodot1 - CoinBlockerLists list](https://zerodot1.gitlab.io/CoinBlockerLists/list.txt)
-- [zerodot1 - CoinBlockerLists list_optional](https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt)
-- [zerodot1 - list_browser_UBO](https://zerodot1.gitlab.io/CoinBlockerLists/list_browser_UBO.txt)
-
 ### DEBUG LISTS
 
-- [firebog sources](https://firebog.net/)
 - [google supported domains](https://www.google.com/supported_domains)
 - [iana](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 - [ipv6-hosts](https://raw.githubusercontent.com/lennylxx/ipv6-hosts/master/hosts) (Partial)
@@ -762,6 +701,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - [Community IPfire: url filter and self updating blacklists](https://community.ipfire.org/t/url-filter-and-self-updating-blacklists/6601)
 - [covert.io: Getting Started with DGA Domain Detection Research](http://www.covert.io/getting-started-with-dga-research/)
 - [Crazymax: WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
+- [egirna: Allowing/Blocking Websites Using Squid](https://www.egirna.com/blog/news-2/allowing-blocking-websites-using-squid-5)
 - [Jason Trost: Getting Started with DGA Domain Detection Research](https://jason-trost.medium.com/getting-started-with-dga-domain-detection-research-89af69213257)
 - [Kandi Openweaver: Domains Blocklist for Squid-Cache](https://kandi.openweaver.com/shell/maravento/blackweb)
 - [Kerry Cordero: Blocklists of Suspected Malicious IPs and URLs](https://cordero.me/blocklists-of-suspected-malicious-ips-and-urls/)
@@ -789,7 +729,7 @@ BlackWeb: Done 06/05/2023 15:47:14
 - Changes must be proposed via Issues. Pull Requests are not accepted.
 - BlackWeb is designed exclusively for [Squid-Cache](http://www.squid-cache.org/) and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. **Use it at your own risk**. For more information check [Issue 10](https://github.com/maravento/blackweb/issues/10#issuecomment-650834301)
 - **Blackweb is NOT a blacklist service itself**. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.
-- If your domain appears in Blackweb and you believe this is an error, you should review the public sources [SOURCES](https://github.com/maravento/blackweb#sources), to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update.  
+- If your domain appears in Blackweb and you believe this is an error, you should review the public sources [SOURCES](https://github.com/maravento/blackweb#sources), to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update.
   You can also use the following script to perform the same verification:
 
 ```bash
