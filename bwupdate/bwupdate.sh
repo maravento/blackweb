@@ -323,13 +323,6 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     } | grep -P '^[\x00-\x7F]+$' \
       | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
       | sort -u > capture.txt
-    # EXPERIMENTAL
-    # remote
-    #sed '/^$/d; /#/d' lst/remote.txt | sort -u >> capture.txt
-    # web3
-    #sed '/^$/d; /#/d' lst/web3.txt | sort -u >> capture.txt
-    # uniq capture.txt
-    #sort -o capture.txt -u capture.txt
     echo "OK"
 
     # JOIN AND UPDATE LIST

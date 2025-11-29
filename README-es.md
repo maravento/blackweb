@@ -264,13 +264,19 @@ http_access deny punycode
 acl blocktlds dstdomain "/path_to/blocktlds.txt"
 http_access deny blocktlds
 
-# Block Rule for Words (Optional)
-acl blockwords url_regex -i "/etc/acl/blockwords.txt"
-http_access deny blockwords
-
 # Block Rule for Domains
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
+
+# Block Rule for Patterns (Optional)
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockpatterns.txt
+acl blockwords url_regex -i "/etc/acl/blockpatterns.txt"
+http_access deny blockwords
+
+# Block Rule for web3 (Optional)
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/web3/web3domains.txt
+acl web3 dstdomain "/path_to/web3domains.txt"
+http_access deny web3
 
 # Block Rule for Blackweb
 acl blackweb dstdomain "/path_to/blackweb.txt"
@@ -553,7 +559,6 @@ BlackWeb: Done 06/05/2023 15:47:14
 #### Important about BlackWeb Update
 
 - El path por default de BlackWeb es `/etc/acl`. Puede cambiarlo por el de su preferencia.
-- `bwupdate.sh` incluye listas de dominios relacionados con soporte remoto (Teamviewer, Anydesk, logmein, etc) y dominios web3. Están comentadas por defecto (excepto que sus dominios estén en las [FUENTES](https://github.com/maravento/blackweb#fuentes--sources)). Para bloquearlas o excluirlas debe activar las líneas correspondientes en el script (# JOIN LIST), aunque no se recomienda para evitar conflictos o falsos positivos.
 - Si necesita interrumpir la ejecución de `bwupdate.sh` (ctrl + c) y se detuvo en la parte de [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup), reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.
 - Si usa `aufs`, cámbielo temporalmente a `ufs` durante la actualización, para evitar: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
 

@@ -216,6 +216,7 @@
 .adriandomini.com.ar
 .adshort.co
 .adsk2.co
+.ads-radiantfusion.co
 .adsrt.live
 .adsrt.me
 .adsrt.org
@@ -297,6 +298,7 @@
 .alcamo.org
 .alchemistdigital.ae
 .alco-world.ru
+.aldeacavernicoladespedidas.es
 .aldridgestudios.com
 .alessandrocangiano.com
 .alexandre-azaria.com
@@ -396,6 +398,7 @@
 .analypia.com
 .anandlab.com
 .anchor.io
+.andbeyond.media
 .anderlaw.com
 .andresarlemijn.nl
 .andrewclark.com.au
@@ -1264,6 +1267,7 @@
 .cinecallidad.xyz
 .cinemaniahdd.net
 .cinemauae.com
+.cinemitas.org
 .cinemultimediaflix.com
 .cinerama91.com
 .cinestentativos.com
@@ -2253,6 +2257,7 @@
 .expresso-sf.com.br
 .expressvpn.com
 .exquisiteescape.com
+.extend.tv
 .extra.hu
 .extramileteam.com
 .extratorrents.ch
@@ -4149,6 +4154,7 @@
 .luible.net
 .luigipellegrini.it
 .lumitech.ro
+.lunamedia.live
 .lunaparkperugia.it
 .lutheranph.com
 .lutz-blades.pl
@@ -5172,6 +5178,7 @@
 .peliculasmp4hd.com
 .peliculasmp4hd.net
 .peliculasonline4k.net
+.pelikula.es
 .pelis-123.net
 .pelis-123.org
 .pelis24.blog
@@ -5183,6 +5190,7 @@
 .pelisencastellano.com
 .pelisenhd.net
 .peliseucip.blogspot.com
+.pelisflix1.art
 .pelisflix2.ing
 .pelisflix2.one
 .pelisflix2.vip
@@ -6002,6 +6010,7 @@
 .send.now
 .sendspace.com
 .sendthink.net
+.seniorworld.es
 .senja.io
 .seo-app.nl
 .seolandia.pl

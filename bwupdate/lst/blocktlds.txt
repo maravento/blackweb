@@ -130,7 +130,6 @@
 .social
 .song
 .store
-.tech
 .tube
 .tv
 .video
