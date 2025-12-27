@@ -1,11 +1,14 @@
 .a1.googlevideo.com
+.accounts.spotify.com
 .accounts.youtube.com
 .acorn.tv
 .admin.youtube.com
 .ads.youtube.com
 .aha.video
 .apiblog.youtube.com
+.apresolve.spotify.com
 .atresplayer.com
+.atv-ps.primevideo.com
 .au.youtube.com
 .boomplay.com
 .britbox.com
@@ -20,6 +23,7 @@
 .ca.youtube.com
 .c.googlevideo.com
 .clarovideo.com
+.clienttoken.spotify.com
 .cms.youtube.com
 .consent.corp.youtube.com
 .corp.youtube.com
@@ -57,6 +61,7 @@
 .gaming.youtube.com
 .gdata.youtube.com
 .googlevideo.com
+.gue1-spclient.spotify.com
 .hbomax.com
 .help.youtube.com
 .hubs-video.msn.com
@@ -79,6 +84,9 @@
 .jp.youtube.com
 .last.fm
 .livestream.com
+.log22-normal-alisg.tiktokv.com
+.login5.spotify.com
+.login.app.spotify.com
 .login.sonos.music.microsoft.com
 .manifest.googlevideo.com
 .media-bog2-1.cdn.whatsapp.net
@@ -115,10 +123,12 @@
 .netflix.net
 .netflixtechblog.com
 .nowtv.com
+.open.spotify.com
 .p16-tiktokcdn-com.akamaized.net
 .paramountplus.com
 .payments.youtube.com
 .peacocktv.com
+.pixels.spotify.com
 .plexapp.com
 .plex.tv
 .pluto.tv
@@ -559,6 +569,7 @@
 .snap.com
 .sonos.music.microsoft.com
 .sonos-ppe.music.microsoft.com
+.spclient.wg.spotify.com
 .spotifycdn.com
 .spotify.com
 .ssl.catalog.video.msn.com
@@ -1355,6 +1366,7 @@
 .vlive.tv
 .vrioott.com
 .wetv.vip
+.widget-content.spotify.com
 .widgets.video.msn.com
 .youtu.be
 .youtube.com

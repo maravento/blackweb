@@ -23,7 +23,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 4970387 | 122,5 MB |
+| blackweb.txt | 4909773 | 121,3 MB |
 
 ## GIT CLONE
 
@@ -270,7 +270,7 @@ http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
 # https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockpatterns.txt
-acl blockwords url_regex -i "/etc/acl/blockpatterns.txt"
+acl blockwords url_regex -i "/path_to/blockpatterns.txt"
 http_access deny blockwords
 
 # Block Rule for web3 (Optional)
