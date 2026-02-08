@@ -88,22 +88,33 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     blurls() {
         local url="$1"
         local filename target i
+        local user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+        
         filename=$(basename "${url%%\?*}" | sed 's/[^a-zA-Z0-9._-]/_/g')
         target="bwtmp/$filename"
+        
         # incremental suffix
         i=1
         while [ -e "$target" ]; do
             target="bwtmp/${filename%.*}_$i.${filename##*.}"
             ((i++))
         done
+        
         # check with curl
-        if ! curl -k -s -f -I --connect-timeout 5 --retry 1 "$url" >/dev/null; then
+        if ! curl -k -s -f -I -L -A "$user_agent" --connect-timeout 5 --retry 1 "$url" >/dev/null 2>&1; then
             echo "❌ URL Down: $url"
             return 1
-        fi        
-        # download
-        if ! $wgetd "$url" -O "$target"; then
-            echo "❌ ERROR: $url"
+        fi
+        
+        # download with curl
+        echo -n "$target ... "
+        if curl -k -L -s \
+                --connect-timeout 10 --retry 3 \
+                --user-agent "$user_agent" \
+                "$url" -o "$target"; then
+            echo "✅"
+        else
+            echo "❌ ERROR"
             return 1
         fi
     }
@@ -273,13 +284,13 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     fi
 
     # DOWNLOADING FOLDER
-    cd bwtmp
-    $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
-    chmod +x gitfolderdl.py
-    python gitfolderdl.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
-    rm gitfolderdl.py &>/dev/null
-    cd ..
-    echo "OK"
+    #cd bwtmp
+    #$wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
+    #chmod +x gitfolderdl.py
+    #python gitfolderdl.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
+    #rm gitfolderdl.py &>/dev/null
+    #cd ..
+    #echo "OK"
 
     # DOWNLOADING ALLOWLST URLS
     echo "${bw04[$lang]}"

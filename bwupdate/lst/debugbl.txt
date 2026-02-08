@@ -207,6 +207,7 @@
 .adkmob.com
 .adlino.be
 .admanmedia.com
+.admaster.cc
 .adminca.se
 .ad-miner.com
 .administrategia.com
@@ -614,6 +615,7 @@
 .autryfarms.com
 .auwm.ru
 .avanteconsultores.com
+.avast.com
 .avbonline.nl
 .avestec.com
 .avidly.com
@@ -3491,6 +3493,7 @@
 .ipezuela.com
 .ipiasarnano.it
 .ipify.org
+.ipinfo.io
 .ipleak.net
 .ipredictive.com
 .ipsalevante.com
@@ -4334,6 +4337,7 @@
 .mega-anime-kawai.blogspot.com
 .mega-cine.com
 .megacinefullhd.net
+.mega.co.nz
 .megadede.in
 .megadescarga-gratis.blogspot.com
 .megadescargas-new.blogspot.com
@@ -4344,8 +4348,10 @@
 .megafilesxl.com
 .megafly.in
 .me-ga.info
+.mega.io
 .megalinks.site
 .mega-mkv.com
+.mega.nz
 .megapaste.xyz
 .megapeliculasrip.com
 .megapeliculasrip.net
@@ -5955,6 +5961,7 @@
 .sc-cdn.net
 .sccxtx.com
 .scene-double.co.uk
+.scfg.biz
 .sc-gw.com
 .schefman.info
 .schjtx.com
@@ -6049,6 +6056,7 @@
 .seriesdesuperheroes.com
 .seriesenmega.com
 .seriesestreno.com
+.seriesflixhd.one
 .seriesflix.video
 .seriesflv.me
 .seriesfullpormegatwo.blogspot.com
@@ -7439,6 +7447,7 @@
 .wearmedicine.com
 .webandtext.com
 .webcam-newzealand.info
+.webcontentassessor.com
 .webdigita.net
 .weber-rechtenbach.de
 .webframez.com
