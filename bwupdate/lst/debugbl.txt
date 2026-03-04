@@ -2469,6 +2469,7 @@
 .flexyhit.com
 .flipax.net
 .flirtkurs.ch
+.flixcorn.com
 .fl-ix.net
 .flixster.com
 .flmoviencvve.blogspot.com
@@ -3143,6 +3144,7 @@
 .hinet.net
 .hinge.co
 .hipchat.com
+.hipolink.net
 .hippyseeds.com
 .hipstamatic.com
 .hi-segno.com
@@ -4279,6 +4281,7 @@
 .maxhotel.it
 .maxibutor.hu
 .maximumauction.com
+.maxion.gg
 .maxmpl.com
 .maxpeliculas.net
 .max.pl
@@ -5212,6 +5215,7 @@
 .pelisenhd.net
 .peliseucip.blogspot.com
 .pelisflix1.art
+.pelisflix20.party
 .pelisflix2.ing
 .pelisflix2.one
 .pelisflix2.vip
@@ -6050,6 +6054,7 @@
 .seriemega.com
 .serienjunkies.io
 .series24.in
+.series24.one
 .seriesdanko.com
 .seriesdeocioenmega.blogspot.com
 .series-de.online

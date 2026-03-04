@@ -67,9 +67,9 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # DOWNLOAD BLACKWEB
     echo "${bw02[$lang]}"
-    $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py
-    chmod +x gitfolderdl.py
-    python gitfolderdl.py https://github.com/maravento/blackweb/bwupdate
+    $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py
+    chmod +x gitfolder.py
+    python gitfolder.py https://github.com/maravento/blackweb/bwupdate
     if [ -d "$bwupdate" ]; then
         cd "$bwupdate" || {
             echo "Access Error: $bwupdate"
@@ -271,10 +271,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
        ! targz 'ftp://ftp.ut-capitole.fr/pub/reseau/cache/squidguard_contrib/blacklists.tar.gz'; then
         echo "ut-capitole.fr download failed. Switching to alt repo..."
         cd bwtmp
-        $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
-        chmod +x gitfolderdl.py
-        python gitfolderdl.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
-        rm gitfolderdl.py &>/dev/null
+        $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
+        chmod +x gitfolder.py
+        python gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+        rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read gzfile; do
             if ! gunzip "$gzfile" >/dev/null 2>&1; then
                 echo "❌ ERROR: $gzfile"
@@ -285,10 +285,10 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
 
     # DOWNLOADING FOLDER
     #cd bwtmp
-    #$wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolderdl.py -O gitfolderdl.py >/dev/null 2>&1
-    #chmod +x gitfolderdl.py
-    #python gitfolderdl.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
-    #rm gitfolderdl.py &>/dev/null
+    #$wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
+    #chmod +x gitfolder.py
+    #python gitfolder.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
+    #rm gitfolder.py &>/dev/null
     #cd ..
     #echo "OK"
 

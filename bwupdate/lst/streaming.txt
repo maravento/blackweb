@@ -122,6 +122,7 @@
 .netflixinvestor.com
 .netflix.net
 .netflixtechblog.com
+.nflxso.net
 .nowtv.com
 .open.spotify.com
 .p16-tiktokcdn-com.akamaized.net
