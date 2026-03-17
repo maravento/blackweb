@@ -969,6 +969,7 @@
 .brigma.com
 .brinktest.com
 .bro4.com
+.broadcastevent.online
 .broke-it.net
 .brokenheadaviaries.com.au
 .brookstonemanuals.com
