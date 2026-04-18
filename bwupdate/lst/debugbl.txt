@@ -1556,6 +1556,7 @@
 .cuevanaestrenos.tv
 .cuevana.fm
 .cuevanago.com
+.cuevana.gs
 .cuevanagt.com
 .cuevana.nz
 .cuevana.online
@@ -5216,6 +5217,7 @@
 .pelisenhd.net
 .peliseucip.blogspot.com
 .pelisflix1.art
+.pelisflix200.net
 .pelisflix20.party
 .pelisflix2.ing
 .pelisflix2.one
@@ -6562,6 +6564,7 @@
 .sunlite.com.au
 .sunmar.ca
 .sunwayautoparts.com
+.supaghost.cc
 .superagencja.eu
 .superbook888.com
 .superfame.com
