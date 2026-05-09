@@ -22,7 +22,7 @@ BlackWeb is a project that collects and unifies public blocklists of domains (po
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 4818910 | 120,1 MB |
+| blackweb.txt | 5285505 | 129,8 MB |
 
 ## GIT CLONE
 
@@ -200,10 +200,10 @@ ASCII Output:
 >Use this rule to block words (Optional. Can generate false positives).
 
 ```bash
-# Download ACL:
-sudo wget -P /etc/acl/ https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockwords.txt
-# Squid Rule to Block Words:
-acl blockwords url_regex -i "/etc/acl/blockwords.txt"
+# Example: Download ACL:
+sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockwords.txt
+# Squid Rule to Block Words (change path):
+acl blockwords url_regex -i "/etc/acl/acl_squid/blockwords.txt"
 http_access deny blockwords
 ```
 

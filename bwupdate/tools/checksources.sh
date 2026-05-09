@@ -14,7 +14,7 @@ mkdir -p downloaded_lists
 
 # Download bwupdate.sh
 echo "[*] Downloading source list..."
-wget -qO bwupdate.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
+$wgetd -O bwupdate.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
 
 # Extract URLs from # SOURCES block
 echo "[*] Extracting URLs..."
@@ -30,13 +30,19 @@ echo "[*] Downloading lists..."
 while IFS= read -r url; do
     filename=$(echo "$url" | sed -E 's~https?://~~; s~/~-~g')
     echo "[+] Downloading: $filename"
-    $wgetd -O "downloaded_lists/$filename" "$url"
+    if ! $wgetd -O "downloaded_lists/$filename" "$url"; then
+        echo "[!] Download failed, skipping: $url"
+        continue
+    fi
 
     # If it's a .tar.gz file, extract it
     if [[ "$filename" == *.tar.gz ]]; then
         echo "[*] Extracting: $filename"
-        tar -xzf "downloaded_lists/$filename" -C downloaded_lists/
-        rm -rf "downloaded_lists/$filename"
+        if tar -xzf "downloaded_lists/$filename" -C downloaded_lists/; then
+            rm -rf "downloaded_lists/$filename"
+        else
+            echo "[!] Extraction failed, keeping: $filename"
+        fi
     fi
 done < urls.txt
 
@@ -45,12 +51,23 @@ echo
 # Ask for domain
 read -p "[?] Enter domain to search (e.g: kickass.to): " domain
 echo
+
+if [[ -z "$domain" ]]; then
+    echo "[!] No domain entered. Exiting."
+    exit 1
+fi
+
+if ! echo "$domain" | grep -qP '^[a-zA-Z0-9._-]+$'; then
+    echo "[!] Invalid domain format. Exiting."
+    exit 1
+fi
+
 # Search for domain in all files
 echo "[*] Searching for '$domain'..."
 found=0
 while IFS= read -r url; do
     filename=$(echo "$url" | sed -E 's~https?://~~; s~/~-~g')
-    if grep -qi "$domain" "downloaded_lists/$filename"; then
+    if grep -qiF "$domain" "downloaded_lists/$filename"; then
         echo "[+] Domain found in: $url"
         found=1
     fi

@@ -35,7 +35,7 @@ if [[ "$UBUNTU_ID" != "ubuntu" || "$UBUNTU_VERSION" != "24.04" ]]; then
 fi
 
 # DEPENDENCIES
-pkgs='wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv'
+pkgs='wget git curl libnotify-bin tar unzip zip gzip python-is-python3 idn2 iconv'
 for pkg in $pkgs; do
   if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
     echo "❌ '$pkg' is not installed. Run:"
@@ -356,7 +356,7 @@ fi
 # HIT: Resolved (existent) domain
 #
 # WARNING: High resource consumption!
-# This script uses parallel DNS queries. Adjust concurrency to avoid saturating your CPU or network (e.g., Starlink).
+# This script uses parallel DNS queries. Adjust concurrency to avoid saturating your CPU or network.
 #
 # Xargs Parallel Limit:
 # The practical limit for parallel jobs with xargs is usually high (at least 127; check your system with: xargs --show-limits)
@@ -403,7 +403,7 @@ if [ ! -e "$bwupdate"/dnslookup2 ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
     else
         cat step1
-    fi | xargs -I {} -P "$PROCS" sh -c "if host -W 1 {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup1
+    fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 1 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup1
     kill "$progress_pid" 2>/dev/null
     echo
     sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
@@ -430,7 +430,7 @@ if [ -s dnslookup2 ]; then
     awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
 else
     cat step2
-fi | xargs -I {} -P "$PROCS" sh -c "if host -W 2 {} >/dev/null; then echo HIT {}; else echo FAULT {}; fi" >> dnslookup2
+fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2
 kill "$progress_pid" 2>/dev/null
 echo
 sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
@@ -469,10 +469,11 @@ python tools/debugerror.py
 sort -o final.txt -u final.txt
 iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt | grep -P '^[\x00-\x7F]+$' > blackweb.txt
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
-sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"
+if ! sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"; then
+    echo "${bw13[$lang]}"
+fi
 
 # DELETE REPOSITORY (Optional)
-cd ..
 rm -rf "$bwupdate" >/dev/null 2>&1
 
 # END
