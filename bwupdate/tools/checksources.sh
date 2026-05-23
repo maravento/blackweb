@@ -1,8 +1,12 @@
 #!/bin/bash
 # maravento.com
-
+#
+################################################################################
+#
 # Check Sources
 # Download and search Blackweb source lists for a domain
+#
+################################################################################
 
 echo "Checking sources for domain matches. Wait..."
 printf "\n"

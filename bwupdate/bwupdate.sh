@@ -1,7 +1,11 @@
 #!/bin/bash
 # maravento.com
-
+#
+################################################################################
+#
 # BlackWeb Update
+#
+################################################################################
 
 # Language spa-eng
 bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea paciente...")
@@ -59,8 +63,8 @@ echo
 echo "Blackweb Project"
 echo "${bw01[$lang]}"
 
-# CHECK DNSLOOKUP1
-if [ ! -e "$bwupdate"/dnslookup1 ]; then
+# CHECK dnslookup1.txt
+if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
 
     # DELETE OLD REPOSITORY
     rm -rf "$bwupdate" >/dev/null 2>&1
@@ -317,35 +321,62 @@ if [ ! -e "$bwupdate"/dnslookup1 ]; then
     # CAPTURING DOMAINS
     find bwtmp -type f -not -iname "*pdf" \
       -execdir grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" {} \; \
-    | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.?)::gi' \
+    | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.)::gi' \
     | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /\.{2,}/d' \
-    | sort -u > stage1
+    | sort -u > stage1.txt
+    if [ ! -s stage1.txt ]; then
+        echo "❌ ERROR: stage1.txt is empty. Aborting."
+        exit 1
+    fi
     # RFC 1035 Partial
-    sed '/[^.]\{64\}/d' stage1 \
+    sed '/[^.]\{64\}/d' stage1.txt \
     | grep -vP '[A-Z]' \
     | grep -vP '(^|\.)-|-($|\.)' \
     | sed 's/^\.//g' \
-    | sort -u > stage2
+    | sort -u > stage2.txt
+    if [ ! -s stage2.txt ]; then
+        echo "❌ ERROR: stage2.txt is empty. Aborting."
+        exit 1
+    fi
     # DEBUGGING IDN
     { 
-      LC_ALL=C grep -v '[^[:print:]]' stage2
-      grep -P "[^[:ascii:]]" stage2 | idn2 
+      LC_ALL=C grep -v '[^[:print:]]' stage2.txt
+      grep -P "[^[:ascii:]]" stage2.txt | idn2 
     } | grep -P '^[\x00-\x7F]+$' \
       | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
       | sort -u > capture.txt
-    echo "OK"
+    if [ ! -s capture.txt ]; then
+        echo "❌ ERROR: capture.txt is empty. Aborting."
+        exit 1
+    fi
 
     # JOIN AND UPDATE LIST
     echo "${bw06[$lang]}"
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
+    if [ ! -s urls.txt ]; then
+        echo "❌ ERROR: urls.txt is empty. Aborting."
+        exit 1
+    fi
     echo "OK"
     
     # DEBUGGING DOMAINS
     echo "${bw07[$lang]}"
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
+    if [ ! -s cleancapture.txt ]; then
+        echo "❌ ERROR: cleancapture.txt is empty. Aborting."
+        exit 1
+    fi
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
     python domfilter.py --input cleancapture.txt
-    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > finalclean
+    if [ ! -s output.txt ]; then
+        echo "❌ ERROR: output.txt is empty. Aborting."
+        exit 1
+    fi
+    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > finalclean.txt
+    if [ ! -s finalclean.txt ]; then
+        echo "❌ ERROR: finalclean.txt is empty. Aborting."
+        exit 1
+    fi
     echo "OK"
 else
     cd "$bwupdate"
@@ -387,27 +418,31 @@ fi
 PROCS=$(($(nproc) * 4))
 
 # STEP 1:
-if [ ! -e "$bwupdate"/dnslookup2 ]; then
+if [ ! -e "$bwupdate"/dnslookup2.txt ]; then
     echo "${bw08[$lang]}"
-    sed 's/^\.//g' finalclean | sort -u > step1
-    total=$(wc -l < step1)
+    sed 's/^\.//g' finalclean.txt | sort -u > step1.txt
+    if [ ! -s step1.txt ]; then
+        echo "❌ ERROR: step1.txt is empty. Aborting."
+        exit 1
+    fi    
+    total=$(wc -l < step1.txt)
     (
         while sleep 1; do
-            processed=$(wc -l < dnslookup1 2>/dev/null)
+            processed=$(wc -l < dnslookup1.txt 2>/dev/null)
             percent=$(awk -v p="$processed" -v t="$total" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
             printf "Processed: %d / %d (%s%%)\r" "$processed" "$total" "$percent"
         done
     ) &
     progress_pid=$!
-    if [ -s dnslookup1 ]; then
-        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1 step1
+    if [ -s dnslookup1.txt ]; then
+        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1.txt step1.txt
     else
-        cat step1
-    fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 1 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup1
+        cat step1.txt
+    fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 1 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup1.txt
     kill "$progress_pid" 2>/dev/null
     echo
-    sed '/^FAULT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
-    sed '/^HIT/d' dnslookup1 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
+    sed '/^FAULT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
+    sed '/^HIT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
     sort -o fault.txt -u fault.txt
     echo "OK"
 fi
@@ -416,42 +451,58 @@ sleep 10
 
 # STEP 2:
 echo "${bw09[$lang]}"
-sed 's/^\.//g' fault.txt | sort -u > step2
-total=$(wc -l < step2)
+sed 's/^\.//g' fault.txt | sort -u > step2.txt
+if [ ! -s step2.txt ]; then
+    echo "❌ ERROR: step2.txt is empty. Aborting."
+    exit 1
+fi
+total=$(wc -l < step2.txt)
 (
     while sleep 1; do
-        processed=$(wc -l < dnslookup2 2>/dev/null)
+        processed=$(wc -l < dnslookup2.txt 2>/dev/null)
         percent=$(awk -v p="$processed" -v t="$total" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
         printf "Processed: %d / %d (%s%%)\r" "$processed" "$total" "$percent"
     done
 ) &
 progress_pid=$!
-if [ -s dnslookup2 ]; then
-    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2 step2
+if [ -s dnslookup2.txt ]; then
+    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2.txt step2.txt
 else
-    cat step2
-fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2
+    cat step2.txt
+fi | xargs -I {} -P "$PROCS" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2.txt
 kill "$progress_pid" 2>/dev/null
 echo
-sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
-sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
+sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
+sed '/^HIT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
 echo "OK"
 
 # DEBUG BLACKLIST
 echo "${bw10[$lang]}"
 sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp
+grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
+if [ ! -s blackweb_tmp.txt ]; then
+    echo "❌ ERROR: blackweb_tmp.txt is empty. Aborting."
+    exit 1
+fi
 echo "OK"
 
 # TLD FINAL FILTER (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines
 echo "${bw11[$lang]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
-grep -E -v "$new_regex_ext" blackweb_tmp | sort -u > blackweb_tmp2
-comm -23 <(sort blackweb_tmp2) <(sort tlds.txt) > blackweb.txt
+grep -E -v "$new_regex_ext" blackweb_tmp.txt | sort -u > blackweb_tmp2.txt
+if [ ! -s blackweb_tmp2.txt ]; then
+    echo "❌ ERROR: blackweb_tmp2.txt is empty. Aborting."
+    exit 1
+fi
+comm -23 <(sort blackweb_tmp2.txt) <(sort tlds.txt) > blackweb.txt
+if [ ! -s blackweb.txt ]; then
+    echo "❌ ERROR: blackweb.txt is empty. Aborting."
+    exit 1
+fi
 # Optional
-#grep -E "$new_regex_ext" blackweb_tmp > delete_tld
+#grep -E "$new_regex_ext" blackweb_tmp.txt > delete_tld
 echo "OK"
 
 # RELOAD SQUID-CACHE
@@ -462,12 +513,32 @@ sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # Edit /etc/squid/squid.conf and add lines:
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
-sudo bash -c 'squid -k reconfigure' 2>sqerror && sleep 20
+sudo bash -c 'squid -k reconfigure' 2>sqerror.txt && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
 sort -o sqerror.txt -u sqerror.txt
 python tools/debugerror.py
 sort -o final.txt -u final.txt
-iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt | grep -P '^[\x00-\x7F]+$' > blackweb.txt
+if [ ! -s final.txt ]; then
+    echo "❌ ERROR: final.txt is empty. Aborting."
+    exit 1
+fi
+
+# Convert to UTF-8 and keep only ASCII lines
+iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt \
+    | grep -P '^[\x00-\x7F]+$' \
+    | grep -P '^\.[a-z0-9][a-z0-9._-]*$' \
+    | grep -vP '\s' \
+    | sort -u > blackweb.txt
+
+# Validation
+if [ ! -s blackweb.txt ]; then
+    echo "❌ ERROR: blackweb.txt is empty after integrity check. Aborting."
+    exit 1
+fi
+TOTAL=$(wc -l < blackweb.txt)
+echo "✅ blackweb.txt integrity OK — $TOTAL valid domain lines"
+
+# cp to Squid
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 if ! sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"; then
     echo "${bw13[$lang]}"

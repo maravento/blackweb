@@ -22,7 +22,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5285505 | 129,8 MB |
+| blackweb.txt | 5411285 | 132,2 MB |
 
 ## GIT CLONE
 
