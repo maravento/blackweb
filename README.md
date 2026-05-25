@@ -1,10 +1,10 @@
 # [BlackWeb](https://www.maravento.com/p/blackweb.html)
 
-<!-- markdownlint-disable MD033 -->
-
 [![status-maintained](https://img.shields.io/badge/status-maintained-purple.svg)](https://github.com/maravento/blackweb)
 [![last commit](https://img.shields.io/github/last-commit/maravento/blackweb)](https://github.com/maravento/blackweb)
 [![Twitter Follow](https://img.shields.io/twitter/follow/maraventostudio.svg?style=social)](https://twitter.com/maraventostudio)
+
+<!-- markdownlint-disable MD033 -->
 
 <table align="center">
   <tr>
@@ -303,7 +303,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 >Update requires python 3x and bash 5x. It also requires the following dependencies:
 
 ```bash
-wget git curl libnotify-bin perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv
+wget git curl perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv
 ```
 
 >Make sure your Squid is installed correctly. If you have any problems, run the following script: (`sudo ./squid_install.sh`):

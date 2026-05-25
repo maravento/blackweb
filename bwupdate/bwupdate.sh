@@ -39,7 +39,7 @@ if [[ "$UBUNTU_ID" != "ubuntu" || "$UBUNTU_VERSION" != "24.04" ]]; then
 fi
 
 # DEPENDENCIES
-pkgs='wget git curl libnotify-bin tar unzip zip gzip python-is-python3 idn2 iconv'
+pkgs='wget git curl tar unzip zip gzip python-is-python3 idn2 iconv'
 for pkg in $pkgs; do
   if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
     echo "❌ '$pkg' is not installed. Run:"
