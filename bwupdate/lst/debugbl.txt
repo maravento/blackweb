@@ -1448,6 +1448,7 @@
 .corecon.com
 .corefitness.info
 .corejamz.com
+.coreradio.online
 .corights.net
 .corinnenewton.ca
 .corneey.com
@@ -1779,6 +1780,7 @@
 .digiboy.ir
 .digicap.net
 .digital-digest.com
+.digitalgujaratscholarship.co.in
 .digitalmediacommunications.com
 .digital-print.ru
 .digiviews.co.uk
@@ -2895,6 +2897,7 @@
 .googleadwords.pro
 .goonwithmazerqq.com
 .gooseart.com
+.goo.su
 .gooveo.net
 .gordreid.com
 .gore.com.cn
@@ -3399,6 +3402,7 @@
 .inboxed.com
 .increaserev.com
 .indiaclubdayton.org
+.indiapharmajobs.in
 .indiefilmhustle.com
 .indigenouspromotions.com.au
 .indirveoyna.com
@@ -3954,6 +3958,7 @@
 .lacosturera.es
 .lacrima.ru
 .lacrosseplayground.com
+.lacuevadeguns.com
 .lacumpa.biz
 .lafactoriahd.blogspot.com
 .laferwear.com
@@ -4111,6 +4116,7 @@
 .livefyre.com
 .livehelpnow.net
 .livejasmin.com
+.livetechnewz.com
 .livingnetwork.co.za
 .lix.in
 .liyuesheng.com
@@ -4357,6 +4363,7 @@
 .megalinks.site
 .mega-mkv.com
 .mega.nz
+.meganz.space
 .megapaste.xyz
 .megapeliculasrip.com
 .megapeliculasrip.net
@@ -4771,6 +4778,7 @@
 .nbjzpx.com
 .nbyts.online
 .ncbwhb.com
+.nclsil.in
 .ncrweb.in
 .ncsrv.de
 .ndcl.org
@@ -5814,6 +5822,7 @@
 .rockaor.com
 .rocketsrange.com
 .rockfile.co
+.rockmania.com.ua
 .rockoldies.net
 .rockrak.com
 .rocks.io
@@ -6171,6 +6180,7 @@
 .short.pe
 .shortsuey.com
 .shortswitch.com
+.shortxlinks.com
 .shotly.io
 .shoutkey.com
 .showbox.media
@@ -6328,6 +6338,7 @@
 .softonic.com
 .softowa.com
 .softpedia.com
+.softurl.in
 .softvela.com
 .software24x7.us
 .software-unlimited.at
@@ -6640,6 +6651,7 @@
 .takipediliyoruz.com
 .taladm.ru
 .talktalk.net
+.talkwholesalejerseys.com
 .tamilrockers.ws
 .tamsoon.net
 .tandsmil.dk
@@ -6738,6 +6750,7 @@
 .tenvoi.com
 .teothemes.com
 .teotozmaskesi.com
+.teraboxtanpaaplikasi.com
 .terae-lumiere.com
 .terlizzigasimpianti.it
 .termoskan.ru
@@ -6953,6 +6966,7 @@
 .tpb-proxy.xyz
 .tpb.re
 .tpb.rocks
+.tpedia.in
 .tpi.li
 .tpirbay.site
 .tpllaw.com
@@ -6971,6 +6985,7 @@
 .travicoperu.com
 .travislusk.com
 .travoice.ca
+.trbt.cc
 .trchosetrilhs.blogspot.com
 .trebleimp.com
 .trello.com
@@ -7857,3 +7872,5 @@
 .zvideo.at
 .zwei.audio
 .zytrade.cn
+.techworlddata.com
+.teraboxtanpaaplikasi.com

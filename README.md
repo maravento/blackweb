@@ -195,16 +195,16 @@ ASCII Output:
 .auth.wikimedia.org
 ```
 
-##### Block Rule for Words
+##### Block Rule for Patterns
 
->Use this rule to block words (Optional. Can generate false positives).
+>Use this rule to block patterns (Optional. Can generate false positives).
 
 ```bash
 # Example: Download ACL:
-sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockwords.txt
-# Squid Rule to Block Words (change path):
-acl blockwords url_regex -i "/etc/acl/acl_squid/blockwords.txt"
-http_access deny blockwords
+sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/squid/blockpatterns.txt
+# Squid Rule to Block Patterns (change path):
+acl blockwords url_regex -i "/etc/acl/acl_squid/blockpatterns.txt"
+http_access deny blockpatterns
 ```
 
 Input:
@@ -268,12 +268,12 @@ acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/squid/blockpatterns.txt
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/squid/blockpatterns.txt
 acl blockwords url_regex -i "/path_to/blockpatterns.txt"
-http_access deny blockwords
+http_access deny blockpatterns
 
 # Block Rule for web3 (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/web3/web3domains.txt
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/web3/web3domains.txt
 acl web3 dstdomain "/path_to/web3domains.txt"
 http_access deny web3
 

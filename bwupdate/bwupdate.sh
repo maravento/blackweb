@@ -24,25 +24,17 @@ bw13=("Check Squid-Error.txt" "Verifique Squid-Error.txt")
 
 lang=$([[ "${LANG,,}" =~ ^es ]] && echo 1 || echo 0)
 
-# check no-root
-if [ "$(id -u)" == "0" ]; then
-    echo "❌ This script should not be run as root"
+# Root check
+if [ "$(id -u)" != "0" ]; then
+    echo "ERROR: This script must be run as root"
     exit 1
-fi
-
-# check SO
-UBUNTU_VERSION=$(lsb_release -rs)
-UBUNTU_ID=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
-if [[ "$UBUNTU_ID" != "ubuntu" || "$UBUNTU_VERSION" != "24.04" ]]; then
-    echo "This script requires Ubuntu 24.04. Use at your own risk"
-    # exit 1
 fi
 
 # DEPENDENCIES
 pkgs='wget git curl tar unzip zip gzip python-is-python3 idn2 iconv'
 for pkg in $pkgs; do
   if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
-    echo "❌ '$pkg' is not installed. Run:"
+    echo "'$pkg' is not installed. Run:"
     echo "sudo apt install $pkg"
     exit 1
   fi
@@ -106,7 +98,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         
         # check with curl
         if ! curl -k -s -f -I -L -A "$user_agent" --connect-timeout 5 --retry 1 "$url" >/dev/null 2>&1; then
-            echo "❌ URL Down: $url"
+            echo "URL Down: $url"
             return 1
         fi
         
@@ -116,9 +108,9 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
                 --connect-timeout 10 --retry 3 \
                 --user-agent "$user_agent" \
                 "$url" -o "$target"; then
-            echo "✅"
+            echo "OK"
         else
-            echo "❌ ERROR"
+            echo "ERROR"
             return 1
         fi
     }
@@ -249,21 +241,21 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         local filename targetdir
         # check with curl
         if ! curl -k -s -f -I --connect-timeout 5 --retry 1 "$url" >/dev/null; then
-            echo "❌ URL Down: $url"
+            echo "URL Down: $url"
             return 1
         fi
         # filename clean
         filename=$(basename "${url%%\?*}")
         # download
         if ! $wgetd "$url" -O "bwtmp/$filename"; then
-            echo "❌ ERROR: $url"
+            echo "ERROR: $url"
             return 1
         fi
         # Create directory and extract
         targetdir="bwtmp/$(basename "$filename" .tar.gz)_$(date +%s)"
         mkdir -p "$targetdir"
         if ! tar -C "$targetdir" -zxf "bwtmp/$filename" >/dev/null 2>&1; then
-            echo "❌ ERROR: $filename"
+            echo "ERROR: $filename"
             return 1
         fi
         # clean
@@ -280,7 +272,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read gzfile; do
             if ! gunzip "$gzfile" >/dev/null 2>&1; then
-                echo "❌ ERROR: $gzfile"
+                echo "ERROR: $gzfile"
             fi
         done
         cd ..
@@ -302,7 +294,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         local url="$1"
         # check with curl
         if ! curl -k -s -f -I --connect-timeout 5 --retry 1 "$url" >/dev/null; then
-            echo "❌ URL Down: $url"
+            echo "URL Down: $url"
             return 1
         fi
         # download
@@ -325,7 +317,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /\.{2,}/d' \
     | sort -u > stage1.txt
     if [ ! -s stage1.txt ]; then
-        echo "❌ ERROR: stage1.txt is empty. Aborting."
+        echo "ERROR: stage1.txt is empty. Aborting."
         exit 1
     fi
     # RFC 1035 Partial
@@ -335,7 +327,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     | sed 's/^\.//g' \
     | sort -u > stage2.txt
     if [ ! -s stage2.txt ]; then
-        echo "❌ ERROR: stage2.txt is empty. Aborting."
+        echo "ERROR: stage2.txt is empty. Aborting."
         exit 1
     fi
     # DEBUGGING IDN
@@ -346,7 +338,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
       | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
       | sort -u > capture.txt
     if [ ! -s capture.txt ]; then
-        echo "❌ ERROR: capture.txt is empty. Aborting."
+        echo "ERROR: capture.txt is empty. Aborting."
         exit 1
     fi
 
@@ -354,7 +346,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     echo "${bw06[$lang]}"
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     if [ ! -s urls.txt ]; then
-        echo "❌ ERROR: urls.txt is empty. Aborting."
+        echo "ERROR: urls.txt is empty. Aborting."
         exit 1
     fi
     echo "OK"
@@ -363,18 +355,18 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     echo "${bw07[$lang]}"
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
     if [ ! -s cleancapture.txt ]; then
-        echo "❌ ERROR: cleancapture.txt is empty. Aborting."
+        echo "ERROR: cleancapture.txt is empty. Aborting."
         exit 1
     fi
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
     python domfilter.py --input cleancapture.txt
     if [ ! -s output.txt ]; then
-        echo "❌ ERROR: output.txt is empty. Aborting."
+        echo "ERROR: output.txt is empty. Aborting."
         exit 1
     fi
     grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > finalclean.txt
     if [ ! -s finalclean.txt ]; then
-        echo "❌ ERROR: finalclean.txt is empty. Aborting."
+        echo "ERROR: finalclean.txt is empty. Aborting."
         exit 1
     fi
     echo "OK"
@@ -422,7 +414,7 @@ if [ ! -e "$bwupdate"/dnslookup2.txt ]; then
     echo "${bw08[$lang]}"
     sed 's/^\.//g' finalclean.txt | sort -u > step1.txt
     if [ ! -s step1.txt ]; then
-        echo "❌ ERROR: step1.txt is empty. Aborting."
+        echo "ERROR: step1.txt is empty. Aborting."
         exit 1
     fi    
     total=$(wc -l < step1.txt)
@@ -453,7 +445,7 @@ sleep 10
 echo "${bw09[$lang]}"
 sed 's/^\.//g' fault.txt | sort -u > step2.txt
 if [ ! -s step2.txt ]; then
-    echo "❌ ERROR: step2.txt is empty. Aborting."
+    echo "ERROR: step2.txt is empty. Aborting."
     exit 1
 fi
 total=$(wc -l < step2.txt)
@@ -482,7 +474,7 @@ sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
 grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
 if [ ! -s blackweb_tmp.txt ]; then
-    echo "❌ ERROR: blackweb_tmp.txt is empty. Aborting."
+    echo "ERROR: blackweb_tmp.txt is empty. Aborting."
     exit 1
 fi
 echo "OK"
@@ -493,12 +485,12 @@ regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
 grep -E -v "$new_regex_ext" blackweb_tmp.txt | sort -u > blackweb_tmp2.txt
 if [ ! -s blackweb_tmp2.txt ]; then
-    echo "❌ ERROR: blackweb_tmp2.txt is empty. Aborting."
+    echo "ERROR: blackweb_tmp2.txt is empty. Aborting."
     exit 1
 fi
 comm -23 <(sort blackweb_tmp2.txt) <(sort tlds.txt) > blackweb.txt
 if [ ! -s blackweb.txt ]; then
-    echo "❌ ERROR: blackweb.txt is empty. Aborting."
+    echo "ERROR: blackweb.txt is empty. Aborting."
     exit 1
 fi
 # Optional
@@ -519,7 +511,7 @@ sort -o sqerror.txt -u sqerror.txt
 python tools/debugerror.py
 sort -o final.txt -u final.txt
 if [ ! -s final.txt ]; then
-    echo "❌ ERROR: final.txt is empty. Aborting."
+    echo "ERROR: final.txt is empty. Aborting."
     exit 1
 fi
 
@@ -532,11 +524,11 @@ iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.t
 
 # Validation
 if [ ! -s blackweb.txt ]; then
-    echo "❌ ERROR: blackweb.txt is empty after integrity check. Aborting."
+    echo "ERROR: blackweb.txt is empty after integrity check. Aborting."
     exit 1
 fi
 TOTAL=$(wc -l < blackweb.txt)
-echo "✅ blackweb.txt integrity OK — $TOTAL valid domain lines"
+echo "blackweb.txt integrity OK — $TOTAL valid domain lines"
 
 # cp to Squid
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
