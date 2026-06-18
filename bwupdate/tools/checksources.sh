@@ -5,15 +5,20 @@
 #
 # Check Sources
 # Download and search Blackweb source lists for a domain
+# log: checksources.log
 #
 ################################################################################
+
+LOGFILE="$(basename "$0" .sh).log"
+exec > >(tee "$LOGFILE") 2>&1
 
 echo "Checking sources for domain matches. Wait..."
 printf "\n"
 
 wgetd='wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
 
-# Temporary working directory
+# Temporary working directory (clean slate on every run)
+rm -rf downloaded_lists >/dev/null 2>&1
 mkdir -p downloaded_lists
 
 # Download bwupdate.sh
@@ -39,11 +44,13 @@ while IFS= read -r url; do
         continue
     fi
 
-    # If it's a .tar.gz file, extract it
+    # If it's a .tar.gz file, extract it into its own subfolder
     if [[ "$filename" == *.tar.gz ]]; then
         echo "[*] Extracting: $filename"
-        if tar -xzf "downloaded_lists/$filename" -C downloaded_lists/; then
-            rm -rf "downloaded_lists/$filename"
+        extract_dir="downloaded_lists/${filename%.tar.gz}_extracted"
+        mkdir -p "$extract_dir"
+        if tar -xzf "downloaded_lists/$filename" -C "$extract_dir"; then
+            rm -f "downloaded_lists/$filename"
         else
             echo "[!] Extraction failed, keeping: $filename"
         fi
@@ -71,9 +78,17 @@ echo "[*] Searching for '$domain'..."
 found=0
 while IFS= read -r url; do
     filename=$(echo "$url" | sed -E 's~https?://~~; s~/~-~g')
-    if grep -qiF "$domain" "downloaded_lists/$filename"; then
-        echo "[+] Domain found in: $url"
-        found=1
+    if [[ "$filename" == *.tar.gz ]]; then
+        extract_dir="downloaded_lists/${filename%.tar.gz}_extracted"
+        if [ -d "$extract_dir" ] && grep -rqiF "$domain" "$extract_dir" 2>/dev/null; then
+            echo "[+] Domain found in: $url (extracted)"
+            found=1
+        fi
+    else
+        if grep -qiF "$domain" "downloaded_lists/$filename" 2>/dev/null; then
+            echo "[+] Domain found in: $url"
+            found=1
+        fi
     fi
 done < urls.txt
 

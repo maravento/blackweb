@@ -4,8 +4,15 @@
 ################################################################################
 #
 # BlackWeb Update
+# log: bwupdate.log
 #
 ################################################################################
+
+# check no-root
+if [ "$(id -u)" -eq 0 ]; then
+    echo "❌ This script should not be run as root."
+    exit 1
+fi
 
 # Language spa-eng
 bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea paciente...")
@@ -15,8 +22,8 @@ bw04=("Downloading Allowlist..." "Descargando Listas de Permitidos...")
 bw05=("IDN Capture and Debugging..." "Captura y Depuracion IDN...")
 bw06=("Joining Lists..." "Uniendo Listas...")
 bw07=("Debugging Domains..." "Depurando Dominios...")
-bw08=("1st DNS Loockup..." "1ra Busqueda DNS...")
-bw09=("2nd DNS Loockup..." "2da Busqueda DNS...")
+bw08=("1st DNS Lookup..." "1ra Busqueda DNS...")
+bw09=("2nd DNS Lookup..." "2da Busqueda DNS...")
 bw10=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
 bw11=("Exclude TLD..." "Excluir TLD...")
 bw12=("Restarting Squid..." "Reiniciando Squid...")
@@ -24,14 +31,8 @@ bw13=("Check Squid-Error.txt" "Verifique Squid-Error.txt")
 
 lang=$([[ "${LANG,,}" =~ ^es ]] && echo 1 || echo 0)
 
-# Root check
-if [ "$(id -u)" != "0" ]; then
-    echo "ERROR: This script must be run as root"
-    exit 1
-fi
-
 # DEPENDENCIES
-pkgs='wget git curl tar unzip zip gzip python-is-python3 idn2 iconv'
+pkgs='wget git curl tar unzip zip gzip idn2 iconv python-is-python3'
 for pkg in $pkgs; do
   if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
     echo "'$pkg' is not installed. Run:"
@@ -40,15 +41,18 @@ for pkg in $pkgs; do
   fi
 done
 
+LOGFILE="$(basename "$0" .sh).log"
+exec > >(tee "$LOGFILE") 2>&1
+
 # VARIABLES
-bwupdate="$(pwd)/bwupdate"
+# Absolute path
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+bwupdate="$SCRIPT_DIR/bwupdate"
 wgetd="wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
 # PATH_TO_ACL (Change it to the directory of your preference)
 route="/etc/acl"
 # CREATE PATH
 if [ ! -d "$route" ]; then sudo mkdir -p "$route"; fi
-# Absolute path
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 clear
 echo
@@ -65,7 +69,10 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     echo "${bw02[$lang]}"
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py
     chmod +x gitfolder.py
-    python gitfolder.py https://github.com/maravento/blackweb/bwupdate
+    python3 gitfolder.py https://github.com/maravento/blackweb/bwupdate || {
+        echo "ERROR: gitfolder.py failed to clone the repository."
+        exit 1
+    }
     if [ -d "$bwupdate" ]; then
         cd "$bwupdate" || {
             echo "Access Error: $bwupdate"
@@ -92,7 +99,11 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         # incremental suffix
         i=1
         while [ -e "$target" ]; do
-            target="bwtmp/${filename%.*}_$i.${filename##*.}"
+            if [[ "$filename" == *.* ]]; then
+                target="bwtmp/${filename%.*}_$i.${filename##*.}"
+            else
+                target="bwtmp/${filename}_$i"
+            fi
             ((i++))
         done
         
@@ -265,10 +276,10 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     if ! targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz' && \
        ! targz 'ftp://ftp.ut-capitole.fr/pub/reseau/cache/squidguard_contrib/blacklists.tar.gz'; then
         echo "ut-capitole.fr download failed. Switching to alt repo..."
-        cd bwtmp
+        cd bwtmp || { echo "ERROR: cannot cd to bwtmp"; exit 1; }
         $wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
         chmod +x gitfolder.py
-        python gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+        python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
         rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read gzfile; do
             if ! gunzip "$gzfile" >/dev/null 2>&1; then
@@ -282,7 +293,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     #cd bwtmp
     #$wgetd https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
     #chmod +x gitfolder.py
-    #python gitfolder.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
+    #python3 gitfolder.py "https://github.com/pengelana/blocklist/tree/master/src/blacklist"
     #rm gitfolder.py &>/dev/null
     #cd ..
     #echo "OK"
@@ -359,7 +370,10 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         exit 1
     fi
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
-    python domfilter.py --input cleancapture.txt
+    python domfilter.py --input cleancapture.txt || {
+        echo "ERROR: domfilter.py failed."
+        exit 1
+    }
     if [ ! -s output.txt ]; then
         echo "ERROR: output.txt is empty. Aborting."
         exit 1
@@ -439,7 +453,8 @@ if [ ! -e "$bwupdate"/dnslookup2.txt ]; then
     echo "OK"
 fi
 
-sleep 10
+# Pause between DNS lookup passes to avoid overloading the resolver
+sleep 5
 
 # STEP 2:
 echo "${bw09[$lang]}"
@@ -483,7 +498,11 @@ echo "OK"
 echo "${bw11[$lang]}"
 regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
-grep -E -v "$new_regex_ext" blackweb_tmp.txt | sort -u > blackweb_tmp2.txt
+if [ -z "$new_regex_ext" ]; then
+    cp blackweb_tmp.txt blackweb_tmp2.txt
+else
+    grep -E -v "$new_regex_ext" blackweb_tmp.txt | sort -u > blackweb_tmp2.txt
+fi
 if [ ! -s blackweb_tmp2.txt ]; then
     echo "ERROR: blackweb_tmp2.txt is empty. Aborting."
     exit 1
@@ -507,8 +526,12 @@ sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # http_access deny blackweb
 sudo bash -c 'squid -k reconfigure' 2>sqerror.txt && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
+sed -i 's/^/./' sqerror.txt
 sort -o sqerror.txt -u sqerror.txt
-python tools/debugerror.py
+python tools/debugerror.py || {
+    echo "ERROR: debugerror.py failed."
+    exit 1
+}
 sort -o final.txt -u final.txt
 if [ ! -s final.txt ]; then
     echo "ERROR: final.txt is empty. Aborting."
@@ -516,7 +539,11 @@ if [ ! -s final.txt ]; then
 fi
 
 # Convert to UTF-8 and keep only ASCII lines
-iconv -f "$(file -bi final.txt | sed 's/.*charset=//')" -t UTF-8//IGNORE final.txt \
+charset=$(file -bi final.txt | sed 's/.*charset=//')
+case "$charset" in
+    binary|unknown*|"") charset="UTF-8" ;;
+esac
+iconv -f "$charset" -t UTF-8//IGNORE final.txt \
     | grep -P '^[\x00-\x7F]+$' \
     | grep -P '^\.[a-z0-9][a-z0-9._-]*$' \
     | grep -vP '\s' \
@@ -532,13 +559,11 @@ echo "blackweb.txt integrity OK — $TOTAL valid domain lines"
 
 # cp to Squid
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
-if ! sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"; then
-    echo "${bw13[$lang]}"
-fi
+sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"
 
 # DELETE REPOSITORY (Optional)
 rm -rf "$bwupdate" >/dev/null 2>&1
 
 # END
-sudo bash -c 'echo "BlackWeb Done: $(date)" | tee -a /var/log/syslog'
+echo "BlackWeb Done: $(date)"
 echo "${bw13[$lang]}"

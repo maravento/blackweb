@@ -2773,6 +2773,7 @@
 .gestionale-orbit.it
 .gestyy.com
 .getedendiet.com
+.getflytv.com
 .getfvid.com
 .geti2p.net
 .getinmac.com
@@ -3142,6 +3143,7 @@
 .hihonor.com
 .hildaseir.com
 .himado.com
+.himalaycollege.com
 .himegimi.jp
 .himfinn.com
 .hina.es
@@ -6707,6 +6709,7 @@
 .technobuz.com
 .techsilicon.com
 .tech-story.net
+.techworlddata.com
 .tecnigrafite.com
 .tecnoaspirazioni.com
 .tecnohellas.gr
@@ -7198,6 +7201,7 @@
 .urlpay.net
 .ur.ly
 .usaegisgroup.com
+.usanew.site
 .usb.ve
 .uscpl.net
 .usdfsfes.xyz
@@ -7872,5 +7876,3 @@
 .zvideo.at
 .zwei.audio
 .zytrade.cn
-.techworlddata.com
-.teraboxtanpaaplikasi.com

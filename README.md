@@ -303,7 +303,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 >Update requires python 3x and bash 5x. It also requires the following dependencies:
 
 ```bash
-wget git curl perl tar rar unrar unzip zip gzip python-is-python3 idn2 iconv
+wget git curl perl tar rar unrar unzip zip gzip idn2 iconv python-is-python3 (optional)
 ```
 
 >Make sure your Squid is installed correctly. If you have any problems, run the following script: (`sudo ./squid_install.sh`):
@@ -489,7 +489,7 @@ Output:
 .google.com
 ```
 
-#### DNS Loockup
+#### DNS Lookup
 
 >Most of the [SOURCES](https://github.com/maravento/blackweb#fuentes--sources) contain millions of invalid or nonexistent domains, so each domain is double-checked via DNS (in 2 steps) to exclude those entries from Blackweb. This process is performed in parallel and can be resource-intensive, depending on your hardware and network conditions. You can control concurrency with the `PROCS` variable:
 
@@ -549,16 +549,14 @@ Output:
 
 >Run Squid-Cache with BlackWeb and any error sends it to `SquidError.txt`.
 
-#### Check execution (/var/log/syslog)
+#### Log
 
-```bash
-BlackWeb: Done 06/05/2023 15:47:14
-```
+>Both `bwupdate.sh` and `checksources.sh` generate a log file (`bwupdate.log` / `checksources.log`) in the same directory where they are executed.
 
 #### Important about BlackWeb Update
 
 - The default path of BlackWeb is `/etc/acl`. You can change it for your preference.
-- If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Loockup](https://github.com/maravento/blackweb#dns-loockup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.
+- If you need to interrupt the execution of `bwupdate.sh` (ctrl + c) and it stopped at the [DNS Lookup](https://github.com/maravento/blackweb#dns-lookup) part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.
 - If you use `aufs`, temporarily change it to `ufs` during the upgrade, to avoid: `ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required`.
 
 ## SOURCES
