@@ -10,9 +10,69 @@
 
 # check no-root
 if [ "$(id -u)" -eq 0 ]; then
-    echo "❌ This script should not be run as root."
+    echo "This script should not be run as root."
     exit 1
 fi
+
+# DEPENDENCIES
+pkgs='wget git curl tar unzip zip gzip idn2 squid python3 bind9-host'
+for pkg in $pkgs; do
+  if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
+    echo "'$pkg' is not installed. Run:"
+    echo "sudo apt install $pkg"
+    exit 1
+  fi
+done
+
+SQUID_CONF="/etc/squid/squid.conf"
+
+# Edit /etc/squid/squid.conf and add lines:
+# acl blackweb dstdomain -i "/path_to/blackweb.txt"
+# http_access deny blackweb
+check_squid_acl() {
+    if ! grep -qE '^[[:space:]]*acl[[:space:]]+blackweb[[:space:]]+dstdomain' "$SQUID_CONF"; then
+        echo "ERROR: 'acl blackweb dstdomain' not found or commented out in $SQUID_CONF. Aborting."
+        exit 1
+    fi
+    if ! grep -qE '^[[:space:]]*http_access[[:space:]]+deny[[:space:]]+blackweb' "$SQUID_CONF"; then
+        echo "ERROR: 'http_access deny blackweb' not found or commented out in $SQUID_CONF. Aborting."
+        exit 1
+    fi
+}
+
+check_squid_status() {
+    squid_is_active() {
+        if command -v systemctl &>/dev/null; then
+            systemctl is-active --quiet squid
+        else
+            sudo service squid status &>/dev/null
+        fi
+    }
+
+    squid_start() {
+        if command -v systemctl &>/dev/null; then
+            sudo systemctl start squid
+        else
+            sudo service squid start
+        fi
+    }
+
+    if ! squid_is_active; then
+        echo "Squid is not active. Starting it..."
+        squid_start
+        for i in $(seq 1 30); do
+            squid_is_active && break
+            sleep 2
+        done
+        if ! squid_is_active; then
+            echo "ERROR: Squid failed to start. Aborting."
+            exit 1
+        fi
+    fi
+}
+
+check_squid_acl
+check_squid_status
 
 # Language spa-eng
 bw01=("This process can take. Be patient..." "Este proceso puede tardar. Sea paciente...")
@@ -31,16 +91,6 @@ bw13=("Check Squid-Error.txt" "Verifique Squid-Error.txt")
 
 lang=$([[ "${LANG,,}" =~ ^es ]] && echo 1 || echo 0)
 
-# DEPENDENCIES
-pkgs='wget git curl tar unzip zip gzip idn2 iconv python-is-python3'
-for pkg in $pkgs; do
-  if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
-    echo "'$pkg' is not installed. Run:"
-    echo "sudo apt install $pkg"
-    exit 1
-  fi
-done
-
 LOGFILE="$(basename "$0" .sh).log"
 exec > >(tee "$LOGFILE") 2>&1
 
@@ -54,8 +104,6 @@ route="/etc/acl"
 # CREATE PATH
 if [ ! -d "$route" ]; then sudo mkdir -p "$route"; fi
 
-clear
-echo
 echo "Blackweb Project"
 echo "${bw01[$lang]}"
 
@@ -521,9 +569,7 @@ echo "${bw12[$lang]}"
 # copy blaclweb to path
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
 # Squid Reload
-# Edit /etc/squid/squid.conf and add lines:
-# acl blackweb dstdomain -i "/path_to/blackweb.txt"
-# http_access deny blackweb
+check_squid_status
 sudo bash -c 'squid -k reconfigure' 2>sqerror.txt && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
 sed -i 's/^/./' sqerror.txt
@@ -559,6 +605,7 @@ echo "blackweb.txt integrity OK — $TOTAL valid domain lines"
 
 # cp to Squid
 sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
+check_squid_status
 sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"
 
 # DELETE REPOSITORY (Optional)

@@ -22,7 +22,7 @@ BlackWeb es un proyecto que recopila y unifica listas públicas de bloqueo de do
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5411285 | 132,2 MB |
+| blackweb.txt | 5417944 | 131,3 MB |
 
 ## GIT CLONE
 
@@ -303,7 +303,7 @@ wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/
 >La actualización requiere python 3x y bash 5x. También requiere las siguientes dependencias:
 
 ```bash
-wget git curl perl tar rar unrar unzip zip gzip idn2 iconv python-is-python3 (optional)
+wget git curl tar unzip zip gzip idn2 squid python3 bind9-host
 ```
 
 >Asegúrese de que Squid esté instalado correctamente. Si tiene algún problema, ejecute el siguiente script: (`sudo ./squid_install.sh`):
