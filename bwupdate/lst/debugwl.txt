@@ -19452,6 +19452,7 @@
 .diariodelsur.com.co
 .diariolalibertad.com
 .digicert.com
+.digicert.cn
 .digitalocean.com
 .disconnect.me
 .disney.com

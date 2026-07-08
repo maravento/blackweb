@@ -460,6 +460,7 @@
 .appleleafabstracting.com
 .applicationinsights.io
 .applicationinsights.net
+.applyjob24.in
 .appoutpost.com
 .appscyborg.com
 .appsflyer.com
@@ -950,6 +951,7 @@
 .bravepages.com
 .brazabaya.com
 .brazzersnetwork.com
+.brdtnet.com
 .break.com
 .breakingisraelnews.com
 .breakthroughtactics.com
@@ -965,6 +967,7 @@
 .brid.tv
 .brightcove.com
 .brightest.com
+.bright-sdk.com
 .brighttrading.net
 .brigma.com
 .brinktest.com
@@ -1567,6 +1570,7 @@
 .cuevana.uno
 .cuevanavideo.com
 .cuevanaweb.net
+.cuevana.you
 .cuevan.net
 .cuisines-aviva.com
 .cultural-ecology.com
@@ -2199,6 +2203,7 @@
 .erwaty.com
 .es3n.in
 .esbook.com
+.esiccarddownload.com
 .eskopb.com
 .esmahatun.com
 .espaciosamadhi.com
@@ -2471,6 +2476,7 @@
 .fleshandbloodoutdoors.com
 .fleurdelysbridal.co.uk
 .fleury.net
+.flexthecar.com
 .flexyhit.com
 .flipax.net
 .flirtkurs.ch
@@ -2676,6 +2682,7 @@
 .furtherlearningacademy.com
 .fusofrance.fr
 .fususokie.com
+.futbol-libres.su
 .futuracompare.com
 .futurefactory-software.com
 .futurehemp.com
@@ -3368,6 +3375,7 @@
 .ijordantours.com
 .ikiartimatbaa.com
 .ikidane.com
+.ikiwiv.xyz
 .ikrawane.net
 .ik-server.com
 .ilasd.org
@@ -4182,6 +4190,7 @@
 .ludustickets.com
 .luible.net
 .luigipellegrini.it
+.luminatinet.com
 .lumitech.ro
 .lunamedia.live
 .lunaparkperugia.it
@@ -4624,6 +4633,7 @@
 .mplaylist.com
 .mprotectcorp.com
 .mqdownload.com
+.mrf.io
 .mrprogramas.com
 .mrunblock.com
 .mrunblock.surf
@@ -4881,6 +4891,7 @@
 .nkedu1.go.th
 .nkfyfs.cn
 .nk.pl
+.nkrmusic.in.net
 .nlyuniforma.com
 .nmfabb.com
 .nnptrading.com
@@ -5017,6 +5028,7 @@
 .omeryilmaz.com
 .ome.tv
 .omiga-plus.com
+.omkardesigninstitute.com
 .omnea.de
 .omniadvert.it
 .omnibusiness-solutions.com
@@ -5189,6 +5201,7 @@
 .payskip.org
 .pblossom.com
 .pccrackbox.com
+.pcfileszone.com
 .pcflame.com.au
 .pcgamer.site
 .pciholog.ru
@@ -5229,6 +5242,7 @@
 .peliseucip.blogspot.com
 .pelisflix1.art
 .pelisflix200.net
+.pelisflix200.work
 .pelisflix20.party
 .pelisflix2.ing
 .pelisflix2.one
@@ -5341,6 +5355,7 @@
 .pingstart.com
 .pinimg.com
 .pinkcherrywholesale.ca
+.pinsightmedia.com
 .pinuserror.com
 .pioneerschina.com
 .pipipan.com
@@ -5979,6 +5994,7 @@
 .scarlattigarage.com
 .sc-cdn.net
 .sccxtx.com
+.scene7.com
 .scene-double.co.uk
 .scfg.biz
 .sc-gw.com
@@ -6680,6 +6696,7 @@
 .taure.cz
 .tawk.to
 .taylorconnect.com
+.tazabook.com
 .tbcthebillingcompany.com
 .tbde.com.vn
 .tbxstatic.com
@@ -6726,6 +6743,7 @@
 .teksunrobot.com
 .tekyong.com
 .tele-channel.com
+.telecom.by
 .teledataict.com
 .telega.one
 .telegram.com
@@ -6779,6 +6797,7 @@
 .thebugs.ws
 .thecodega.com
 .thedailyanswer.com
+.thedevendra.com
 .thediscipleshipplace.org
 .theexcelconsultant.com
 .thegoldclubs.com
@@ -7639,7 +7658,6 @@
 .xaydungtruonghung.com
 .xboxlive.com
 .xceramics.com
-.x.co
 .xcuevana.tv
 .xender.com
 .xervoo.net
@@ -7650,8 +7668,6 @@
 .xhamster.com
 .xi1111.com
 .xiaolinzi.com
-.xiaomi.com
-.xiaomi.net
 .xiaoying.co
 .xing521.cn
 .xing.com
@@ -7728,6 +7744,7 @@
 .ynns.com
 .yntzwm.net
 .yoll.net
+.yolo-school.com
 .yoma888.com
 .yomu.ru
 .yoobux.com
