@@ -1359,6 +1359,7 @@
 .codedwap.com
 .codelime.net
 .codere.com.co
+.coderise.org
 .codezigns.com
 .codoltaku.com
 .coffeemeetsbagel.com
@@ -1390,6 +1391,7 @@
 .comefri.es
 .comercialtrujillo.es
 .comercialzamora.es
+.comfama.com
 .comfortdiscovered.com.au
 .comlaude.com
 .comm100.com
@@ -3064,6 +3066,7 @@
 .hayber.com
 .haydistributing.com
 .hayu.com
+.hbtn.dev
 .hcgdietinfo.com
 .hdbrts.co.in
 .hdfull.be
@@ -3184,6 +3187,8 @@
 .hoelters-elsing.com
 .hoglandsnytt.se
 .hogsmeade.ru
+.holbertoncoderise.com
+.holbertonschool.co
 .holidayhops.com
 .hollandfoodexchange.com
 .hollandinternetservices.com
@@ -6409,6 +6414,7 @@
 .sovereignkitchens.com.au
 .sowhatresearch.com.au
 .sowkinah.com
+.soyhenry.com
 .soyyigit.com.tr
 .sozgroup.com
 .sozluktr.com
