@@ -4,13 +4,23 @@
 ################################################################################
 #
 # BlackWeb Update
-# log: bwupdate.log
+# log: bwupdate.log (generated in the execution directory)
 #
 ################################################################################
 
+set -uo pipefail
+
 # check no-root
-if [ "$(id -u)" -eq 0 ]; then
-    echo "This script should not be run as root."
+if [ "$(id -u)" == "0" ]; then
+    echo "[ERROR] This script should not be run as root."
+    exit 1
+fi
+
+# prevent overlapping runs
+SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
+exec 200>"$SCRIPT_LOCK"
+if ! flock -n 200; then
+    echo "[ERROR] Script $(basename "$0") is already running"
     exit 1
 fi
 
@@ -87,7 +97,7 @@ bw09=("2nd DNS Lookup..." "2da Busqueda DNS...")
 bw10=("Adding Debug Blacklist..." "Agregando Debug Blacklist...")
 bw11=("Exclude TLD..." "Excluir TLD...")
 bw12=("Restarting Squid..." "Reiniciando Squid...")
-bw13=("Check Squid-Error.txt" "Verifique Squid-Error.txt")
+bw13=("Check SquidErrors.txt" "Verifique SquidErrors.txt")
 
 lang=$([[ "${LANG,,}" =~ ^es ]] && echo 1 || echo 0)
 
@@ -121,6 +131,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         echo "ERROR: gitfolder.py failed to clone the repository."
         exit 1
     }
+    rm gitfolder.py &>/dev/null
     if [ -d "$bwupdate" ]; then
         cd "$bwupdate" || {
             echo "Access Error: $bwupdate"
@@ -140,10 +151,10 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         local url="$1"
         local filename target i
         local user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
-        
+
         filename=$(basename "${url%%\?*}" | sed 's/[^a-zA-Z0-9._-]/_/g')
         target="bwtmp/$filename"
-        
+
         # incremental suffix
         i=1
         while [ -e "$target" ]; do
@@ -154,13 +165,13 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
             fi
             ((i++))
         done
-        
+
         # check with curl
         if ! curl -k -s -f -I -L -A "$user_agent" --connect-timeout 5 --retry 1 "$url" >/dev/null 2>&1; then
             echo "URL Down: $url"
             return 1
         fi
-        
+
         # download with curl
         echo -n "$target ... "
         if curl -k -L -s \
@@ -293,7 +304,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     blurls 'https://www.taz.net.au/Mail/SpamDomains' && sleep 1
     blurls 'https://zoso.ro/pages/rolist.txt' && sleep 1
     # END_SOURCES
-    
+
     # DOWNLOADING BIG BLOCKLISTS
     targz() {
         local url="$1"
@@ -366,7 +377,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
     echo "OK"
-    
+
     # CAPTURING DOMAINS AND DEBUGGING IDN
     echo "${bw05[$lang]}"
     # CAPTURING DOMAINS
@@ -390,9 +401,9 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         exit 1
     fi
     # DEBUGGING IDN
-    { 
+    {
       LC_ALL=C grep -v '[^[:print:]]' stage2.txt
-      grep -P "[^[:ascii:]]" stage2.txt | idn2 
+      grep -P "[^[:ascii:]]" stage2.txt | idn2
     } | grep -P '^[\x00-\x7F]+$' \
       | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
       | sort -u > capture.txt
@@ -409,7 +420,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         exit 1
     fi
     echo "OK"
-    
+
     # DEBUGGING DOMAINS
     echo "${bw07[$lang]}"
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
@@ -418,7 +429,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
         exit 1
     fi
     $wgetd https://raw.githubusercontent.com/maravento/vault/master/dofi/domfilter.py -O domfilter.py >/dev/null 2>&1
-    python domfilter.py --input cleancapture.txt || {
+    python3 domfilter.py --input cleancapture.txt || {
         echo "ERROR: domfilter.py failed."
         exit 1
     }
@@ -446,24 +457,24 @@ fi
 # Xargs Parallel Limit:
 # The practical limit for parallel jobs with xargs is usually high (at least 127; check your system with: xargs --show-limits)
 #
-# Number of parallel processes (PROCS) = Logical CPUs × multiplier
+# Number of parallel processes (PROCS) = Logical CPUs x multiplier
 # The multiplier (e.g., 2, 4) controls how aggressively to parallelize. More isn't always better.
 #
-# ┌───────────────────────────────────────────────────────┐
-# │ How to determine your CPU configuration (Linux only): │
-# └───────────────────────────────────────────────────────┘
+# +-------------------------------------------------------+
+# | How to determine your CPU configuration (Linux only): |
+# +-------------------------------------------------------+
 # Physical cores: grep '^core id' /proc/cpuinfo | sort -u | wc -l
 # Logical CPUs (threads): nproc
 #
 # Recommended:
-#   PROCS=$(($(nproc)))      # Conservative (network-friendly)
-#   PROCS=$(($(nproc) * 2))  # Balanced
-#   PROCS=$(($(nproc) * 4))  # Aggressive (default)
-#   PROCS=$(($(nproc) * 8))  # Extreme (8 or higher, use with caution)
+# PROCS=$(($(nproc))) # Conservative (network-friendly)
+# PROCS=$(($(nproc) * 2)) # Balanced
+# PROCS=$(($(nproc) * 4)) # Aggressive (default)
+# PROCS=$(($(nproc) * 8)) # Extreme (8 or higher, use with caution)
 #
 # Example: Core i5 with 4 physical cores and 8 threads (Hyper-Threading)
-#   nproc          → 8
-#   PROCS=$((8 * 4)) → 32 parallel queries
+# nproc -> 8
+# PROCS=$((8 * 4)) -> 32 parallel queries
 #
 # Adjust based on:
 # - Your CPU
@@ -478,7 +489,7 @@ if [ ! -e "$bwupdate"/dnslookup2.txt ]; then
     if [ ! -s step1.txt ]; then
         echo "ERROR: step1.txt is empty. Aborting."
         exit 1
-    fi    
+    fi
     total=$(wc -l < step1.txt)
     (
         while sleep 1; do
@@ -535,7 +546,7 @@ echo "OK"
 echo "${bw10[$lang]}"
 sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
-grep -vi -f <(sed 's:^\(.*\)$:.\\\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
+grep -vi -f <(sed 's/\./\\./g; s:^\(.*\)$:.\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
 if [ ! -s blackweb_tmp.txt ]; then
     echo "ERROR: blackweb_tmp.txt is empty. Aborting."
     exit 1
@@ -544,7 +555,7 @@ echo "OK"
 
 # TLD FINAL FILTER (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines
 echo "${bw11[$lang]}"
-regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/$/\$/' | tr '\n' '|')
+regex_ext=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|')
 new_regex_ext="${regex_ext%|}"
 if [ -z "$new_regex_ext" ]; then
     cp blackweb_tmp.txt blackweb_tmp2.txt
@@ -567,14 +578,17 @@ echo "OK"
 # RELOAD SQUID-CACHE
 echo "${bw12[$lang]}"
 # copy blaclweb to path
-sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
+sudo cp -f blackweb.txt "$route"/blackweb.txt || {
+    echo "ERROR: failed to copy blackweb.txt to $route"
+    exit 1
+}
 # Squid Reload
 check_squid_status
 sudo bash -c 'squid -k reconfigure' 2>sqerror.txt && sleep 20
 sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
 sed -i 's/^/./' sqerror.txt
 sort -o sqerror.txt -u sqerror.txt
-python tools/debugerror.py || {
+python3 tools/debugerror.py || {
     echo "ERROR: debugerror.py failed."
     exit 1
 }
@@ -601,10 +615,13 @@ if [ ! -s blackweb.txt ]; then
     exit 1
 fi
 TOTAL=$(wc -l < blackweb.txt)
-echo "blackweb.txt integrity OK — $TOTAL valid domain lines"
+echo "blackweb.txt integrity OK -- $TOTAL valid domain lines"
 
 # cp to Squid
-sudo cp -f blackweb.txt "$route"/blackweb.txt >/dev/null 2>&1
+sudo cp -f blackweb.txt "$route"/blackweb.txt || {
+    echo "ERROR: failed to copy blackweb.txt to $route"
+    exit 1
+}
 check_squid_status
 sudo bash -c 'squid -k reconfigure' 2> "$SCRIPT_DIR/SquidErrors.txt"
 

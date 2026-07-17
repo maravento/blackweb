@@ -5,9 +5,25 @@
 #
 # Check Sources
 # Download and search Blackweb source lists for a domain
-# log: checksources.log
+# log: checksources.log (generated in the execution directory)
 #
 ################################################################################
+
+set -uo pipefail
+
+# check no-root
+if [ "$(id -u)" == "0" ]; then
+    echo "[ERROR] This script should not be run as root."
+    exit 1
+fi
+
+# prevent overlapping runs
+SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
+exec 200>"$SCRIPT_LOCK"
+if ! flock -n 200; then
+    echo "[ERROR] Script $(basename "$0") is already running"
+    exit 1
+fi
 
 LOGFILE="$(basename "$0" .sh).log"
 exec > >(tee "$LOGFILE") 2>&1
