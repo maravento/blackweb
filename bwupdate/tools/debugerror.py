@@ -2,7 +2,7 @@
 import sys
 
 def is_subdomain_of_another(domain, domain_set):
-    """Verifica si 'domain' es subdominio de algun otro dominio en 'domain_set'"""
+    """Check if 'domain' is a subdomain of another domain in 'domain_set'"""
     parts = domain.lstrip('.').split('.')
     for i in range(1, len(parts)):
         candidate = '.' + '.'.join(parts[i:])
@@ -18,7 +18,7 @@ try:
         b = {line.strip().lower() for line in f if line.strip()}
         b = {x if x.startswith('.') else '.' + x for x in b}
 
-    # dominios de sqerror.txt que tienen padre en blackweb.txt -> son los que hay que excluir
+    # domains from sqerror.txt that have a parent in blackweb.txt -> these must be excluded
     a_excluir = {d for d in b if d in a and is_subdomain_of_another(d, a)}
 
     result = a - a_excluir

@@ -19,6 +19,23 @@
   </tr>
 </table>
 
+## Requirements
+
+---
+
+**⚠️ WARNING:** Only tested on Ubuntu 24.04 LTS. Other versions or distros not tested, use at your own risk.
+
+- `squid`
+
+### Optional (for `bwupdate.sh`)
+
+- Python 3.x, Bash 5.x
+- `wget`, `git`, `curl`, `tar`, `unzip`, `zip`, `gzip`, `idn2`, `squid`, `python3`, `bind9-host`
+
+```bash
+apt install -y wget git curl tar unzip zip gzip idn2 squid python3 bind9-host
+```
+
 ## DATA SHEET
 
 ---
@@ -424,23 +441,6 @@ http_access deny blackweb
 wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
 ```
 
-#### Dependencies
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      Update requires python 3x and bash 5x. It also requires the following dependencies:
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      La actualización requiere python 3x y bash 5x. También requiere las siguientes dependencias:
-    </td>
-  </tr>
-</table>
-
-```bash
-wget git curl tar unzip zip gzip idn2 squid python3 bind9-host
-```
-
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
@@ -776,10 +776,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Run Squid-Cache with BlackWeb and any error sends it to <code>SquidError.txt</code>.
+      Run Squid-Cache with BlackWeb and any error sends it to <code>SquidErrors.txt</code>.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Corre Squid-Cache con BlackWeb y cualquier error lo envía a <code>SquidError.txt</code>.
+      Corre Squid-Cache con BlackWeb y cualquier error lo envía a <code>SquidErrors.txt</code>.
     </td>
   </tr>
 </table>
@@ -912,6 +912,17 @@ Output:
 - [ruvelro - Halt-and-Block-Mining](https://raw.githubusercontent.com/ruvelro/Halt-and-Block-Mining/master/HBmining.bat)
 - [ryanbr - fanboy-adblock](https://github.com/ryanbr/fanboy-adblock)
 - [scamaNet - blocklist](https://raw.githubusercontent.com/scamaNet/blocklist/main/blocklist.txt)
+- [ShadowWhisperer - Adult](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Adult)
+- [ShadowWhisperer - Cryptocurrency](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Cryptocurrency)
+- [ShadowWhisperer - Dating](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Dating)
+- [ShadowWhisperer - Gambling](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Gambling)
+- [ShadowWhisperer - Malware](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Malware)
+- [ShadowWhisperer - Risk](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Risk)
+- [ShadowWhisperer - Scam](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Scam)
+- [ShadowWhisperer - Shock](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Shock)
+- [ShadowWhisperer - Tracking](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Tracking)
+- [ShadowWhisperer - Typo](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Typo)
+- [ShadowWhisperer - UrlShortener](https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/UrlShortener)
 - [simeononsecurity/System-Wide-Windows-Ad-Blocker](https://raw.githubusercontent.com/simeononsecurity/System-Wide-Windows-Ad-Blocker/main/Files/hosts.txt)
 - [Someonewhocares - hosts](https://someonewhocares.org/hosts/hosts)
 - [stanev.org - Bulgarian adblock list](http://stanev.org/abp/adblock_bg.txt)
@@ -1028,20 +1039,9 @@ e.g:
 Done
 ```
 
-## CONTRIBUTIONS
+## ACKNOWLEDGMENTS
 
 ---
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      We thank all those who have contributed to this project. Those interested can contribute, sending us links of new lists, to be included in this project.
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      Agradecemos a todos aquellos que han contribuido a este proyecto. Los interesados pueden contribuir, enviándonos enlaces de nuevas listas, para ser incluidas en este proyecto.
-    </td>
-  </tr>
-</table>
 
 Special thanks to: [Jhonatan Sneider](https://github.com/sney2002)
 
