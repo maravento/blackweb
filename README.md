@@ -30,10 +30,19 @@
 ### Optional (for `bwupdate.sh`)
 
 - Python 3.x, Bash 5.x
-- `wget`, `git`, `curl`, `tar`, `unzip`, `zip`, `gzip`, `idn2`, `squid`, `python3`, `bind9-host`
+- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `gawk`, `coreutils`
+- Python module: `requests` (required by `domfilter.py`)
 
 ```bash
-apt install -y wget git curl tar unzip zip gzip idn2 squid python3 bind9-host
+apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils gawk coreutils python3-requests
+```
+
+### Optional (for `bwupdate/optlst/blackshield.sh`)
+
+- `wget`, `grep`, `sed`, `gawk`, `coreutils`, `util-linux`
+
+```bash
+apt install -y wget grep sed gawk coreutils util-linux
 ```
 
 ## DATA SHEET
@@ -42,7 +51,7 @@ apt install -y wget git curl tar unzip zip gzip idn2 squid python3 bind9-host
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5417944 | 131,3 MB |
+| blackweb.txt | 5871939 | 140,3 MB |
 
 ## GIT CLONE
 
@@ -302,7 +311,7 @@ ASCII Output:
 
 ```bash
 # Example: Download ACL:
-sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/squid/blockpatterns.txt
+sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/acl_squid/blockpatterns.txt
 # Squid Rule to Block Patterns (change path):
 acl blockwords url_regex -i "/etc/acl/acl_squid/blockpatterns.txt"
 http_access deny blockpatterns
@@ -377,6 +386,7 @@ http_access deny streaming
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 
 # Allow Rule for Domains
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/allowdomains.txt
 acl allowdomains dstdomain "/path_to/allowdomains.txt"
 http_access allow allowdomains
 
@@ -385,24 +395,22 @@ acl punycode dstdom_regex -i \.xn--.*
 http_access deny punycode
 
 # Block Rule for gTLD, sTLD, ccTLD
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blocktlds.txt
 acl blocktlds dstdomain "/path_to/blocktlds.txt"
 http_access deny blocktlds
 
 # Block Rule for Domains
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blockdomains.txt
 acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/squid/blockpatterns.txt
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/acl_squid/blockpatterns.txt
 acl blockwords url_regex -i "/path_to/blockpatterns.txt"
 http_access deny blockpatterns
 
-# Block Rule for web3 (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/blackshield/acl/source/web3/web3domains.txt
-acl web3 dstdomain "/path_to/web3domains.txt"
-http_access deny web3
-
 # Block Rule for Blackweb
+# https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz
 acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
@@ -806,6 +814,7 @@ Output:
         <li>The default path of BlackWeb is <code>/etc/acl</code>. You can change it for your preference.</li>
         <li>If you need to interrupt the execution of <code>bwupdate.sh</code> (ctrl + c) and it stopped at the <a href="#dns-lookup">DNS Lookup</a> part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.</li>
         <li>If you use <code>aufs</code>, temporarily change it to <code>ufs</code> during the upgrade, to avoid: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
+        <li><code>bwupdate.sh</code> intentionally uses <code>--no-check-certificate</code> (wget) and <code>-k</code> (curl). Several public blocklist sources have certificate/SSL issues that block the download when strict verification is enabled. This is a deliberate design choice, not an overlooked vulnerability.</li>
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
@@ -813,7 +822,88 @@ Output:
         <li>El path por default de BlackWeb es <code>/etc/acl</code>. Puede cambiarlo por el de su preferencia.</li>
         <li>Si necesita interrumpir la ejecución de <code>bwupdate.sh</code> (ctrl + c) y se detuvo en la parte de <a href="#dns-lookup">DNS Lookup</a>, reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.</li>
         <li>Si usa <code>aufs</code>, cámbielo temporalmente a <code>ufs</code> durante la actualización, para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
+        <li><code>bwupdate.sh</code> usa intencionalmente <code>--no-check-certificate</code> (wget) y <code>-k</code> (curl). Varias fuentes públicas de listas de bloqueo tienen problemas de certificado/SSL que impiden la descarga si se activa la verificación estricta. Es una decisión de diseño deliberada, no una vulnerabilidad pasada por alto.</li>
       </ul>
+    </td>
+  </tr>
+</table>
+
+#### Optional Lists (`optlst/`)
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>bwupdate/optlst/</code> holds ACLs that are outside BlackWeb's core scope (domains/TLDs) but reuse its distribution: ransomware file extensions, malicious User-Agents, and static web3 lists. <code>blackshield.sh</code> generates the first two; web3 lists are curated by hand and not touched by the script.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>bwupdate/optlst/</code> contiene ACLs fuera del alcance principal de BlackWeb (dominios/TLDs) pero que reutilizan su distribución: extensiones de archivo de ransomware, User-Agents maliciosos y listas web3 estáticas. <code>blackshield.sh</code> genera las dos primeras; las listas web3 se curan a mano y el script no las toca.
+    </td>
+  </tr>
+</table>
+
+```
+bwupdate/optlst/
+├── blackshield.sh      # generates rw/rwext.txt and ua/blockua.txt
+├── rw/
+│   ├── rw.txt               # administrator ransomware blacklist (source)
+│   ├── wl.txt               # administrator ransomware whitelist (source)
+│   └── rwext.txt            # Squid url_regex ACL (generated)
+├── ua/
+│   └── blockua.txt          # Squid browser ACL for bad User-Agents (generated)
+└── web3/
+    ├── web3domains.txt      # Squid dstdomain ACL, web3/wallet domains (static)
+    └── web3tld.txt          # Squid dstdomain ACL, web3/wallet TLDs (static)
+```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>blackshield.sh</code> only produces Squid ACLs. Run it manually:
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>blackshield.sh</code> solo produce ACLs para Squid. Se ejecuta manualmente:
+    </td>
+  </tr>
+</table>
+
+```bash
+cd bwupdate/optlst
+bash blackshield.sh
+```
+
+#### Blackshield Rules Summary
+
+```bash
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+
+# Block Rule for Ransomware Extensions/Patterns (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/rw/rwext.txt
+acl block_ransomware urlpath_regex -i "/path_to/rwext.txt"
+http_access deny block_ransomware
+
+# Block Rule for web3 domains (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/web3/web3domains.txt
+acl web3domains dstdomain "/path_to/web3domains.txt"
+http_access deny web3domains
+
+# Block Rule for web3 TLDs (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/web3/web3tld.txt
+acl web3tld dstdomain "/path_to/web3tld.txt"
+http_access deny web3tld
+
+# Block Rule for User-Agents (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/ua/blockua.txt
+acl bad_useragents browser -i "/path_to/blockua.txt"
+http_access deny bad_useragents
+```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Run as a non-root user. Requires <code>wget grep sed gawk coreutils util-linux</code> (its own dependency set, smaller than <code>bwupdate.sh</code>'s). Log: <code>blackshield.log</code>, generated in <code>optlst/</code> (same rule as <a href="#log">Log</a> above — clear manually with <code>truncate -s 0 blackshield.log</code>).
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Ejecutar como usuario no root. Requiere <code>wget grep sed gawk coreutils util-linux</code> (su propio set de dependencias, más chico que el de <code>bwupdate.sh</code>). Log: <code>blackshield.log</code>, generado en <code>optlst/</code> (misma regla que <a href="#log">Log</a> arriba — limpiar manualmente con <code>truncate -s 0 blackshield.log</code>).
     </td>
   </tr>
 </table>
@@ -882,7 +972,6 @@ Output:
 - [hoshsadiq - adblock-nocoin-list](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt)
 - [jawz101 - potentialTrackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
 - [jdlingyu - ad-wars](https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts)
-- [joelotz - URL_Blacklist](https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv)
 - [kaabir - AdBlock_Hosts](https://raw.githubusercontent.com/kaabir/AdBlock_Hosts/master/hosts)
 - [kevle1 - Windows-Telemetry-Blocklist - xiaomiblock](https://raw.githubusercontent.com/kevle1/Xiaomi-Telemetry-Blocklist/master/xiaomiblock.txt)
 - [liamja - Prebake Filter Obtrusive Cookie Notices](https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt)
@@ -941,7 +1030,6 @@ Output:
 - [Ultimate Hosts Blacklist - hosts](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts)
 - [Université Toulouse 1 Capitole - Blacklists UT1 - Olbat](https://github.com/olbat/ut1-blacklists/tree/master/blacklists)
 - [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
-- [vokins - yhosts](https://raw.githubusercontent.com/vokins/yhosts/master/hosts)
 - [Winhelp2002 - hosts](http://winhelp2002.mvps.org/hosts.txt)
 - [yourduskquibbles - Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
 - [yous - YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)

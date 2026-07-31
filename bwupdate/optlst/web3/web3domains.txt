@@ -1,0 +1,31 @@
+## Web3
+# Domains
+.bonfida.org
+.cloudflare-ipfs.com
+.d3.app
+.d3.inc
+.decentraweb.org
+.dominiosweb3.pt
+.dweb.link
+.dyo.domains
+.emercoin.com
+.endlessdomains.io
+.ens.domains
+.eth.limo
+.eth.link
+.filebase.io
+.freename.io
+.gateway.pinata.cloud
+.handshake.org
+.ipfs.infura-ipfs.io
+.ipfs.io
+.ipns.dweb.link
+.namecoin.org
+.okx.com
+.opensea.io
+.peername.com
+.quik.com
+.rif.technology
+.stacks.co
+.unstoppabledomains.com
+.web3domains.com

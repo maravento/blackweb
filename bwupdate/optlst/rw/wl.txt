@@ -1,0 +1,165 @@
+# DOCUMENT FILES
+*.csv
+*.doc
+*.docx
+*.odp
+*.ods
+*.odt
+*.pdf
+*.ppt
+*.pptx
+*.rtf
+*.txt
+*.xls
+*.xlsx
+# WEB FILES
+*.css
+*.htm
+*.html
+*.js
+*.json
+*.webmanifest
+*.xhtml
+*.xslt
+# IMAGE FILES
+*.ai
+*.bmp
+*.eps
+*.gif
+*.ico
+*.jpeg
+*.jpg
+*.png
+*.psd
+*.svg
+*.tiff
+*.webp
+# COMPRESSED FILES
+*.7z
+*.ace
+*.bz2
+*.gz
+*.lz
+*.lzma
+*.lzo
+*.tar
+*.tgz
+*.xz
+*.zst
+# AUDIO FILES
+*.aac
+*.flac
+*.m4a
+*.mp3
+*.ogg
+*.wav
+*.wma
+# VIDEO FILES
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpeg
+*.mpg
+*.srt
+*.webm
+*.wmv
+# SYSTEM & TEMPORARY FILES
+*.backup
+*.bak
+*.bashrc
+*.cache
+*.dll
+*.log
+*.old
+*.swo
+*.swp
+*.temp
+*.tmp
+# EXECUTABLES & SCRIPTS
+*.bat
+*.cmd
+*.exe
+*.msi
+*.pl
+*.ps1
+*.py
+*.sh
+*.vbs
+# CONFIGURATION FILES
+*.cfg
+*.conf
+*.config
+*.env
+*.ini
+*.properties
+*.yaml
+*.yml
+# DATABASE FILES
+*.accdb
+*.db
+*.mdb
+*.sql
+*.sqlite
+*.sqlite3
+# DEVELOPMENT FILES
+*.asp
+*.aspx
+*.c
+*.class
+*.cpp
+*.go
+*.h
+*.hpp
+*.java
+*.php
+*.rb
+*.rs
+# FONTS
+*.eot
+*.otf
+*.ttf
+*.woff
+*.woff2
+# EMAIL, CONTACT & FEED FILES
+*.eml
+*.ics
+*.msg
+*.rss
+*.vcf
+# RANSOM NOTES PATTERNS
+# These are full filenames, not extensions
+*.DATA_RECOVERY.*
+*.DECRYPT.txt
+*.DECRYPT_INSTRUCTIONS
+*.DECRYPT_INSTRUCTIONS.*
+*.FILES_ENCRYPTED.*
+*.HELP.txt
+*.HELP_DECRYPT.lnk
+*.HELP_DECRYPT.txt
+*.HOW_TO_DECRYPT
+*.HOW_TO_DECRYPT.txt
+*.HOW_TO_RECOVER.*
+*.RANSOM.txt
+*.READ_ME.*
+*.READ_ME_NOW.*
+*.README
+*.README.*
+*.README_FOR_DECRYPT.*
+*.RECOVER.*
+*.RECOVERY.txt
+*.RECOVERY_INSTRUCTIONS
+*.RECOVERYOURFILES
+*.WARNING.txt
+*.YOUR_FILES.*
+*.help.txt
+*.help_decrypt.lnk
+*.how_to_decrypt.txt
+*.ransom.txt
+*.readme
+*.readme.txt
+*.readme_txt
+*.recovery.txt
+*.recoveryourfiles
+*.warning.txt

@@ -1,0 +1,35 @@
+## Web3
+# Domain Extensions
+.algo
+.apt
+.arbitrum
+.avax
+.base
+.bit
+.bitcoin
+.blockchain
+.bnb
+.btc
+.coin
+.crypto
+.dao
+.emc
+.eth
+.klever
+.kresus
+.lib
+.nem
+.nft
+.optimism
+.polygon
+.pudgy
+.rns
+.rsk
+.shib
+.sol
+.sui
+.tez
+.unstoppable
+.wallet
+.web3
+.zil

@@ -25,14 +25,18 @@ if ! flock -n 200; then
 fi
 
 # DEPENDENCIES
-pkgs='wget git curl tar unzip zip gzip idn2 squid python3 bind9-host'
-for pkg in $pkgs; do
-  if ! dpkg -s "$pkg" &>/dev/null && ! command -v "$pkg" &>/dev/null; then
-    echo "'$pkg' is not installed. Run:"
-    echo "sudo apt install $pkg"
-    exit 1
-  fi
+for dep in wget curl tar gzip idn2 python3 bind9-host findutils gawk coreutils python3-requests; do
+    if ! dpkg -s "$dep" &>/dev/null; then
+        echo "ERROR: Required dependency '$dep' is not installed." >&2
+        exit 1
+    fi
 done
+
+# DEPENDENCIES (squid or squid-openssl)
+if ! dpkg -s squid &>/dev/null && ! dpkg -s squid-openssl &>/dev/null; then
+    echo "ERROR: 'squid' or 'squid-openssl' is not installed." >&2
+    exit 1
+fi
 
 SQUID_CONF="/etc/squid/squid.conf"
 
@@ -109,6 +113,7 @@ exec > >(tee "$LOGFILE") 2>&1
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 bwupdate="$SCRIPT_DIR/bwupdate"
 wgetd="wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
+trap 'rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt finalclean.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt tlds.txt' INT TERM
 # PATH_TO_ACL (Change it to the directory of your preference)
 route="/etc/acl"
 # CREATE PATH
@@ -218,7 +223,7 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     blurls 'https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/BlackJack8/webannoyances/master/ultralist.txt' && sleep 1
-    blurls 'https://raw.githubusercontent.com/blocklistproject/Lists/master/everything.txt' && sleep 1
+    # blurls 'https://raw.githubusercontent.com/blocklistproject/Lists/master/everything.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list' && sleep 1
     blurls 'https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list' && sleep 1
     blurls 'https://raw.githubusercontent.com/chainapsis/phishing-block-list/main/block-list.txt' && sleep 1
@@ -236,7 +241,6 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     blurls 'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv' && sleep 1
     blurls 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts' && sleep 1
-    blurls 'https://raw.githubusercontent.com/joelotz/URL_Blacklist/master/blacklist.csv' && sleep 1
     blurls 'https://raw.githubusercontent.com/kaabir/AdBlock_Hosts/master/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/kevle1/Xiaomi-Telemetry-Blocklist/master/xiaomiblock.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt' && sleep 1
@@ -281,7 +285,6 @@ if [ ! -e "$bwupdate"/dnslookup1.txt ]; then
     blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts1' && sleep 1
     blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts2' && sleep 1
     blurls 'https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts3' && sleep 1
-    blurls 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts' && sleep 1
     blurls 'https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt' && sleep 1
     blurls 'https://raw.githubusercontent.com/yous/YousList/master/youslist.txt' && sleep 1
     blurls 'https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts' && sleep 1
