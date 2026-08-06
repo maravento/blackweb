@@ -3,7 +3,7 @@
 #
 ################################################################################
 #
-# BlackShield (optlst)
+# Filter Pack (fpack)
 # File Extensions/Patterns/User-Agents to Block
 #
 # OVERVIEW
@@ -20,8 +20,8 @@
 # - web3/  : static web3 domain/TLD lists, not touched by this script.
 #
 # PIPELINE (in order)
-# 1. Download bad User-Agent list -> normalize -> append to
-#    ua/blockua.txt (deduplicated).
+# 1. Download bad User-Agent list -> normalize -> regenerate
+#    ua/blockua.txt (deduplicated, overwritten every run).
 # 2. Download multiple ransomware extension/pattern lists -> concatenate
 #    into a temporary source list.
 # 3. Normalize: keep ASCII-only lines, trim whitespace, drop empty lines,
@@ -32,7 +32,7 @@
 #    internal wildcards/whitespace). Anything else (bare filenames,
 #    multi-pattern lines separated by "/", lines with embedded spaces,
 #    [ID]/[KEY] placeholders, or entries containing unsafe regex/glob
-#    metacharacters [ ] @ { } ( ) ? ^) is discarded (the on-screen count
+#    metacharacters [ ] @ { } ( ) ? ^ | \) is discarded (the on-screen count
 #    is the lasting record).
 # 6. Apply rw/wl.txt as an exact-match administrator whitelist (entries
 #    removed verbatim).
@@ -66,9 +66,9 @@
 #   in step 7 if whitelisted here.
 #
 # NOTE on logging:
-# - Writes to blackshield.log (append-only, no rotation configured
+# - Writes to fpack.log (append-only, no rotation configured
 #   by this script). Set up logrotate for this file if disk usage matters.
-# - To clear it manually: truncate -s 0 blackshield.log
+# - To clear it manually: truncate -s 0 fpack.log
 #
 ################################################################################
 
@@ -76,7 +76,7 @@ set -uo pipefail
 
 # logging
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$SCRIPT_DIR/blackshield.log"
+log_file="$SCRIPT_DIR/fpack.log"
 log() {
     local msg="$1"
     echo "$(date '+%Y-%m-%d %H:%M:%S') $msg" | tee -a "$log_file" 2>/dev/null || true
@@ -105,10 +105,9 @@ for dep in wget grep sed gawk coreutils util-linux; do
 done
 
 # Start
-log "blackshield start..."
+log "fpack start..."
 
 ### VARIABLES
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
 SRC_DIR="rw"
@@ -125,8 +124,7 @@ wgetd='wget -q -c --retry-connrefused --timeout=10 --tries=4'
 
 # Bad User-Agents
 if $wgetd -O "${TMP_DIR}/bad-user-agents.list" "https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/refs/heads/master/_generator_lists/bad-user-agents.list"; then
-    sed -E 's/\\//g; s#/#-#g' "${TMP_DIR}/bad-user-agents.list" >> "${UA_DIR}/blockua.txt"
-    sort -o "${UA_DIR}/blockua.txt" -u "${UA_DIR}/blockua.txt"
+    sed -E 's/\\//g' "${TMP_DIR}/bad-user-agents.list" | sort -u > "${UA_DIR}/blockua.txt"
     log "Bad User-Agents for Squid: blockua.txt"
 else
     log "ERROR: failed to download bad-user-agents.list"
@@ -179,12 +177,13 @@ mv "${TMP_DIR}/normalized_lst2.txt" "${TMP_DIR}/normalized_lst.txt"
 # generate a dead rule.
 #
 # Entries containing other unescaped regex/glob metacharacters
-# ([ ] @ { } ( ) ? ^) are discarded as well: square brackets are character
-# classes (not literals) in Squid regex, '?' and '^' are active
-# wildcards/anchors, and '@'/'{'/'}'/'('/')' combined with brackets
-# produce malformed or unintended ACL rules, e.g.
-# "*.[attacker@tuta.io].kix" or "*.CROWN!?".
-UNSAFE_RE='\[[A-Za-z]*ID[A-Za-z_-]*\]|\[KEY\]|[][@{}()?^]'
+# ([ ] @ { } ( ) ? ^ | \) are discarded as well: square brackets are
+# character classes (not literals) in Squid regex, '?' and '^' are active
+# wildcards/anchors, '|' is an alternation that would turn one entry into
+# a match-anything rule, '\' escapes the next character, and '@'/'{'/'}'/
+# '('/')' combined with brackets produce malformed or unintended ACL
+# rules, e.g. "*.[attacker@tuta.io].kix" or "*.CROWN!?".
+UNSAFE_RE='\[[A-Za-z]*ID[A-Za-z_-]*\]|\[KEY\]|[][@{}()?^|\\]'
 grep -E '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" | grep -E -v "${UNSAFE_RE}" > "${TMP_DIR}/output_lst.txt" || true
 grep -E -v '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" > "${TMP_DIR}/discarded_lst.txt" || true
 grep -E '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" | grep -E "${UNSAFE_RE}" >> "${TMP_DIR}/discarded_lst.txt" || true
@@ -212,11 +211,11 @@ mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
 #   or attacker IDs, e.g. "*.NEED_TO_MAKE_THE_PAYMENT_IN_MAXIM_24_HOURS...")
 if [ -s "${SRC_DIR}/wl.txt" ]; then
     WL_EXTS=$(grep -v '^#' "${SRC_DIR}/wl.txt" | grep -v '^$' | sed 's/^\*\.//; s/[]^$.+*?{}()|[]/\\&/g' | paste -sd '|' -)
-    grep -iE -v "^\*\.(${WL_EXTS})\*?\$|^\*\.[^.]+\.(${WL_EXTS})\*?\$" "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
+    grep -iE -v "^\*\.(${WL_EXTS})\$|^\*\.[^.]+\.(${WL_EXTS})\$" "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
     mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
 fi
 
-awk '{seg=$0; sub(/^\*\./,"",seg); sub(/\*$/,"",seg); if (length(seg) <= 35) print}' "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
+awk '{seg=$0; sub(/^\*\./,"",seg); if (length(seg) <= 35) print}' "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
 mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
 
 # For Squid Extensions/Patterns
@@ -224,4 +223,4 @@ sed -E 's/^\*\.//; s/([][(){}+.$])/\\\1/g; s/^/\\./; s/(.*)/\1([a-zA-Z][0-9]*)?(
 log "Ransomware ACL for Squid: rwext.txt"
 
 # End
-log "blackshield done at: $(date)"
+log "fpack done at: $(date)"

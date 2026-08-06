@@ -166,7 +166,7 @@ EasyDL
 Ebingbong
 eCatch
 ECCP
-ECCP-1.0
+ECCP/1.0
 Ecxi
 EirGrabber
 EMail Siphon
@@ -190,7 +190,7 @@ FDM
 FemtosearchBot
 FHscan
 Fimap
-Firefox-7.0
+Firefox/7.0
 FlashGet
 Flunky
 Foobot
@@ -622,7 +622,7 @@ Voil
 Voltron
 voyagerx.com
 Wallpapers
-Wallpapers-3.0
+Wallpapers/3.0
 WallpapersHD
 WASALive-Bot
 WBSearchBot

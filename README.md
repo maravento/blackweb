@@ -30,19 +30,11 @@
 ### Optional (for `bwupdate.sh`)
 
 - Python 3.x, Bash 5.x
-- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `gawk`, `coreutils`
+- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `gawk`, `coreutils`, `util-linux`, `file`
 - Python module: `requests` (required by `domfilter.py`)
 
 ```bash
-apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils gawk coreutils python3-requests
-```
-
-### Optional (for `bwupdate/optlst/blackshield.sh`)
-
-- `wget`, `grep`, `sed`, `gawk`, `coreutils`, `util-linux`
-
-```bash
-apt install -y wget grep sed gawk coreutils util-linux
+apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils gawk coreutils python3-requests util-linux file
 ```
 
 ## DATA SHEET
@@ -446,7 +438,7 @@ http_access deny blackweb
 </table>
 
 ```bash
-wget -q -N https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/bwupdate.sh && chmod +x bwupdate.sh && ./bwupdate.sh
+git clone --depth=1 https://github.com/maravento/blackweb.git && cd blackweb/bwupdate && ./bwupdate.sh
 ```
 
 <table width="100%">
@@ -797,10 +789,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Both <code>bwupdate.sh</code> and <code>checksources.sh</code> generate a log file (<code>bwupdate.log</code> / <code>checksources.log</code>) in the same directory where they are executed.
+      Both <code>bwupdate.sh</code> and <code>checksources.sh</code> generate a log file (<code>bwupdate.log</code> / <code>checksources.log</code>) in the same directory as the script itself.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> y <code>checksources.sh</code> generan un archivo de log (<code>bwupdate.log</code> / <code>checksources.log</code>) en el mismo directorio donde se ejecutan.
+      <code>bwupdate.sh</code> y <code>checksources.sh</code> generan un archivo de log (<code>bwupdate.log</code> / <code>checksources.log</code>) en el mismo directorio donde reside el script.
     </td>
   </tr>
 </table>
@@ -824,86 +816,6 @@ Output:
         <li>Si usa <code>aufs</code>, cámbielo temporalmente a <code>ufs</code> durante la actualización, para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
         <li><code>bwupdate.sh</code> usa intencionalmente <code>--no-check-certificate</code> (wget) y <code>-k</code> (curl). Varias fuentes públicas de listas de bloqueo tienen problemas de certificado/SSL que impiden la descarga si se activa la verificación estricta. Es una decisión de diseño deliberada, no una vulnerabilidad pasada por alto.</li>
       </ul>
-    </td>
-  </tr>
-</table>
-
-#### Optional Lists (`optlst/`)
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate/optlst/</code> holds ACLs that are outside BlackWeb's core scope (domains/TLDs) but reuse its distribution: ransomware file extensions, malicious User-Agents, and static web3 lists. <code>blackshield.sh</code> generates the first two; web3 lists are curated by hand and not touched by the script.
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate/optlst/</code> contiene ACLs fuera del alcance principal de BlackWeb (dominios/TLDs) pero que reutilizan su distribución: extensiones de archivo de ransomware, User-Agents maliciosos y listas web3 estáticas. <code>blackshield.sh</code> genera las dos primeras; las listas web3 se curan a mano y el script no las toca.
-    </td>
-  </tr>
-</table>
-
-```
-bwupdate/optlst/
-├── blackshield.sh      # generates rw/rwext.txt and ua/blockua.txt
-├── rw/
-│   ├── rw.txt               # administrator ransomware blacklist (source)
-│   ├── wl.txt               # administrator ransomware whitelist (source)
-│   └── rwext.txt            # Squid url_regex ACL (generated)
-├── ua/
-│   └── blockua.txt          # Squid browser ACL for bad User-Agents (generated)
-└── web3/
-    ├── web3domains.txt      # Squid dstdomain ACL, web3/wallet domains (static)
-    └── web3tld.txt          # Squid dstdomain ACL, web3/wallet TLDs (static)
-```
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      <code>blackshield.sh</code> only produces Squid ACLs. Run it manually:
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      <code>blackshield.sh</code> solo produce ACLs para Squid. Se ejecuta manualmente:
-    </td>
-  </tr>
-</table>
-
-```bash
-cd bwupdate/optlst
-bash blackshield.sh
-```
-
-#### Blackshield Rules Summary
-
-```bash
-# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-
-# Block Rule for Ransomware Extensions/Patterns (Optional)
-# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/rw/rwext.txt
-acl block_ransomware urlpath_regex -i "/path_to/rwext.txt"
-http_access deny block_ransomware
-
-# Block Rule for web3 domains (Optional)
-# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/web3/web3domains.txt
-acl web3domains dstdomain "/path_to/web3domains.txt"
-http_access deny web3domains
-
-# Block Rule for web3 TLDs (Optional)
-# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/web3/web3tld.txt
-acl web3tld dstdomain "/path_to/web3tld.txt"
-http_access deny web3tld
-
-# Block Rule for User-Agents (Optional)
-# https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/optlst/ua/blockua.txt
-acl bad_useragents browser -i "/path_to/blockua.txt"
-http_access deny bad_useragents
-```
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      Run as a non-root user. Requires <code>wget grep sed gawk coreutils util-linux</code> (its own dependency set, smaller than <code>bwupdate.sh</code>'s). Log: <code>blackshield.log</code>, generated in <code>optlst/</code> (same rule as <a href="#log">Log</a> above — clear manually with <code>truncate -s 0 blackshield.log</code>).
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      Ejecutar como usuario no root. Requiere <code>wget grep sed gawk coreutils util-linux</code> (su propio set de dependencias, más chico que el de <code>bwupdate.sh</code>). Log: <code>blackshield.log</code>, generado en <code>optlst/</code> (misma regla que <a href="#log">Log</a> arriba — limpiar manualmente con <code>truncate -s 0 blackshield.log</code>).
     </td>
   </tr>
 </table>
@@ -1046,9 +958,289 @@ http_access deny bad_useragents
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
 - [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
 
-### WORKTOOLS
+## SUBPROJECTS
 
-- [Domain Filtering](https://github.com/maravento/vault/tree/master/dofi)
+---
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      BlackWeb's core is the domain/TLD blocklist (<code>blackweb.txt</code>, <code>bwupdate.sh</code>). The following are related subprojects, each with its own tooling and update flow.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      El núcleo de BlackWeb es la lista de bloqueo de dominios/TLDs (<code>blackweb.txt</code>, <code>bwupdate.sh</code>). Lo siguiente son subproyectos relacionados, cada uno con sus propias herramientas y flujo de actualización.
+    </td>
+  </tr>
+</table>
+
+### Filter Pack (fpack)
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack/</code> holds ACLs that are <b>optional and not part of BlackWeb's core flow</b> — <code>bwupdate.sh</code> never calls it. If interested, download the lists, run <code>fpack.sh</code>, and apply the Squid rules below yourself: ransomware file extensions, malicious User-Agents, and static web3 lists. <code>fpack.sh</code> generates the first two; web3 lists are curated by hand and not touched by the script.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack/</code> contiene ACLs <b>opcionales, fuera del flujo core de BlackWeb</b> — <code>bwupdate.sh</code> nunca lo invoca. Si te interesa, descarga las listas, corre <code>fpack.sh</code>, y aplica tú mismo las reglas de Squid de abajo: extensiones de archivo de ransomware, User-Agents maliciosos y listas web3 estáticas. <code>fpack.sh</code> genera las dos primeras; las listas web3 se curan a mano y el script no las toca.
+    </td>
+  </tr>
+</table>
+
+```
+fpack/
+├── fpack.sh              # generates rw/rwext.txt and ua/blockua.txt
+├── rw/
+│   ├── rw.txt               # administrator ransomware blacklist (source)
+│   ├── wl.txt               # administrator ransomware whitelist (source)
+│   └── rwext.txt            # Squid url_regex ACL (generated)
+├── ua/
+│   └── blockua.txt          # Squid browser ACL for bad User-Agents (generated)
+└── web3/
+    ├── web3domains.txt      # Squid dstdomain ACL, web3/wallet domains (static)
+    └── web3tld.txt          # Squid dstdomain ACL, web3/wallet TLDs (static)
+```
+
+#### Requirements
+
+- `wget`, `grep`, `sed`, `gawk`, `coreutils`, `util-linux`
+
+```bash
+apt install -y wget grep sed gawk coreutils util-linux
+```
+
+#### Download
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Either clone the whole BlackWeb repo, or download just the <code>fpack/</code> folder with <code>gitfolder.py</code> (same tool vault subprojects use):
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Clone todo el repo de BlackWeb, o descargue solo la carpeta <code>fpack/</code> con <code>gitfolder.py</code> (la misma herramienta que usan los subproyectos de vault):
+    </td>
+  </tr>
+</table>
+
+```bash
+# Option 1: full clone
+git clone --depth=1 https://github.com/maravento/blackweb.git
+cd blackweb/fpack
+
+# Option 2: folder-only download
+wget -qO gitfolder.py https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py
+chmod +x gitfolder.py
+python3 gitfolder.py https://github.com/maravento/blackweb/fpack
+cd fpack
+```
+
+#### Run
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack.sh</code> only produces Squid ACLs. Run it manually, as a non-root user — it is not scheduled by any installer:
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack.sh</code> solo produce ACLs para Squid. Se ejecuta manualmente, como usuario no root — ningún instalador la programa:
+    </td>
+  </tr>
+</table>
+
+```bash
+bash fpack.sh
+```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Log: <code>fpack.log</code>, generated in <code>fpack/</code> (same rule as <a href="#log">Log</a> above — clear manually with <code>truncate -s 0 fpack.log</code>).
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Log: <code>fpack.log</code>, generado en <code>fpack/</code> (misma regla que <a href="#log">Log</a> arriba — limpiar manualmente con <code>truncate -s 0 fpack.log</code>).
+    </td>
+  </tr>
+</table>
+
+#### Squid Rules
+
+```bash
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+
+# Block Rule for Ransomware Extensions/Patterns (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/fpack/rw/rwext.txt
+acl block_ransomware url_regex -i "/path_to/rwext.txt"
+http_access deny block_ransomware
+
+# Block Rule for web3 domains (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/fpack/web3/web3domains.txt
+acl web3domains dstdomain "/path_to/web3domains.txt"
+http_access deny web3domains
+
+# Block Rule for web3 TLDs (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/fpack/web3/web3tld.txt
+acl web3tld dstdomain "/path_to/web3tld.txt"
+http_access deny web3tld
+
+# Block Rule for User-Agents (Optional)
+# https://raw.githubusercontent.com/maravento/blackweb/master/fpack/ua/blockua.txt
+acl bad_useragents browser -i "/path_to/blockua.txt"
+http_access deny bad_useragents
+```
+
+---
+
+### Domain Filtering (DoFi)
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Domain Filtering — removes overlapping domains, validates TLDs, and checks domain existence via DNS. It's a <b>mandatory dependency of <code>bwupdate.sh</code></b> (called internally via <code>domfilter.py</code>; the update aborts if it fails) — but it can also be used as an <b>independent project</b> to process domain lists unrelated to BlackWeb:
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Filtrado de Dominios — elimina dominios superpuestos, valida TLDs y verifica existencia de dominios vía DNS. Es una <b>dependencia obligatoria de <code>bwupdate.sh</code></b> (se invoca internamente vía <code>domfilter.py</code>; la actualización aborta si falla) — pero también puede usarse como <b>proyecto independiente</b> para procesar listas de dominios ajenas a BlackWeb:
+    </td>
+  </tr>
+</table>
+
+```bash
+python3 domfilter.py --input mylst.txt
+```
+
+```
+dofi/
+├── domfilter.py         # Removes overlapping domains, validates TLDs
+└── domcheck.sh          # Checks domain existence with the host command
+```
+
+#### Requirements
+
+- Python 3.12.3, Bash 5.2.21
+- `python3-requests` (required by `domfilter.py`), `bind9-host`, `findutils`, `coreutils`, `util-linux` (required by `domcheck.sh`)
+
+```bash
+apt install -y python3 python3-requests bind9-host findutils coreutils util-linux
+```
+
+#### Download
+
+```bash
+# Option 1: full clone
+git clone --depth=1 https://github.com/maravento/blackweb.git
+cd blackweb/dofi
+
+# Option 2: folder-only download
+wget -qO gitfolder.py https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py
+chmod +x gitfolder.py
+python3 gitfolder.py https://github.com/maravento/blackweb/dofi
+cd dofi
+```
+
+#### Domain Filter
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Ensure the input list has no <code>http://</code>, <code>https://</code>, or <code>www.</code> prefixes. What it does:<br>
+      - Downloads public suffix TLDs from multiple sources.<br>
+      - Removes invalid or duplicate TLDs.<br>
+      - Filters domains to ensure they end with a valid TLD.<br>
+      - Removes overlapping domains.<br>
+      - Excludes duplicates from previously validated domains.<br>
+      - Outputs results to a file.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Asegúrese de que la lista de entrada no tenga prefijos <code>http://</code>, <code>https://</code> o <code>www.</code>. Qué hace:<br>
+      - Descarga TLD de sufijo público de varias fuentes.<br>
+      - Elimina TLD no válidos o duplicados.<br>
+      - Filtra dominios para garantizar que terminen con un TLD válido.<br>
+      - Elimina dominios superpuestos.<br>
+      - Excluye duplicados de dominios previamente validados.<br>
+      - Envía los resultados a un archivo.
+    </td>
+  </tr>
+</table>
+
+```bash
+python3 domfilter.py --input mylst.txt
+```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Replace <code>mylst.txt</code> with the name of your domain list. By default, output goes to <code>output.txt</code> and removed lines to <code>removed.txt</code> — customize with:
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Reemplace <code>mylst.txt</code> con el nombre de su lista de dominios. Por defecto, la salida va a <code>output.txt</code> y las líneas eliminadas a <code>removed.txt</code> — personalice con:
+    </td>
+  </tr>
+</table>
+
+```bash
+python3 domfilter.py --input mylst.txt --output outlst.txt --removed removelst.txt
+```
+
+TLD Includes: ccTLDs, gTLDs, sTLDs, eTLDs, and 4LDs (file: `tlds.txt`)
+
+#### Domains Check with Host Command
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Checks if each domain exists, using the <code>host</code> command, and cleans the input list, separating the output as follows:<br>
+      - <code>hit.txt</code>: existing domains from your list.<br>
+      - <code>fault.txt</code>: non-existent domains removed.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Verifica si cada dominio existe, con el comando <code>host</code>, y limpia la lista de entrada, separando la salida de la siguiente manera:<br>
+      - <code>hit.txt</code>: dominios existentes de su lista.<br>
+      - <code>fault.txt</code>: dominios inexistentes eliminados.
+    </td>
+  </tr>
+</table>
+
+```bash
+chmod +x domcheck.sh
+bash domcheck.sh my_domain_list.txt
+```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Replace <code>my_domain_list.txt</code> with your input list. Optional: replace <code>50</code> with the number of parallel processes (default: <code>nproc × 4</code>):
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Reemplace <code>my_domain_list.txt</code> con su lista de entrada. Opcional: reemplace <code>50</code> con el número de procesos paralelos (por defecto: <code>nproc × 4</code>):
+    </td>
+  </tr>
+</table>
+
+```bash
+bash domcheck.sh my_domain_list.txt 50
+```
+
+```bash
+2026-07-07 13:29:58 domcheck start...
+2026-07-07 13:29:58 Step 1...
+2026-07-07 13:30:17 OK
+2026-07-07 13:30:17 Step 2...
+2026-07-07 13:30:28 hit.txt: domains successfully resolved
+2026-07-07 13:30:28 fault.txt: unresolved domains
+2026-07-07 13:30:28 Summary:
+2026-07-07 13:30:28   Input domains : 7896
+2026-07-07 13:30:28   Resolved      : 7349
+2026-07-07 13:30:28   Unresolved    : 547
+2026-07-07 13:30:28   Elapsed time  : 30s
+2026-07-07 13:30:29 domcheck done at: mar 07 jul 2026 13:30:29 -05
+```
+
+#### Sources
+
+- [tlds-alpha-by-domain](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+- [tldsappx](https://github.com/maravento/blackweb/blob/master/bwupdate/lst/tldsappx.txt)
+- [public_suffix_list](https://github.com/publicsuffix/list/blob/master/public_suffix_list.dat)
+- [supported_gtlds](https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp)
+
+---
 
 ## BACKLINKS
 
