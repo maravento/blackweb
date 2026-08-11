@@ -331,10 +331,10 @@ https://www.google.com/search?q=mydomain
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>streaming.txt</code> to block streaming domains not included in <code>blackweb.txt</code> (for example: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
+      Use <code>streaming.txt</code> to block (or allow) streaming domains not included in <code>blackweb.txt</code> (for example: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Utilice <code>streaming.txt</code> para bloquear dominios de streaming no incluidos en <code>blackweb.txt</code> (por ejemplo: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
+      Utilice <code>streaming.txt</code> para bloquear (o permitir) dominios de streaming no incluidos en <code>blackweb.txt</code> (por ejemplo: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
     </td>
   </tr>
 </table>
@@ -370,6 +370,24 @@ http_access deny streaming
 
 # Block some Facebook streaming content
 .z-p3-video.flpb1-1.fna.fbcdn.net
+```
+
+##### AI (Optional)
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Use <code>ai.txt</code> to block (or allow) domains related to artificial intelligence AI.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Utilice <code>ai.txt</code> para bloquear (o permitir) dominios relacionados con inteligencia artificial IA.
+    </td>
+  </tr>
+</table>
+
+```bash
+acl ai dstdomain "/path_to/ai.txt"
+http_access deny ai
 ```
 
 #### Advanced Rules Summary
