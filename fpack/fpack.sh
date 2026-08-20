@@ -191,7 +191,8 @@ sort -u -o "${TMP_DIR}/discarded_lst.txt" "${TMP_DIR}/discarded_lst.txt"
 
 # Discarded lst
 if [ -s "${TMP_DIR}/discarded_lst.txt" ]; then
-    log "NOTE: $(wc -l < "${TMP_DIR}/discarded_lst.txt") entries discarded (unsupported pattern format)"
+    log "NOTE: $(wc -l < "${TMP_DIR}/discarded_lst.txt") "
+    log "NOTE: Entries discarded. Unsupported pattern format"
 fi
 
 # Apply administrator-defined whitelist (exact match exclusions)

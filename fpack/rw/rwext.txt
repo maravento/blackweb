@@ -586,6 +586,7 @@
 \.besub([a-zA-Z][0-9]*)?(\?.*)?$
 \.betarasite([a-zA-Z][0-9]*)?(\?.*)?$
 \.BetaSup([a-zA-Z][0-9]*)?(\?.*)?$
+\.betelgeuse([a-zA-Z][0-9]*)?(\?.*)?$
 \.betta([a-zA-Z][0-9]*)?(\?.*)?$
 \.better_call_saul([a-zA-Z][0-9]*)?(\?.*)?$
 \.bettercallsaul([a-zA-Z][0-9]*)?(\?.*)?$
@@ -1922,6 +1923,7 @@
 \.flat([a-zA-Z][0-9]*)?(\?.*)?$
 \.Flatcher3([a-zA-Z][0-9]*)?(\?.*)?$
 \.FLKR([a-zA-Z][0-9]*)?(\?.*)?$
+\.Flock([a-zA-Z][0-9]*)?(\?.*)?$
 \.flowencryption([a-zA-Z][0-9]*)?(\?.*)?$
 \.flowEncryption([a-zA-Z][0-9]*)?(\?.*)?$
 \.FLSCrypt([a-zA-Z][0-9]*)?(\?.*)?$
@@ -2674,6 +2676,7 @@
 \.Karmen([a-zA-Z][0-9]*)?(\?.*)?$
 \.karne([a-zA-Z][0-9]*)?(\?.*)?$
 \.Karo([a-zA-Z][0-9]*)?(\?.*)?$
+\.karrytech([a-zA-Z][0-9]*)?(\?.*)?$
 \.karsovrop([a-zA-Z][0-9]*)?(\?.*)?$
 \.Kasiski([a-zA-Z][0-9]*)?(\?.*)?$
 \.kasp([a-zA-Z][0-9]*)?(\?.*)?$
@@ -2739,6 +2742,7 @@
 \.KillRabbit([a-zA-Z][0-9]*)?(\?.*)?$
 \.kimchenyn([a-zA-Z][0-9]*)?(\?.*)?$
 \.kimcilware([a-zA-Z][0-9]*)?(\?.*)?$
+\.KIMO([a-zA-Z][0-9]*)?(\?.*)?$
 \.king([a-zA-Z][0-9]*)?(\?.*)?$
 \.king_ouroboros([a-zA-Z][0-9]*)?(\?.*)?$
 \.kiop([a-zA-Z][0-9]*)?(\?.*)?$

@@ -57,11 +57,13 @@ SQUID_CONF="/etc/squid/squid.conf"
 # http_access deny blackweb
 check_squid_acl() {
     if ! grep -qE '^[[:space:]]*acl[[:space:]]+blackweb[[:space:]]+dstdomain' "$SQUID_CONF"; then
-        log "ERROR: 'acl blackweb dstdomain' not found or commented out in $SQUID_CONF. Aborting."
+        log "ERROR: 'acl blackweb dstdomain' not found or commented out in $SQUID_CONF."
+        log "ERROR: Aborting."
         exit 1
     fi
     if ! grep -qE '^[[:space:]]*http_access[[:space:]]+deny[[:space:]]+blackweb' "$SQUID_CONF"; then
-        log "ERROR: 'http_access deny blackweb' not found or commented out in $SQUID_CONF. Aborting."
+        log "ERROR: 'http_access deny blackweb' not found or commented out in $SQUID_CONF."
+        log "ERROR: Aborting."
         exit 1
     fi
 }
