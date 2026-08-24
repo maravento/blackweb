@@ -19184,6 +19184,7 @@
 .allus.com.co
 .alterserv.com
 .altervista.org
+.amazon.com
 .amazonaws.cn
 .amazonaws.com
 .amazonaws.com.cn
