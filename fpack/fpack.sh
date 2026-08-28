@@ -84,7 +84,7 @@ log() {
 
 # check no-root
 if [ "$(id -u)" == "0" ]; then
-    log "[ERROR] This script should not be run as root."
+    log "ERROR: This script should not be run as root -- abort"
     exit 1
 fi
 
@@ -92,20 +92,42 @@ fi
 SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
 exec 200>"$SCRIPT_LOCK"
 if ! flock -n 200; then
-    log "[ERROR] Script $(basename "$0") is already running"
+    log "ERROR: script $(basename "$0") is already running -- abort"
     exit 1
 fi
 
 # DEPENDENCIES
-for dep in wget grep sed gawk coreutils util-linux; do
+for dep in wget grep sed coreutils util-linux; do
     if ! dpkg -s "$dep" &>/dev/null; then
-        log "[ERROR] Required dependency '$dep' is not installed."
+        log "ERROR: dependency '$dep' is not installed -- abort"
         exit 1
     fi
 done
 
 # Start
 log "fpack start..."
+
+# CHECK INTERNET
+check_internet() {
+    local max_attempts="${1:-24}" attempt=1
+
+    while (( attempt <= max_attempts )); do
+        if getent hosts www.google.com >/dev/null 2>&1; then
+            log "INFO: internet is available"
+            return 0
+        fi
+        log "INFO: waiting for internet ($attempt/$max_attempts)"
+        attempt=$((attempt + 1))
+        sleep 5
+    done
+
+    return 1
+}
+
+if ! check_internet; then
+    log "ERROR: no internet connection -- abort"
+    exit 1
+fi
 
 ### VARIABLES
 cd "$SCRIPT_DIR"

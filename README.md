@@ -302,9 +302,9 @@ ASCII Output:
 
 ```bash
 # Example: Download ACL:
-sudo wget -P /etc/acl/acl_squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/acl_squid/blockpatterns.txt
+sudo wget -P /etc/acl/squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
 # Squid Rule to Block Patterns (change path):
-acl blockwords url_regex -i "/etc/acl/acl_squid/blockpatterns.txt"
+acl blockwords url_regex -i "/etc/acl/squid/blockpatterns.txt"
 http_access deny blockpatterns
 ```
 
@@ -414,7 +414,7 @@ acl blockdomains dstdomain "/path_to/blockdomains.txt"
 http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/acl_squid/blockpatterns.txt
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
 acl blockwords url_regex -i "/path_to/blockpatterns.txt"
 http_access deny blockpatterns
 
@@ -1008,8 +1008,8 @@ fpack/
 ├── fpack.sh              # generates rw/rwext.txt and ua/blockua.txt
 ├── rw/
 │   ├── rw.txt               # administrator ransomware blacklist (source)
-│   ├── wl.txt               # administrator ransomware whitelist (source)
-│   └── rwext.txt            # Squid url_regex ACL (generated)
+│   ├── rwext.txt            # Squid url_regex ACL (generated)
+│   └── wl.txt               # administrator ransomware whitelist (source)
 ├── ua/
 │   └── blockua.txt          # Squid browser ACL for bad User-Agents (generated)
 └── web3/
@@ -1125,8 +1125,8 @@ python3 domfilter.py --input mylst.txt
 
 ```
 dofi/
-├── domfilter.py         # Removes overlapping domains, validates TLDs
-└── domcheck.sh          # Checks domain existence with the host command
+├── domcheck.sh          # Checks domain existence with the host command
+└── domfilter.py         # Removes overlapping domains, validates TLDs
 ```
 
 #### Requirements

@@ -103,6 +103,7 @@ clark-crawler
 ClaudeBot
 Cliqzbot
 Cloud mapping
+CMS-Security-Auditor
 coccocbot
 Cocolyzebot
 CODE87

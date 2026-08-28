@@ -30,7 +30,7 @@ log() {
 
 # check no-root
 if [ "$(id -u)" == "0" ]; then
-    log "[ERROR] This script should not be run as root."
+    log "ERROR: This script should not be run as root -- abort"
     exit 1
 fi
 
@@ -38,18 +38,20 @@ fi
 SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
 exec 200>"$SCRIPT_LOCK"
 if ! flock -n 200; then
-    log "Script $(basename "$0") is already running"
+    log "ERROR: script $(basename "$0") is already running -- abort"
     exit 1
 fi
 
 # DEPENDENCIES
 for dep in bind9-host findutils coreutils util-linux; do
     if ! dpkg -s "$dep" &>/dev/null; then
-        log "[ERROR] Required dependency '$dep' is not installed."
+        log "ERROR: dependency '$dep' is not installed -- abort"
         exit 1
     fi
 done
 
+# VALIDATION -- integer only; use directly with =~
+_UH_UINT='^(0|[1-9][0-9]*)$'
 # parallel_processes
 if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
     log "Use: $0 <file_name> [parallel_processes]"
@@ -59,7 +61,7 @@ fi
 infile="$1"
 
 if [ "$#" -eq 2 ]; then
-    if ! [[ "$2" =~ ^[0-9]+$ ]] || [ "$2" -lt 1 ]; then
+    if ! [[ "$2" =~ $_UH_UINT ]] || [ "$2" -lt 1 ]; then
         log "Error: parallel_processes must be a positive integer."
         exit 1
     fi
