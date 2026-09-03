@@ -15,12 +15,15 @@
 
 set -uo pipefail
 
+# ------------------------------------------------------------------------------
+# REQUIREMENTS
+# ------------------------------------------------------------------------------
+
 # logging
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$SCRIPT_DIR/checksources.log"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_file="$script_dir/checksources.log"
 log() {
-    local msg="$1"
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $msg" | tee -a "$log_file" 2>/dev/null || true
+    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
 # check no-root
@@ -30,24 +33,22 @@ if [ "$(id -u)" == "0" ]; then
 fi
 
 # prevent overlapping runs
-SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
-exec 200>"$SCRIPT_LOCK"
+script_lock="/var/lock/$(basename "$0" .sh).lock"
+exec 200>"$script_lock"
 if ! flock -n 200; then
     log "ERROR: script $(basename "$0") is already running -- abort"
     exit 1
 fi
 
-# DEPENDENCIES
-for dep in wget tar util-linux; do
-    if ! dpkg -s "$dep" &>/dev/null; then
-        log "ERROR: dependency '$dep' is not installed -- abort"
+# dependencies
+for dep_pkg in wget tar util-linux; do
+    if ! dpkg -s "$dep_pkg" &>/dev/null; then
+        log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
     fi
 done
 
-log "checksources start..."
-
-# CHECK INTERNET
+# check internet
 check_internet() {
     local max_attempts="${1:-24}" attempt=1
 
@@ -69,112 +70,118 @@ if ! check_internet; then
     exit 1
 fi
 
-wgetd='wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
+log "checksources start..."
 
-# Temporary working directory
-if [ -d downloaded_lists ] && [ -n "$(ls -A downloaded_lists 2>/dev/null)" ]; then
-    echo
-    echo "=== Check Sources ==="
-    echo "[?] Existing downloaded lists found."
-    echo "    1) Search only (reuse existing lists)"
-    echo "    2) Re-download all lists"
-    echo "    3) Exit"
-    read -p "Choose an option [1/2/3]: " menu_opt
-    echo
-    if [[ "$menu_opt" == "3" ]]; then
-        log "[!] Cancelled by user. Exiting."
-        exit 0
-    elif [[ "$menu_opt" == "2" ]]; then
-        rm -rf downloaded_lists >/dev/null 2>&1
-        mkdir -p downloaded_lists
-    elif [[ "$menu_opt" != "1" ]]; then
-        log "ERROR: Invalid option."
-        exit 1
-    fi
-else
+# ------------------------------------------------------------------------------
+# VARIABLES
+# ------------------------------------------------------------------------------
+
+wget_opts='wget -q -c --show-progress --no-check-certificate --retry-connrefused --timeout=10 --tries=4'
+
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+
+download_lists() {
     rm -rf downloaded_lists >/dev/null 2>&1
-    mkdir -p downloaded_lists
-fi
+    mkdir -p downloaded_lists/lists
 
-if [[ "$menu_opt" != "1" ]]; then
-    # Download bwupdate.sh
     log "[*] Downloading source list..."
-    $wgetd -O downloaded_lists/bwupdate_src.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
+    $wget_opts -O downloaded_lists/bwupdate_src.sh https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh
 
-    # Extract URLs from # SOURCES block
     log "[*] Extracting URLs..."
-    sed -n '/# SOURCES/,/# END_SOURCES/p' downloaded_lists/bwupdate_src.sh | \
+    sed -n '/# SOURCES_START/,/# SOURCES_END/p' downloaded_lists/bwupdate_src.sh | \
     grep -E "^[[:space:]]*blurls '" | \
-    sed -E "s/^.*blurls '//; s/' && sleep 1.*$//" > urls.txt
+    sed -E "s/^.*blurls '//; s/' && sleep 1.*$//" > downloaded_lists/urls.txt
 
-    # Manually add special tar.gz URL
-    echo "http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz" >> urls.txt
+    echo "http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz" >> downloaded_lists/urls.txt
 
-    # Download each list
     log "[*] Downloading lists..."
-    while IFS= read -r url; do
-        filename=$(echo "$url" | sed -E 's~https?://~~; s~/~-~g')
-        log "[+] Downloading: $filename"
-        if ! $wgetd -O "downloaded_lists/$filename" "$url"; then
-            log "[!] Download failed, skipping: $url"
+    while IFS= read -r source_url; do
+        download_file=$(echo "$source_url" | sed -E 's~https?://~~; s~/~-~g')
+        log "[+] Downloading: $download_file"
+        if ! $wget_opts -O "downloaded_lists/lists/$download_file" "$source_url"; then
+            log "[!] Download failed, skipping: $source_url"
             continue
         fi
 
-        # If it's a .tar.gz file, extract it into its own subfolder
-        if [[ "$filename" == *.tar.gz ]]; then
-            log "[*] Extracting: $filename"
-            extract_dir="downloaded_lists/${filename%.tar.gz}_extracted"
+        if [[ "$download_file" == *.tar.gz ]]; then
+            log "[*] Extracting: $download_file"
+            extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
             mkdir -p "$extract_dir"
-            if tar -xzf "downloaded_lists/$filename" -C "$extract_dir"; then
-                rm -f "downloaded_lists/$filename"
+            if tar -xzf "downloaded_lists/lists/$download_file" -C "$extract_dir"; then
+                rm -f "downloaded_lists/lists/$download_file"
             else
-                log "[!] Extraction failed, keeping: $filename"
+                log "[!] Extraction failed, keeping: $download_file"
             fi
         fi
-    done < urls.txt
+    done < downloaded_lists/urls.txt
+}
+
+search_lists() {
+    while true; do
+        read -r -p "[?] Enter domain to search, or 'q' to quit (e.g: kickass.to): " search_domain
+        echo
+        if [[ "$search_domain" == "q" ]] || [[ -z "$search_domain" ]]; then
+            return 0
+        fi
+        if ! echo "$search_domain" | grep -qP '^[a-zA-Z0-9._-]+$'; then
+            log "[!] Invalid domain format. Try again."
+            continue
+        fi
+        break
+    done
+
+    log "[*] Searching for '$search_domain'..."
+    domain_found=0
+    while IFS= read -r source_url; do
+        download_file=$(echo "$source_url" | sed -E 's~https?://~~; s~/~-~g')
+        if [[ "$download_file" == *.tar.gz ]]; then
+            extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
+            if [ -d "$extract_dir" ] && grep -rqiE "^${search_domain}$" "$extract_dir" 2>/dev/null; then
+                log "[+] Domain found in: $source_url (extracted)"
+                domain_found=1
+            fi
+        else
+            if grep -qiE "^${search_domain}$" "downloaded_lists/lists/$download_file" 2>/dev/null; then
+                log "[+] Domain found in: $source_url"
+                domain_found=1
+            fi
+        fi
+    done < downloaded_lists/urls.txt
+
+    if [[ $domain_found -eq 0 ]]; then
+        log "[!] Domain not found."
+    fi
+
+    echo
+    read -r -p "Press Enter to return to the menu... "
+}
+
+if [ ! -d downloaded_lists/lists ] || [ -z "$(ls -A downloaded_lists/lists 2>/dev/null)" ]; then
+    download_lists
 fi
 
-echo
-# Ask for domain (retry on empty/invalid input instead of discarding the downloads)
 while true; do
-    read -p "[?] Enter domain to search, or 'q' to quit (e.g: kickass.to): " domain
     echo
-    if [[ "$domain" == "q" ]]; then
-        log "[!] Cancelled by user. Exiting."
-        exit 0
-    fi
-    if [[ -z "$domain" ]]; then
-        log "[!] No domain entered. Try again."
-        continue
-    fi
-    if ! echo "$domain" | grep -qP '^[a-zA-Z0-9._-]+$'; then
-        log "[!] Invalid domain format. Try again."
-        continue
-    fi
-    break
+    echo "=== Check Sources ==="
+    echo "    1) Search domain"
+    echo "    2) Download all lists again"
+    echo "    3) Exit"
+    read -r -p "Choose an option [1/2/3]: " menu_opt
+    echo
+    case "$menu_opt" in
+        1) search_lists ;;
+        2) download_lists ;;
+        3) log "[!] Cancelled by user. Exiting."
+           break ;;
+        "") ;;
+        *) log "ERROR: Invalid option." ;;
+    esac
 done
 
-# Search for domain in all files
-log "[*] Searching for '$domain'..."
-found=0
-while IFS= read -r url; do
-    filename=$(echo "$url" | sed -E 's~https?://~~; s~/~-~g')
-    if [[ "$filename" == *.tar.gz ]]; then
-        extract_dir="downloaded_lists/${filename%.tar.gz}_extracted"
-        if [ -d "$extract_dir" ] && grep -rqiE "^${domain}$" "$extract_dir" 2>/dev/null; then
-            log "[+] Domain found in: $url (extracted)"
-            found=1
-        fi
-    else
-        if grep -qiE "^${domain}$" "downloaded_lists/$filename" 2>/dev/null; then
-            log "[+] Domain found in: $url"
-            found=1
-        fi
-    fi
-done < urls.txt
-
-if [[ $found -eq 0 ]]; then
-    log "[!] Domain not found."
-fi
+# ------------------------------------------------------------------------------
+# END
+# ------------------------------------------------------------------------------
 
 log "checksources done at: $(date)"

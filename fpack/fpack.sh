@@ -74,12 +74,15 @@
 
 set -uo pipefail
 
+# ------------------------------------------------------------------------------
+# REQUIREMENTS
+# ------------------------------------------------------------------------------
+
 # logging
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$SCRIPT_DIR/fpack.log"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_file="$script_dir/fpack.log"
 log() {
-    local msg="$1"
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $msg" | tee -a "$log_file" 2>/dev/null || true
+    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
 # check no-root
@@ -89,25 +92,22 @@ if [ "$(id -u)" == "0" ]; then
 fi
 
 # prevent overlapping runs
-SCRIPT_LOCK="/var/lock/$(basename "$0" .sh).lock"
-exec 200>"$SCRIPT_LOCK"
+script_lock="/var/lock/$(basename "$0" .sh).lock"
+exec 200>"$script_lock"
 if ! flock -n 200; then
     log "ERROR: script $(basename "$0") is already running -- abort"
     exit 1
 fi
 
-# DEPENDENCIES
-for dep in wget grep sed coreutils util-linux; do
-    if ! dpkg -s "$dep" &>/dev/null; then
-        log "ERROR: dependency '$dep' is not installed -- abort"
+# dependencies
+for dep_pkg in wget grep sed coreutils util-linux; do
+    if ! dpkg -s "$dep_pkg" &>/dev/null; then
+        log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
     fi
 done
 
-# Start
-log "fpack start..."
-
-# CHECK INTERNET
+# check internet
 check_internet() {
     local max_attempts="${1:-24}" attempt=1
 
@@ -129,34 +129,44 @@ if ! check_internet; then
     exit 1
 fi
 
-### VARIABLES
-cd "$SCRIPT_DIR"
+# Start
+log "fpack start..."
 
-SRC_DIR="rw"
-UA_DIR="ua"
+# ------------------------------------------------------------------------------
+# VARIABLES
+# ------------------------------------------------------------------------------
 
-TMP_DIR=$(mktemp -d)
-trap '[ -n "$TMP_DIR" ] && rm -rf "$TMP_DIR"' EXIT
+cd "$script_dir"
+
+src_dir="rw"
+ua_dir="ua"
+
+tmp_dir=$(mktemp -d)
+trap '[ -n "$tmp_dir" ] && rm -rf "$tmp_dir"' EXIT
 
 # Unique scratch file per run/invocation, so overlapping executions (e.g.
 # cron overlap) never write to the same intermediate path.
-TMP_FILE=$(mktemp "${TMP_DIR}/output_lst.XXXXXX")
+tmp_file=$(mktemp "${tmp_dir}/output_lst.XXXXXX")
 
-wgetd='wget -q -c --retry-connrefused --timeout=10 --tries=4'
+wget_opts='wget -q -c --retry-connrefused --timeout=10 --tries=4'
 
-# Bad User-Agents
-if $wgetd -O "${TMP_DIR}/bad-user-agents.list" "https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/refs/heads/master/_generator_lists/bad-user-agents.list"; then
-    sed -E 's/\\//g' "${TMP_DIR}/bad-user-agents.list" | sort -u > "${UA_DIR}/blockua.txt"
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+
+# bad User-Agents
+if $wget_opts -O "${tmp_dir}/bad-user-agents.list" "https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/refs/heads/master/_generator_lists/bad-user-agents.list"; then
+    sed -E 's/\\//g' "${tmp_dir}/bad-user-agents.list" | sort -u > "${ua_dir}/blockua.txt"
     log "Bad User-Agents for Squid: blockua.txt"
 else
     log "ERROR: failed to download bad-user-agents.list"
 fi
 
-: > "${TMP_DIR}/source_lst.txt"
+: > "${tmp_dir}/source_lst.txt"
 
-# Ransomware
-function rw() {
-    if $wgetd "$1" -O - >> "${TMP_DIR}/source_lst.txt"; then
+# ransomware
+rw() {
+    if $wget_opts "$1" -O - >> "${tmp_dir}/source_lst.txt"; then
         return 0
     else
         log "ERROR: $1"
@@ -169,12 +179,12 @@ rw 'https://raw.githubusercontent.com/giacomoarru/ransomware-extensions-2024/ref
 #rw 'https://raw.githubusercontent.com/kinomakino/ransomware_file_extensions/master/extensions.csv' && sleep 1 || true
 rw 'https://raw.githubusercontent.com/nspoab/malicious_extensions/refs/heads/main/list1' && sleep 1 || true
 
-if [ -s "${SRC_DIR}/rw.txt" ]; then
-    cat "${SRC_DIR}/rw.txt" >> "${TMP_DIR}/source_lst.txt"
+if [ -s "${src_dir}/rw.txt" ]; then
+    cat "${src_dir}/rw.txt" >> "${tmp_dir}/source_lst.txt"
 fi
 
-# Normalize raw entries: keep only ASCII, trim whitespace, drop empty lines
-LC_ALL=C grep -v '[^[:print:][:space:]]' "${TMP_DIR}/source_lst.txt" | sed -E 's/[[:space:]]+$//; s/^[[:space:]]+//' | sed '/^$/d' | sort -u > "${TMP_DIR}/normalized_lst.txt"
+# normalize raw entries: keep only ASCII, trim whitespace, drop empty lines
+LC_ALL=C grep -v '[^[:print:][:space:]]' "${tmp_dir}/source_lst.txt" | sed -E 's/[[:space:]]+$//; s/^[[:space:]]+//' | sed '/^$/d' | sort -u > "${tmp_dir}/normalized_lst.txt"
 
 # Treat "ext", ".ext", "_ext", "-ext", "*ext" and "*.ext" as the same idea:
 # normalize all to "*.ext"
@@ -183,8 +193,8 @@ LC_ALL=C grep -v '[^[:print:][:space:]]' "${TMP_DIR}/source_lst.txt" | sed -E 's
 # - "_ext"/"-ext" (leading underscore/hyphen)   -> "*._ext" / "*.-ext"
 # - "*ext"  (leading wildcard, missing the dot) -> "*.ext"
 # - "*.ext" (already correct)                   -> unchanged
-sed -E 's/^([a-zA-Z0-9][^*[:space:]]*)$/*.\1/; s/^\.([^*[:space:]]*)$/*.\1/; s/^([_-][^*[:space:]]*)$/*.\1/; s/^\*([^.*[:space:]][^*[:space:]]*)$/*.\1/' "${TMP_DIR}/normalized_lst.txt" | sort -u > "${TMP_DIR}/normalized_lst2.txt"
-mv "${TMP_DIR}/normalized_lst2.txt" "${TMP_DIR}/normalized_lst.txt"
+sed -E 's/^([a-zA-Z0-9][^*[:space:]]*)$/*.\1/; s/^\.([^*[:space:]]*)$/*.\1/; s/^([_-][^*[:space:]]*)$/*.\1/; s/^\*([^.*[:space:]][^*[:space:]]*)$/*.\1/' "${tmp_dir}/normalized_lst.txt" | sort -u > "${tmp_dir}/normalized_lst2.txt"
+mv "${tmp_dir}/normalized_lst2.txt" "${tmp_dir}/normalized_lst.txt"
 
 # Keep only simple "*.ext" patterns (single leading wildcard, no internal
 # wildcards or whitespace). Anything else (bare filenames, multi-wildcard
@@ -205,25 +215,25 @@ mv "${TMP_DIR}/normalized_lst2.txt" "${TMP_DIR}/normalized_lst.txt"
 # a match-anything rule, '\' escapes the next character, and '@'/'{'/'}'/
 # '('/')' combined with brackets produce malformed or unintended ACL
 # rules, e.g. "*.[attacker@tuta.io].kix" or "*.CROWN!?".
-UNSAFE_RE='\[[A-Za-z]*ID[A-Za-z_-]*\]|\[KEY\]|[][@{}()?^|\\]'
-grep -E '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" | grep -E -v "${UNSAFE_RE}" > "${TMP_DIR}/output_lst.txt" || true
-grep -E -v '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" > "${TMP_DIR}/discarded_lst.txt" || true
-grep -E '^\*\.[^*[:space:]]+$' "${TMP_DIR}/normalized_lst.txt" | grep -E "${UNSAFE_RE}" >> "${TMP_DIR}/discarded_lst.txt" || true
-sort -u -o "${TMP_DIR}/discarded_lst.txt" "${TMP_DIR}/discarded_lst.txt"
+unsafe_pattern='\[[A-Za-z]*ID[A-Za-z_-]*\]|\[KEY\]|[][@{}()?^|\\]'
+grep -E '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" | grep -E -v "${unsafe_pattern}" > "${tmp_dir}/output_lst.txt" || true
+grep -E -v '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" > "${tmp_dir}/discarded_lst.txt" || true
+grep -E '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" | grep -E "${unsafe_pattern}" >> "${tmp_dir}/discarded_lst.txt" || true
+sort -u -o "${tmp_dir}/discarded_lst.txt" "${tmp_dir}/discarded_lst.txt"
 
 # Discarded lst
-if [ -s "${TMP_DIR}/discarded_lst.txt" ]; then
-    log "NOTE: $(wc -l < "${TMP_DIR}/discarded_lst.txt") "
+if [ -s "${tmp_dir}/discarded_lst.txt" ]; then
+    log "NOTE: $(wc -l < "${tmp_dir}/discarded_lst.txt") "
     log "NOTE: Entries discarded. Unsupported pattern format"
 fi
 
 # Apply administrator-defined whitelist (exact match exclusions)
-if [ -s "${SRC_DIR}/wl.txt" ]; then
-    grep -Fivx -f "${SRC_DIR}/wl.txt" "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
+if [ -s "${src_dir}/wl.txt" ]; then
+    grep -Fivx -f "${src_dir}/wl.txt" "${tmp_dir}/output_lst.txt" > "$tmp_file"
 else
-    cp "${TMP_DIR}/output_lst.txt" "$TMP_FILE"
+    cp "${tmp_dir}/output_lst.txt" "$tmp_file"
 fi
-mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
+mv "$tmp_file" "${tmp_dir}/output_lst.txt"
 
 # Discard entries that look like ransom-note filenames rather than real
 # encryption extensions:
@@ -232,18 +242,21 @@ mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
 #   e.g. "*.DATA_RECOVERY.html", "*.README.txt"
 # - the extension segment itself is implausibly long (ransom note names
 #   or attacker IDs, e.g. "*.NEED_TO_MAKE_THE_PAYMENT_IN_MAXIM_24_HOURS...")
-if [ -s "${SRC_DIR}/wl.txt" ]; then
-    WL_EXTS=$(grep -v '^#' "${SRC_DIR}/wl.txt" | grep -v '^$' | sed 's/^\*\.//; s/[]^$.+*?{}()|[]/\\&/g' | paste -sd '|' -)
-    grep -iE -v "^\*\.(${WL_EXTS})\$|^\*\.[^.]+\.(${WL_EXTS})\$" "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
-    mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
+if [ -s "${src_dir}/wl.txt" ]; then
+    wl_extensions=$(grep -v '^#' "${src_dir}/wl.txt" | grep -v '^$' | sed 's/^\*\.//; s/[]^$.+*?{}()|[]/\\&/g' | paste -sd '|' -)
+    grep -iE -v "^\*\.(${wl_extensions})\$|^\*\.[^.]+\.(${wl_extensions})\$" "${tmp_dir}/output_lst.txt" > "$tmp_file"
+    mv "$tmp_file" "${tmp_dir}/output_lst.txt"
 fi
 
-awk '{seg=$0; sub(/^\*\./,"",seg); if (length(seg) <= 35) print}' "${TMP_DIR}/output_lst.txt" > "$TMP_FILE"
-mv "$TMP_FILE" "${TMP_DIR}/output_lst.txt"
+awk '{seg=$0; sub(/^\*\./,"",seg); if (length(seg) <= 35) print}' "${tmp_dir}/output_lst.txt" > "$tmp_file"
+mv "$tmp_file" "${tmp_dir}/output_lst.txt"
 
 # For Squid Extensions/Patterns
-sed -E 's/^\*\.//; s/([][(){}+.$])/\\\1/g; s/^/\\./; s/(.*)/\1([a-zA-Z][0-9]*)?(\\?.*)?$/' "${TMP_DIR}/output_lst.txt" | sort -u > "${SRC_DIR}/rwext.txt"
+sed -E 's/^\*\.//; s/([][(){}+.$])/\\\1/g; s/^/\\./; s/(.*)/\1([a-zA-Z][0-9]*)?(\\?.*)?$/' "${tmp_dir}/output_lst.txt" | sort -u > "${src_dir}/rwext.txt"
 log "Ransomware ACL for Squid: rwext.txt"
 
-# End
+# ------------------------------------------------------------------------------
+# END
+# ------------------------------------------------------------------------------
+
 log "fpack done at: $(date)"

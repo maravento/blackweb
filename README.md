@@ -18,6 +18,10 @@
   </tr>
 </table>
 
+### Architecture
+
+📐 [Runtime Architecture Diagram](https://htmlpreview.github.io/?https://raw.githubusercontent.com/maravento/blackweb/master/docs/blackweb-architecture.html) — visual walkthrough of the update/enforcement pipeline.
+
 ## Requirements
 
 ---
@@ -1256,6 +1260,11 @@ bash domcheck.sh my_domain_list.txt 50
 - [tldsappx](https://github.com/maravento/blackweb/blob/master/bwupdate/lst/tldsappx.txt)
 - [public_suffix_list](https://github.com/publicsuffix/list/blob/master/public_suffix_list.dat)
 - [supported_gtlds](https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp)
+
+### WORKTOOLS
+
+- [Archify](https://github.com/tt-a1i/archify)
+- [gitfolder.py](https://github.com/maravento/vault/blob/master/scripts/python/gitfolder.py)
 
 ---
 
