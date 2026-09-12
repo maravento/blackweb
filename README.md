@@ -22,22 +22,22 @@
 
 📐 [Runtime Architecture Diagram](https://htmlpreview.github.io/?https://raw.githubusercontent.com/maravento/blackweb/master/docs/blackweb-architecture.html) — visual walkthrough of the update/enforcement pipeline.
 
-## Requirements
+## REQUIREMENTS
 
 ---
 
-**⚠️ WARNING:** Only tested on Ubuntu 24.04 LTS. Other versions or distros not tested, use at your own risk.
+**⚠️ WARNING:** Only tested on Ubuntu 24.04 LTS. Other versions or distributions are not tested and are used at your own risk.
 
 - `squid`
 
 ### Optional (for `bwupdate.sh`)
 
 - Python 3.x, Bash 5.x
-- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `gawk`, `coreutils`, `util-linux`, `file`
+- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `file`, `libc-bin`, `sudo`
 - Python module: `requests` (required by `domfilter.py`)
 
 ```bash
-apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils gawk coreutils python3-requests util-linux file
+apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo
 ```
 
 ## DATA SHEET
@@ -63,10 +63,10 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <code>blackweb.txt</code> is already updated and optimized for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Download it and unzip it in the path of your preference and activate the <a href="#blackweb-rule-for-squid-cache">Squid-Cache Rule</a>.
+      <code>blackweb.txt</code> is already updated and optimized for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Download it and unzip it in the path of your preference and activate the <b>BlackWeb Rule for Squid-Cache</b>.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>blackweb.txt</code> ya viene actualizada y optimizada para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Descárguela y descomprímala en la ruta de su preferencia y active la <a href="#blackweb-rule-for-squid-cache">Regla de Squid-Cache</a>.
+      <code>blackweb.txt</code> ya viene actualizada y optimizada para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Descárguela y descomprímala en la ruta de su preferencia y active la <b>BlackWeb Rule for Squid-Cache</b>.
     </td>
   </tr>
 </table>
@@ -512,10 +512,10 @@ echo "Done"
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Capture domains from downloaded public blocklists (see <a href="#sources">SOURCES</a>) and unify them in a single file.
+      Capture domains from downloaded public blocklists (see <b>SOURCES</b>) and unify them in a single file.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Captura los dominios de las listas de bloqueo públicas descargadas (ver <a href="#sources">FUENTES</a>) y las unifica en un solo archivo.
+      Captura los dominios de las listas de bloqueo públicas descargadas (ver <b>SOURCES</b>) y las unifica en un solo archivo.
     </td>
   </tr>
 </table>
@@ -705,10 +705,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Most of the <a href="#sources">SOURCES</a> contain millions of invalid or nonexistent domains, so each domain is double-checked via DNS (in 2 steps) to exclude those entries from Blackweb. This process is performed in parallel and can be resource-intensive, depending on your hardware and network conditions. You can control concurrency with the <code>PROCS</code> variable:
+      Most of the <b>SOURCES</b> contain millions of invalid or nonexistent domains, so each domain is double-checked via DNS (in 2 steps) to exclude those entries from Blackweb. This process is performed in parallel and can be resource-intensive, depending on your hardware and network conditions. You can control concurrency with the <code>PROCS</code> variable:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      La mayoría de las <a href="#sources">FUENTES</a> contienen millones de dominios inválidos o inexistentes, por lo que cada dominio se verifica mediante DNS (en dos pasos) para excluir esas entradas de Blackweb. Este proceso se realiza en paralelo y puede consumir muchos recursos, dependiendo del hardware y las condiciones de la red. Puede controlar la concurrencia con la variable <code>PROCS</code>:
+      La mayoría de las <b>SOURCES</b> contienen millones de dominios inválidos o inexistentes, por lo que cada dominio se verifica mediante DNS (en dos pasos) para excluir esas entradas de Blackweb. Este proceso se realiza en paralelo y puede consumir muchos recursos, dependiendo del hardware y las condiciones de la red. Puede controlar la concurrencia con la variable <code>PROCS</code>:
     </td>
   </tr>
 </table>
@@ -818,6 +818,16 @@ Output:
   </tr>
 </table>
 
+#### Download Status
+
+| Tag | Shows | English | Español |
+|---|---|---|---|
+| `SAVED:` | File name | The transfer completed and the file was written | La transferencia terminó completa y el archivo quedó escrito |
+| `PARTIAL:` | Full URL | The download started and was cut off before finishing | La descarga arrancó y se cortó antes de terminar |
+| `BUSY:` | Full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió 5xx: está activo pero no sirve la lista en ese momento |
+| `TIMEOUT:` | Full URL | The server did not answer at all | El servidor no respondió nada |
+| `BROKEN:` | Full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: URL rota o inexistente |
+
 #### Important about BlackWeb Update
 
 <table width="100%">
@@ -825,7 +835,7 @@ Output:
     <td style="width: 50%; vertical-align: top;">
       <ul>
         <li>The default path of BlackWeb is <code>/etc/acl</code>. You can change it for your preference.</li>
-        <li>If you need to interrupt the execution of <code>bwupdate.sh</code> (ctrl + c) and it stopped at the <a href="#dns-lookup">DNS Lookup</a> part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.</li>
+        <li>If you need to interrupt the execution of <code>bwupdate.sh</code> (ctrl + c) and it stopped at the <b>DNS Lookup</b> part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.</li>
         <li>If you use <code>aufs</code>, temporarily change it to <code>ufs</code> during the upgrade, to avoid: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
         <li><code>bwupdate.sh</code> intentionally uses <code>--no-check-certificate</code> (wget) and <code>-k</code> (curl). Several public blocklist sources have certificate/SSL issues that block the download when strict verification is enabled. This is a deliberate design choice, not an overlooked vulnerability.</li>
       </ul>
@@ -833,7 +843,7 @@ Output:
     <td style="width: 50%; vertical-align: top;">
       <ul>
         <li>El path por default de BlackWeb es <code>/etc/acl</code>. Puede cambiarlo por el de su preferencia.</li>
-        <li>Si necesita interrumpir la ejecución de <code>bwupdate.sh</code> (ctrl + c) y se detuvo en la parte de <a href="#dns-lookup">DNS Lookup</a>, reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.</li>
+        <li>Si necesita interrumpir la ejecución de <code>bwupdate.sh</code> (ctrl + c) y se detuvo en la parte de <b>DNS Lookup</b>, reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.</li>
         <li>Si usa <code>aufs</code>, cámbielo temporalmente a <code>ufs</code> durante la actualización, para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
         <li><code>bwupdate.sh</code> usa intencionalmente <code>--no-check-certificate</code> (wget) y <code>-k</code> (curl). Varias fuentes públicas de listas de bloqueo tienen problemas de certificado/SSL que impiden la descarga si se activa la verificación estricta. Es una decisión de diseño deliberada, no una vulnerabilidad pasada por alto.</li>
       </ul>
@@ -867,7 +877,6 @@ Output:
 - [BlackJack8 - iOSAdblockList](https://raw.githubusercontent.com/BlackJack8/iOSAdblockList/master/Hosts.txt)
 - [BlackJack8 - webannoyances](https://github.com/BlackJack8/webannoyances/raw/master/ultralist.txt)
 - [blocklistproject - everything](https://raw.githubusercontent.com/blocklistproject/Lists/master/everything.txt)
-- [cert.pl - List of malicious domains](https://hole.cert.pl/domains/domains.txt)
 - [chadmayfield - porn top](https://raw.githubusercontent.com/chadmayfield/pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list)
 - [chadmayfield - porn_all](https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list)
 - [chainapsis - phishing-block-list](https://raw.githubusercontent.com/chainapsis/phishing-block-list/main/block-list.txt)
@@ -900,7 +909,7 @@ Output:
 - [frogeye - firstparty-trackers-hosts](https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt)
 - [gardar - Icelandic ABP List](https://adblock.gardar.net/is.abp.txt)
 - [greatis - Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
-- [hagezi - dns-blocklists](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt)
+- [hagezi - dns-blocklists](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/ultimate-onlydomains.txt)
 - [hexxium - threat-list/](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
 - [hoshsadiq - adblock-nocoin-list](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt)
 - [jawz101 - potentialTrackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
@@ -956,7 +965,6 @@ Output:
 - [StevenBlack - uncheckyAds](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts)
 - [Stopforumspam - Toxic Domains](https://www.stopforumspam.com/downloads/toxic_domains_whole.txt)
 - [sumatipru - squid-blacklist](https://raw.githubusercontent.com/sumatipru/squid-blacklist/refs/heads/master/blacklist.txt)
-- [Taz - SpamDomains](http://www.taz.net.au/Mail/SpamDomains)
 - [tomasko126 - Easylist Czech and Slovak filter list](https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt)
 - [txthinking - blackwhite](https://raw.githubusercontent.com/txthinking/blackwhite/master/black.list)
 - [txthinking - bypass china domains](https://raw.githubusercontent.com/txthinking/bypass/master/china_domain.txt)
@@ -1023,10 +1031,10 @@ fpack/
 
 #### Requirements
 
-- `wget`, `grep`, `sed`, `gawk`, `coreutils`, `util-linux`
+- `wget`, `grep`, `sed`, `coreutils`, `util-linux`
 
 ```bash
-apt install -y wget grep sed gawk coreutils util-linux
+apt install -y wget grep sed coreutils util-linux
 ```
 
 #### Download
@@ -1074,10 +1082,10 @@ bash fpack.sh
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Log: <code>fpack.log</code>, generated in <code>fpack/</code> (same rule as <a href="#log">Log</a> above — clear manually with <code>truncate -s 0 fpack.log</code>).
+      Log: <code>fpack.log</code>, generated in <code>fpack/</code>, emptied at the start of every run.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Log: <code>fpack.log</code>, generado en <code>fpack/</code> (misma regla que <a href="#log">Log</a> arriba — limpiar manualmente con <code>truncate -s 0 fpack.log</code>).
+      Log: <code>fpack.log</code>, generado en <code>fpack/</code>, vaciado al inicio de cada ejecución.
     </td>
   </tr>
 </table>
@@ -1308,7 +1316,7 @@ bash domcheck.sh my_domain_list.txt 50
         <li>Changes must be proposed via Issues. Pull Requests are not accepted.</li>
         <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a> and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. <b>Use it at your own risk</b>. For more information check <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a></li>
         <li><b>Blackweb is NOT a blacklist service itself</b>. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.</li>
-        <li>If your domain appears in Blackweb and you believe this is an error, you should review the public sources in <a href="#sources">SOURCES</a> to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update. You can also use the following script to perform the same verification:</li>
+        <li>If your domain appears in Blackweb and you believe this is an error, you should review the public sources in <b>SOURCES</b> to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update. You can also use the following script to perform the same verification:</li>
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
@@ -1317,7 +1325,7 @@ bash domcheck.sh my_domain_list.txt 50
         <li>Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.</li>
         <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a> y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlo al archivo Hosts de Windows, ya que podría ralentizarlo o bloquearlo. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a></li>
         <li><b>Blackweb NO es un servicio de listas negras como tal</b>. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.</li>
-        <li>Si su dominio aparece en Blackweb y considera que esto es un error, debe revisar las fuentes públicas en <a href="#sources">SOURCES</a> para identificar en cuál(es) aparece, y contactar al responsable de dicha lista para solicitar su eliminación. Una vez que el dominio sea eliminado en la fuente original, desaparecerá automáticamente de Blackweb en la siguiente actualización. También puede usar el siguiente script para obtener el mismo resultado de verificación:</li>
+        <li>Si su dominio aparece en Blackweb y considera que esto es un error, debe revisar las fuentes públicas en <b>SOURCES</b> para identificar en cuál(es) aparece, y contactar al responsable de dicha lista para solicitar su eliminación. Una vez que el dominio sea eliminado en la fuente original, desaparecerá automáticamente de Blackweb en la siguiente actualización. También puede usar el siguiente script para obtener el mismo resultado de verificación:</li>
       </ul>
     </td>
   </tr>
@@ -1338,7 +1346,7 @@ e.g:
 [+] Domain found in: https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt
 [+] Domain found in: https://hostsfile.org/Downloads/hosts.txt
 [+] Domain found in: https://raw.githubusercontent.com/blocklistproject/Lists/master/everything.txt
-[+] Domain found in: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/ultimate.txt
+[+] Domain found in: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/ultimate-onlydomains.txt
 [+] Domain found in: https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/master/hosts/hosts0
 [+] Domain found in: https://sysctl.org/cameleon/hosts
 [+] Domain found in: https://v.firebog.net/hosts/Kowabit.txt

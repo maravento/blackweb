@@ -12,9 +12,8 @@
 # ./domcheck.sh my_domain_list.txt 50
 #
 # NOTE on logging:
-# - Writes to dofi.log (append-only, no rotation configured by this
-#   script). Set up logrotate for this file if disk usage matters.
-# - To clear it manually: truncate -s 0 dofi.log
+# - Writes to dofi.log, emptied at the start of every run, so it always
+#   holds the last execution only.
 #
 ################################################################################
 
@@ -27,6 +26,7 @@ set -uo pipefail
 # logging
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 log_file="$script_dir/dofi.log"
+{ > "$log_file"; } 2>/dev/null || true
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
@@ -39,6 +39,7 @@ fi
 
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
+(umask 077; : >> "$script_lock")
 exec 200>"$script_lock"
 if ! flock -n 200; then
     log "ERROR: script $(basename "$0") is already running -- abort"
@@ -46,7 +47,7 @@ if ! flock -n 200; then
 fi
 
 # dependencies
-for dep_pkg in bind9-host findutils coreutils util-linux; do
+for dep_pkg in bind9-host findutils grep sed coreutils util-linux; do
     if ! dpkg -s "$dep_pkg" &>/dev/null; then
         log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
@@ -61,7 +62,7 @@ done
 UH_UINT='^(0|[1-9][0-9]*)$'
 # parallel_processes
 if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
-    log "Use: $(basename "$0") <file_name> [parallel_processes]"
+    log "ERROR: use: $(basename "$0") <file> [procs] -- abort"
     exit 1
 fi
 
@@ -69,7 +70,7 @@ input_file="$1"
 
 if [ "$#" -eq 2 ]; then
     if ! [[ "$2" =~ $UH_UINT ]] || [ "$2" -lt 1 ]; then
-        log "Error: parallel_processes must be a positive integer."
+        log "ERROR: procs must be a positive integer -- abort"
         exit 1
     fi
     parallel_procs="$2"
@@ -82,7 +83,7 @@ else
 fi
 
 if [ ! -f "$input_file" ]; then
-    log "File '$input_file' does not exist."
+    log "ERROR: '$(basename "$input_file")' does not exist -- abort"
     exit 1
 fi
 
@@ -112,7 +113,7 @@ sed '/^$/d; /^[[:space:]]*$/d; /#/d' "$input_file" | sed 's/\r//g; s/^\.//g' >cl
 rm -f step2 fault.txt hit.txt
 
 log "Step 1..."
-cat clean | xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} >>dnslookup
+xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <clean >>dnslookup
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >hit.txt
 sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >>fault.txt
 sort -o fault.txt -u fault.txt
@@ -120,7 +121,7 @@ log "OK"
 
 log "Step 2..."
 sed 's/^\.//g' fault.txt | sort -u >step2
-cat step2 | xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} >>dnslookup2
+xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <step2 >>dnslookup2
 sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>hit.txt
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >fault.txt
 log "hit.txt: domains successfully resolved"

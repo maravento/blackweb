@@ -66,9 +66,8 @@
 #   in step 7 if whitelisted here.
 #
 # NOTE on logging:
-# - Writes to fpack.log (append-only, no rotation configured
-#   by this script). Set up logrotate for this file if disk usage matters.
-# - To clear it manually: truncate -s 0 fpack.log
+# - Writes to fpack.log, emptied at the start of every run, so it always
+#   holds the last execution only.
 #
 ################################################################################
 
@@ -81,6 +80,7 @@ set -uo pipefail
 # logging
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 log_file="$script_dir/fpack.log"
+{ > "$log_file"; } 2>/dev/null || true
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
@@ -93,6 +93,7 @@ fi
 
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
+(umask 077; : >> "$script_lock")
 exec 200>"$script_lock"
 if ! flock -n 200; then
     log "ERROR: script $(basename "$0") is already running -- abort"
@@ -100,7 +101,7 @@ if ! flock -n 200; then
 fi
 
 # dependencies
-for dep_pkg in wget grep sed coreutils util-linux; do
+for dep_pkg in wget curl grep sed coreutils util-linux; do
     if ! dpkg -s "$dep_pkg" &>/dev/null; then
         log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
@@ -136,7 +137,7 @@ log "fpack start..."
 # VARIABLES
 # ------------------------------------------------------------------------------
 
-cd "$script_dir"
+cd "$script_dir" || { log "ERROR: cannot cd to $(basename "$script_dir") -- abort"; exit 1; }
 
 src_dir="rw"
 ua_dir="ua"
@@ -154,22 +155,40 @@ wget_opts='wget -q -c --retry-connrefused --timeout=10 --tries=4'
 # FUNCTIONS
 # ------------------------------------------------------------------------------
 
+# source check
+check_url() {
+    local source_url="$1" http_code
+    http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
+    case "$http_code" in
+        2*|405) return 0 ;;
+        000) log "TIMEOUT: $source_url" ;;
+        5*)  log "BUSY: $source_url" ;;
+        *)   log "BROKEN: $source_url" ;;
+    esac
+    return 1
+}
+
 # bad User-Agents
-if $wget_opts -O "${tmp_dir}/bad-user-agents.list" "https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/refs/heads/master/_generator_lists/bad-user-agents.list"; then
-    sed -E 's/\\//g' "${tmp_dir}/bad-user-agents.list" | sort -u > "${ua_dir}/blockua.txt"
-    log "Bad User-Agents for Squid: blockua.txt"
-else
-    log "ERROR: failed to download bad-user-agents.list"
+ua_url="https://raw.githubusercontent.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/refs/heads/master/_generator_lists/bad-user-agents.list"
+if check_url "$ua_url"; then
+    if $wget_opts -O "${tmp_dir}/bad-user-agents.list" "$ua_url"; then
+        sed -E 's/\\//g' "${tmp_dir}/bad-user-agents.list" | sort -u > "${ua_dir}/blockua.txt"
+        log "SAVED: $(basename "$ua_url")"
+    else
+        log "PARTIAL: $ua_url"
+    fi
 fi
 
 : > "${tmp_dir}/source_lst.txt"
 
 # ransomware
 rw() {
+    check_url "$1" || return 1
     if $wget_opts "$1" -O - >> "${tmp_dir}/source_lst.txt"; then
+        log "SAVED: $(basename "$1")"
         return 0
     else
-        log "ERROR: $1"
+        log "PARTIAL: $1"
         return 1
     fi
 }
@@ -223,8 +242,7 @@ sort -u -o "${tmp_dir}/discarded_lst.txt" "${tmp_dir}/discarded_lst.txt"
 
 # Discarded lst
 if [ -s "${tmp_dir}/discarded_lst.txt" ]; then
-    log "NOTE: $(wc -l < "${tmp_dir}/discarded_lst.txt") "
-    log "NOTE: Entries discarded. Unsupported pattern format"
+    log "INFO: $(wc -l < "${tmp_dir}/discarded_lst.txt") entries discarded"
 fi
 
 # Apply administrator-defined whitelist (exact match exclusions)
@@ -253,7 +271,7 @@ mv "$tmp_file" "${tmp_dir}/output_lst.txt"
 
 # For Squid Extensions/Patterns
 sed -E 's/^\*\.//; s/([][(){}+.$])/\\\1/g; s/^/\\./; s/(.*)/\1([a-zA-Z][0-9]*)?(\\?.*)?$/' "${tmp_dir}/output_lst.txt" | sort -u > "${src_dir}/rwext.txt"
-log "Ransomware ACL for Squid: rwext.txt"
+log "INFO: ransomware ACL for Squid: rwext.txt"
 
 # ------------------------------------------------------------------------------
 # END
