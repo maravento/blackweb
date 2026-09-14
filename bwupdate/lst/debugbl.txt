@@ -996,6 +996,7 @@
 .btdigg.in
 .btgnj.com
 .btkdevelopment.ru
+.bubble.io
 .budeanu.ro
 .budjetair.nl
 .budurl.co
@@ -2144,6 +2145,7 @@
 .embedsb.com
 .embutidosanezcar.com
 .emeraldchat.com
+.emergentagent.com
 .emg.su
 .emhen.com
 .emilychoy.com
@@ -3741,6 +3743,7 @@
 .johnlodgearchitects.com
 .johnsonfashion.com.tw
 .joinjohnhart.com
+.joinmc.link
 .joinpeertube.org
 .jomran.com
 .jonastore.com
@@ -4493,6 +4496,7 @@
 .millsmanagement.nl
 .mimiphotography.com.au
 .minascriptandart.nl
+.minecraft.party
 .minee.cm
 .mine.nu
 .mineralhound.com
@@ -5402,6 +5406,16 @@
 .platinumrainbow.com
 .playdede.cc
 .playdede.us
+.playit.buzz
+.playit.cafe
+.playit.city
+.playit.fan
+.playit.game
+.playit.love
+.playit.ooo
+.playit.plus
+.playit.pub
+.playit.quest 
 .playlist-youtu.be
 .playlust-goddess.com
 .playocio.com
@@ -5420,6 +5434,7 @@
 .plotn08.org
 .plugin-torrent.com
 .plus.com
+.ply.gg
 .pmfaccountant.com
 .pmofmichigan.com
 .pnkparamount.com
@@ -6788,6 +6803,8 @@
 .terlizzigasimpianti.it
 .termoskan.ru
 .terrabit.ro
+.terraria.party
+.terraria.pro
 .terryhenricks.com
 .testovaciadomena.sk
 .testsider.dk
@@ -7461,6 +7478,7 @@
 .vykti.lt
 .vyprvpn.com
 .vyrobce.cz
+.w3s.link
 .w55c.net
 .w88wid.com
 .w8w.pl

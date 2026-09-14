@@ -19160,6 +19160,7 @@
 .acer.com
 .acme.com
 .acnur.org
+.acrobat.com
 .ada.support
 .adblockplus.org
 .addon.vlex.com
@@ -19167,7 +19168,6 @@
 .adobedtm.com
 .adobe.io
 .adobess.com
-.acrobat.com
 .afd.fr
 .agenti.com.co
 .agkn.com
@@ -19184,10 +19184,29 @@
 .allus.com.co
 .alterserv.com
 .altervista.org
-.amazon.com
+.amazon.ae
 .amazonaws.cn
 .amazonaws.com
 .amazonaws.com.cn
+.amazon.ca
+.amazon.co.jp
+.amazon.com
+.amazon.com.au
+.amazon.com.br
+.amazon.com.mx
+.amazon.com.tr
+.amazon.co.uk
+.amazon.de
+.amazon.eg
+.amazon.es
+.amazon.fr
+.amazon.in
+.amazon.it
+.amazon.nl
+.amazon.pl
+.amazon.sa
+.amazon.se
+.amazon.sg
 .amcore.com
 .amd.com
 .americafirst.com
@@ -19195,8 +19214,8 @@
 .amnesty.org
 .ampproject.net
 .andro4all.com
-.any.do
 .anydesk.com
+.any.do
 .aol.ca
 .aol.com
 .aol.com.ar
@@ -19211,9 +19230,11 @@
 .aol.in
 .aol.jp
 .apache.org
+.api.aws
 .apnic.net
 .apopo.org
 .aportesenlinea.com
+.app.aws
 .appdynamics.com
 .apple.com
 .apple.com.au
@@ -19238,6 +19259,9 @@
 .autodesk.es
 .avantel.co
 .awesomeopensource.com
+.aws.amazon.com
+.awsapps.com
+.aws.dev
 .awsstatic.com
 .awstrack.me
 .axesat.com
@@ -19298,6 +19322,7 @@
 .box.net
 .brac.net
 .browseranalytic.com
+.bucket.s3.us-west-1.amazonaws.com
 .buenastareas.com
 .buzzfeed.com
 .cacert.a.omniroot.com
@@ -19382,7 +19407,10 @@
 .citizensonline.com
 .claro.com.co
 .client.dropbox.com
+.cloudflareaccess.com
 .cloudflare.com
+.cloudflare-dns.com
+.cloudflarestatus.com
 .cloudfront.net
 .cloudns.net
 .cmi.com.co
@@ -19403,6 +19431,9 @@
 .confianza.com.co
 .confidencialcolombia.com
 .connectivitycheck.platform.hicloud.com
+.console.api.aws
+.console.aws.amazon.com
+.console.awsstatic.com
 .consumidoresunidos.org
 .convertro.com
 .coosalud.com
@@ -19452,8 +19483,8 @@
 .diariodelnorte.net
 .diariodelsur.com.co
 .diariolalibertad.com
-.digicert.com
 .digicert.cn
+.digicert.com
 .digitalocean.com
 .disconnect.me
 .disney.com
@@ -19582,6 +19613,7 @@
 .freemaptools.com
 .freepik.com
 .freepik.es
+.freetls.fastly.net
 .fromsmash.com
 .frostbank.com
 .fsf.org
@@ -19723,6 +19755,7 @@
 .malwaredomainlist.com
 .malware-domains.com
 .malwaredomains.com
+.map.fastly.net
 .maravento.com
 .margevicius.lt
 .massivegrid.net
@@ -19815,6 +19848,8 @@
 .oracle.com
 .osintframework.com
 .outsourcing.com.co
+.ovh.net
+.pages.dev
 .paginasamarillas.com.co
 .pagosimple.com
 .pagosonline.com
@@ -19848,9 +19883,9 @@
 .porvenir.com.co
 .pravda.ru
 .prensaescrita.com
-.Prensaescrita.com
 .prensarural.org
 .prezi.com
+.prod.fastly.net
 .production.s3.amazonaws.com
 .prosperitybanktx.com
 .proteccion.com
@@ -19899,6 +19934,7 @@
 .s1.symcb.com
 .s2.symcb.com
 .s3.amazonaws.com
+.s3.us-west-1.amazonaws.com
 .s81c.com
 .salesforce.com
 .samsung.com
@@ -19929,6 +19965,7 @@
 .serverfault.com
 .servientrega.com
 .shallalist.de
+.signin.aws.amazon.com
 .siiwebsas.com
 .sik.sites.net
 .simbogota.com.co
@@ -19952,6 +19989,7 @@
 .squidblacklist.org
 .squid-cache.org
 .sslcom.crl.certum.pl
+.ssl.fastly.net
 .ssllabs.com
 .sstatic.net
 .stackexchange.com
@@ -20004,6 +20042,7 @@
 .trendmicro.com
 .trusteer.com
 .trustmark.com
+.trycloudflare.com
 .tuprensadigital.com
 .tutellus.com
 .typekit.com
@@ -20032,6 +20071,7 @@
 .usbank.com
 .usertrust.com
 .usps.com
+.us-west-1.amazonaws.com
 .ut-capitole.fr
 .valleynationalbank.com
 .valoresbancolombia.com
@@ -20098,6 +20138,7 @@
 .wordpress.net
 .wordpress.org
 .wordreference.com
+.workers.dev
 .wp.me
 .wsimg.com
 .wu.com

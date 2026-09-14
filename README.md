@@ -46,7 +46,7 @@ apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep s
 
 | ACL | Blocked Domains | File Size |
 | :---: | :---: | :---: |
-| blackweb.txt | 5871939 | 140,3 MB |
+| blackweb.txt | 7963236 | 194,5 MB |
 
 ## GIT CLONE
 
@@ -751,7 +751,7 @@ PROCS=$((8 * 4))  → 32 parallel queries
 Processed: 2463489 / 7244989 (34.00%)
 ```
 
-Output:
+Output (manual run):
 
 ```bash
 HIT google.com

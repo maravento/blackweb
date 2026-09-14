@@ -486,9 +486,9 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         log "ERROR: output.txt is empty -- abort"
         exit 1
     fi
-    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > finalclean.txt
-    if [ ! -s finalclean.txt ]; then
-        log "ERROR: finalclean.txt is empty -- abort"
+    grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > dnsinput.txt
+    if [ ! -s dnsinput.txt ]; then
+        log "ERROR: dnsinput.txt is empty -- abort"
         exit 1
     fi
     log "OK"
@@ -537,7 +537,7 @@ parallel_procs=$(($(nproc) * 4))
 # step 1:
 if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
     log "1st DNS Lookup..."
-    sed 's/^\.//g' finalclean.txt | sort -u > step1.txt
+    sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt
     if [ ! -s step1.txt ]; then
         log "ERROR: step1.txt is empty -- abort"
         exit 1
@@ -680,6 +680,7 @@ check_squid_status
 sudo bash -c 'squid -k reconfigure' 2> "$script_dir/SquidErrors.txt"
 
 # delete repository (optional)
+cd ..
 rm -rf "$repo_dir" "$script_dir/dofi" >/dev/null 2>&1
 
 # ------------------------------------------------------------------------------
