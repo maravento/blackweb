@@ -31,7 +31,7 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
-# check no-root
+# no-root check
 if [ "$(id -u)" == "0" ]; then
     log "ERROR: This script should not be run as root -- abort"
     exit 1
@@ -112,20 +112,20 @@ log "domcheck start..."
 sed '/^$/d; /^[[:space:]]*$/d; /#/d' "$input_file" | sed 's/\r//g; s/^\.//g' >clean
 rm -f step2 fault.txt hit.txt
 
-log "Step 1..."
+log "INFO: Step 1..."
 xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <clean >>dnslookup
 sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >hit.txt
 sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >>fault.txt
 sort -o fault.txt -u fault.txt
-log "OK"
+log "INFO: OK"
 
-log "Step 2..."
+log "INFO: Step 2..."
 sed 's/^\.//g' fault.txt | sort -u >step2
 xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <step2 >>dnslookup2
 sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>hit.txt
 sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >fault.txt
-log "hit.txt: domains successfully resolved"
-log "fault.txt: unresolved domains"
+log "INFO: hit.txt: domains successfully resolved"
+log "INFO: fault.txt: unresolved domains"
 
 # ------------------------------------------------------------------------------
 # END
@@ -138,10 +138,10 @@ total_domains=$(wc -l < clean)
 hit_count=$(wc -l < hit.txt)
 fault_count=$(wc -l < fault.txt)
 
-log "Summary:"
-log "  Input domains : $total_domains"
-log "  Resolved      : $hit_count"
-log "  Unresolved    : $fault_count"
-log "  Elapsed time  : ${elapsed_time}s"
+log "INFO: Summary:"
+log "INFO:   Input domains : $total_domains"
+log "INFO:   Resolved      : $hit_count"
+log "INFO:   Unresolved    : $fault_count"
+log "INFO:   Elapsed time  : ${elapsed_time}s"
 
-log "domcheck done at: $(date)"
+log "domcheck done at: $(date '+%Y-%m-%d %H:%M:%S')"

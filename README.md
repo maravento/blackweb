@@ -26,18 +26,10 @@
 
 ---
 
-**⚠️ WARNING:** Only tested on Ubuntu 24.04 LTS. Other versions or distributions are not tested and are used at your own risk.
-
-- `squid`
-
-### Optional (for `bwupdate.sh`)
-
-- Python 3.x, Bash 5.x
-- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `file`, `libc-bin`, `sudo`
-- Python module: `requests` (required by `domfilter.py`)
+- `squid` (or `squid-openssl`) (for Squid Rule)
 
 ```bash
-apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo
+apt install -y squid
 ```
 
 ## DATA SHEET
@@ -189,10 +181,14 @@ http_access deny blackweb
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>allowdomains.txt</code> to exclude essential domains or subdomains, such as <code>.accounts.google.com</code>, <code>.yahoo.com</code>, <code>.github.com</code>, etc. According to <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">Squid's documentation</a>, the subdomains <code>accounts.google.com</code> and <code>accounts.youtube.com</code> may be used by Google for authentication within its ecosystem. Blocking them could disrupt access to services like Gmail, Drive, Docs, and others.
+      Use <code>allowdomains.txt</code> to exclude essential domains or subdomains, such as <code>.accounts.google.com</code>, <code>.yahoo.com</code> or <code>.github.com</code>. <br>
+      <br>
+      According to <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">Squid's documentation</a>, Google may use the subdomains <code>accounts.google.com</code> and <code>accounts.youtube.com</code> for authentication within its ecosystem. Blocking them could disrupt access to services such as Gmail, Drive and Docs.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>allowdomains.txt</code> para excluir dominios o subdominios esenciales, como <code>.accounts.google.com</code>, <code>.yahoo.com</code>, <code>.github.com</code>, etc. Según la <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">documentación de Squid</a>, los subdominios <code>accounts.google.com</code> y <code>accounts.youtube.com</code> pueden ser utilizados por Google para la autenticación dentro de su ecosistema. Bloquearlos podría interrumpir el acceso a servicios como Gmail, Drive, Docs, entre otros.
+      Use <code>allowdomains.txt</code> para excluir dominios o subdominios esenciales, como <code>.accounts.google.com</code>, <code>.yahoo.com</code> o <code>.github.com</code>. <br>
+      <br>
+      Según la <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">documentación de Squid</a>, Google puede utilizar los subdominios <code>accounts.google.com</code> y <code>accounts.youtube.com</code> para la autenticación dentro de su ecosistema. Bloquearlos podría interrumpir el acceso a servicios como Gmail, Drive y Docs.
     </td>
   </tr>
 </table>
@@ -443,7 +439,25 @@ http_access deny blackweb
       Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas.
     </td>
   </tr>
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <b>Note:</b> <code>bwupdate.sh</code> tested on Ubuntu 24.04/26.04 LTS. Use on other versions or distributions is at your own risk.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <b>Nota:</b> <code>bwupdate.sh</code> ha sido probado en Ubuntu 24.04/26.04 LTS. Su uso en otras versiones o distribuciones queda bajo su propio riesgo.
+    </td>
+  </tr>
 </table>
+
+### Dependencies (for `bwupdate.sh`)
+
+- Python 3.x, Bash 5.x
+- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `file`, `libc-bin`, `sudo`
+- Python module: `requests` (required by `domfilter.py`)
+
+```bash
+apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo
+```
 
 #### Bash Update
 
@@ -593,10 +607,14 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Remove hostnames larger than 63 characters (<a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>) and other characters inadmissible by <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a> and convert domains with international characters (non ASCII) and used for <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack" target="_blank">homograph attacks</a> to <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a> format.
+      Removes hostnames longer than 63 characters, as defined in <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>, and other characters not admitted by <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a>. <br>
+      <br>
+      It also converts domains with international, non-ASCII characters, used for <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack" target="_blank">homograph attacks</a>, to the <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a> format.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Elimina hostnames mayores a 63 caracteres (<a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>) y otros caracteres inadmisibles por <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a> y convierte dominios con caracteres internacionales (no ASCII) y usados para <a href="https://es.qwerty.wiki/wiki/IDN_homograph_attack" target="_blank">ataques homográficos</a> al formato <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a>.
+      Elimina hostnames de más de 63 caracteres, según define el <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>, y otros caracteres no admitidos por <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a>. <br>
+      <br>
+      También convierte los dominios con caracteres internacionales, no ASCII, usados para <a href="https://es.qwerty.wiki/wiki/IDN_homograph_attack" target="_blank">ataques homográficos</a>, al formato <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a>.
     </td>
   </tr>
 </table>
@@ -1314,18 +1332,18 @@ bash domcheck.sh my_domain_list.txt 50
       <ul>
         <li>This project includes third-party components.</li>
         <li>Changes must be proposed via Issues. Pull Requests are not accepted.</li>
-        <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a> and due to the large number of blocked domains it is not recommended to use it in other environments (DNSMasq, Pi-Hole, etc.), or add it to the Windows Hosts File, as it could slow down or crash it. <b>Use it at your own risk</b>. For more information check <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a></li>
+        <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Because of the large number of blocked domains, it is not recommended in other environments, such as DNSMasq or Pi-Hole, nor in the Windows Hosts file, since it could slow them down or crash them. <b>Use it at your own risk</b>. For more information see <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb is NOT a blacklist service itself</b>. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.</li>
-        <li>If your domain appears in Blackweb and you believe this is an error, you should review the public sources in <b>SOURCES</b> to identify where it is listed and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it will automatically disappear from Blackweb in the next update. You can also use the following script to perform the same verification:</li>
+        <li>If your domain appears in Blackweb and you believe this is an error, review the public sources in <b>SOURCES</b> to identify which list includes it, and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it disappears from Blackweb on the next update. You can also use the following script to perform the same check:</li>
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
       <ul>
         <li>Este proyecto incluye componentes de terceros.</li>
         <li>Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.</li>
-        <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a> y debido a la gran cantidad de dominios bloqueados no se recomienda usarlo en otros entornos (DNSMasq, Pi-Hole, etc.), o agregarlo al archivo Hosts de Windows, ya que podría ralentizarlo o bloquearlo. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a></li>
+        <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Debido a la gran cantidad de dominios bloqueados, no se recomienda usarlo en otros entornos, como DNSMasq o Pi-Hole, ni en el archivo Hosts de Windows, ya que podría ralentizarlos o bloquearlos. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb NO es un servicio de listas negras como tal</b>. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.</li>
-        <li>Si su dominio aparece en Blackweb y considera que esto es un error, debe revisar las fuentes públicas en <b>SOURCES</b> para identificar en cuál(es) aparece, y contactar al responsable de dicha lista para solicitar su eliminación. Una vez que el dominio sea eliminado en la fuente original, desaparecerá automáticamente de Blackweb en la siguiente actualización. También puede usar el siguiente script para obtener el mismo resultado de verificación:</li>
+        <li>Si su dominio aparece en Blackweb y considera que es un error, revise las fuentes públicas en <b>SOURCES</b> para identificar en cuál lista aparece, y contacte al responsable de esa lista para solicitar su eliminación. Una vez eliminado en la fuente original, el dominio desaparece de Blackweb en la siguiente actualización. También puede usar el siguiente script para hacer la misma comprobación:</li>
       </ul>
     </td>
   </tr>
