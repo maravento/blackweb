@@ -25,7 +25,7 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
-# check no-root
+# no-root check
 if [ "$(id -u)" == "0" ]; then
     log "ERROR: This script should not be run as root -- abort"
     exit 1
@@ -77,7 +77,7 @@ if ! check_internet; then
 fi
 
 # ------------------------------------------------------------------------------
-# STATUS
+# CHECKS
 # ------------------------------------------------------------------------------
 
 squid_conf="/etc/squid/squid.conf"
@@ -135,7 +135,7 @@ check_squid_status
 # VARIABLES
 # ------------------------------------------------------------------------------
 
-cd "$script_dir" || { log "ERROR: cannot cd to $script_dir"; exit 1; }
+cd "$script_dir" || { log "ERROR: cannot cd to $script_dir -- abort"; exit 1; }
 repo_dir="$script_dir/bwupdate"
 wget_opts="wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
 trap 'rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt; exit 130' INT TERM
@@ -144,7 +144,7 @@ acl_dir="/etc/acl"
 if [ ! -d "$acl_dir" ]; then sudo mkdir -p "$acl_dir"; fi
 
 log "bwupdate start..."
-log "This process can take. Be patient..."
+log "INFO: This process can take. Be patient..."
 
 # ------------------------------------------------------------------------------
 # FUNCTIONS
@@ -157,7 +157,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     rm -rf "$repo_dir" >/dev/null 2>&1
 
     # download blackweb
-    log "Downloading Blackweb..."
+    log "INFO: Downloading Blackweb..."
     $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py
     chmod +x gitfolder.py
     python3 gitfolder.py https://github.com/maravento/blackweb/bwupdate || {
@@ -171,7 +171,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     rm gitfolder.py &>/dev/null
     if [ -s "$repo_dir/lst/debugwl.txt" ] && [ -s "$repo_dir/lst/allowtlds.txt" ]; then
         cd "$repo_dir" || {
-            log "Access Error: $repo_dir"
+            log "ERROR: cannot cd to $repo_dir -- abort"
             exit 1
         }
     else
@@ -179,10 +179,10 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
     mkdir -p bwtmp >/dev/null 2>&1
-    log "OK"
+    log "INFO: OK"
 
     # downloading blocklist URLS
-    log "Downloading Blocklists..."
+    log "INFO: Downloading Blocklists..."
     # download files
     blurls() {
         local source_url="$1"
@@ -378,14 +378,14 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     }
     if ! targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz'; then
         log "WARNING: ut-capitole.fr download failed -- fallback"
-        cd bwtmp || { log "ERROR: cannot cd to bwtmp"; exit 1; }
+        cd bwtmp || { log "ERROR: cannot cd to bwtmp -- abort"; exit 1; }
         $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
         chmod +x gitfolder.py
         python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
         rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read -r gz_file; do
             if ! gunzip "$gz_file" >/dev/null 2>&1; then
-                log "ERROR: $gz_file"
+                log "ERROR: cannot extract $(basename "$gz_file") -- skip"
             fi
         done
         cd ..
@@ -400,7 +400,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     #cd ..
     #echo "OK"
 
-    log "Downloading Allowlist..."
+    log "INFO: Downloading Allowlist..."
     # download world_universities_and_domains
     univ() {
         local source_url="$1"
@@ -426,9 +426,9 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         log "SAVED: $(basename "${source_url%%\?*}")"
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
-    log "OK"
+    log "INFO: OK"
 
-    log "IDN Capture and Debugging..."
+    log "INFO: IDN Capture and Debugging..."
     find bwtmp -type f -not -iname "*pdf" \
       -execdir grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" {} \; \
     | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.)::gi' \
@@ -460,15 +460,15 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
 
-    log "Joining Lists..."
+    log "INFO: Joining Lists..."
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     if [ ! -s urls.txt ]; then
         log "ERROR: urls.txt is empty -- abort"
         exit 1
     fi
-    log "OK"
+    log "INFO: OK"
 
-    log "Debugging Domains..."
+    log "INFO: Debugging Domains..."
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
     if [ ! -s cleancapture.txt ]; then
         log "ERROR: cleancapture.txt is empty -- abort"
@@ -479,7 +479,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     }
     python3 domfilter.py --input cleancapture.txt || {
-        log "ERROR: domfilter.py failed."
+        log "ERROR: domfilter.py failed -- abort"
         exit 1
     }
     if [ ! -s output.txt ]; then
@@ -491,7 +491,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         log "ERROR: dnsinput.txt is empty -- abort"
         exit 1
     fi
-    log "OK"
+    log "INFO: OK"
 else
     cd "$repo_dir"
 fi
@@ -536,7 +536,7 @@ parallel_procs=$(($(nproc) * 4))
 
 # step 1:
 if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
-    log "1st DNS Lookup..."
+    log "INFO: 1st DNS Lookup..."
     sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt
     if [ ! -s step1.txt ]; then
         log "ERROR: step1.txt is empty -- abort"
@@ -561,14 +561,14 @@ if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
     sed '/^FAULT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
     sed '/^HIT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
     sort -o fault.txt -u fault.txt
-    log "OK"
+    log "INFO: OK"
 fi
 
 # pause between DNS lookup passes to avoid overloading the resolver
 sleep 5
 
 # step 2:
-log "2nd DNS Lookup..."
+log "INFO: 2nd DNS Lookup..."
 sed 's/^\.//g' fault.txt | sort -u > step2.txt
 if [ ! -s step2.txt ]; then
     log "ERROR: step2.txt is empty -- abort"
@@ -592,9 +592,9 @@ kill "$progress_pid" 2>/dev/null
 echo
 sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
 sed '/^HIT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
-log "OK"
+log "INFO: OK"
 
-log "Adding Debug Blacklist..."
+log "INFO: Adding Debug Blacklist..."
 sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
 # clean hit
 grep -vi -f <(sed 's/\./\\./g; s:^\(.*\)$:.\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
@@ -602,10 +602,10 @@ if [ ! -s blackweb_tmp.txt ]; then
     log "ERROR: blackweb_tmp.txt is empty -- abort"
     exit 1
 fi
-log "OK"
+log "INFO: OK"
 
 # TLD final filter (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines)
-log "Exclude TLD..."
+log "INFO: Exclude TLD..."
 tld_pattern=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|')
 tld_pattern_clean="${tld_pattern%|}"
 if [ -z "$tld_pattern_clean" ]; then
@@ -624,16 +624,16 @@ if [ ! -s blackweb.txt ]; then
 fi
 # optional
 #grep -E "$tld_pattern_clean" blackweb_tmp.txt > delete_tld
-log "OK"
+log "INFO: OK"
 
 # ------------------------------------------------------------------------------
 # RELOAD
 # ------------------------------------------------------------------------------
 
-log "Restarting Squid..."
+log "INFO: Restarting Squid..."
 # copy blaclweb to path
 sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
-    log "ERROR: cannot copy blackweb.txt to $acl_dir"
+    log "ERROR: cannot copy blackweb.txt to $acl_dir -- abort"
     exit 1
 }
 # Squid Reload
@@ -643,7 +643,7 @@ sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(lo
 sed -i 's/^/./' sqerror.txt
 sort -o sqerror.txt -u sqerror.txt
 python3 tools/debugerror.py || {
-    log "ERROR: debugerror.py failed."
+    log "ERROR: debugerror.py failed -- abort"
     exit 1
 }
 sort -o final.txt -u final.txt
@@ -673,7 +673,7 @@ log "INFO: blackweb.txt OK, $total_domains valid lines"
 
 # cp to squid
 sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
-    log "ERROR: cannot copy blackweb.txt to $acl_dir"
+    log "ERROR: cannot copy blackweb.txt to $acl_dir -- abort"
     exit 1
 }
 check_squid_status
@@ -688,4 +688,4 @@ rm -rf "$repo_dir" "$script_dir/dofi" >/dev/null 2>&1
 # ------------------------------------------------------------------------------
 
 log "bwupdate done at: $(date)"
-log "Check SquidErrors.txt"
+log "INFO: Check SquidErrors.txt"

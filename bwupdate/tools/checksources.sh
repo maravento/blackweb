@@ -26,7 +26,7 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
-# check no-root
+# no-root check
 if [ "$(id -u)" == "0" ]; then
     log "ERROR: This script should not be run as root -- abort"
     exit 1
@@ -155,12 +155,12 @@ search_lists() {
         if [[ "$download_file" == *.tar.gz ]]; then
             extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
             if [ -d "$extract_dir" ] && grep -rFixq "$search_domain" "$extract_dir" 2>/dev/null; then
-                log "Domain found in: $source_url (extracted)"
+                log "INFO: Domain found in: $source_url (extracted)"
                 domain_found=1
             fi
         else
             if grep -Fixq "$search_domain" "downloaded_lists/lists/$download_file" 2>/dev/null; then
-                log "Domain found in: $source_url"
+                log "INFO: Domain found in: $source_url"
                 domain_found=1
             fi
         fi

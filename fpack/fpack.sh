@@ -85,7 +85,7 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
 }
 
-# check no-root
+# no-root check
 if [ "$(id -u)" == "0" ]; then
     log "ERROR: This script should not be run as root -- abort"
     exit 1
