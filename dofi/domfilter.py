@@ -106,13 +106,12 @@ def generate_tlds(verify_ssl: bool = True):
                 SOURCETLD_FILE.unlink()
 
     if not TLDS_FILE.exists() or TLDS_FILE.stat().st_size == 0:
-        sys.exit("ERROR: tlds.txt is empty. All TLD sources failed to download.")
+        sys.exit("ERROR: tlds.txt is empty, all TLD sources failed to download -- abort")
 
     if count < MIN_TLD_COUNT:
         sys.exit(
-            f"ERROR: only {count} TLDs were collected (expected at least "
-            f"{MIN_TLD_COUNT}). One or more TLD sources likely failed to "
-            f"download; check connectivity and retry."
+            f"ERROR: only {count} TLDs were collected, expected at least "
+            f"{MIN_TLD_COUNT} -- abort"
         )
 
 # DOMAINS FILTER
@@ -144,14 +143,14 @@ def load_tlds(tlds_file) -> set:
         with open(tlds_file, 'r', encoding='utf-8') as f:
             return {line.strip().lower() for line in f if line.strip()}
     except FileNotFoundError:
-        sys.exit(f"ERROR: TLD file '{tlds_file}' not found.")
+        sys.exit(f"ERROR: TLD file '{tlds_file}' not found -- abort")
 
 def load_capture(capture_file) -> list:
     try:
         with open(capture_file, 'r', encoding='utf-8') as f:
             return [line.strip() for line in f if line.strip()]
     except FileNotFoundError:
-        sys.exit(f"ERROR: input file '{capture_file}' not found.")
+        sys.exit(f"ERROR: input file '{capture_file}' not found -- abort")
 
 # Normalize input to a temporary copy (leaves the user's original file untouched)
 def add_dot_if_missing(filename: str) -> str:
@@ -201,13 +200,12 @@ def main():
     args = parser.parse_args()
 
     if not args.input:
-        print("WARNING: --input is required. Usage: domfilter.py --input <file>")
-        sys.exit(1)
+        sys.exit("ERROR: --input is required, usage: domfilter.py --input <file> -- abort")
 
     verify_ssl = not args.no_verify_ssl
     if not verify_ssl:
         warnings.simplefilter('ignore', InsecureRequestWarning)
-        print("WARNING: SSL verification disabled for TLD downloads.")
+        print("WARNING: SSL verification disabled for TLD downloads -- alert")
 
     # add .dot (operates on a temp copy, original input file is never modified)
     tmp_input = add_dot_if_missing(args.input)

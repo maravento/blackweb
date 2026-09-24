@@ -25,5 +25,5 @@ try:
     with open('final.txt', 'w', encoding='utf-8') as f:
         f.write('\n'.join(sorted(result)) + '\n')
 except FileNotFoundError as e:
-    print("Error: %s" % e)
+    print("ERROR: %s -- abort" % e)
     sys.exit(1)

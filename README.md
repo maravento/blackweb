@@ -32,6 +32,31 @@
 apt install -y squid
 ```
 
+## REPOSITORY STRUCTURE
+
+---
+
+```
+bwupdate/
+├── bwupdate.sh                  # Main update script: downloads blocklists, builds blackweb.txt, reloads Squid
+├── lst/                         # ACL/support lists used by bwupdate.sh
+│   ├── ai.txt                      # separate Squid acl: AI-related domains, not touched by bwupdate.sh
+│   ├── allowdomains.txt            # separate Squid acl: excludes essential domains, not touched by bwupdate.sh
+│   ├── allowtlds.txt               # required for the debug step: allowed-TLD pattern
+│   ├── blockdomains.txt            # separate Squid acl: blocks domains outside blackweb.txt, not touched by bwupdate.sh
+│   ├── blocktlds.txt               # separate Squid acl: blocks whole TLDs, not touched by bwupdate.sh
+│   ├── debugbl.txt                 # merged into the candidate blocklist before debugging
+│   ├── debugwl.txt                 # excludes false positives during debugging (google, hotmail, yahoo, etc.)
+│   ├── invalid.txt                 # not read by any script, maintainer reference
+│   ├── pendingtld.txt              # not read by any script, maintainer reference
+│   ├── streaming.txt               # separate Squid acl: streaming domains, not touched by bwupdate.sh
+│   ├── tldsappx.txt                # TLD source read by dofi/domfilter.py
+│   └── tldsbk.txt                  # not read by any script, maintainer reference
+└── tools/
+    ├── checksources.sh          # Downloads all source lists and searches them for a domain
+    └── debugerror.py            # Removes domains flagged by Squid's own cache.log errors whose parent is already blocked
+```
+
 ## DATA SHEET
 
 ---

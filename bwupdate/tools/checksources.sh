@@ -126,7 +126,7 @@ download_lists() {
             if tar -xzf "downloaded_lists/lists/$download_file" -C "$extract_dir"; then
                 rm -f "downloaded_lists/lists/$download_file"
             else
-                log "WARNING: extraction failed -- skip"
+                log "WARNING: extraction failed -- alert"
             fi
         fi
     done < downloaded_lists/urls.txt
@@ -142,7 +142,7 @@ search_lists() {
             return 0
         fi
         if ! echo "$search_domain" | grep -qP '^[a-zA-Z0-9._-]+$'; then
-            log "WARNING: invalid domain format -- retry"
+            log "INFO: invalid domain format -- retry"
             continue
         fi
         break
@@ -192,7 +192,7 @@ while true; do
         3) log "INFO: cancelled by user"
            break ;;
         "") ;;
-        *) log "WARNING: invalid option -- retry" ;;
+        *) log "INFO: invalid option -- retry" ;;
     esac
 done
 

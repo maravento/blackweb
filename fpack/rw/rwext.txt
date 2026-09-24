@@ -1830,6 +1830,7 @@
 \.Fabiansomware([a-zA-Z][0-9]*)?(\?.*)?$
 \.facebook([a-zA-Z][0-9]*)?(\?.*)?$
 \.Facebook([a-zA-Z][0-9]*)?(\?.*)?$
+\.facemelter([a-zA-Z][0-9]*)?(\?.*)?$
 \.factfull([a-zA-Z][0-9]*)?(\?.*)?$
 \.fadeSEC([a-zA-Z][0-9]*)?(\?.*)?$
 \.Fadesoft([a-zA-Z][0-9]*)?(\?.*)?$
@@ -4341,6 +4342,7 @@
 \.ricksanchez([a-zA-Z][0-9]*)?(\?.*)?$
 \.ridik([a-zA-Z][0-9]*)?(\?.*)?$
 \.RIDIK([a-zA-Z][0-9]*)?(\?.*)?$
+\.RIED([a-zA-Z][0-9]*)?(\?.*)?$
 \.rigd([a-zA-Z][0-9]*)?(\?.*)?$
 \.righ([a-zA-Z][0-9]*)?(\?.*)?$
 \.rigj([a-zA-Z][0-9]*)?(\?.*)?$
@@ -4815,6 +4817,7 @@
 \.swagkarna([a-zA-Z][0-9]*)?(\?.*)?$
 \.SWIFT([a-zA-Z][0-9]*)?(\?.*)?$
 \.switch([a-zA-Z][0-9]*)?(\?.*)?$
+\.SWORD([a-zA-Z][0-9]*)?(\?.*)?$
 \.SXS([a-zA-Z][0-9]*)?(\?.*)?$
 \.symbiom_ransomware_locked([a-zA-Z][0-9]*)?(\?.*)?$
 \.SYMMYWARE([a-zA-Z][0-9]*)?(\?.*)?$
@@ -5196,6 +5199,7 @@
 \.voyager([a-zA-Z][0-9]*)?(\?.*)?$
 \.vpgvlkb([a-zA-Z][0-9]*)?(\?.*)?$
 \.vpsh([a-zA-Z][0-9]*)?(\?.*)?$
+\.vricpe([a-zA-Z][0-9]*)?(\?.*)?$
 \.vrmrkz([a-zA-Z][0-9]*)?(\?.*)?$
 \.vscrypt([a-zA-Z][0-9]*)?(\?.*)?$
 \.v-society([a-zA-Z][0-9]*)?(\?.*)?$

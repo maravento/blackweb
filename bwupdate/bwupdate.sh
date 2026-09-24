@@ -124,7 +124,7 @@ check_squid_status() {
             log "ERROR: squid failed to start -- abort"
             exit 1
         fi
-        log "FIX: squid was not active, started -- alert"
+        log "INFO: squid was not active, started -- fixed"
     fi
 }
 
@@ -369,7 +369,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         extract_dir="bwtmp/$(basename "$download_file" .tar.gz)_$(date +%s)"
         mkdir -p "$extract_dir"
         if ! tar -C "$extract_dir" -zxf "bwtmp/$download_file" >/dev/null 2>&1; then
-            log "ERROR: cannot extract $download_file -- fallback"
+            log "WARNING: cannot extract $download_file -- fallback"
             return 1
         fi
         # clean
@@ -385,7 +385,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read -r gz_file; do
             if ! gunzip "$gz_file" >/dev/null 2>&1; then
-                log "ERROR: cannot extract $(basename "$gz_file") -- skip"
+                log "WARNING: cannot extract $(basename "$gz_file") -- alert"
             fi
         done
         cd ..
