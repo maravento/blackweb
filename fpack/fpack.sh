@@ -65,9 +65,8 @@
 #   suffixes (e.g. "*.bart.zip", "*.locked.zip") and would be discarded
 #   in step 7 if whitelisted here.
 #
-# NOTE on logging:
-# - Writes to fpack.log, emptied at the start of every run, so it always
-#   holds the last execution only.
+# LOG: fpack.log, in the directory this script is run from
+#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

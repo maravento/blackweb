@@ -11,9 +11,8 @@
 # Optional (with parallel processes. By default: nproc x 4, max 200)
 # ./domcheck.sh my_domain_list.txt 50
 #
-# NOTE on logging:
-# - Writes to dofi.log, emptied at the start of every run, so it always
-#   holds the last execution only.
+# LOG: dofi.log, in the directory this script is run from
+#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

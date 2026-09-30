@@ -6,9 +6,8 @@
 # Check Sources
 # Download and search Blackweb source lists for a domain
 #
-# NOTE on logging:
-# - Writes to checksources.log, emptied at the start of every run, so it
-#   always holds the last execution only.
+# LOG: checksources.log, in the directory this script is run from
+#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 
