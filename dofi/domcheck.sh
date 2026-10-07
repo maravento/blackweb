@@ -4,12 +4,13 @@
 ################################################################################
 #
 # Domains Check with Host
-# Important:
-# Ensure the input list has no 'http://', 'https://', or 'www.' prefixes.
-# How to use:
-# ./domcheck.sh my_domain_list.txt
-# Optional (with parallel processes. By default: nproc x 4, max 200)
-# ./domcheck.sh my_domain_list.txt 50
+#
+# DESCRIPTION:
+# Resolves domains from a list with the host command and splits the
+# result into hit.txt and fault.txt.
+#
+# USAGE:
+# ./domcheck.sh <file> [procs]
 #
 # LOG: dofi.log, in the directory this script is run from
 #      Emptied at the start of every run, holds the last execution only

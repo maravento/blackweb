@@ -5,6 +5,13 @@
 #
 # BlackWeb Update
 #
+# DESCRIPTION:
+# Downloads and filters public domain/TLD blocklists into blackweb.txt,
+# then reloads Squid.
+#
+# USAGE:
+# ./bwupdate.sh
+#
 # LOG: bwupdate.log, in the directory this script is run from
 #      Emptied at the start of every run, holds the last execution only
 #

@@ -10,10 +10,10 @@
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>BlackWeb</b> is a project that collects and unifies public blocklists of domains (porn, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, etc.) to make them compatible with <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>.
+      <b>BlackWeb</b> brings together public domain blocklists and adapts them for use as access control lists (ACLs) in <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. It includes domains related to adult content, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, and other categories.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>BlackWeb</b> es un proyecto que recopila y unifica listas públicas de bloqueo de dominios (porno, descargas, drogas, malware, spyware, trackers, bots, redes sociales, warez, armas, etc.) para hacerlas compatibles con <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>.
+      <b>BlackWeb</b> reúne listas públicas de dominios y las adapta para usarlas como listas de control de acceso (ACL) en <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Incluye dominios relacionados con contenido para adultos, descargas, drogas, malware, spyware, rastreadores, bots, redes sociales, warez y armas, entre otras categorías.
     </td>
   </tr>
 </table>
@@ -22,51 +22,10 @@
 
 ---
 
-- `squid` (or `squid-openssl`) (for Squid Rule)
+- `squid` (or `squid-openssl`) to apply the BlackWeb rules
 
 ```bash
 apt install -y squid
-```
-
-## REPOSITORY STRUCTURE
-
----
-
-```
-bwupdate/
-├── bwupdate.sh                  # Main update script: downloads blocklists, builds blackweb.txt, reloads Squid
-├── lst/                         # ACL/support lists used by bwupdate.sh
-│   ├── ai.txt                      # separate Squid acl: AI-related domains, not touched by bwupdate.sh
-│   ├── allowdomains.txt            # separate Squid acl: excludes essential domains, not touched by bwupdate.sh
-│   ├── allowtlds.txt               # required for the debug step: allowed-TLD pattern
-│   ├── blockdomains.txt            # separate Squid acl: blocks domains outside blackweb.txt, not touched by bwupdate.sh
-│   ├── blocktlds.txt               # separate Squid acl: blocks whole TLDs, not touched by bwupdate.sh
-│   ├── debugbl.txt                 # merged into the candidate blocklist before debugging
-│   ├── debugwl.txt                 # excludes false positives during debugging (google, hotmail, yahoo, etc.)
-│   ├── invalid.txt                 # not read by any script, maintainer reference
-│   ├── pendingtld.txt              # not read by any script, maintainer reference
-│   ├── streaming.txt               # separate Squid acl: streaming domains, not touched by bwupdate.sh
-│   ├── tldsappx.txt                # TLD source read by dofi/domfilter.py
-│   └── tldsbk.txt                  # not read by any script, maintainer reference
-└── tools/
-    ├── checksources.sh          # Downloads all source lists and searches them for a domain
-    └── debugerror.py            # Removes domains flagged by Squid's own cache.log errors whose parent is already blocked
-```
-
-## DATA SHEET
-
----
-
-| ACL | Blocked Domains | File Size |
-| :---: | :---: | :---: |
-| blackweb.txt | 7963236 | 194,5 MB |
-
-## GIT CLONE
-
----
-
-```bash
-git clone --depth=1 https://github.com/maravento/blackweb.git
 ```
 
 ## HOW TO USE
@@ -76,10 +35,10 @@ git clone --depth=1 https://github.com/maravento/blackweb.git
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <code>blackweb.txt</code> is already updated and optimized for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Download it and unzip it in the path of your preference and activate the <b>BlackWeb Rule for Squid-Cache</b>.
+      The archive includes <code>blackweb.txt</code>, prepared for use as a domain ACL in Squid. To use it, download the archive and save the file in a path Squid can access; then add the block rule shown below to the configuration.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>blackweb.txt</code> ya viene actualizada y optimizada para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Descárguela y descomprímala en la ruta de su preferencia y active la <b>BlackWeb Rule for Squid-Cache</b>.
+      El archivo comprimido incluye <code>blackweb.txt</code>, preparado para usarse como ACL de dominios en Squid. Para aplicarlo, debe descargarse y guardarse en una ruta accesible para Squid; después, se añade a la configuración la regla de bloqueo que aparece abajo.
     </td>
   </tr>
 </table>
@@ -153,10 +112,10 @@ LOCAL=$(sha256sum blackweb.txt | awk '{print $1}'); REMOTE=$(awk '{print $1}' bl
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Edit:
+      Open:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Edite:
+      Abra:
     </td>
   </tr>
 </table>
@@ -168,10 +127,10 @@ LOCAL=$(sha256sum blackweb.txt | awk '{print $1}'); REMOTE=$(awk '{print $1}' bl
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      And add the following lines:
+      Add the following lines at the indicated location:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Y agregue las siguientes líneas:
+      Añada las siguientes líneas en el punto indicado:
     </td>
   </tr>
 </table>
@@ -202,12 +161,12 @@ http_access deny blackweb
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>allowdomains.txt</code> to exclude essential domains or subdomains, such as <code>.accounts.google.com</code>, <code>.yahoo.com</code> or <code>.github.com</code>. <br>
+      Add domains that should be exempt from blocking to <code>allowdomains.txt</code>, such as <code>.accounts.google.com</code>, <code>.yahoo.com</code> or <code>.github.com</code>. Place <code>http_access allow allowdomains</code> before the rules that deny access; otherwise, the exception may not take effect. <br>
       <br>
       According to <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">Squid's documentation</a>, Google may use the subdomains <code>accounts.google.com</code> and <code>accounts.youtube.com</code> for authentication within its ecosystem. Blocking them could disrupt access to services such as Gmail, Drive and Docs.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>allowdomains.txt</code> para excluir dominios o subdominios esenciales, como <code>.accounts.google.com</code>, <code>.yahoo.com</code> o <code>.github.com</code>. <br>
+      En <code>allowdomains.txt</code> se incluyen los dominios que deben excluirse del bloqueo, como <code>.accounts.google.com</code>, <code>.yahoo.com</code> o <code>.github.com</code>. La regla <code>http_access allow allowdomains</code> debe colocarse antes de las reglas que deniegan el acceso; de lo contrario, la excepción puede no surtir efecto. <br>
       <br>
       Según la <a href="http://wiki.squid-cache.org/ConfigExamples/Streams/YouTube" target="_blank">documentación de Squid</a>, Google puede utilizar los subdominios <code>accounts.google.com</code> y <code>accounts.youtube.com</code> para la autenticación dentro de su ecosistema. Bloquearlos podría interrumpir el acceso a servicios como Gmail, Drive y Docs.
     </td>
@@ -224,10 +183,10 @@ http_access allow allowdomains
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>blockdomains.txt</code> to block any other domain not included in <code>blackweb.txt</code>
+      Use <code>blockdomains.txt</code> to list additional domains to block. This is a separate ACL; it does not automatically block every domain absent from <code>blackweb.txt</code>.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Utilice <code>blockdomains.txt</code> para bloquear cualquier otro dominio no incluido en <code>blackweb.txt</code>
+      <code>blockdomains.txt</code> contiene los dominios adicionales que se bloquearán mediante esa ACL. Es una lista independiente: no bloquea automáticamente todos los dominios que no aparezcan en <code>blackweb.txt</code>.
     </td>
   </tr>
 </table>
@@ -242,10 +201,10 @@ http_access deny blockdomains
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>blocktlds.txt</code> to block gTLD, sTLD, ccTLD, etc.
+      Use <code>blocktlds.txt</code> to block entire top-level domains, such as gTLDs, sTLDs or ccTLDs.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>blocktlds.txt</code> para bloquear gTLD, sTLD, ccTLD, etc.
+      <code>blocktlds.txt</code> contiene los TLD completos que se bloquearán, como gTLD, sTLD o ccTLD.
     </td>
   </tr>
 </table>
@@ -277,10 +236,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use this rule to block <a href="https://datatracker.ietf.org/doc/html/rfc3492" target="_blank">Punycode - RFC3492</a>, IDN | Non-ASCII (TLDs or Domains), to prevent an <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack" target="_blank">IDN homograph attack</a>. For more information visit <a href="https://www.welivesecurity.com/2017/07/27/homograph-attacks-see-to-believe/" target="_blank">welivesecurity: Homograph attacks</a>.
+      This optional rule blocks domain names containing a Punycode label (<code>xn--</code>). It may reduce some homograph risks, but it can also block legitimate internationalized domains. Review and test the rule before enabling it. For background, see <a href="https://www.welivesecurity.com/2017/07/27/homograph-attacks-see-to-believe/" target="_blank">Welivesecurity: Homograph attacks</a>.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Usar esta regla para bloquear <a href="https://datatracker.ietf.org/doc/html/rfc3492" target="_blank">Punycode - RFC3492</a>, IDN | Non-ASCII (TLDs o Dominios), para prevenir un <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack" target="_blank">ataque homógrafo IDN</a>. Para mayor información visite <a href="https://www.welivesecurity.com/la-es/2017/07/13/ataques-homograficos/" target="_blank">welivesecurity: Ataques homográficos</a>.
+      Esta regla opcional bloquea dominios cuyo nombre contiene una etiqueta Punycode (<code>xn--</code>). Puede ayudar a reducir ciertos riesgos de ataques homográficos, pero también puede bloquear dominios internacionalizados legítimos. Conviene revisar y probar la regla antes de activarla. Para más información, puede consultarse <a href="https://www.welivesecurity.com/la-es/2017/07/13/ataques-homograficos/" target="_blank">Welivesecurity: Ataques homográficos</a>.
     </td>
   </tr>
 </table>
@@ -313,10 +272,10 @@ ASCII Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use this rule to block patterns (Optional. Can generate false positives).
+      This optional rule blocks URLs that match patterns in the file. It may produce false positives, so review the list before enabling the rule.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Use esta regla para bloquear patrones (Opcional. Puede generar falsos positivos).
+      Esta regla opcional bloquea las URL que coincidan con los patrones del archivo. Puede generar falsos positivos; conviene revisar la lista antes de activarla.
     </td>
   </tr>
 </table>
@@ -325,7 +284,7 @@ ASCII Output:
 # Example: Download ACL:
 sudo wget -P /etc/acl/squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
 # Squid Rule to Block Patterns (change path):
-acl blockwords url_regex -i "/etc/acl/squid/blockpatterns.txt"
+acl blockpatterns url_regex -i "/etc/acl/squid/blockpatterns.txt"
 http_access deny blockpatterns
 ```
 
@@ -351,10 +310,10 @@ https://www.google.com/search?q=mydomain
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>streaming.txt</code> to block (or allow) streaming domains not included in <code>blackweb.txt</code> (for example: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
+      Use <code>streaming.txt</code> to block streaming domains not included in <code>blackweb.txt</code>, such as <code>.youtube.com</code>, <code>.googlevideo.com</code> or <code>.ytimg.com</code>. To allow them instead, use an <code>allow</code> rule in place of the example <code>deny</code> rule.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Utilice <code>streaming.txt</code> para bloquear (o permitir) dominios de streaming no incluidos en <code>blackweb.txt</code> (por ejemplo: <code>.youtube.com</code>, <code>.googlevideo.com</code>, <code>.ytimg.com</code>, etc.).
+      <code>streaming.txt</code> permite bloquear dominios de servicios de streaming que no estén en <code>blackweb.txt</code>, por ejemplo <code>.youtube.com</code>, <code>.googlevideo.com</code> o <code>.ytimg.com</code>. Para permitirlos, se puede configurar una regla <code>allow</code> en lugar de la regla <code>deny</code> del ejemplo.
     </td>
   </tr>
 </table>
@@ -374,10 +333,10 @@ http_access deny streaming
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>Nota:</b> Esta lista puede contener dominios superpuestos. Es importante depurarla manualmente según el objetivo propuesto. Ejemplo:
+      <b>Nota:</b> Esta lista puede contener dominios superpuestos. Conviene depurarla manualmente según el objetivo. Por ejemplo:
       <ul>
-        <li>Si el objetivo es bloquear Facebook, conserva los dominios principales y elimina los subdominios específicos.</li>
-        <li>Si el objetivo es bloquear funcionalidades, como el streaming de Facebook, mantén los subdominios específicos y elimina los dominios principales para no afectar el acceso general al sitio. Ejemplo:</li>
+        <li>Para bloquear Facebook, se conservan los dominios principales y se eliminan los subdominios específicos.</li>
+        <li>Para bloquear solo algunas funciones, como el streaming de Facebook, se conservan los subdominios específicos y se eliminan los dominios principales, a fin de no afectar el acceso general al sitio. Por ejemplo:</li>
       </ul>
     </td>
   </tr>
@@ -397,10 +356,10 @@ http_access deny streaming
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Use <code>ai.txt</code> to block (or allow) domains related to artificial intelligence AI.
+      Use <code>ai.txt</code> to block domains related to artificial intelligence. To allow them instead, use an <code>allow</code> rule in place of the example <code>deny</code> rule.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Utilice <code>ai.txt</code> para bloquear (o permitir) dominios relacionados con inteligencia artificial IA.
+      <code>ai.txt</code> permite bloquear dominios relacionados con servicios de inteligencia artificial. Para permitirlos, se puede configurar una regla <code>allow</code> en lugar de la regla <code>deny</code> del ejemplo.
     </td>
   </tr>
 </table>
@@ -436,13 +395,46 @@ http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
 # https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
-acl blockwords url_regex -i "/path_to/blockpatterns.txt"
+acl blockpatterns url_regex -i "/path_to/blockpatterns.txt"
 http_access deny blockpatterns
 
 # Block Rule for Blackweb
 # https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz
 acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
+```
+
+## DATA SHEET
+
+---
+
+| ACL | Blocked Domains | File Size |
+| :---: | :---: | :---: |
+| blackweb.txt | 7963236 | 194,5 MB |
+
+## REPOSITORY STRUCTURE
+
+---
+
+```
+bwupdate/
+├── bwupdate.sh                  # Main script: downloads lists, builds blackweb.txt and reloads Squid
+├── lst/                         # ACLs and helper lists used by bwupdate.sh
+│   ├── ai.txt                      # Separate Squid ACL for AI-related domains; not modified by bwupdate.sh
+│   ├── allowdomains.txt            # Separate Squid ACL for exempt domains; not modified by bwupdate.sh
+│   ├── allowtlds.txt               # Allowed-TLD pattern used during debugging
+│   ├── blockdomains.txt            # Separate Squid ACL for additional blocked domains; not modified by bwupdate.sh
+│   ├── blocktlds.txt               # Separate Squid ACL for blocking whole TLDs; not modified by bwupdate.sh
+│   ├── debugbl.txt                 # Added to the candidate blocklist before debugging
+│   ├── debugwl.txt                 # Excludes false positives during debugging (Google, Hotmail, Yahoo, etc.)
+│   ├── invalid.txt                 # Added to urls.txt during debugging, along with debugwl.txt
+│   ├── pendingtld.txt              # Not read by scripts; maintainer reference
+│   ├── streaming.txt               # Separate Squid ACL for streaming domains; not modified by bwupdate.sh
+│   ├── tldsappx.txt                # TLD source used by dofi/domfilter.py
+│   └── tldsbk.txt                  # Not read by scripts; maintainer reference
+└── tools/
+    ├── checksources.sh          # Downloads the source lists and searches them for a domain
+    └── debugerror.py            # Removes domains flagged in Squid's cache.log when their parent domain is already blocked
 ```
 
 ## BLACKWEB UPDATE
@@ -454,10 +446,10 @@ http_access deny blackweb
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      This section is only to explain how the update and optimization process works. It is not necessary for the user to run it. This process can take time and consume a lot of hardware and bandwidth resources, therefore it is recommended to use test equipment.
+      This section describes how <code>bwupdate.sh</code> updates and processes the list. Running the script is not required to use the published <code>blackweb.txt</code>. Updates can take time and use substantial CPU, memory, network and bandwidth resources; run the process on a test system.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Esta sección es únicamente para explicar cómo funciona el proceso de actualización y optimización. No es necesario que el usuario la ejecute. Este proceso puede tardar y consumir muchos recursos de hardware y ancho de banda, por tanto se recomienda usar equipos de pruebas.
+      Esta sección describe el proceso que sigue <code>bwupdate.sh</code> para actualizar y depurar la lista. No es necesario ejecutar este script para usar el archivo <code>blackweb.txt</code> publicado. La actualización puede tardar y consumir muchos recursos de CPU, memoria, red y ancho de banda; se recomienda ejecutarla en un equipo de pruebas.
     </td>
   </tr>
   <tr>
@@ -485,10 +477,10 @@ apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep s
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      The update process of <code>blackweb.txt</code> consists of several steps and is executed in sequence by the script <code>bwupdate.sh</code>. The script will request privileges when required.
+      <code>bwupdate.sh</code> runs the steps needed to generate and update <code>blackweb.txt</code> in sequence. The script requests elevated privileges when an operation requires them.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      El proceso de actualización de <code>blackweb.txt</code> consta de varios pasos y es ejecutado en secuencia por el script <code>bwupdate.sh</code>. El script solicitará privilegios cuando lo requiera.
+      <code>bwupdate.sh</code> ejecuta en secuencia los pasos necesarios para generar y actualizar <code>blackweb.txt</code>. Cuando una operación requiere privilegios, el script los solicita.
     </td>
   </tr>
 </table>
@@ -500,57 +492,23 @@ git clone --depth=1 https://github.com/maravento/blackweb.git && cd blackweb/bwu
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Make sure your Squid is installed correctly. If you have any problems, run the following script: (<code>sudo ./squid_install.sh</code>):
+      Before continuing, check that Squid is installed and its service is running.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Asegúrese de que Squid esté instalado correctamente. Si tiene algún problema, ejecute el siguiente script: (<code>sudo ./squid_install.sh</code>):
+      Antes de continuar, conviene comprobar que Squid esté instalado y que el servicio funcione.
     </td>
   </tr>
 </table>
-
-```bash
-#!/bin/bash
-
-# kill old version
-while pgrep squid > /dev/null; do
-    echo "Waiting for Squid to stop..."
-    killall -s SIGTERM squid &>/dev/null
-    sleep 5
-done
-
-# squid remove (if exist)
-apt purge -y squid* &>/dev/null
-rm -rf /var/spool/squid* /var/log/squid* /etc/squid* /dev/shm/* &>/dev/null
-
-# squid install (you can use 'squid-openssl' or 'squid')
-apt install -y squid-openssl squid-langpack squid-common squidclient squid-purge
-
-# create log
-if [ ! -d /var/log/squid ]; then
-    mkdir -p /var/log/squid
-fi &>/dev/null
-if [[ ! -f /var/log/squid/{access,cache,store,deny}.log ]]; then
-    touch /var/log/squid/{access,cache,store,deny}.log
-fi &>/dev/null
-
-# permissions
-chown -R proxy:proxy /var/log/squid
-
-# enable service
-systemctl enable squid.service
-systemctl start squid.service
-echo "Done"
-```
 
 #### Capture Public Blocklists
 
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Capture domains from downloaded public blocklists (see <b>SOURCES</b>) and unify them in a single file.
+      Downloads the public blocklists listed under <b>SOURCES</b>, extracts their domains and combines them for further processing.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Captura los dominios de las listas de bloqueo públicas descargadas (ver <b>SOURCES</b>) y las unifica en un solo archivo.
+      Descarga las listas públicas indicadas en <b>SOURCES</b>, extrae sus dominios y los reúne para continuar con la depuración.
     </td>
   </tr>
 </table>
@@ -560,10 +518,10 @@ echo "Done"
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Remove overlapping domains (<code>'.sub.example.com' is a subdomain of '.example.com'</code>), does homologation to Squid-Cache format and excludes false positives (google, hotmail, yahoo, etc.) with an allowlist (<code>debugwl.txt</code>).
+      Removes redundant domains when a broader entry already covers them, normalizes entries for Squid ACLs, and applies <code>debugwl.txt</code> to retain domains that should not be blocked.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Elimina dominios superpuestos (<code>'.sub.example.com' es un dominio de '.example.com'</code>), hace la homologación al formato de Squid-Cache y excluye falsos positivos (google, hotmail, yahoo, etc.) con una lista de permitidos (<code>debugwl.txt</code>).
+      Elimina dominios redundantes cuando uno ya queda cubierto por otro más general, normaliza las entradas al formato de ACL de Squid y aplica la lista <code>debugwl.txt</code> para conservar dominios que deben excluirse del bloqueo.
     </td>
   </tr>
 </table>
@@ -600,10 +558,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Remove domains with invalid TLDs (with a list of Public and Private Suffix TLDs: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., up to 4th level 4LDs).
+      Removes domains whose suffix is not in the configured list of valid TLDs. The list covers different levels of public and private suffixes, including domains with up to four labels.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Elimina dominios con TLD inválidos (con una lista de TLDs Public and Private Suffix: ccTLD, ccSLD, sTLD, uTLD, gSLD, gTLD, eTLD, etc., hasta 4to nivel 4LDs).
+      Elimina los dominios cuyo sufijo no figura entre los TLD válidos de las fuentes configuradas. La lista contempla distintos niveles de sufijos públicos y privados, incluidos dominios de hasta cuatro etiquetas.
     </td>
   </tr>
 </table>
@@ -628,14 +586,14 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Removes hostnames longer than 63 characters, as defined in <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>, and other characters not admitted by <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a>. <br>
+      Removes domain names that exceed length limits or contain unsupported characters, as defined by <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a> and the <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a> tools. <br>
       <br>
-      It also converts domains with international, non-ASCII characters, used for <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack" target="_blank">homograph attacks</a>, to the <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a> format.
+      It also converts domains containing non-ASCII characters to <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a> so they can be validated and processed as ASCII names.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Elimina hostnames de más de 63 caracteres, según define el <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC 1035</a>, y otros caracteres no admitidos por <a href="http://www.gnu.org/s/libidn/manual/html_node/Invoking-idn.html" target="_blank">IDN</a>. <br>
+      Elimina nombres de dominio que exceden los límites de longitud o contienen caracteres no admitidos. <br>
       <br>
-      También convierte los dominios con caracteres internacionales, no ASCII, usados para <a href="https://es.qwerty.wiki/wiki/IDN_homograph_attack" target="_blank">ataques homográficos</a>, al formato <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a>.
+      También convierte los dominios con caracteres no ASCII a formato <a href="https://www.charset.org/punycode" target="_blank">Punycode/IDNA</a>, para que puedan validarse y procesarse como nombres ASCII. Esta conversión no significa que todos esos dominios se usen para ataques homográficos.
     </td>
   </tr>
 </table>
@@ -671,10 +629,10 @@ xn--sendesk-wfb.com
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Removes entries with invalid encoding, non-printable characters, whitespace, disallowed symbols, and any content that does not conform to the strict ASCII format for valid domain names (CP1252, ISO-8859-1, corrupted UTF-8, etc.). Converts the output to plain text with <code>charset=us-ascii</code>, ensuring a clean, standardized list ready for validation, comparison, or DNS resolution:
+      Removes entries with invalid encoding, non-printable characters, whitespace or unsupported symbols. It then converts the output to ASCII text for further domain validation and processing:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Elimina entradas con codificación incorrecta, caracteres no imprimibles, espacios en blanco, símbolos no permitidos y cualquier contenido que no se ajuste al formato ASCII estricto para nombres de dominio válidos (CP1252, ISO-8859-1, UTF-8 corrupto, etc.) y convierte la salida a texto sin formato <code>charset=us-ascii</code>, lo que garantiza una lista limpia y estandarizada, lista para validación, comparación o resolución DNS:
+      Elimina entradas con codificación inválida, caracteres no imprimibles, espacios o símbolos no admitidos. Después convierte la salida a texto ASCII para continuar con la validación y el procesamiento de los dominios:
     </td>
   </tr>
 </table>
@@ -744,44 +702,44 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Most of the <b>SOURCES</b> contain millions of invalid or nonexistent domains, so each domain is double-checked via DNS (in 2 steps) to exclude those entries from Blackweb. This process is performed in parallel and can be resource-intensive, depending on your hardware and network conditions. You can control concurrency with the <code>PROCS</code> variable:
+      Many <b>SOURCES</b> contain invalid or nonexistent domains, so DNS queries run in two stages to discard domains that do not resolve. The queries run in parallel and can use substantial CPU and bandwidth. The <code>parallel_procs</code> variable controls concurrency:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      La mayoría de las <b>SOURCES</b> contienen millones de dominios inválidos o inexistentes, por lo que cada dominio se verifica mediante DNS (en dos pasos) para excluir esas entradas de Blackweb. Este proceso se realiza en paralelo y puede consumir muchos recursos, dependiendo del hardware y las condiciones de la red. Puede controlar la concurrencia con la variable <code>PROCS</code>:
+      El proceso comprueba los dominios mediante consultas DNS en dos etapas para descartar los que no resuelven. Las consultas se ejecutan en paralelo y pueden consumir bastante CPU y ancho de banda. <code>parallel_procs</code> permite ajustar la cantidad de consultas simultáneas según los recursos del equipo y la red:
     </td>
   </tr>
 </table>
 
 ```bash
-PROCS=$(($(nproc)))        # Conservative (network-friendly)
-PROCS=$(($(nproc) * 2))    # Balanced
-PROCS=$(($(nproc) * 4))    # Aggressive (default)
-PROCS=$(($(nproc) * 8))    # Extreme (8 or higher, use with caution)
+parallel_procs=$(($(nproc)))        # Conservative (network-friendly)
+parallel_procs=$(($(nproc) * 2))    # Balanced
+parallel_procs=$(($(nproc) * 4))    # Aggressive (default)
+parallel_procs=$(($(nproc) * 8))    # Extreme (8 or higher, use with caution)
 ```
 
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      For example, on a system with a Core i5 CPU (4 physical cores / 8 threads with Hyper-Threading):
+      For example, on a system with a Core i5 CPU (4 physical cores and 8 threads with Hyper-Threading):
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Por ejemplo, en un sistema con una CPU Core i5 (4 núcleos físicos/8 subprocesos con Hyper-Threading):
+      Por ejemplo, en un equipo con CPU Core i5, cuatro núcleos físicos y ocho subprocesos con Hyper-Threading:
     </td>
   </tr>
 </table>
 
 ```bash
 nproc             → 8
-PROCS=$((8 * 4))  → 32 parallel queries
+parallel_procs=$((8 * 4))  → 32 parallel queries
 ```
 
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>⚠️ Warning:</b> High <code>PROCS</code> values increase DNS resolution speed but may saturate your CPU or bandwidth, especially on limited networks like satellite links. Adjust accordingly. Real-time processing example:
+      <b>⚠️ Warning:</b> Higher <code>parallel_procs</code> values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>⚠️ Advertencia:</b> Los valores altos de <code>PROCS</code> aumentan la velocidad de resolución del DNS, pero pueden saturar la CPU o el ancho de banda, especialmente en redes limitadas como enlaces satelitales. Ajuste el sistema según corresponda. Ejemplo de procesamiento en tiempo real:
+      <b>⚠️ Advertencia:</b> Los valores altos de <code>parallel_procs</code> pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
     </td>
   </tr>
 </table>
@@ -836,10 +794,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Run Squid-Cache with BlackWeb and any error sends it to <code>SquidErrors.txt</code>.
+      When Squid runs with BlackWeb, errors are written to <code>SquidErrors.txt</code>.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Corre Squid-Cache con BlackWeb y cualquier error lo envía a <code>SquidErrors.txt</code>.
+      Al ejecutar Squid-Cache con BlackWeb, los errores se escriben en <code>SquidErrors.txt</code>.
     </td>
   </tr>
 </table>
@@ -849,10 +807,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Both <code>bwupdate.sh</code> and <code>checksources.sh</code> generate a log file (<code>bwupdate.log</code> / <code>checksources.log</code>) in the same directory as the script itself.
+      Both <code>bwupdate.sh</code> and <code>checksources.sh</code> write a log file (<code>bwupdate.log</code> or <code>checksources.log</code>) in the directory containing the script.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> y <code>checksources.sh</code> generan un archivo de log (<code>bwupdate.log</code> / <code>checksources.log</code>) en el mismo directorio donde reside el script.
+      <code>bwupdate.sh</code> y <code>checksources.sh</code> escriben un archivo de registro (<code>bwupdate.log</code> o <code>checksources.log</code>) en el directorio donde se encuentra cada script.
     </td>
   </tr>
 </table>
@@ -861,11 +819,11 @@ Output:
 
 | Tag | Shows | English | Español |
 |---|---|---|---|
-| `SAVED:` | File name | The transfer completed and the file was written | La transferencia terminó completa y el archivo quedó escrito |
-| `PARTIAL:` | Full URL | The download started and was cut off before finishing | La descarga arrancó y se cortó antes de terminar |
-| `BUSY:` | Full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió 5xx: está activo pero no sirve la lista en ese momento |
-| `TIMEOUT:` | Full URL | The server did not answer at all | El servidor no respondió nada |
-| `BROKEN:` | Full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: URL rota o inexistente |
+| `SAVED:` | File name | The transfer completed and the file was written | La descarga terminó y el archivo se guardó |
+| `PARTIAL:` | Full URL | The download started and was cut off before finishing | La descarga comenzó y se interrumpió antes de terminar |
+| `BUSY:` | Full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió con un error 5xx: está disponible, pero no entrega la lista en ese momento |
+| `TIMEOUT:` | Full URL | The server did not answer at all | El servidor no respondió |
+| `BROKEN:` | Full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: el recurso no existe o la URL ya no es válida |
 
 #### Important about BlackWeb Update
 
@@ -876,15 +834,15 @@ Output:
         <li>The default path of BlackWeb is <code>/etc/acl</code>. You can change it for your preference.</li>
         <li>If you need to interrupt the execution of <code>bwupdate.sh</code> (ctrl + c) and it stopped at the <b>DNS Lookup</b> part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.</li>
         <li>If you use <code>aufs</code>, temporarily change it to <code>ufs</code> during the upgrade, to avoid: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
-        <li><code>bwupdate.sh</code> intentionally uses <code>--no-check-certificate</code> (wget) and <code>-k</code> (curl). Several public blocklist sources have certificate/SSL issues that block the download when strict verification is enabled. This is a deliberate design choice, not an overlooked vulnerability.</li>
+        <li><code>bwupdate.sh</code> uses <code>--no-check-certificate</code> (wget) and <code>-k</code> (curl) because some public blocklist sources have certificate issues. This allows download attempts but weakens verification of the server's identity; keep this in mind when changing or reviewing sources.</li>
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
       <ul>
-        <li>El path por default de BlackWeb es <code>/etc/acl</code>. Puede cambiarlo por el de su preferencia.</li>
-        <li>Si necesita interrumpir la ejecución de <code>bwupdate.sh</code> (ctrl + c) y se detuvo en la parte de <b>DNS Lookup</b>, reiniciará en ese punto. Si lo detiene antes deberá comenzar desde el principio o modificar el script manualmente para que inicie desde el punto deseado.</li>
-        <li>Si usa <code>aufs</code>, cámbielo temporalmente a <code>ufs</code> durante la actualización, para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
-        <li><code>bwupdate.sh</code> usa intencionalmente <code>--no-check-certificate</code> (wget) y <code>-k</code> (curl). Varias fuentes públicas de listas de bloqueo tienen problemas de certificado/SSL que impiden la descarga si se activa la verificación estricta. Es una decisión de diseño deliberada, no una vulnerabilidad pasada por alto.</li>
+        <li>La ruta predeterminada para instalar la ACL es <code>/etc/acl</code>; puede cambiarse en <code>bwupdate.sh</code>.</li>
+        <li>Si el script se interrumpe durante la etapa <b>DNS Lookup</b>, al volver a ejecutarlo continuará desde esa etapa. Si se interrumpe antes, será necesario iniciarlo de nuevo o modificarlo para reanudar desde otro punto.</li>
+        <li>Si se usa <code>aufs</code>, debe cambiarse temporalmente a <code>ufs</code> durante la actualización para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
+        <li><code>bwupdate.sh</code> desactiva la verificación estricta de certificados porque algunas fuentes públicas tienen problemas con ellos. Esto permite intentar la descarga, pero reduce la verificación de la identidad del servidor; conviene tenerlo en cuenta al modificar o revisar las fuentes.</li>
       </ul>
     </td>
   </tr>
@@ -1024,7 +982,7 @@ Output:
 - [publicsuffix](https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat)
 - [Ransomware Database](https://docs.google.com/spreadsheets/u/1/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
 - [University Domains and Names Data List](https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json)
-- [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_gtlds.php)
+- [whoisxmlapi](https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp)
 
 ## SUBPROJECTS
 
@@ -1033,10 +991,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      BlackWeb's core is the domain/TLD blocklist (<code>blackweb.txt</code>, <code>bwupdate.sh</code>). The following are related subprojects, each with its own tooling and update flow.
+      BlackWeb's core is the domain and TLD blocklist (<code>blackweb.txt</code> and <code>bwupdate.sh</code>). It also includes related projects, each with its own tools and update process.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      El núcleo de BlackWeb es la lista de bloqueo de dominios/TLDs (<code>blackweb.txt</code>, <code>bwupdate.sh</code>). Lo siguiente son subproyectos relacionados, cada uno con sus propias herramientas y flujo de actualización.
+      El núcleo de BlackWeb es la lista de bloqueo de dominios y TLD (<code>blackweb.txt</code> y <code>bwupdate.sh</code>). También incluye proyectos relacionados, cada uno con sus propias herramientas y proceso de actualización.
     </td>
   </tr>
 </table>
@@ -1046,10 +1004,10 @@ Output:
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <code>fpack/</code> holds ACLs that are <b>optional and not part of BlackWeb's core flow</b> — <code>bwupdate.sh</code> never calls it. If interested, download the lists, run <code>fpack.sh</code>, and apply the Squid rules below yourself: ransomware file extensions, malicious User-Agents, and static web3 lists. <code>fpack.sh</code> generates the first two; web3 lists are curated by hand and not touched by the script.
+      <code>fpack/</code> contains optional ACLs outside BlackWeb's core flow; <code>bwupdate.sh</code> does not process them. To generate the ACLs, download the lists and run <code>fpack.sh</code>, then apply the Squid rules shown below. They cover ransomware-related file extensions, malicious User-Agents and static web3 lists. <code>fpack.sh</code> generates the first two; the web3 lists are maintained manually and are not modified by the script.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>fpack/</code> contiene ACLs <b>opcionales, fuera del flujo core de BlackWeb</b> — <code>bwupdate.sh</code> nunca lo invoca. Si te interesa, descarga las listas, corre <code>fpack.sh</code>, y aplica tú mismo las reglas de Squid de abajo: extensiones de archivo de ransomware, User-Agents maliciosos y listas web3 estáticas. <code>fpack.sh</code> genera las dos primeras; las listas web3 se curan a mano y el script no las toca.
+      <code>fpack/</code> contiene ACL opcionales, ajenas al flujo principal de BlackWeb; <code>bwupdate.sh</code> no las procesa. Para generarlas, se descargan las listas y se ejecuta <code>fpack.sh</code>; después, se aplican las reglas de Squid que aparecen abajo. Incluyen extensiones de archivo relacionadas con ransomware, User-Agents maliciosos y listas web3 estáticas. <code>fpack.sh</code> genera las dos primeras; las listas web3 se mantienen manualmente y el script no las modifica.
     </td>
   </tr>
 </table>
@@ -1070,10 +1028,10 @@ fpack/
 
 #### Requirements
 
-- `wget`, `grep`, `sed`, `coreutils`, `util-linux`
+- `wget`, `curl`, `grep`, `sed`, `coreutils`, `util-linux`
 
 ```bash
-apt install -y wget grep sed coreutils util-linux
+apt install -y wget curl grep sed coreutils util-linux
 ```
 
 #### Download
@@ -1129,6 +1087,23 @@ bash fpack.sh
   </tr>
 </table>
 
+#### How It Works
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack.sh</code> downloads and normalizes the User-Agent list into <code>ua/blockua.txt</code>. It then downloads several ransomware extension/pattern lists, merges them with the administrator list (<code>rw/rw.txt</code>), normalizes extension forms (<code>ext</code>, <code>.ext</code>, <code>_ext</code>, <code>-ext</code>, <code>*ext</code> all become <code>*.ext</code>), and keeps only simple <code>*.ext</code> patterns. It removes entries listed in the administrator whitelist (<code>rw/wl.txt</code>) and discards ransom-note-style or implausibly long extensions. The result is written as a Squid <code>url_regex</code> ACL, <code>rw/rwext.txt</code>, with regex metacharacters escaped so they match literally.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>fpack.sh</code> descarga y normaliza la lista de User-Agents en <code>ua/blockua.txt</code>. Luego descarga varias listas de extensiones/patrones de ransomware, las combina con la lista del administrador (<code>rw/rw.txt</code>), normaliza las formas de extensión (<code>ext</code>, <code>.ext</code>, <code>_ext</code>, <code>-ext</code>, <code>*ext</code> pasan todas a <code>*.ext</code>) y conserva solo patrones simples <code>*.ext</code>. Elimina las entradas de la lista blanca del administrador (<code>rw/wl.txt</code>) y descarta extensiones tipo nota-de-rescate o implausiblemente largas. El resultado se escribe como ACL <code>url_regex</code> de Squid, <code>rw/rwext.txt</code>, con los metacaracteres de regex escapados para que coincidan como texto literal.
+    </td>
+  </tr>
+</table>
+
+> `rw/wl.txt` excludes entries by exact match, format `*.ext`, one per line. Do not add `*.zip` or `*.rar`: they are common legitimate ransomware suffixes (e.g. `*.bart.zip`) and would be discarded if whitelisted.
+>
+> `rw/wl.txt` excluye entradas por coincidencia exacta, formato `*.ext`, una por línea. No agregue `*.zip` ni `*.rar`: son sufijos legítimos comunes de ransomware (ej. `*.bart.zip`) y se descartarían si se agregan a la lista blanca.
+
 #### Squid Rules
 
 ```bash
@@ -1162,10 +1137,10 @@ http_access deny bad_useragents
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Domain Filtering — removes overlapping domains, validates TLDs, and checks domain existence via DNS. It's a <b>mandatory dependency of <code>bwupdate.sh</code></b> (called internally via <code>domfilter.py</code>; the update aborts if it fails) — but it can also be used as an <b>independent project</b> to process domain lists unrelated to BlackWeb:
+      Domain Filtering (DoFi) removes redundant domains, validates their suffixes, and can check DNS resolution. <code>bwupdate.sh</code> uses <code>domfilter.py</code> during updates and stops if that step fails. DoFi can also be used independently to process other domain lists:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Filtrado de Dominios — elimina dominios superpuestos, valida TLDs y verifica existencia de dominios vía DNS. Es una <b>dependencia obligatoria de <code>bwupdate.sh</code></b> (se invoca internamente vía <code>domfilter.py</code>; la actualización aborta si falla) — pero también puede usarse como <b>proyecto independiente</b> para procesar listas de dominios ajenas a BlackWeb:
+      DoFi (Domain Filtering) elimina dominios redundantes, valida sus sufijos y puede comprobar su resolución DNS. <code>bwupdate.sh</code> usa <code>domfilter.py</code> durante la actualización y se detiene si esa etapa falla. DoFi también puede emplearse por separado para procesar otras listas:
     </td>
   </tr>
 </table>
@@ -1183,10 +1158,10 @@ dofi/
 #### Requirements
 
 - Python 3.12.3, Bash 5.2.21
-- `python3-requests` (required by `domfilter.py`), `bind9-host`, `findutils`, `coreutils`, `util-linux` (required by `domcheck.sh`)
+- `python3-requests` (required by `domfilter.py`), `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux` (required by `domcheck.sh`)
 
 ```bash
-apt install -y python3 python3-requests bind9-host findutils coreutils util-linux
+apt install -y python3 python3-requests bind9-host findutils grep sed coreutils util-linux
 ```
 
 #### Download
@@ -1208,22 +1183,22 @@ cd dofi
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Ensure the input list has no <code>http://</code>, <code>https://</code>, or <code>www.</code> prefixes. What it does:<br>
-      - Downloads public suffix TLDs from multiple sources.<br>
+      Before running the filter, remove <code>http://</code>, <code>https://</code> and <code>www.</code> prefixes from the input list. The script:<br>
+      - Downloads public suffix lists from multiple sources.<br>
       - Removes invalid or duplicate TLDs.<br>
-      - Filters domains to ensure they end with a valid TLD.<br>
+      - Filters domains against the valid suffix list.<br>
       - Removes overlapping domains.<br>
-      - Excludes duplicates from previously validated domains.<br>
-      - Outputs results to a file.
+      - Excludes duplicates from previously processed domains.<br>
+      - Writes the results to a file.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Asegúrese de que la lista de entrada no tenga prefijos <code>http://</code>, <code>https://</code> o <code>www.</code>. Qué hace:<br>
-      - Descarga TLD de sufijo público de varias fuentes.<br>
+      Antes de ejecutar el filtro, deben quitarse de la lista los prefijos <code>http://</code>, <code>https://</code> y <code>www.</code>. El script:<br>
+      - Descarga listas de sufijos públicos de varias fuentes.<br>
       - Elimina TLD no válidos o duplicados.<br>
-      - Filtra dominios para garantizar que terminen con un TLD válido.<br>
+      - Filtra dominios según la lista de sufijos válidos.<br>
       - Elimina dominios superpuestos.<br>
-      - Excluye duplicados de dominios previamente validados.<br>
-      - Envía los resultados a un archivo.
+      - Excluye dominios duplicados ya procesados.<br>
+      - Guarda los resultados en un archivo.
     </td>
   </tr>
 </table>
@@ -1235,10 +1210,10 @@ python3 domfilter.py --input mylst.txt
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Replace <code>mylst.txt</code> with the name of your domain list. By default, output goes to <code>output.txt</code> and removed lines to <code>removed.txt</code> — customize with:
+      In the command, replace <code>mylst.txt</code> with the input filename. By default, results go to <code>output.txt</code> and removed lines to <code>removed.txt</code>; these paths can be changed with the following options:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Reemplace <code>mylst.txt</code> con el nombre de su lista de dominios. Por defecto, la salida va a <code>output.txt</code> y las líneas eliminadas a <code>removed.txt</code> — personalice con:
+      En el comando, <code>mylst.txt</code> debe sustituirse por el nombre del archivo de entrada. De forma predeterminada, el resultado se guarda en <code>output.txt</code> y las líneas descartadas en <code>removed.txt</code>; esas rutas pueden cambiarse con las opciones siguientes:
     </td>
   </tr>
 </table>
@@ -1247,24 +1222,30 @@ python3 domfilter.py --input mylst.txt
 python3 domfilter.py --input mylst.txt --output outlst.txt --removed removelst.txt
 ```
 
-TLD Includes: ccTLDs, gTLDs, sTLDs, eTLDs, and 4LDs (file: `tlds.txt`)
+> The `tlds.txt` list includes ccTLDs, gTLDs, sTLDs, eTLDs, and domains of up to four labels.
+>
+> La lista `tlds.txt` incluye ccTLD, gTLD, sTLD, eTLD y dominios de hasta cuatro etiquetas.
 
 #### Domains Check with Host Command
 
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Checks if each domain exists, using the <code>host</code> command, and cleans the input list, separating the output as follows:<br>
-      - <code>hit.txt</code>: existing domains from your list.<br>
-      - <code>fault.txt</code>: non-existent domains removed.
+      The script queries each domain with the <code>host</code> command and separates results into two files:<br>
+      - <code>hit.txt</code>: domains that resolved.<br>
+      - <code>fault.txt</code>: domains that did not resolve.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Verifica si cada dominio existe, con el comando <code>host</code>, y limpia la lista de entrada, separando la salida de la siguiente manera:<br>
-      - <code>hit.txt</code>: dominios existentes de su lista.<br>
-      - <code>fault.txt</code>: dominios inexistentes eliminados.
+      El script consulta cada dominio con el comando <code>host</code> y separa los resultados en dos archivos:<br>
+      - <code>hit.txt</code>: dominios que resolvieron.<br>
+      - <code>fault.txt</code>: dominios que no pudieron resolverse.
     </td>
   </tr>
 </table>
+
+> Before running the script, remove `http://`, `https://`, and `www.` prefixes from the input list.
+>
+> Antes de ejecutar el script, quite de la lista los prefijos `http://`, `https://` y `www.`.
 
 ```bash
 chmod +x domcheck.sh
@@ -1274,10 +1255,10 @@ bash domcheck.sh my_domain_list.txt
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      Replace <code>my_domain_list.txt</code> with your input list. Optional: replace <code>50</code> with the number of parallel processes (default: <code>nproc × 4</code>):
+      In the command, replace <code>my_domain_list.txt</code> with the input filename. The optional second argument sets the number of parallel processes (default: <code>nproc × 4</code>, capped at <code>200</code>):
     </td>
     <td style="width: 50%; vertical-align: top;">
-      Reemplace <code>my_domain_list.txt</code> con su lista de entrada. Opcional: reemplace <code>50</code> con el número de procesos paralelos (por defecto: <code>nproc × 4</code>):
+      En el comando, <code>my_domain_list.txt</code> debe sustituirse por el nombre del archivo de entrada. El segundo argumento, opcional, indica la cantidad de procesos paralelos (por defecto: <code>nproc × 4</code>, con tope de <code>200</code>):
     </td>
   </tr>
 </table>
@@ -1300,6 +1281,17 @@ bash domcheck.sh my_domain_list.txt 50
 2026-07-07 13:30:28   Elapsed time  : 30s
 2026-07-07 13:30:29 domcheck done at: mar 07 jul 2026 13:30:29 -05
 ```
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Log: <code>dofi.log</code>, generated in <code>dofi/</code>, emptied at the start of every run.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Log: <code>dofi.log</code>, generado en <code>dofi/</code>, vaciado al inicio de cada ejecución.
+    </td>
+  </tr>
+</table>
 
 #### Sources
 

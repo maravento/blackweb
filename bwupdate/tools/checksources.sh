@@ -4,7 +4,13 @@
 ################################################################################
 #
 # Check Sources
-# Download and search Blackweb source lists for a domain
+#
+# DESCRIPTION:
+# Downloads BlackWeb source lists and searches them for a domain,
+# interactively.
+#
+# USAGE:
+# ./checksources.sh
 #
 # LOG: checksources.log, in the directory this script is run from
 #      Emptied at the start of every run, holds the last execution only

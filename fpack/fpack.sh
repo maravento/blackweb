@@ -6,64 +6,12 @@
 # Filter Pack (fpack)
 # File Extensions/Patterns/User-Agents to Block
 #
-# OVERVIEW
-# This script builds a Squid ACL for ransomware-related file
-# extensions/patterns and another for malicious User-Agent strings, by
-# downloading and aggregating several public source lists and then
-# filtering out entries that are not safe or meaningful as extension
-# patterns.
+# DESCRIPTION:
+# Builds Squid ACLs for ransomware-related file extensions and
+# malicious User-Agents from public source lists.
 #
-# DIRECTORY LAYOUT
-# - rw/    : administrator-maintained ransomware source lists (read-only
-#            inputs to this script; never written by it).
-# - ua/    : final Squid User-Agent ACL this script produces/updates.
-# - web3/  : static web3 domain/TLD lists, not touched by this script.
-#
-# PIPELINE (in order)
-# 1. Download bad User-Agent list -> normalize -> regenerate
-#    ua/blockua.txt (deduplicated, overwritten every run).
-# 2. Download multiple ransomware extension/pattern lists -> concatenate
-#    into a temporary source list.
-# 3. Normalize: keep ASCII-only lines, trim whitespace, drop empty lines,
-#    sort/dedupe.
-# 4. Normalize extension forms: "ext", ".ext", "_ext", "-ext", "*ext" all
-#    become "*.ext" so equivalent notations are treated the same.
-# 5. Filter to simple "*.ext" patterns only (single leading wildcard, no
-#    internal wildcards/whitespace). Anything else (bare filenames,
-#    multi-pattern lines separated by "/", lines with embedded spaces,
-#    [ID]/[KEY] placeholders, or entries containing unsafe regex/glob
-#    metacharacters [ ] @ { } ( ) ? ^ | \) is discarded (the on-screen count
-#    is the lasting record).
-# 6. Apply rw/wl.txt as an exact-match administrator whitelist (entries
-#    removed verbatim).
-# 7. Discard ransom-note-style entries: anything ending in a whitelisted
-#    document extension (*.ext) or an extra segment plus a whitelisted
-#    extension (*.algo.ext), e.g. "*.DATA_RECOVERY.html", "*.README.txt".
-# 8. Discard entries whose extension segment is implausibly long (>35
-#    chars), which are typically ransom note filenames or attacker IDs
-#    rather than real encryption extensions, e.g.
-#    "*.NEED_TO_MAKE_THE_PAYMENT_IN_MAXIM_24_HOURS...".
-# 9. Generate rw/rwext.txt: a Squid url_regex ACL derived from the
-#    filtered list. Regex metacharacters that can appear literally inside
-#    an entry (e.g. the "." in "*.bart.zip", or a literal "$") are
-#    escaped, so they match as literal characters instead of being
-#    interpreted as "any character" or an anchor.
-#
-# NOTE on rw/rw.txt:
-# - Administrator-maintained ransomware extensions/patterns.
-# - Merged into the downloaded source lists before normalization.
-# - Subject to the same validation, whitelist and filtering rules as all
-#   downloaded sources.
-#
-# NOTE on rw/wl.txt:
-# - One pattern per line, format "*.ext".
-# - Entries are excluded by exact match (administrator override, step 6).
-# - Entries are also used in step 7 to detect and discard ransom-note-style
-#   entries ending in a whitelisted extension, e.g. "*.DATA_RECOVERY.html",
-#   "*.README.txt".
-# - Do NOT add "*.zip" or "*.rar": these are common legitimate ransomware
-#   suffixes (e.g. "*.bart.zip", "*.locked.zip") and would be discarded
-#   in step 7 if whitelisted here.
+# USAGE:
+# bash fpack.sh
 #
 # LOG: fpack.log, in the directory this script is run from
 #      Emptied at the start of every run, holds the last execution only
