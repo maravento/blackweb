@@ -576,26 +576,28 @@ sleep 5
 # step 2:
 log "INFO: 2nd DNS Lookup..."
 sed 's/^\.//g' fault.txt | sort -u > step2.txt
-if [ ! -s step2.txt ]; then
-    log "ERROR: step2.txt is empty -- abort"
-    exit 1
-fi
-total_domains=$(wc -l < step2.txt)
-(
-    while sleep 1; do
-        processed_count=$(wc -l < dnslookup2.txt 2>/dev/null || echo 0)
-        percent_done=$(awk -v p="$processed_count" -v t="$total_domains" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
-        printf "Processed: %d / %d (%s%%)\r" "$processed_count" "$total_domains" "$percent_done"
-    done
-) &
-progress_pid=$!
-if [ -s dnslookup2.txt ]; then
-    awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2.txt step2.txt
+if [ -s step2.txt ]; then
+    total_domains=$(wc -l < step2.txt)
+    (
+        while sleep 1; do
+            processed_count=$(wc -l < dnslookup2.txt 2>/dev/null || echo 0)
+            percent_done=$(awk -v p="$processed_count" -v t="$total_domains" 'BEGIN { if (t > 0) printf "%.2f", (p/t)*100; else print 100 }')
+            printf "Processed: %d / %d (%s%%)\r" "$processed_count" "$total_domains" "$percent_done"
+        done
+    ) &
+    progress_pid=$!
+    if [ -s dnslookup2.txt ]; then
+        awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2.txt step2.txt
+    else
+        cat step2.txt
+    fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2.txt
+    kill "$progress_pid" 2>/dev/null
+    echo
 else
-    cat step2.txt
-fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2.txt
-kill "$progress_pid" 2>/dev/null
-echo
+    log "INFO: no FAULTs pending from step 1 -- skip"
+fi
+touch dnslookup2.txt
+
 sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
 sed '/^HIT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
 log "INFO: OK"

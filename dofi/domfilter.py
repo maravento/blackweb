@@ -160,7 +160,7 @@ def add_dot_if_missing(filename: str) -> str:
     fd, tmp_path = tempfile.mkstemp(prefix="domfilter_", suffix=".tmp")
     with os.fdopen(fd, 'w', encoding='utf-8') as file:
         for line in lines:
-            line = line.strip()
+            line = line.strip().lower()
             if not line:
                 continue
             if not line.startswith('.'):
