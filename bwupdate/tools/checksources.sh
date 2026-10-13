@@ -12,7 +12,7 @@
 # USAGE:
 # ./checksources.sh
 #
-# LOG: checksources.log, in the directory this script is run from
+# LOG: checksources.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
@@ -23,17 +23,9 @@ set -uo pipefail
 # REQUIREMENTS
 # ------------------------------------------------------------------------------
 
-# logging
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$script_dir/checksources.log"
-{ > "$log_file"; } 2>/dev/null || true
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
-}
-
 # no-root check
 if [ "$(id -u)" == "0" ]; then
-    log "ERROR: This script should not be run as root -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -- abort" >&2
     exit 1
 fi
 
@@ -42,13 +34,32 @@ script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock")
 exec 200>"$script_lock"
 if ! flock -n 200; then
-    log "ERROR: script $(basename "$0") is already running -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -- abort" >&2
     exit 1
 fi
 
+# logging
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_file="$script_dir/checksources.log"
+{ > "$log_file"; } 2>/dev/null || true
+log() {
+    local log_msg="$(date '+%Y-%m-%d %H:%M:%S') $1"
+    echo "$log_msg" >> "$log_file" 2>/dev/null || true
+    if [[ "$1" == ERROR:* ]]; then
+        echo "$log_msg" >&2
+    else
+        echo "$log_msg"
+    fi
+}
+
+# Function: Report whether a package is installed, not merely residual
+package_installed() {
+    [ "$(dpkg-query -W -f='${db:Status-Status}' "$1" 2>/dev/null)" = installed ]
+}
+
 # dependencies
-for dep_pkg in wget curl tar grep sed coreutils util-linux; do
-    if ! dpkg -s "$dep_pkg" &>/dev/null; then
+for dep_pkg in wget curl tar gzip grep sed coreutils util-linux libc-bin; do
+    if ! package_installed "$dep_pkg"; then
         log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
     fi
@@ -92,21 +103,29 @@ download_lists() {
     local source_url download_file extract_dir http_code
     local src_url="https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh"
 
-    rm -rf downloaded_lists >/dev/null 2>&1
-    mkdir -p downloaded_lists/lists
+    if ! { rm -rf downloaded_lists >/dev/null 2>&1 && mkdir -p downloaded_lists/lists; }; then
+        log "ERROR: cannot prepare downloaded_lists -- abort"
+        return 1
+    fi
 
     if ! $wget_opts -O downloaded_lists/bwupdate_src.sh "$src_url"; then
-        log "PARTIAL: $src_url"
+        log "PARTIAL: $(basename "${src_url%%\?*}")"
         return 1
     fi
     log "SAVED: $(basename "$src_url")"
 
     log "INFO: extracting URLs"
-    sed -n '/# SOURCES_START/,/# SOURCES_END/p' downloaded_lists/bwupdate_src.sh | \
+    if ! { sed -n '/# SOURCES_START/,/# SOURCES_END/p' downloaded_lists/bwupdate_src.sh | \
     grep -E "^[[:space:]]*blurls '" | \
-    sed -E "s/^.*blurls '//; s/' && sleep 1.*$//" > downloaded_lists/urls.txt
+    sed -E "s/^.*blurls '//; s/' && sleep 1.*$//" > downloaded_lists/urls.txt; } || [ ! -s downloaded_lists/urls.txt ]; then
+        log "ERROR: cannot extract source URLs -- abort"
+        return 1
+    fi
 
-    echo "http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz" >> downloaded_lists/urls.txt
+    echo "http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz" >> downloaded_lists/urls.txt || {
+        log "ERROR: cannot append archive URL -- abort"
+        return 1
+    }
 
     log "INFO: downloading lists"
     while IFS= read -r source_url; do
@@ -114,12 +133,12 @@ download_lists() {
         http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
         case "$http_code" in
             2*|405) ;;
-            000) log "TIMEOUT: $source_url"; continue ;;
-            5*)  log "BUSY: $source_url"; continue ;;
-            *)   log "BROKEN: $source_url"; continue ;;
+            000) log "TIMEOUT: $(basename "${source_url%%\?*}")"; continue ;;
+            5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")"; continue ;;
+            *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")"; continue ;;
         esac
         if ! $wget_opts -O "downloaded_lists/lists/$download_file" "$source_url"; then
-            log "PARTIAL: $source_url"
+            log "PARTIAL: $(basename "${source_url%%\?*}")"
             continue
         fi
         log "SAVED: $(basename "${source_url%%\?*}")"
@@ -127,7 +146,10 @@ download_lists() {
         if [[ "$download_file" == *.tar.gz ]]; then
             log "INFO: extracting $(basename "${source_url%%\?*}")"
             extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
-            mkdir -p "$extract_dir"
+            mkdir -p "$extract_dir" || {
+                log "WARNING: cannot prepare extraction directory -- alert"
+                continue
+            }
             if tar -xzf "downloaded_lists/lists/$download_file" -C "$extract_dir"; then
                 rm -f "downloaded_lists/lists/$download_file"
             else
@@ -159,14 +181,26 @@ search_lists() {
         download_file=$(echo "$source_url" | sed -E 's~https?://~~; s~/~-~g')
         if [[ "$download_file" == *.tar.gz ]]; then
             extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
-            if [ -d "$extract_dir" ] && grep -rFixq "$search_domain" "$extract_dir" 2>/dev/null; then
-                log "INFO: Domain found in: $source_url (extracted)"
-                domain_found=1
+            if [ -d "$extract_dir" ]; then
+                grep -rFixq -- "$search_domain" "$extract_dir" 2>/dev/null
+                case "$?" in
+                    0) log "INFO: Domain found in: $source_url (extracted)"
+                       domain_found=1 ;;
+                    1) ;;
+                    *) log "WARNING: cannot read $source_url (extracted) -- alert"
+                       return 1 ;;
+                esac
             fi
         else
-            if grep -Fixq "$search_domain" "downloaded_lists/lists/$download_file" 2>/dev/null; then
-                log "INFO: Domain found in: $source_url"
-                domain_found=1
+            if [ -f "downloaded_lists/lists/$download_file" ]; then
+                grep -Fixq -- "$search_domain" "downloaded_lists/lists/$download_file" 2>/dev/null
+                case "$?" in
+                    0) log "INFO: Domain found in: $source_url"
+                       domain_found=1 ;;
+                    1) ;;
+                    *) log "WARNING: cannot read $source_url -- alert"
+                       return 1 ;;
+                esac
             fi
         fi
     done < downloaded_lists/urls.txt
@@ -176,11 +210,10 @@ search_lists() {
     fi
 
     echo
-    read -r -p "Press Enter to return to the menu... "
 }
 
 if [ ! -d downloaded_lists/lists ] || [ -z "$(ls -A downloaded_lists/lists 2>/dev/null)" ]; then
-    download_lists
+    download_lists || exit 1
 fi
 
 while true; do
@@ -189,11 +222,12 @@ while true; do
     echo "    1) Search domain"
     echo "    2) Download all lists again"
     echo "    3) Exit"
-    read -r -p "Choose an option [1/2/3]: " menu_opt
+    read -r -p "Choose an option [1/2/3]: " menu_opt || exit 1
     echo
+    menu_opt="${menu_opt:-3}"
     case "$menu_opt" in
-        1) search_lists ;;
-        2) download_lists ;;
+        1) search_lists || exit 1; break ;;
+        2) download_lists || exit 1; break ;;
         3) log "INFO: cancelled by user"
            break ;;
         "") ;;

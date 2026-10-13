@@ -5,8 +5,6 @@
 [![Stargazers](https://img.shields.io/github/stars/maravento/blackweb?label=Stargazers)](https://github.com/maravento/blackweb/stargazers)
 [![Twitter Follow](https://img.shields.io/twitter/follow/maraventostudio.svg)](https://twitter.com/maraventostudio)
 
-<!-- markdownlint-disable MD033 -->
-
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
@@ -18,6 +16,8 @@
   </tr>
 </table>
 
+<!-- markdownlint-disable MD033 -->
+
 ## REQUIREMENTS
 
 ---
@@ -26,6 +26,39 @@
 
 ```bash
 apt install -y squid
+```
+
+## DATA SHEET
+
+---
+
+| ACL | Blocked Domains | File Size |
+| :---: | :---: | :---: |
+| blackweb.txt | 7972530 | 194,3 MB |
+
+## REPOSITORY STRUCTURE
+
+---
+
+```
+bwupdate/
+├── bwupdate.sh                  # Main script: downloads lists, builds blackweb.txt and reloads Squid
+├── lst/                         # ACLs and helper lists used by bwupdate.sh
+│   ├── ai.txt                      # Separate Squid ACL for AI-related domains; not modified by bwupdate.sh
+│   ├── allowdomains.txt            # Separate Squid ACL for exempt domains; not modified by bwupdate.sh
+│   ├── allowtlds.txt               # Allowed-TLD pattern used during debugging
+│   ├── blockdomains.txt            # Separate Squid ACL for additional blocked domains; not modified by bwupdate.sh
+│   ├── blocktlds.txt               # Separate Squid ACL for blocking whole TLDs; not modified by bwupdate.sh
+│   ├── debugbl.txt                 # Added to the candidate blocklist before debugging
+│   ├── debugwl.txt                 # Excludes false positives during debugging (Google, Hotmail, Yahoo, etc.)
+│   ├── invalid.txt                 # Added to urls.txt during debugging, along with debugwl.txt
+│   ├── pendingtld.txt              # Not read by scripts; maintainer reference
+│   ├── streaming.txt               # Separate Squid ACL for streaming domains; not modified by bwupdate.sh
+│   ├── tldsappx.txt                # TLD source used by dofi/domfilter.py
+│   └── tldsbk.txt                  # Not read by scripts; maintainer reference
+└── tools/
+    ├── checksources.sh          # Downloads the source lists and searches them for a domain
+    └── debugerror.py            # Removes domains flagged in Squid's cache.log when their parent domain is already blocked
 ```
 
 ## HOW TO USE
@@ -326,14 +359,14 @@ http_access deny streaming
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>Note:</b> This list may contain overlapping domains. It is important to manually clean it according to the proposed objective. Example:
+      This list may contain overlapping domains. It is important to manually clean it according to the proposed objective. Example:
       <ul>
         <li>If your goal is to block Facebook, keep the primary domains and remove specific subdomains.</li>
         <li>If your goal is to block features, like Facebook streaming, keep the specific subdomains and remove the primary domains to avoid impacting overall site access. Example:</li>
       </ul>
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>Nota:</b> Esta lista puede contener dominios superpuestos. Conviene depurarla manualmente según el objetivo. Por ejemplo:
+      Esta lista puede contener dominios superpuestos. Conviene depurarla manualmente según el objetivo. Por ejemplo:
       <ul>
         <li>Para bloquear Facebook, se conservan los dominios principales y se eliminan los subdominios específicos.</li>
         <li>Para bloquear solo algunas funciones, como el streaming de Facebook, se conservan los subdominios específicos y se eliminan los dominios principales, a fin de no afectar el acceso general al sitio. Por ejemplo:</li>
@@ -404,39 +437,6 @@ acl blackweb dstdomain "/path_to/blackweb.txt"
 http_access deny blackweb
 ```
 
-## DATA SHEET
-
----
-
-| ACL | Blocked Domains | File Size |
-| :---: | :---: | :---: |
-| blackweb.txt | 7963236 | 194,5 MB |
-
-## REPOSITORY STRUCTURE
-
----
-
-```
-bwupdate/
-├── bwupdate.sh                  # Main script: downloads lists, builds blackweb.txt and reloads Squid
-├── lst/                         # ACLs and helper lists used by bwupdate.sh
-│   ├── ai.txt                      # Separate Squid ACL for AI-related domains; not modified by bwupdate.sh
-│   ├── allowdomains.txt            # Separate Squid ACL for exempt domains; not modified by bwupdate.sh
-│   ├── allowtlds.txt               # Allowed-TLD pattern used during debugging
-│   ├── blockdomains.txt            # Separate Squid ACL for additional blocked domains; not modified by bwupdate.sh
-│   ├── blocktlds.txt               # Separate Squid ACL for blocking whole TLDs; not modified by bwupdate.sh
-│   ├── debugbl.txt                 # Added to the candidate blocklist before debugging
-│   ├── debugwl.txt                 # Excludes false positives during debugging (Google, Hotmail, Yahoo, etc.)
-│   ├── invalid.txt                 # Added to urls.txt during debugging, along with debugwl.txt
-│   ├── pendingtld.txt              # Not read by scripts; maintainer reference
-│   ├── streaming.txt               # Separate Squid ACL for streaming domains; not modified by bwupdate.sh
-│   ├── tldsappx.txt                # TLD source used by dofi/domfilter.py
-│   └── tldsbk.txt                  # Not read by scripts; maintainer reference
-└── tools/
-    ├── checksources.sh          # Downloads the source lists and searches them for a domain
-    └── debugerror.py            # Removes domains flagged in Squid's cache.log when their parent domain is already blocked
-```
-
 ## BLACKWEB UPDATE
 
 ---
@@ -454,10 +454,10 @@ bwupdate/
   </tr>
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>Note:</b> <code>bwupdate.sh</code> tested on Ubuntu 24.04/26.04 LTS. Use on other versions or distributions is at your own risk.
+      <code>bwupdate.sh</code> tested on Ubuntu 24.04/26.04 LTS. Use on other versions or distributions is at your own risk.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>Nota:</b> <code>bwupdate.sh</code> ha sido probado en Ubuntu 24.04/26.04 LTS. Su uso en otras versiones o distribuciones queda bajo su propio riesgo.
+      <code>bwupdate.sh</code> ha sido probado en Ubuntu 24.04/26.04 LTS. Su uso en otras versiones o distribuciones queda bajo su propio riesgo.
     </td>
   </tr>
 </table>
@@ -733,13 +733,15 @@ nproc             → 8
 parallel_procs=$((8 * 4))  → 32 parallel queries
 ```
 
+##### ⚠️ WARNING
+
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>⚠️ Warning:</b> Higher <code>parallel_procs</code> values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
+      Higher <code>parallel_procs</code> values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>⚠️ Advertencia:</b> Los valores altos de <code>parallel_procs</code> pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
+      Los valores altos de <code>parallel_procs</code> pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
     </td>
   </tr>
 </table>
@@ -817,7 +819,7 @@ Output:
 
 #### Download Status
 
-| Tag | Shows | English | Español |
+| Tag | Shows | Description | Descripción |
 |---|---|---|---|
 | `SAVED:` | File name | The transfer completed and the file was written | La descarga terminó y el archivo se guardó |
 | `PARTIAL:` | Full URL | The download started and was cut off before finishing | La descarga comenzó y se interrumpió antes de terminar |
@@ -1028,10 +1030,10 @@ fpack/
 
 #### Requirements
 
-- `wget`, `curl`, `grep`, `sed`, `coreutils`, `util-linux`
+- `wget`, `curl`, `grep`, `sed`, `coreutils`, `util-linux`, `libc-bin`
 
 ```bash
-apt install -y wget curl grep sed coreutils util-linux
+apt install -y wget curl grep sed coreutils util-linux libc-bin
 ```
 
 #### Download
@@ -1338,6 +1340,7 @@ bash domcheck.sh my_domain_list.txt 50
       <ul>
         <li>This project includes third-party components.</li>
         <li>Changes must be proposed via Issues. Pull Requests are not accepted.</li>
+        <li>This project does not support backward compatibility. New versions may require configuration changes or reinstallation.</li>
         <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Because of the large number of blocked domains, it is not recommended in other environments, such as DNSMasq or Pi-Hole, nor in the Windows Hosts file, since it could slow them down or crash them. <b>Use it at your own risk</b>. For more information see <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb is NOT a blacklist service itself</b>. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.</li>
         <li>If your domain appears in Blackweb and you believe this is an error, review the public sources in <b>SOURCES</b> to identify which list includes it, and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it disappears from Blackweb on the next update. You can also use the following script to perform the same check:</li>
@@ -1347,6 +1350,7 @@ bash domcheck.sh my_domain_list.txt 50
       <ul>
         <li>Este proyecto incluye componentes de terceros.</li>
         <li>Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.</li>
+        <li>Este proyecto no soporta retrocompatibilidad. Las nuevas versiones pueden requerir cambios de configuración o una reinstalación.</li>
         <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Debido a la gran cantidad de dominios bloqueados, no se recomienda usarlo en otros entornos, como DNSMasq o Pi-Hole, ni en el archivo Hosts de Windows, ya que podría ralentizarlos o bloquearlos. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb NO es un servicio de listas negras como tal</b>. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.</li>
         <li>Si su dominio aparece en Blackweb y considera que es un error, revise las fuentes públicas en <b>SOURCES</b> para identificar en cuál lista aparece, y contacte al responsable de esa lista para solicitar su eliminación. Una vez eliminado en la fuente original, el dominio desaparece de Blackweb en la siguiente actualización. También puede usar el siguiente script para hacer la misma comprobación:</li>

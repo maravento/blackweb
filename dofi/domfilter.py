@@ -43,6 +43,7 @@ from urllib3.exceptions import InsecureRequestWarning
 import argparse
 import sys
 import os
+import shutil
 import tempfile
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -56,8 +57,11 @@ def download_public_suffix(url: str, output_file: Path, verify_ssl: bool) -> Non
     try:
         response = requests.get(url, timeout=10, verify=verify_ssl, headers=headers)
         response.raise_for_status()
+        text = response.text
+        if text and not text.endswith('\n'):
+            text += '\n'
         with open(output_file, 'a', encoding='utf-8') as f:
-            f.write(response.text)
+            f.write(text)
     except requests.RequestException as e:
         print(f"ERROR {url}: {str(e)}")
 
@@ -85,34 +89,44 @@ def process_tlds_file(input_file: Path = SOURCETLD_FILE, output_file: Path = TLD
     return len(processed_lines)
 
 def generate_tlds(verify_ssl: bool = True):
-    # Check if tlds.txt already exists
     if TLDS_FILE.exists() and TLDS_FILE.stat().st_size > 0:
         count = sum(1 for _ in TLDS_FILE.open(encoding='utf-8'))
-    else:
-        SOURCETLD_FILE.write_text("")
-        urls = [
-            'https://data.iana.org/TLD/tlds-alpha-by-domain.txt',
-            'https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/lst/tldsappx.txt',
-            'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat',
-            'https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp',
-        ]
-        count = 0
-        try:
-            for url in urls:
-                download_public_suffix(url, SOURCETLD_FILE, verify_ssl)
-            count = process_tlds_file()
-        finally:
-            if SOURCETLD_FILE.exists():
-                SOURCETLD_FILE.unlink()
+        if count >= MIN_TLD_COUNT:
+            return
 
-    if not TLDS_FILE.exists() or TLDS_FILE.stat().st_size == 0:
-        sys.exit("ERROR: tlds.txt is empty, all TLD sources failed to download -- abort")
+    target = TLDS_FILE.resolve()
+    tmp_dir = Path(tempfile.mkdtemp(prefix="domfilter_tlds_", dir=target.parent))
+    source_file = tmp_dir / SOURCETLD_FILE.name
+    candidate = tmp_dir / TLDS_FILE.name
+    urls = [
+        'https://data.iana.org/TLD/tlds-alpha-by-domain.txt',
+        'https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/lst/tldsappx.txt',
+        'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat',
+        'https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp',
+    ]
+    try:
+        source_file.write_text("", encoding='utf-8')
+        for url in urls:
+            download_public_suffix(url, source_file, verify_ssl)
+        count = process_tlds_file(source_file, candidate)
 
-    if count < MIN_TLD_COUNT:
-        sys.exit(
-            f"ERROR: only {count} TLDs were collected, expected at least "
-            f"{MIN_TLD_COUNT} -- abort"
-        )
+        if not candidate.exists() or candidate.stat().st_size == 0:
+            sys.exit("ERROR: tlds.txt is empty, all TLD sources failed to download -- abort")
+
+        if count < MIN_TLD_COUNT:
+            sys.exit(
+                f"ERROR: only {count} TLDs were collected, expected at least "
+                f"{MIN_TLD_COUNT} -- abort"
+            )
+
+        if target.exists():
+            previous = target.stat()
+            os.chown(candidate, previous.st_uid, previous.st_gid)
+            shutil.copystat(target, candidate)
+
+        os.replace(candidate, target)
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
 
 # DOMAINS FILTER
 def should_keep_domain(domain: str, valid_domains: set, tlds: set) -> bool:
@@ -170,6 +184,14 @@ def add_dot_if_missing(filename: str) -> str:
 
 
 def process_domains(input_file: str, tlds: set, output_file: str = None, removed_file: str = None):
+    if output_file and removed_file:
+        if os.path.exists(output_file) and os.path.exists(removed_file):
+            same_target = os.path.samefile(output_file, removed_file)
+        else:
+            same_target = os.path.realpath(output_file) == os.path.realpath(removed_file)
+        if same_target:
+            sys.exit("ERROR: --output and --removed are the same file -- abort")
+
     domains = load_capture(input_file)
     valid_domains = set()
     other_domains = set()

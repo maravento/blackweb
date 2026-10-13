@@ -12,7 +12,7 @@
 # USAGE:
 # ./domcheck.sh <file> [procs]
 #
-# LOG: dofi.log, in the directory this script is run from
+# LOG: dofi.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
@@ -23,17 +23,9 @@ set -uo pipefail
 # REQUIREMENTS
 # ------------------------------------------------------------------------------
 
-# logging
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$script_dir/dofi.log"
-{ > "$log_file"; } 2>/dev/null || true
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
-}
-
 # no-root check
 if [ "$(id -u)" == "0" ]; then
-    log "ERROR: This script should not be run as root -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -- abort" >&2
     exit 1
 fi
 
@@ -42,13 +34,32 @@ script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock")
 exec 200>"$script_lock"
 if ! flock -n 200; then
-    log "ERROR: script $(basename "$0") is already running -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -- abort" >&2
     exit 1
 fi
 
+# logging
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_file="$script_dir/dofi.log"
+{ > "$log_file"; } 2>/dev/null || true
+log() {
+    local log_msg="$(date '+%Y-%m-%d %H:%M:%S') $1"
+    echo "$log_msg" >> "$log_file" 2>/dev/null || true
+    if [[ "$1" == ERROR:* ]]; then
+        echo "$log_msg" >&2
+    else
+        echo "$log_msg"
+    fi
+}
+
+# Function: Report whether a package is installed, not merely residual
+package_installed() {
+    [ "$(dpkg-query -W -f='${db:Status-Status}' "$1" 2>/dev/null)" = installed ]
+}
+
 # dependencies
 for dep_pkg in bind9-host findutils grep sed coreutils util-linux; do
-    if ! dpkg -s "$dep_pkg" &>/dev/null; then
+    if ! package_installed "$dep_pkg"; then
         log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
     fi
@@ -73,6 +84,10 @@ if [ "$#" -eq 2 ]; then
         log "ERROR: procs must be a positive integer -- abort"
         exit 1
     fi
+    if ! xargs -r -P "$2" true </dev/null 2>/dev/null; then
+        log "ERROR: procs value is not supported by xargs -- abort"
+        exit 1
+    fi
     parallel_procs="$2"
 else
     parallel_procs=$(($(nproc) * 4))
@@ -92,14 +107,22 @@ fi
 # ------------------------------------------------------------------------------
 
 cleanup_tmp() {
-    rm -f clean step2 dnslookup dnslookup2
+    rm -rf -- "$tmp_dir"
+}
+
+# Exclusive temporary directory -- every run processes its input list
+# from scratch, and files of the working directory are never touched.
+tmp_dir="$(mktemp -d)" || {
+    log "ERROR: cannot create temporary directory -- abort"
+    exit 1
 }
 trap cleanup_tmp EXIT
 
-# Clean working directory before starting -- every run processes its
-# input list from scratch, so leftover dnslookup/dnslookup2 from a
-# previous run (possibly a different list) never contaminate this one.
-rm -f dnslookup dnslookup2
+clean="$tmp_dir/clean"
+step2="$tmp_dir/step2"
+lookup1="$tmp_dir/dnslookup"
+lookup2="$tmp_dir/dnslookup2"
+faultlist="$tmp_dir/faultlist"
 
 # Start
 start_time=$(date +%s)
@@ -109,21 +132,32 @@ log "domcheck start..."
 # DNS LOOKUP
 # ------------------------------------------------------------------------------
 
-sed '/^$/d; /^[[:space:]]*$/d; /#/d' "$input_file" | sed 's/\r//g; s/^\.//g' >clean
-rm -f step2 fault.txt hit.txt
+if ! { sed '/^$/d; /^[[:space:]]*$/d; /#/d' -- "$input_file" |
+    sed 's/\r//g; s/^\.//g' >"$clean"; }; then
+    log "ERROR: cannot read input list -- abort"
+    exit 1
+fi
+rm -f fault.txt hit.txt
 
 log "INFO: Step 1..."
-xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <clean >>dnslookup
-sed '/^FAULT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >hit.txt
-sed '/^HIT/d' dnslookup | awk '{print $2}' | awk '{print "."$1}' | sort -u >>fault.txt
-sort -o fault.txt -u fault.txt
-log "INFO: OK"
+if ! { xargs -d '\n' -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) printf "FAULT %s\n" "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then printf "HIT %s\n" "$d"; else printf "FAULT %s\n" "$d"; fi' _ {} <"$clean" >>"$lookup1" &&
+    sed -n 's/^HIT /./p' "$lookup1" | sort -u >hit.txt &&
+    sed -n 's/^FAULT /./p' "$lookup1" | sort -u >"$faultlist" &&
+    comm -23 "$faultlist" hit.txt >fault.txt; }; then
+    log "ERROR: DNS lookup step 1 failed -- abort"
+    exit 1
+fi
 
 log "INFO: Step 2..."
-sed 's/^\.//g' fault.txt | sort -u >step2
-xargs -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) echo FAULT "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then echo HIT "$d"; else echo FAULT "$d"; fi' _ {} <step2 >>dnslookup2
-sed '/^FAULT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >>hit.txt
-sed '/^HIT/d' dnslookup2 | awk '{print $2}' | awk '{print "."$1}' | sort -u >fault.txt
+if ! { sed 's/^\.//g' fault.txt | sort -u >"$step2" &&
+    xargs -d '\n' -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) printf "FAULT %s\n" "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then printf "HIT %s\n" "$d"; else printf "FAULT %s\n" "$d"; fi' _ {} <"$step2" >>"$lookup2" &&
+    sed -n 's/^HIT /./p' "$lookup2" >>hit.txt &&
+    sort -o hit.txt -u hit.txt &&
+    sed -n 's/^FAULT /./p' "$lookup2" | sort -u >"$faultlist" &&
+    comm -23 "$faultlist" hit.txt >fault.txt; }; then
+    log "ERROR: DNS lookup step 2 failed -- abort"
+    exit 1
+fi
 log "INFO: hit.txt: domains successfully resolved"
 log "INFO: fault.txt: unresolved domains"
 
@@ -134,7 +168,7 @@ log "INFO: fault.txt: unresolved domains"
 end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
-total_domains=$(wc -l < clean)
+total_domains=$(wc -l < "$clean")
 hit_count=$(wc -l < hit.txt)
 fault_count=$(wc -l < fault.txt)
 

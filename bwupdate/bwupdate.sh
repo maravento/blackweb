@@ -12,7 +12,7 @@
 # USAGE:
 # ./bwupdate.sh
 #
-# LOG: bwupdate.log, in the directory this script is run from
+# LOG: bwupdate.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
@@ -23,17 +23,9 @@ set -uo pipefail
 # REQUIREMENTS
 # ------------------------------------------------------------------------------
 
-# logging
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log_file="$script_dir/bwupdate.log"
-{ > "$log_file"; } 2>/dev/null || true
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $1" | tee -a "$log_file" 2>/dev/null || true
-}
-
 # no-root check
 if [ "$(id -u)" == "0" ]; then
-    log "ERROR: This script should not be run as root -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -- abort" >&2
     exit 1
 fi
 
@@ -42,20 +34,39 @@ script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock")
 exec 200>"$script_lock"
 if ! flock -n 200; then
-    log "ERROR: script $(basename "$0") is already running -- abort"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -- abort" >&2
     exit 1
 fi
 
+# logging
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+log_file="$script_dir/bwupdate.log"
+{ > "$log_file"; } 2>/dev/null || true
+log() {
+    local log_msg="$(date '+%Y-%m-%d %H:%M:%S') $1"
+    echo "$log_msg" >> "$log_file" 2>/dev/null || true
+    if [[ "$1" == ERROR:* ]]; then
+        echo "$log_msg" >&2
+    else
+        echo "$log_msg"
+    fi
+}
+
+# Function: Report whether a package is installed, not merely residual
+package_installed() {
+    [ "$(dpkg-query -W -f='${db:Status-Status}' "$1" 2>/dev/null)" = installed ]
+}
+
 # dependencies
 for dep_pkg in wget curl tar gzip idn2 python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo; do
-    if ! dpkg -s "$dep_pkg" &>/dev/null; then
+    if ! package_installed "$dep_pkg"; then
         log "ERROR: '$dep_pkg' is not installed -- abort"
         exit 1
     fi
 done
 
 # dependencies (squid or squid-openssl)
-if ! dpkg -s squid &>/dev/null && ! dpkg -s squid-openssl &>/dev/null; then
+if ! package_installed squid && ! package_installed squid-openssl; then
     log "ERROR: 'squid' or 'squid-openssl' is not installed -- abort"
     exit 1
 fi
@@ -92,11 +103,11 @@ squid_conf="/etc/squid/squid.conf"
 # acl blackweb dstdomain -i "/path_to/blackweb.txt"
 # http_access deny blackweb
 check_squid_acl() {
-    if ! grep -qE '^[[:space:]]*acl[[:space:]]+blackweb[[:space:]]+dstdomain' "$squid_conf"; then
+    if ! grep -qE '^[[:space:]]*acl[[:space:]]+blackweb[[:space:]]+dstdomain([[:space:]]|$)' "$squid_conf"; then
         log "ERROR: 'acl blackweb dstdomain' not found -- abort"
         exit 1
     fi
-    if ! grep -qE '^[[:space:]]*http_access[[:space:]]+deny[[:space:]]+blackweb' "$squid_conf"; then
+    if ! grep -qE '^[[:space:]]*http_access[[:space:]]+deny[[:space:]]+blackweb([[:space:]]|$)' "$squid_conf"; then
         log "ERROR: 'http_access deny blackweb' not found -- abort"
         exit 1
     fi
@@ -141,16 +152,20 @@ check_squid_status
 # VARIABLES
 # ------------------------------------------------------------------------------
 
-cd "$script_dir" || { log "ERROR: cannot cd to $script_dir -- abort"; exit 1; }
+cd "$script_dir" || { log "ERROR: cannot enter bwupdate path -- abort"; exit 1; }
 repo_dir="$script_dir/bwupdate"
 wget_opts="wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
 trap 'rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt; exit 130' INT TERM
 # path to acl (change it to the directory of your preference)
 acl_dir="/etc/acl"
-if [ ! -d "$acl_dir" ]; then sudo mkdir -p "$acl_dir"; fi
+if [ ! -d "$acl_dir" ]; then
+    sudo mkdir -p "$acl_dir" || {
+        log "ERROR: cannot create $(basename "$acl_dir") -- abort"
+        exit 1
+    }
+fi
 
 log "bwupdate start..."
-log "INFO: This process can take. Be patient..."
 
 # ------------------------------------------------------------------------------
 # FUNCTIONS
@@ -164,7 +179,11 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
 
     # download blackweb
     log "INFO: Downloading Blackweb..."
-    $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py
+    $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py || {
+        log "PARTIAL: gitfolder.py"
+        exit 1
+    }
+    log "SAVED: gitfolder.py"
     chmod +x gitfolder.py
     python3 gitfolder.py https://github.com/maravento/blackweb/bwupdate || {
         log "ERROR: gitfolder.py failed to clone bwupdate -- abort"
@@ -177,15 +196,17 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     rm gitfolder.py &>/dev/null
     if [ -s "$repo_dir/lst/debugwl.txt" ] && [ -s "$repo_dir/lst/allowtlds.txt" ]; then
         cd "$repo_dir" || {
-            log "ERROR: cannot cd to $repo_dir -- abort"
+            log "ERROR: cannot enter bwupdate path -- abort"
             exit 1
         }
     else
         log "ERROR: gitfolder.py clone failed or incomplete -- abort"
         exit 1
     fi
-    mkdir -p bwtmp >/dev/null 2>&1
-    log "INFO: OK"
+    mkdir -p bwtmp >/dev/null 2>&1 || {
+        log "ERROR: cannot create bwtmp -- abort"
+        exit 1
+    }
 
     # downloading blocklist URLS
     log "INFO: Downloading Blocklists..."
@@ -213,9 +234,9 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L -A "$user_agent" --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
         case "$http_code" in
             2*|405) ;;
-            000) log "TIMEOUT: $source_url"; return 1 ;;
-            5*)  log "BUSY: $source_url"; return 1 ;;
-            *)   log "BROKEN: $source_url"; return 1 ;;
+            000) log "TIMEOUT: $(basename "${source_url%%\?*}")"; return 1 ;;
+            5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
+            *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
         esac
 
         # download with curl
@@ -226,7 +247,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
                 "$source_url" -o "$target_file"; then
             log "SAVED: $(basename "${source_url%%\?*}")"
         else
-            log "PARTIAL: $source_url"
+            log "PARTIAL: $(basename "${source_url%%\?*}")"
             return 1
         fi
     }
@@ -359,15 +380,15 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
         case "$http_code" in
             2*|405) ;;
-            000) log "TIMEOUT: $source_url"; return 1 ;;
-            5*)  log "BUSY: $source_url"; return 1 ;;
-            *)   log "BROKEN: $source_url"; return 1 ;;
+            000) log "TIMEOUT: $(basename "${source_url%%\?*}")"; return 1 ;;
+            5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
+            *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
         esac
         # filename clean
         download_file=$(basename "${source_url%%\?*}")
         # download
         if ! $wget_opts "$source_url" -O "bwtmp/$download_file"; then
-            log "PARTIAL: $source_url"
+            log "PARTIAL: $(basename "${source_url%%\?*}")"
             return 1
         fi
         log "SAVED: $download_file"
@@ -384,14 +405,18 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     }
     if ! targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz'; then
         log "WARNING: ut-capitole.fr download failed -- fallback"
-        cd bwtmp || { log "ERROR: cannot cd to bwtmp -- abort"; exit 1; }
-        $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1
-        chmod +x gitfolder.py
-        python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+        cd bwtmp || { log "ERROR: cannot enter bwtmp path -- abort"; exit 1; }
+        if $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1; then
+            log "SAVED: gitfolder.py"
+            chmod +x gitfolder.py
+            python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+        else
+            log "PARTIAL: gitfolder.py"
+        fi
         rm gitfolder.py &>/dev/null
         find . -type f -name "*.gz" | while read -r gz_file; do
             if ! gunzip "$gz_file" >/dev/null 2>&1; then
-                log "WARNING: cannot extract $(basename "$gz_file") -- alert"
+                log "WARNING: cannot extract $(basename "$gz_file") from fallback -- alert"
             fi
         done
         cd ..
@@ -415,9 +440,9 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
         case "$http_code" in
             2*|405) ;;
-            000) log "TIMEOUT: $source_url"; return 1 ;;
-            5*)  log "BUSY: $source_url"; return 1 ;;
-            *)   log "BROKEN: $source_url"; return 1 ;;
+            000) log "TIMEOUT: $(basename "${source_url%%\?*}")"; return 1 ;;
+            5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
+            *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")"; return 1 ;;
         esac
         # download
         if ! $wget_opts "$source_url" -O - \
@@ -426,20 +451,29 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
             | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' \
             | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
             | sort -u >> lst/debugwl.txt; then
-            log "PARTIAL: $source_url"
+            log "PARTIAL: $(basename "${source_url%%\?*}")"
             return 1
         fi
         log "SAVED: $(basename "${source_url%%\?*}")"
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
-    log "INFO: OK"
 
     log "INFO: IDN Capture and Debugging..."
+    grep_err="$(mktemp)" || { log "ERROR: cannot create the capture flag -- abort"; exit 1; }
     find bwtmp -type f -not -iname "*pdf" \
-      -execdir grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" {} \; \
+      -execdir sh -c 'grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" "$1"; [ "$?" -gt 1 ] && printf x >> "$2"; exit 0' _ {} "$grep_err" \; \
     | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.)::gi' \
     | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /\.{2,}/d' \
     | sort -u > stage1.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ] ||
+        [ "${pipe_status[2]}" -ne 0 ] || [ "${pipe_status[3]}" -ne 0 ] ||
+        [ -s "$grep_err" ]; then
+        rm -f "$grep_err"
+        log "ERROR: cannot capture domains from bwtmp -- abort"
+        exit 1
+    fi
+    rm -f "$grep_err"
     if [ ! -s stage1.txt ]; then
         log "ERROR: stage1.txt is empty -- abort"
         exit 1
@@ -450,17 +484,42 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     | grep -vP '(^|\.)-|-($|\.)' \
     | sed 's/^\.//g' \
     | sort -u > stage2.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -gt 1 ] ||
+        [ "${pipe_status[2]}" -gt 1 ] || [ "${pipe_status[3]}" -ne 0 ] ||
+        [ "${pipe_status[4]}" -ne 0 ]; then
+        log "ERROR: cannot apply RFC 1035 to stage1.txt -- abort"
+        exit 1
+    fi
     if [ ! -s stage2.txt ]; then
         log "ERROR: stage2.txt is empty -- abort"
         exit 1
     fi
     # debugging IDN
-    {
-      LC_ALL=C grep -v '[^[:print:]]' stage2.txt
-      grep -P "[^[:ascii:]]" stage2.txt | idn2
-    } | grep -P '^[\x00-\x7F]+$' \
+    idn_src="$(mktemp)" || { log "ERROR: cannot create the IDN temporary -- abort"; exit 1; }
+    LC_ALL=C grep -v '[^[:print:]]' stage2.txt > "$idn_src"
+    if [ "$?" -gt 1 ]; then
+        rm -f "$idn_src"
+        log "ERROR: cannot read printable entries -- abort"
+        exit 1
+    fi
+    grep -P "[^[:ascii:]]" stage2.txt | idn2 >> "$idn_src"
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ]; then
+        rm -f "$idn_src"
+        log "ERROR: cannot convert IDN entries -- abort"
+        exit 1
+    fi
+    grep -P '^[\x00-\x7F]+$' "$idn_src" \
       | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
       | sort -u > capture.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    rm -f "$idn_src"
+    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
+        [ "${pipe_status[2]}" -ne 0 ]; then
+        log "ERROR: cannot build capture.txt -- abort"
+        exit 1
+    fi
     if [ ! -s capture.txt ]; then
         log "ERROR: capture.txt is empty -- abort"
         exit 1
@@ -468,14 +527,27 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
 
     log "INFO: Joining Lists..."
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ] ||
+        [ "${pipe_status[2]}" -ne 0 ] || [ "${pipe_status[3]}" -ne 0 ] ||
+        [ "${pipe_status[4]}" -ne 0 ]; then
+        log "ERROR: cannot join debugwl.txt and invalid.txt -- abort"
+        exit 1
+    fi
     if [ ! -s urls.txt ]; then
         log "ERROR: urls.txt is empty -- abort"
         exit 1
     fi
-    log "INFO: OK"
 
     log "INFO: Debugging Domains..."
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
+        [ "${pipe_status[2]}" -ne 0 ] || [ "${pipe_status[3]}" -ne 0 ] ||
+        [ "${pipe_status[4]}" -ne 0 ]; then
+        log "ERROR: cannot debug capture.txt -- abort"
+        exit 1
+    fi
     if [ ! -s cleancapture.txt ]; then
         log "ERROR: cleancapture.txt is empty -- abort"
         exit 1
@@ -493,13 +565,21 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
     grep -Fvxf urls.txt output.txt | grep -P "^[\x00-\x7F]+$" | sort -u > dnsinput.txt
+    pipe_status=("${PIPESTATUS[@]}")
+    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -gt 1 ] ||
+        [ "${pipe_status[2]}" -ne 0 ]; then
+        log "ERROR: cannot build dnsinput.txt -- abort"
+        exit 1
+    fi
     if [ ! -s dnsinput.txt ]; then
         log "ERROR: dnsinput.txt is empty -- abort"
         exit 1
     fi
-    log "INFO: OK"
 else
-    cd "$repo_dir"
+    cd "$repo_dir" || {
+        log "ERROR: cannot enter bwupdate path -- abort"
+        exit 1
+    }
 fi
 
 # ------------------------------------------------------------------------------
@@ -540,10 +620,18 @@ fi
 # - Desired balance between speed and system load
 parallel_procs=$(($(nproc) * 4))
 
+stop_progress() {
+    kill "$progress_pid" 2>/dev/null
+    echo
+}
+
 # step 1:
 if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
     log "INFO: 1st DNS Lookup..."
-    sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt
+    if ! { sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt; }; then
+        log "ERROR: cannot prepare step1.txt -- abort"
+        exit 1
+    fi
     if [ ! -s step1.txt ]; then
         log "ERROR: step1.txt is empty -- abort"
         exit 1
@@ -557,25 +645,33 @@ if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
         done
     ) &
     progress_pid=$!
-    if [ -s dnslookup1.txt ]; then
+    if ! { if [ -s dnslookup1.txt ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup1.txt step1.txt
     else
         cat step1.txt
-    fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 1 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup1.txt
-    kill "$progress_pid" 2>/dev/null
-    echo
-    sed '/^FAULT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt
-    sed '/^HIT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt
-    sort -o fault.txt -u fault.txt
-    log "INFO: OK"
+    fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 1 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup1.txt; }; then
+        stop_progress
+        log "ERROR: 1st DNS lookup failed -- abort"
+        exit 1
+    fi
+    stop_progress
+
+    if ! { sed '/^FAULT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > hit.txt &&
+        sed '/^HIT/d' dnslookup1.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> fault.txt &&
+        sort -o fault.txt -u fault.txt; }; then
+        log "ERROR: cannot classify DNS results as hit or fault -- abort"
+        exit 1
+    fi
 fi
 
-# pause between DNS lookup passes to avoid overloading the resolver
 sleep 5
 
 # step 2:
 log "INFO: 2nd DNS Lookup..."
-sed 's/^\.//g' fault.txt | sort -u > step2.txt
+if ! { sed 's/^\.//g' fault.txt | sort -u > step2.txt; }; then
+    log "ERROR: cannot prepare step2.txt -- abort"
+    exit 1
+fi
 if [ -s step2.txt ]; then
     total_domains=$(wc -l < step2.txt)
     (
@@ -586,35 +682,61 @@ if [ -s step2.txt ]; then
         done
     ) &
     progress_pid=$!
-    if [ -s dnslookup2.txt ]; then
+    if ! { if [ -s dnslookup2.txt ]; then
         awk 'FNR==NR {seen[$2]=1;next} seen[$1]!=1' dnslookup2.txt step2.txt
     else
         cat step2.txt
-    fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2.txt
-    kill "$progress_pid" 2>/dev/null
-    echo
+    fi | xargs -I {} -P "$parallel_procs" sh -c 'if host -W 2 -- "$1" >/dev/null 2>&1; then echo "HIT $1"; else echo "FAULT $1"; fi' _ {} >> dnslookup2.txt; }; then
+        stop_progress
+        log "ERROR: 2nd DNS lookup failed -- abort"
+        exit 1
+    fi
+    stop_progress
 else
-    log "INFO: no FAULTs pending from step 1 -- skip"
+    log "INFO: no unresolved domains from 1st lookup -- skip"
 fi
 touch dnslookup2.txt
 
-sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt
-sed '/^HIT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt
-log "INFO: OK"
+if ! { sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u >> hit.txt &&
+    sed '/^HIT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' | sort -u > fault.txt; }; then
+    log "ERROR: cannot classify DNS results as hit or fault -- abort"
+    exit 1
+fi
 
 log "INFO: Adding Debug Blacklist..."
-sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt
+if ! { sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt; }; then
+    log "ERROR: cannot read debugbl.txt -- abort"
+    exit 1
+fi
 # clean hit
-grep -vi -f <(sed 's/\./\\./g; s:^\(.*\)$:.\1\$:' lst/debugbl.txt) hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
+bl_filter="$(mktemp)" || { log "ERROR: cannot create debugbl.txt filter -- abort"; exit 1; }
+if ! sed 's/\./\\./g; s:^\(.*\)$:.\1\$:' lst/debugbl.txt > "$bl_filter"; then
+    rm -f "$bl_filter"
+    log "ERROR: cannot prepare debugbl.txt filter -- abort"
+    exit 1
+fi
+grep -vi -f "$bl_filter" hit.txt | sed -r '/[^a-z0-9.-]/d' | sort -u > blackweb_tmp.txt
+pipe_status=("${PIPESTATUS[@]}")
+rm -f "$bl_filter"
+if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
+    [ "${pipe_status[2]}" -ne 0 ]; then
+    log "ERROR: cannot apply debugbl.txt to hit.txt -- abort"
+    exit 1
+fi
 if [ ! -s blackweb_tmp.txt ]; then
     log "ERROR: blackweb_tmp.txt is empty -- abort"
     exit 1
 fi
-log "INFO: OK"
 
 # TLD final filter (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines)
 log "INFO: Exclude TLD..."
-tld_pattern=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|')
+if ! tld_pattern=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|'
+    pipe_status=("${PIPESTATUS[@]}")
+    [ "${pipe_status[0]}" -le 1 ] && [ "${pipe_status[1]}" -eq 0 ] &&
+        [ "${pipe_status[2]}" -eq 0 ]); then
+    log "ERROR: cannot read allowtlds.txt -- abort"
+    exit 1
+fi
 tld_pattern_clean="${tld_pattern%|}"
 if [ -z "$tld_pattern_clean" ]; then
     cp blackweb_tmp.txt blackweb_tmp2.txt
@@ -625,14 +747,21 @@ if [ ! -s blackweb_tmp2.txt ]; then
     log "ERROR: blackweb_tmp2.txt is empty -- abort"
     exit 1
 fi
-comm -23 <(sort blackweb_tmp2.txt) <(sort tlds.txt) > blackweb.txt
+sorted_tmp2="$(mktemp)" || { log "ERROR: cannot create the TLD temporary -- abort"; exit 1; }
+sorted_tlds="$(mktemp)" || { rm -f "$sorted_tmp2"; log "ERROR: cannot create the TLD temporary -- abort"; exit 1; }
+if ! { sort blackweb_tmp2.txt > "$sorted_tmp2" && sort tlds.txt > "$sorted_tlds" &&
+    comm -23 "$sorted_tmp2" "$sorted_tlds" > blackweb.txt; }; then
+    rm -f "$sorted_tmp2" "$sorted_tlds"
+    log "ERROR: cannot exclude TLD list -- abort"
+    exit 1
+fi
+rm -f "$sorted_tmp2" "$sorted_tlds"
 if [ ! -s blackweb.txt ]; then
     log "ERROR: blackweb.txt is empty -- abort"
     exit 1
 fi
 # optional
 #grep -E "$tld_pattern_clean" blackweb_tmp.txt > delete_tld
-log "INFO: OK"
 
 # ------------------------------------------------------------------------------
 # RELOAD
@@ -646,8 +775,26 @@ sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
 }
 # Squid Reload
 check_squid_status
-sudo bash -c 'squid -k reconfigure' 2>sqerror.txt && sleep 20
-sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log | sed -r "/\.(log|conf|crl|js|state)/d" | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}"' >> sqerror.txt
+sudo bash -c 'squid -k reconfigure' 2>sqerror.txt || {
+    log "ERROR: squid reconfigure failed with preview -- abort"
+    exit 1
+}
+sleep 20
+cache_today="$(mktemp)" || { log "ERROR: cannot create cache.log temporary -- abort"; exit 1; }
+sudo bash -c 'grep "$(date +%Y/%m/%d)" /var/log/squid/cache.log' > "$cache_today"
+if [ "$?" -gt 1 ]; then
+    rm -f "$cache_today"
+    log "ERROR: cannot read /var/log/squid/cache.log -- abort"
+    exit 1
+fi
+sed -r "/\.(log|conf|crl|js|state)/d" "$cache_today" \
+    | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" >> sqerror.txt
+pipe_status=("${PIPESTATUS[@]}")
+rm -f "$cache_today"
+if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -gt 1 ]; then
+    log "ERROR: cannot debug cache.log entries -- abort"
+    exit 1
+fi
 sed -i 's/^/./' sqerror.txt
 sort -o sqerror.txt -u sqerror.txt
 python3 tools/debugerror.py || {
@@ -670,6 +817,13 @@ iconv -f "$file_encoding" -t UTF-8//IGNORE final.txt \
     | grep -P '^\.[a-z0-9][a-z0-9._-]*$' \
     | grep -vP '\s' \
     | sort -u > blackweb.txt
+pipe_status=("${PIPESTATUS[@]}")
+if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -gt 1 ] ||
+    [ "${pipe_status[2]}" -gt 1 ] || [ "${pipe_status[3]}" -gt 1 ] ||
+    [ "${pipe_status[4]}" -ne 0 ]; then
+    log "ERROR: cannot convert final.txt to UTF-8 -- abort"
+    exit 1
+fi
 
 # validation
 if [ ! -s blackweb.txt ]; then
@@ -685,10 +839,16 @@ sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
     exit 1
 }
 check_squid_status
-sudo bash -c 'squid -k reconfigure' 2> "$script_dir/SquidErrors.txt"
+sudo bash -c 'squid -k reconfigure' 2> "$script_dir/SquidErrors.txt" || {
+    log "ERROR: squid reconfigure failed with blackweb.txt -- abort"
+    exit 1
+}
 
 # delete repository (optional)
-cd ..
+cd .. || {
+    log "ERROR: cannot enter bwupdate path -- abort"
+    exit 1
+}
 rm -rf "$repo_dir" "$script_dir/dofi" >/dev/null 2>&1
 
 # ------------------------------------------------------------------------------
