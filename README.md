@@ -1,3 +1,7 @@
+<!--
+BlackWeb documentation
+FILE: README.md
+-->
 # [BlackWeb](https://www.maravento.com/p/blackweb.html)
 
 [![status-maintained](https://img.shields.io/badge/status-maintained-purple.svg)](https://github.com/maravento/blackweb)
@@ -139,8 +143,6 @@ LOCAL=$(sha256sum blackweb.txt | awk '{print $1}'); REMOTE=$(awk '{print $1}' bl
 ```
 
 ### BlackWeb Rule for [Squid-Cache](http://www.squid-cache.org/)
-
----
 
 <table width="100%">
   <tr>
@@ -454,10 +456,10 @@ http_access deny blackweb
   </tr>
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> tested on Ubuntu 24.04/26.04 LTS. Use on other versions or distributions is at your own risk.
+      <code>bwupdate.sh</code> WARNING: Only tested on Ubuntu 24.04/26.04 LTS. Other versions or distributions are not tested and are used at your own risk.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> ha sido probado en Ubuntu 24.04/26.04 LTS. Su uso en otras versiones o distribuciones queda bajo su propio riesgo.
+      <code>bwupdate.sh</code> ADVERTENCIA: Solo probado en Ubuntu 24.04/26.04 LTS. Otras versiones o distribuciones no están probadas y se usan bajo tu responsabilidad.
     </td>
   </tr>
 </table>
@@ -817,6 +819,15 @@ Output:
   </tr>
 </table>
 
+> Processing messages keep their timestamp and have no level or flag. `STATUS` is a viewer label, not text written in the log. Three trailing dots are reserved for these lines; other messages have no final period.
+>
+> Los mensajes de procesamiento conservan la fecha y no llevan nivel ni flag. `STATUS` es una etiqueta del visor; no se escribe en el log. Los tres puntos finales se reservan para estas líneas; los demás mensajes no llevan punto final.
+
+```text
+2026-10-17 12:00:00 Joining Lists...
+2026-10-17 12:00:00 Debugging Domains...
+```
+
 #### Download Status
 
 | Tag | Shows | Description | Descripción |
@@ -826,6 +837,7 @@ Output:
 | `BUSY:` | Full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió con un error 5xx: está disponible, pero no entrega la lista en ese momento |
 | `TIMEOUT:` | Full URL | The server did not answer at all | El servidor no respondió |
 | `BROKEN:` | Full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: el recurso no existe o la URL ya no es válida |
+| `HTTP_ERROR:` | HTTP code and full URL | The server returned an HTTP response not covered by the other tags | El servidor devolvió una respuesta HTTP no contemplada por las otras etiquetas |
 
 #### Important about BlackWeb Update
 
@@ -1269,19 +1281,18 @@ bash domcheck.sh my_domain_list.txt
 bash domcheck.sh my_domain_list.txt 50
 ```
 
-```bash
+```text
 2026-07-07 13:29:58 domcheck start...
 2026-07-07 13:29:58 Step 1...
-2026-07-07 13:30:17 OK
 2026-07-07 13:30:17 Step 2...
-2026-07-07 13:30:28 hit.txt: domains successfully resolved
-2026-07-07 13:30:28 fault.txt: unresolved domains
-2026-07-07 13:30:28 Summary:
-2026-07-07 13:30:28   Input domains : 7896
-2026-07-07 13:30:28   Resolved      : 7349
-2026-07-07 13:30:28   Unresolved    : 547
-2026-07-07 13:30:28   Elapsed time  : 30s
-2026-07-07 13:30:29 domcheck done at: mar 07 jul 2026 13:30:29 -05
+2026-07-07 13:30:28 INFO: hit.txt: domains successfully resolved
+2026-07-07 13:30:28 INFO: fault.txt: unresolved domains
+2026-07-07 13:30:28 INFO: Summary:
+2026-07-07 13:30:28 INFO: Input domains : 7896
+2026-07-07 13:30:28 INFO: Resolved      : 7349
+2026-07-07 13:30:28 INFO: Unresolved    : 547
+2026-07-07 13:30:28 INFO: Elapsed time  : 30s
+2026-07-07 13:30:29 domcheck done at: 2026-07-07 13:30:29
 ```
 
 <table width="100%">
@@ -1337,10 +1348,32 @@ bash domcheck.sh my_domain_list.txt 50
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
+      <strong>This repository</strong>
       <ul>
-        <li>This project includes third-party components.</li>
-        <li>Changes must be proposed via Issues. Pull Requests are not accepted.</li>
+        <li>May include third-party components.</li>
+        <li>Does not accept Pull Requests. Changes must be proposed via Issues.</li>
         <li>This project does not support backward compatibility. New versions may require configuration changes or reinstallation.</li>
+      </ul>
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <strong>Este repositorio</strong>
+      <ul>
+        <li>Puede incluir componentes de terceros.</li>
+        <li>No acepta Pull Requests. Los cambios deben proponerse mediante Issues.</li>
+        <li>Este proyecto no soporta retrocompatibilidad. Las nuevas versiones pueden requerir cambios de configuración o una reinstalación.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+## LIMITATIONS
+
+---
+
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <ul>
         <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Because of the large number of blocked domains, it is not recommended in other environments, such as DNSMasq or Pi-Hole, nor in the Windows Hosts file, since it could slow them down or crash them. <b>Use it at your own risk</b>. For more information see <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb is NOT a blacklist service itself</b>. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.</li>
         <li>If your domain appears in Blackweb and you believe this is an error, review the public sources in <b>SOURCES</b> to identify which list includes it, and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it disappears from Blackweb on the next update. You can also use the following script to perform the same check:</li>
@@ -1348,9 +1381,6 @@ bash domcheck.sh my_domain_list.txt 50
     </td>
     <td style="width: 50%; vertical-align: top;">
       <ul>
-        <li>Este proyecto incluye componentes de terceros.</li>
-        <li>Los cambios deben proponerse mediante Issues. No se aceptan Pull Requests.</li>
-        <li>Este proyecto no soporta retrocompatibilidad. Las nuevas versiones pueden requerir cambios de configuración o una reinstalación.</li>
         <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Debido a la gran cantidad de dominios bloqueados, no se recomienda usarlo en otros entornos, como DNSMasq o Pi-Hole, ni en el archivo Hosts de Windows, ya que podría ralentizarlos o bloquearlos. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb NO es un servicio de listas negras como tal</b>. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.</li>
         <li>Si su dominio aparece en Blackweb y considera que es un error, revise las fuentes públicas en <b>SOURCES</b> para identificar en cuál lista aparece, y contacte al responsable de esa lista para solicitar su eliminación. Una vez eliminado en la fuente original, el dominio desaparece de Blackweb en la siguiente actualización. También puede usar el siguiente script para hacer la misma comprobación:</li>

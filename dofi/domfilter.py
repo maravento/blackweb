@@ -2,6 +2,7 @@
 # maravento.com
 
 ## Domain Filter Script
+# FILE: dofi/domfilter.py
 
 # What it does:
 # - Downloads public suffix TLDs from multiple sources.
@@ -111,12 +112,12 @@ def generate_tlds(verify_ssl: bool = True):
         count = process_tlds_file(source_file, candidate)
 
         if not candidate.exists() or candidate.stat().st_size == 0:
-            sys.exit("ERROR: tlds.txt is empty, all TLD sources failed to download -- abort")
+            sys.exit("ERROR: tlds.txt is empty, all TLD sources failed to download -abort")
 
         if count < MIN_TLD_COUNT:
             sys.exit(
                 f"ERROR: only {count} TLDs were collected, expected at least "
-                f"{MIN_TLD_COUNT} -- abort"
+                f"{MIN_TLD_COUNT} -abort"
             )
 
         if target.exists():
@@ -157,14 +158,14 @@ def load_tlds(tlds_file) -> set:
         with open(tlds_file, 'r', encoding='utf-8') as f:
             return {line.strip().lower() for line in f if line.strip()}
     except FileNotFoundError:
-        sys.exit(f"ERROR: TLD file '{tlds_file}' not found -- abort")
+        sys.exit(f"ERROR: TLD file '{tlds_file}' not found -abort")
 
 def load_capture(capture_file) -> list:
     try:
         with open(capture_file, 'r', encoding='utf-8') as f:
             return [line.strip() for line in f if line.strip()]
     except FileNotFoundError:
-        sys.exit(f"ERROR: input file '{capture_file}' not found -- abort")
+        sys.exit(f"ERROR: input file '{capture_file}' not found -abort")
 
 # Normalize input to a temporary copy (leaves the user's original file untouched)
 def add_dot_if_missing(filename: str) -> str:
@@ -190,7 +191,7 @@ def process_domains(input_file: str, tlds: set, output_file: str = None, removed
         else:
             same_target = os.path.realpath(output_file) == os.path.realpath(removed_file)
         if same_target:
-            sys.exit("ERROR: --output and --removed are the same file -- abort")
+            sys.exit("ERROR: --output and --removed are the same file -abort")
 
     domains = load_capture(input_file)
     valid_domains = set()
@@ -222,12 +223,12 @@ def main():
     args = parser.parse_args()
 
     if not args.input:
-        sys.exit("ERROR: --input is required, usage: domfilter.py --input <file> -- abort")
+        sys.exit("ERROR: --input is required, usage: domfilter.py --input <file> -abort")
 
     verify_ssl = not args.no_verify_ssl
     if not verify_ssl:
         warnings.simplefilter('ignore', InsecureRequestWarning)
-        print("WARNING: SSL verification disabled for TLD downloads -- alert")
+        print("WARNING: SSL verification disabled for TLD downloads -alert")
 
     # add .dot (operates on a temp copy, original input file is never modified)
     tmp_input = add_dot_if_missing(args.input)

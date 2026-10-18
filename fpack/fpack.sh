@@ -5,10 +5,7 @@
 #
 # Filter Pack (fpack)
 # File Extensions/Patterns/User-Agents to Block
-#
-# DESCRIPTION:
-# Builds Squid ACLs for ransomware-related file extensions and
-# malicious User-Agents from public source lists.
+# FILE: fpack/fpack.sh
 #
 # USAGE:
 # bash fpack.sh
@@ -26,16 +23,19 @@ set -uo pipefail
 
 # no-root check
 if [ "$(id -u)" == "0" ]; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -- abort" >&2
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -abort" >&2
     exit 1
 fi
 
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
-(umask 077; : >> "$script_lock")
+(umask 077; : >> "$script_lock") || {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: cannot open $(basename "$script_lock") -abort" >&2
+    exit 1
+}
 exec 200>"$script_lock"
 if ! flock -n 200; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -- abort" >&2
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -abort" >&2
     exit 1
 fi
 
@@ -60,7 +60,7 @@ package_installed() {
 # dependencies
 for dep_pkg in wget curl grep sed coreutils util-linux libc-bin; do
     if ! package_installed "$dep_pkg"; then
-        log "ERROR: '$dep_pkg' is not installed -- abort"
+        log "ERROR: dependency '$dep_pkg' is not installed -abort"
         exit 1
     fi
 done
@@ -83,7 +83,7 @@ check_internet() {
 }
 
 if ! check_internet; then
-    log "ERROR: no internet connection -- abort"
+    log "ERROR: no internet connection -abort"
     exit 1
 fi
 
@@ -94,19 +94,19 @@ log "fpack start..."
 # VARIABLES
 # ------------------------------------------------------------------------------
 
-cd "$script_dir" || { log "ERROR: cannot enter $(basename "$script_dir") path -- abort"; exit 1; }
+cd "$script_dir" || { log "ERROR: cannot enter $(basename "$script_dir") path -abort"; exit 1; }
 
 src_dir="rw"
 ua_dir="ua"
 
 tmp_dir=$(mktemp -d) || {
-    log "ERROR: cannot create temporary directory -- abort"
+    log "ERROR: cannot create temporary directory -abort"
     exit 1
 }
 trap '[ -n "$tmp_dir" ] && rm -rf "$tmp_dir"' EXIT
 
 tmp_file=$(mktemp "${tmp_dir}/output_lst.XXXXXX") || {
-    log "ERROR: cannot create temporary file -- abort"
+    log "ERROR: cannot create temporary file -abort"
     exit 1
 }
 
@@ -122,9 +122,10 @@ check_url() {
     http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
     case "$http_code" in
         2*|405) return 0 ;;
-        000) log "TIMEOUT: $(basename "${source_url%%\?*}")" ;;
-        5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")" ;;
-        *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")" ;;
+        000) log "TIMEOUT: $source_url" ;;
+        5*)  log "BUSY: $http_code $source_url" ;;
+        404|410) log "BROKEN: $http_code $source_url" ;;
+        *)   log "HTTP_ERROR: $http_code $source_url" ;;
     esac
     return 1
 }
@@ -135,16 +136,16 @@ if check_url "$ua_url"; then
     if $wget_opts -O "${tmp_dir}/bad-user-agents.list" "$ua_url"; then
         if ! { sed -E 's/\\//g' "${tmp_dir}/bad-user-agents.list" |
             sort -u > "${tmp_dir}/blockua.txt"; }; then
-            log "ERROR: cannot build blockua.txt -- abort"
+            log "ERROR: cannot build blockua.txt -abort"
             exit 1
         fi
         if ! cp "${tmp_dir}/blockua.txt" "${ua_dir}/blockua.txt"; then
-            log "ERROR: cannot publish blockua.txt -- abort"
+            log "ERROR: cannot publish blockua.txt -abort"
             exit 1
         fi
         log "SAVED: $(basename "$ua_url")"
     else
-        log "PARTIAL: $(basename "${ua_url%%\?*}")"
+        log "PARTIAL: $ua_url"
     fi
 fi
 
@@ -154,7 +155,7 @@ fi
 rw() {
     check_url "$1" || return 1
     printf '\n' >> "${tmp_dir}/source_lst.txt" || {
-        log "ERROR: cannot separate ransomware sources -- abort"
+        log "ERROR: cannot separate ransomware sources -abort"
         exit 1
     }
     if $wget_opts "$1" -O - >> "${tmp_dir}/source_lst.txt"; then
@@ -174,7 +175,7 @@ rw 'https://raw.githubusercontent.com/nspoab/malicious_extensions/refs/heads/mai
 if [ -s "${src_dir}/rw.txt" ]; then
     if ! { printf '\n' >> "${tmp_dir}/source_lst.txt" &&
         cat "${src_dir}/rw.txt" >> "${tmp_dir}/source_lst.txt"; }; then
-        log "ERROR: cannot read rw.txt -- abort"
+        log "ERROR: cannot read rw.txt -abort"
         exit 1
     fi
 fi
@@ -184,7 +185,7 @@ LC_ALL=C grep -v '[^[:print:][:space:]]' "${tmp_dir}/source_lst.txt" | sed -E 's
 pipe_status=("${PIPESTATUS[@]}")
 if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
     [ "${pipe_status[2]}" -ne 0 ] || [ "${pipe_status[3]}" -ne 0 ]; then
-    log "ERROR: cannot normalize source lists -- abort"
+    log "ERROR: cannot normalize source lists -abort"
     exit 1
 fi
 
@@ -197,7 +198,7 @@ fi
 # - "*.ext" (already correct)                   -> unchanged
 if ! { sed -E 's/^([a-zA-Z0-9][^*[:space:]]*)$/*.\1/; s/^\.([^*[:space:]]*)$/*.\1/; s/^([_-][^*[:space:]]*)$/*.\1/; s/^\*([^.*[:space:]][^*[:space:]]*)$/*.\1/' "${tmp_dir}/normalized_lst.txt" | sort -u > "${tmp_dir}/normalized_lst2.txt" &&
     mv "${tmp_dir}/normalized_lst2.txt" "${tmp_dir}/normalized_lst.txt"; }; then
-    log "ERROR: cannot unify extension patterns -- abort"
+    log "ERROR: cannot unify extension patterns -abort"
     exit 1
 fi
 
@@ -224,25 +225,25 @@ unsafe_pattern='\[[A-Za-z]*ID[A-Za-z_-]*\]|\[KEY\]|[][@{}()?^|\\]'
 grep -E '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" | grep -E -v "${unsafe_pattern}" > "${tmp_dir}/output_lst.txt"
 pipe_status=("${PIPESTATUS[@]}")
 if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -gt 1 ]; then
-    log "ERROR: cannot select supported patterns -- abort"
+    log "ERROR: cannot select supported patterns -abort"
     exit 1
 fi
 
 grep -E -v '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" > "${tmp_dir}/discarded_lst.txt"
 if [ "$?" -gt 1 ]; then
-    log "ERROR: cannot select unsupported patterns -- abort"
+    log "ERROR: cannot select unsupported patterns -abort"
     exit 1
 fi
 
 grep -E '^\*\.[^*[:space:]]+$' "${tmp_dir}/normalized_lst.txt" | grep -E "${unsafe_pattern}" >> "${tmp_dir}/discarded_lst.txt"
 pipe_status=("${PIPESTATUS[@]}")
 if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -gt 1 ]; then
-    log "ERROR: cannot select unsafe patterns -- abort"
+    log "ERROR: cannot select unsafe patterns -abort"
     exit 1
 fi
 
 if ! sort -u -o "${tmp_dir}/discarded_lst.txt" "${tmp_dir}/discarded_lst.txt"; then
-    log "ERROR: cannot sort discarded patterns -- abort"
+    log "ERROR: cannot sort discarded patterns -abort"
     exit 1
 fi
 
@@ -255,17 +256,17 @@ fi
 if [ -s "${src_dir}/wl.txt" ]; then
     grep -Fivx -f "${src_dir}/wl.txt" "${tmp_dir}/output_lst.txt" > "$tmp_file"
     if [ "$?" -gt 1 ]; then
-        log "ERROR: cannot apply wl.txt -- abort"
+        log "ERROR: cannot apply wl.txt -abort"
         exit 1
     fi
 else
     if ! cp "${tmp_dir}/output_lst.txt" "$tmp_file"; then
-        log "ERROR: cannot copy selected patterns -- abort"
+        log "ERROR: cannot copy selected patterns -abort"
         exit 1
     fi
 fi
 if ! mv "$tmp_file" "${tmp_dir}/output_lst.txt"; then
-    log "ERROR: cannot keep selected patterns -- abort"
+    log "ERROR: cannot keep selected patterns -abort"
     exit 1
 fi
 
@@ -281,34 +282,34 @@ if [ -s "${src_dir}/wl.txt" ]; then
         pipe_status=("${PIPESTATUS[@]}")
         [ "${pipe_status[0]}" -le 1 ] && [ "${pipe_status[1]}" -le 1 ] &&
             [ "${pipe_status[2]}" -eq 0 ] && [ "${pipe_status[3]}" -eq 0 ]); then
-        log "ERROR: cannot read wl.txt extensions -- abort"
+        log "ERROR: cannot read wl.txt extensions -abort"
         exit 1
     fi
     grep -iE -v "^\*\.(${wl_extensions})\$|^\*\.[^.]+\.(${wl_extensions})\$" "${tmp_dir}/output_lst.txt" > "$tmp_file"
     if [ "$?" -gt 1 ]; then
-        log "ERROR: cannot apply wl.txt extensions -- abort"
+        log "ERROR: cannot apply wl.txt extensions -abort"
         exit 1
     fi
     if ! mv "$tmp_file" "${tmp_dir}/output_lst.txt"; then
-        log "ERROR: cannot keep filtered patterns -- abort"
+        log "ERROR: cannot keep filtered patterns -abort"
         exit 1
     fi
 fi
 
 if ! { awk '{seg=$0; sub(/^\*\./,"",seg); if (length(seg) <= 35) print}' "${tmp_dir}/output_lst.txt" > "$tmp_file" &&
     mv "$tmp_file" "${tmp_dir}/output_lst.txt"; }; then
-    log "ERROR: cannot apply length filter -- abort"
+    log "ERROR: cannot apply length filter -abort"
     exit 1
 fi
 
 # For Squid Extensions/Patterns
 if ! { sed -E 's/^\*\.//; s/([][(){}+.$])/\\\1/g; s/^/\\./; s/(.*)/\1([a-zA-Z][0-9]*)?(\\?.*)?$/' "${tmp_dir}/output_lst.txt" |
     sort -u > "${tmp_dir}/rwext.txt"; }; then
-    log "ERROR: cannot build rwext.txt -- abort"
+    log "ERROR: cannot build rwext.txt -abort"
     exit 1
 fi
 if ! cp "${tmp_dir}/rwext.txt" "${src_dir}/rwext.txt"; then
-    log "ERROR: cannot publish rwext.txt -- abort"
+    log "ERROR: cannot publish rwext.txt -abort"
     exit 1
 fi
 log "INFO: ransomware ACL for Squid: rwext.txt"

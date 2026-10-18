@@ -4,10 +4,7 @@
 ################################################################################
 #
 # Check Sources
-#
-# DESCRIPTION:
-# Downloads BlackWeb source lists and searches them for a domain,
-# interactively.
+# FILE: bwupdate/tools/checksources.sh
 #
 # USAGE:
 # ./checksources.sh
@@ -25,16 +22,19 @@ set -uo pipefail
 
 # no-root check
 if [ "$(id -u)" == "0" ]; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -- abort" >&2
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: This script should not be run as root -abort" >&2
     exit 1
 fi
 
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
-(umask 077; : >> "$script_lock")
+(umask 077; : >> "$script_lock") || {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: cannot open $(basename "$script_lock") -abort" >&2
+    exit 1
+}
 exec 200>"$script_lock"
 if ! flock -n 200; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -- abort" >&2
+    echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: script $(basename "$0") is already running -abort" >&2
     exit 1
 fi
 
@@ -60,7 +60,7 @@ package_installed() {
 # dependencies
 for dep_pkg in wget curl tar gzip grep sed coreutils util-linux libc-bin; do
     if ! package_installed "$dep_pkg"; then
-        log "ERROR: '$dep_pkg' is not installed -- abort"
+        log "ERROR: dependency '$dep_pkg' is not installed -abort"
         exit 1
     fi
 done
@@ -83,7 +83,7 @@ check_internet() {
 }
 
 if ! check_internet; then
-    log "ERROR: no internet connection -- abort"
+    log "ERROR: no internet connection -abort"
     exit 1
 fi
 
@@ -104,12 +104,12 @@ download_lists() {
     local src_url="https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/bwupdate.sh"
 
     if ! { rm -rf downloaded_lists >/dev/null 2>&1 && mkdir -p downloaded_lists/lists; }; then
-        log "ERROR: cannot prepare downloaded_lists -- abort"
+        log "ERROR: cannot prepare downloaded_lists -abort"
         return 1
     fi
 
     if ! $wget_opts -O downloaded_lists/bwupdate_src.sh "$src_url"; then
-        log "PARTIAL: $(basename "${src_url%%\?*}")"
+        log "PARTIAL: $src_url"
         return 1
     fi
     log "SAVED: $(basename "$src_url")"
@@ -118,12 +118,12 @@ download_lists() {
     if ! { sed -n '/# SOURCES_START/,/# SOURCES_END/p' downloaded_lists/bwupdate_src.sh | \
     grep -E "^[[:space:]]*blurls '" | \
     sed -E "s/^.*blurls '//; s/' && sleep 1.*$//" > downloaded_lists/urls.txt; } || [ ! -s downloaded_lists/urls.txt ]; then
-        log "ERROR: cannot extract source URLs -- abort"
+        log "ERROR: cannot extract source URLs -abort"
         return 1
     fi
 
     echo "http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz" >> downloaded_lists/urls.txt || {
-        log "ERROR: cannot append archive URL -- abort"
+        log "ERROR: cannot append archive URL -abort"
         return 1
     }
 
@@ -133,12 +133,13 @@ download_lists() {
         http_code=$(curl -k -s -o /dev/null -w '%{http_code}' -I -L --connect-timeout 5 --max-time 15 --retry 1 "$source_url")
         case "$http_code" in
             2*|405) ;;
-            000) log "TIMEOUT: $(basename "${source_url%%\?*}")"; continue ;;
-            5*)  log "BUSY: $http_code $(basename "${source_url%%\?*}")"; continue ;;
-            *)   log "BROKEN: $http_code $(basename "${source_url%%\?*}")"; continue ;;
+            000) log "TIMEOUT: $source_url"; continue ;;
+            5*)  log "BUSY: $http_code $source_url"; continue ;;
+            404|410)   log "BROKEN: $http_code $source_url"; continue ;;
+            *)   log "HTTP_ERROR: $http_code $source_url"; continue ;;
         esac
         if ! $wget_opts -O "downloaded_lists/lists/$download_file" "$source_url"; then
-            log "PARTIAL: $(basename "${source_url%%\?*}")"
+            log "PARTIAL: $source_url"
             continue
         fi
         log "SAVED: $(basename "${source_url%%\?*}")"
@@ -147,13 +148,13 @@ download_lists() {
             log "INFO: extracting $(basename "${source_url%%\?*}")"
             extract_dir="downloaded_lists/lists/${download_file%.tar.gz}_extracted"
             mkdir -p "$extract_dir" || {
-                log "WARNING: cannot prepare extraction directory -- alert"
+                log "WARNING: cannot prepare $extract_dir -alert"
                 continue
             }
             if tar -xzf "downloaded_lists/lists/$download_file" -C "$extract_dir"; then
                 rm -f "downloaded_lists/lists/$download_file"
             else
-                log "WARNING: extraction failed -- alert"
+                log "WARNING: extraction failed for $download_file -alert"
             fi
         fi
     done < downloaded_lists/urls.txt
@@ -169,7 +170,7 @@ search_lists() {
             return 0
         fi
         if ! echo "$search_domain" | grep -qP '^[a-zA-Z0-9._-]+$'; then
-            log "INFO: invalid domain format -- retry"
+            log "INFO: invalid domain format -retry"
             continue
         fi
         break
@@ -187,7 +188,7 @@ search_lists() {
                     0) log "INFO: Domain found in: $source_url (extracted)"
                        domain_found=1 ;;
                     1) ;;
-                    *) log "WARNING: cannot read $source_url (extracted) -- alert"
+                    *) log "ERROR: cannot read $source_url (extracted) -abort"
                        return 1 ;;
                 esac
             fi
@@ -198,7 +199,7 @@ search_lists() {
                     0) log "INFO: Domain found in: $source_url"
                        domain_found=1 ;;
                     1) ;;
-                    *) log "WARNING: cannot read $source_url -- alert"
+                    *) log "ERROR: cannot read $source_url -abort"
                        return 1 ;;
                 esac
             fi
@@ -231,7 +232,7 @@ while true; do
         3) log "INFO: cancelled by user"
            break ;;
         "") ;;
-        *) log "INFO: invalid option -- retry" ;;
+        *) log "INFO: invalid option -retry" ;;
     esac
 done
 
