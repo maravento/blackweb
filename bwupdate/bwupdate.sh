@@ -159,7 +159,7 @@ trap 'rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt o
 # path to acl (change it to the directory of your preference)
 acl_dir="/etc/acl"
 if [ ! -d "$acl_dir" ]; then
-    sudo mkdir -p "$acl_dir" || {
+    sudo mkdir -p -m 755 -- "$acl_dir" || {
         log "ERROR: cannot create $(basename "$acl_dir") -abort"
         exit 1
     }
