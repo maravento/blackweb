@@ -32,6 +32,17 @@ FILE: README.md
 apt install -y squid
 ```
 
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      <code>bwupdate.sh</code> Only tested on Ubuntu 24.04/26.04 LTS. Other versions or distributions are not tested and are used at your own risk.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      <code>bwupdate.sh</code> Solo probado en Ubuntu 24.04/26.04 LTS. Otras versiones o distribuciones no están probadas y se usan bajo tu responsabilidad.
+    </td>
+  </tr>
+</table>
+
 ## DATA SHEET
 
 ---
@@ -443,8 +454,6 @@ http_access deny blackweb
 
 ---
 
-### ⚠️ WARNING: BEFORE YOU CONTINUE
-
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
@@ -454,14 +463,7 @@ http_access deny blackweb
       Esta sección describe el proceso que sigue <code>bwupdate.sh</code> para actualizar y depurar la lista. No es necesario ejecutar este script para usar el archivo <code>blackweb.txt</code> publicado. La actualización puede tardar y consumir muchos recursos de CPU, memoria, red y ancho de banda; se recomienda ejecutarla en un equipo de pruebas.
     </td>
   </tr>
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> WARNING: Only tested on Ubuntu 24.04/26.04 LTS. Other versions or distributions are not tested and are used at your own risk.
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      <code>bwupdate.sh</code> ADVERTENCIA: Solo probado en Ubuntu 24.04/26.04 LTS. Otras versiones o distribuciones no están probadas y se usan bajo tu responsabilidad.
-    </td>
-  </tr>
+
 </table>
 
 ### Dependencies (for `bwupdate.sh`)
@@ -735,18 +737,9 @@ nproc             → 8
 parallel_procs=$((8 * 4))  → 32 parallel queries
 ```
 
-##### ⚠️ WARNING
-
-<table width="100%">
-  <tr>
-    <td style="width: 50%; vertical-align: top;">
-      Higher <code>parallel_procs</code> values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
-    </td>
-    <td style="width: 50%; vertical-align: top;">
-      Los valores altos de <code>parallel_procs</code> pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
-    </td>
-  </tr>
-</table>
+> **⚠️ WARNING -- DNS query parallelism:** Higher `parallel_procs` values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
+>
+> **⚠️ WARNING -- DNS query parallelism:** Los valores altos de `parallel_procs` pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
 
 ```bash
 Processed: 2463489 / 7244989 (34.00%)
@@ -1106,10 +1099,10 @@ bash fpack.sh
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <code>fpack.sh</code> downloads and normalizes the User-Agent list into <code>ua/blockua.txt</code>. It then downloads several ransomware extension/pattern lists, merges them with the administrator list (<code>rw/rw.txt</code>), normalizes extension forms (<code>ext</code>, <code>.ext</code>, <code>_ext</code>, <code>-ext</code>, <code>*ext</code> all become <code>*.ext</code>), and keeps only simple <code>*.ext</code> patterns. It removes entries listed in the administrator whitelist (<code>rw/wl.txt</code>) and discards ransom-note-style or implausibly long extensions. The result is written as a Squid <code>url_regex</code> ACL, <code>rw/rwext.txt</code>, with regex metacharacters escaped so they match literally.
+      <code>fpack.sh</code> downloads and normalizes the User-Agent list into <code>ua/blockua.txt</code>. It then downloads several ransomware extension/pattern lists, merges them with the administrator list (<code>rw/rw.txt</code>), normalizes extension forms (<code>ext</code>, <code>.ext</code> and <code>*ext</code> become <code>*.ext</code>, while <code>_ext</code> and <code>-ext</code> keep their prefix and become <code>*._ext</code> and <code>*.-ext</code>), and keeps only simple <code>*.ext</code> patterns. It removes entries listed in the administrator whitelist (<code>rw/wl.txt</code>) and discards ransom-note-style or implausibly long extensions. The result is written as a Squid <code>url_regex</code> ACL, <code>rw/rwext.txt</code>, with regex metacharacters escaped so they match literally.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <code>fpack.sh</code> descarga y normaliza la lista de User-Agents en <code>ua/blockua.txt</code>. Luego descarga varias listas de extensiones/patrones de ransomware, las combina con la lista del administrador (<code>rw/rw.txt</code>), normaliza las formas de extensión (<code>ext</code>, <code>.ext</code>, <code>_ext</code>, <code>-ext</code>, <code>*ext</code> pasan todas a <code>*.ext</code>) y conserva solo patrones simples <code>*.ext</code>. Elimina las entradas de la lista blanca del administrador (<code>rw/wl.txt</code>) y descarta extensiones tipo nota-de-rescate o implausiblemente largas. El resultado se escribe como ACL <code>url_regex</code> de Squid, <code>rw/rwext.txt</code>, con los metacaracteres de regex escapados para que coincidan como texto literal.
+      <code>fpack.sh</code> descarga y normaliza la lista de User-Agents en <code>ua/blockua.txt</code>. Luego descarga varias listas de extensiones/patrones de ransomware, las combina con la lista del administrador (<code>rw/rw.txt</code>), normaliza las formas de extensión (<code>ext</code>, <code>.ext</code> y <code>*ext</code> pasan a <code>*.ext</code>, mientras <code>_ext</code> y <code>-ext</code> conservan su prefijo y pasan a <code>*._ext</code> y <code>*.-ext</code>) y conserva solo patrones simples <code>*.ext</code>. Elimina las entradas de la lista blanca del administrador (<code>rw/wl.txt</code>) y descarta extensiones tipo nota-de-rescate o implausiblemente largas. El resultado se escribe como ACL <code>url_regex</code> de Squid, <code>rw/rwext.txt</code>, con los metacaracteres de regex escapados para que coincidan como texto literal.
     </td>
   </tr>
 </table>
