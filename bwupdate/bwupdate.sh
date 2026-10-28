@@ -58,7 +58,7 @@ package_installed() {
 }
 
 # dependencies
-for dep_pkg in wget curl tar gzip idn2 python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo; do
+for dep_pkg in wget curl tar gzip idn2 python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo iproute2; do
     if ! package_installed "$dep_pkg"; then
         log "ERROR: dependency '$dep_pkg' is not installed -abort"
         exit 1
@@ -71,27 +71,61 @@ if ! package_installed squid && ! package_installed squid-openssl; then
     exit 1
 fi
 
-# check internet
-check_internet() {
-    local max_attempts="${1:-24}" attempt=1
+# check ipv4 interfaces
+list_ifaces() {
+    ip -br link show 2>/dev/null | awk '$1 != "lo" {sub(/@.*/, "", $1); printf "%s %s\n", $1, ($2 == "UP") ? "UP" : "DOWN"}'
+}
+
+list_ipv4_ifaces() {
+    local iface state
+    while read -r iface state; do
+        [ "$state" = UP ] || continue
+        if ip -4 -o addr show dev "$iface" scope global 2>/dev/null \
+            | awk '$4 != "" {found=1} END {exit !found}'; then
+            printf '%s\n' "$iface"
+        fi
+    done < <(list_ifaces)
+}
+
+check_ipv4_interfaces() {
+    local max_attempts=24 attempt=1
 
     while (( attempt <= max_attempts )); do
-        if getent hosts www.google.com >/dev/null 2>&1; then
-            log "INFO: internet is available"
+        if [ -n "$(list_ipv4_ifaces)" ]; then
             return 0
         fi
-        log "INFO: waiting for internet ($attempt/$max_attempts)"
+        if (( attempt == 1 )); then
+            log "INFO: waiting for an interface with IPv4..."
+        fi
         attempt=$((attempt + 1))
         sleep 5
     done
 
-    return 1
+    log "ERROR: no interface with IPv4 -abort"
+    exit 1
 }
 
-if ! check_internet; then
+# check internet
+check_internet() {
+    local max_attempts=24 attempt=1
+
+    while (( attempt <= max_attempts )); do
+        if getent hosts www.google.com >/dev/null 2>&1; then
+            return 0
+        fi
+        if (( attempt == 1 )); then
+            log "INFO: waiting for internet..."
+        fi
+        attempt=$((attempt + 1))
+        sleep 5
+    done
+
     log "ERROR: no internet connection -abort"
     exit 1
-fi
+}
+
+check_ipv4_interfaces
+check_internet
 
 # ------------------------------------------------------------------------------
 # CHECKS
@@ -165,7 +199,7 @@ if [ ! -d "$acl_dir" ]; then
     }
 fi
 
-log "bwupdate start..."
+log "EVENT: bwupdate start..."
 
 # ------------------------------------------------------------------------------
 # FUNCTIONS
@@ -449,7 +483,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
-    log "IDN Capture and Debugging..."
+    log "EVENT: IDN Capture and Debugging..."
     grep_err="$(mktemp)" || { log "ERROR: cannot create domain extraction error file -abort"; exit 1; }
     find bwtmp -type f -not -iname "*pdf" \
       -execdir sh -c 'grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" "$1"; [ "$?" -gt 1 ] && printf x >> "$2"; exit 0' _ {} "$grep_err" \; \
@@ -516,7 +550,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
 
-    log "Joining Lists..."
+    log "EVENT: Joining Lists..."
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     pipe_status=("${PIPESTATUS[@]}")
     if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ] ||
@@ -530,7 +564,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
 
-    log "Debugging Domains..."
+    log "EVENT: Debugging Domains..."
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
     pipe_status=("${PIPESTATUS[@]}")
     if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
@@ -618,7 +652,7 @@ stop_progress() {
 
 # step 1:
 if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
-    log "1st DNS Lookup..."
+    log "EVENT: 1st DNS Lookup..."
     if ! { sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt; }; then
         log "ERROR: cannot prepare step1.txt -abort"
         exit 1
@@ -658,7 +692,7 @@ fi
 sleep 5
 
 # step 2:
-log "2nd DNS Lookup..."
+log "EVENT: 2nd DNS Lookup..."
 if ! { sed 's/^\.//g' fault.txt | sort -u > step2.txt; }; then
     log "ERROR: cannot prepare step2.txt -abort"
     exit 1
@@ -694,7 +728,7 @@ if ! { sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' 
     exit 1
 fi
 
-log "Adding Debug Blacklist..."
+log "EVENT: Adding Debug Blacklist..."
 if ! { sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt; }; then
     log "ERROR: cannot read debugbl.txt -abort"
     exit 1
@@ -720,7 +754,7 @@ if [ ! -s blackweb_tmp.txt ]; then
 fi
 
 # TLD final filter (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines)
-log "Exclude TLD..."
+log "EVENT: Exclude TLD..."
 if ! tld_pattern=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|'
     pipe_status=("${PIPESTATUS[@]}")
     [ "${pipe_status[0]}" -le 1 ] && [ "${pipe_status[1]}" -eq 0 ] &&
@@ -756,9 +790,9 @@ fi
 # RELOAD
 # ------------------------------------------------------------------------------
 
-log "Squid Reload..."
+log "EVENT: Squid Reload..."
 # copy blaclweb to path
-sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
+sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
     log "ERROR: cannot copy blackweb.txt to $acl_dir -abort"
     exit 1
 }
@@ -823,7 +857,7 @@ total_domains=$(wc -l < blackweb.txt)
 log "INFO: blackweb.txt OK, $total_domains valid lines"
 
 # cp to squid
-sudo cp -f blackweb.txt "$acl_dir"/blackweb.txt || {
+sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
     log "ERROR: cannot copy blackweb.txt to $acl_dir -abort"
     exit 1
 }
@@ -842,5 +876,5 @@ cd .. || {
 # END
 # ------------------------------------------------------------------------------
 
-log "bwupdate done at: $(date '+%Y-%m-%d %H:%M:%S')"
+log "EVENT: bwupdate done"
 log "INFO: Check SquidErrors.txt"

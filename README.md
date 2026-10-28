@@ -32,6 +32,8 @@ FILE: README.md
 apt install -y squid
 ```
 
+### Compatibility
+
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
@@ -1285,7 +1287,7 @@ bash domcheck.sh my_domain_list.txt 50
 2026-07-07 13:30:28 INFO: Resolved      : 7349
 2026-07-07 13:30:28 INFO: Unresolved    : 547
 2026-07-07 13:30:28 INFO: Elapsed time  : 30s
-2026-07-07 13:30:29 domcheck done at: 2026-07-07 13:30:29
+2026-07-07 13:30:29 domcheck done
 ```
 
 <table width="100%">
