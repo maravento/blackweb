@@ -182,8 +182,6 @@ if ! comm -23 "$faultlist" hit.txt >fault.txt; then
     log "ERROR: cannot build fault.txt from DNS recheck -abort"
     exit 1
 fi
-log "INFO: hit.txt: domains successfully resolved"
-log "INFO: fault.txt: unresolved domains"
 
 # ------------------------------------------------------------------------------
 # END
@@ -196,10 +194,7 @@ total_domains=$(wc -l < "$clean")
 hit_count=$(wc -l < hit.txt)
 fault_count=$(wc -l < fault.txt)
 
-log "INFO: Summary:"
-log "INFO: Input domains: $total_domains"
-log "INFO: Resolved: $hit_count"
-log "INFO: Unresolved: $fault_count"
-log "INFO: Elapsed time: ${elapsed_time}s"
+log "INFO: $hit_count of $total_domains resolved, saved to hit.txt"
+log "INFO: $fault_count unresolved, saved to fault.txt (${elapsed_time}s)"
 
 log "EVENT: domcheck done"

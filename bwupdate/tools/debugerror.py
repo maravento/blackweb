@@ -2,6 +2,7 @@
 # BlackWeb Subdomain Debug
 # FILE: bwupdate/tools/debugerror.py
 import sys
+import time
 
 def is_subdomain_of_another(domain, domain_set):
     """Check if 'domain' is a subdomain of another domain in 'domain_set'"""
@@ -27,5 +28,9 @@ try:
     with open('final.txt', 'w', encoding='utf-8') as f:
         f.write('\n'.join(sorted(result)) + '\n')
 except FileNotFoundError as e:
-    print("ERROR: %s -abort" % e)
+    print(
+        "%s ERROR: debugerror.py: %s not found"
+        % (time.strftime('%Y-%m-%d %H:%M:%S'), e.filename),
+        file=sys.stderr,
+    )
     sys.exit(1)

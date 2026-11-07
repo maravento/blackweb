@@ -265,7 +265,6 @@ while true; do
         2) download_lists || exit 1; break ;;
         3) log "INFO: cancelled by user"
            break ;;
-        "") ;;
         *) log "INFO: invalid option -retry" ;;
     esac
 done

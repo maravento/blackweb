@@ -101,49 +101,45 @@ wget -q -c -N https://raw.githubusercontent.com/maravento/blackweb/master/blackw
 
 #### If Multiparts Exist
 
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      First try the complete archive. For split archives, this example expects consecutive files named <code>blackweb.tar.gz.aa</code>, <code>blackweb.tar.gz.ab</code>, and so on. It joins only the downloaded parts and validates the compressed archive before extraction.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Primero intenta obtener el comprimido completo. Para archivos divididos, este ejemplo espera partes consecutivas llamadas <code>blackweb.tar.gz.aa</code>, <code>blackweb.tar.gz.ab</code> y sucesivas. Une solamente las partes descargadas y valida el comprimido antes de extraerlo.
+    </td>
+  </tr>
+</table>
+
 ```bash
 #!/bin/bash
-
-# Variables
 url="https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz"
 wgetd="wget -q -c --timestamping --no-check-certificate --retry-connrefused --timeout=10 --tries=4 --show-progress"
-
-# TMP folder
+archive="${url##*/}"
 output_dir="bwtmp"
-mkdir -p "$output_dir"
+mkdir -p "$output_dir" || exit 1
 
-# Download
-if $wgetd "$url"; then
-  echo "File downloaded: $(basename $url)"
-else
-  echo "Main file not found. Searching for multiparts..."
-
-  # Multiparts from a to z
-  all_parts_downloaded=true
-  for part in {a..z}{a..z}; do
-    part_url="${url%.*}.$part"
-    if $wgetd "$part_url"; then
-      echo "Part downloaded: $(basename $part_url)"
-    else
-      echo "Part not found: $part"
-      all_parts_downloaded=false
-      break
+if ! $wgetd "$url" -O "$archive"; then
+    parts=()
+    for part in {a..z}{a..z}; do
+        part_file="${archive}.${part}"
+        if $wgetd "${url}.${part}" -O "$part_file"; then
+            parts+=("$part_file")
+        else
+            rm -f -- "$part_file"
+            break
+        fi
+    done
+    if (( ${#parts[@]} == 0 )); then
+        echo "No archive or multipart files downloaded" >&2
+        exit 1
     fi
-  done
-
-  if $all_parts_downloaded; then
-    # Rebuild the original file in the current directory
-    cat blackweb.tar.gz.* > blackweb.tar.gz
-    echo "Multipart file rebuilt"
-  else
-    echo "Multipart process cannot be completed"
-    exit 1
-  fi
+    cat -- "${parts[@]}" > "$archive" || exit 1
 fi
 
-# Unzip the file to the output folder
-tar -xzf blackweb.tar.gz -C "$output_dir"
-
+gzip -t -- "$archive" || { echo "Incomplete or invalid archive" >&2; exit 1; }
+tar -xzf "$archive" -C "$output_dir" || exit 1
 echo "Done"
 ```
 
@@ -471,11 +467,11 @@ http_access deny blackweb
 ### Dependencies (for `bwupdate.sh`)
 
 - Python 3.x, Bash 5.x
-- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `file`, `libc-bin`, `sudo`
+- `wget`, `curl`, `tar`, `gzip`, `idn2`, `squid` (or `squid-openssl`), `python3`, `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `file`, `libc-bin`, `sudo`, `iproute2`
 - Python module: `requests` (required by `domfilter.py`)
 
 ```bash
-apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo
+apt install -y wget curl tar gzip idn2 squid python3 bind9-host findutils grep sed coreutils python3-requests util-linux file libc-bin sudo iproute2
 ```
 
 #### Bash Update
@@ -739,10 +735,6 @@ nproc             → 8
 parallel_procs=$((8 * 4))  → 32 parallel queries
 ```
 
-> **⚠️ WARNING -- DNS query parallelism:** Higher `parallel_procs` values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links. The following shows an example of the live progress output:
->
-> **⚠️ WARNING -- DNS query parallelism:** Los valores altos de `parallel_procs` pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales. El siguiente ejemplo muestra el progreso durante la ejecución:
-
 ```bash
 Processed: 2463489 / 7244989 (34.00%)
 ```
@@ -758,6 +750,10 @@ google.com mail is handled by 10 smtp.google.com.
 FAULT testfaultdomain.com
 Host testfaultdomain.com not found: 3(NXDOMAIN)
 ```
+
+> **⚠️ WARNING -- DNS query parallelism:** Higher `parallel_procs` values can speed up DNS resolution, but may saturate CPU or bandwidth, especially on constrained networks such as satellite links.
+>
+> **⚠️ WARNING -- DNS query parallelism:** Los valores altos de `parallel_procs` pueden acelerar la resolución DNS, pero también saturar la CPU o el ancho de banda, especialmente en redes limitadas como los enlaces satelitales.
 
 #### Excludes government-related TLDs
 
@@ -814,13 +810,9 @@ Output:
   </tr>
 </table>
 
-> Processing messages keep their timestamp and have no level or flag. `STATUS` is a viewer label, not text written in the log. Three trailing dots are reserved for these lines; other messages have no final period.
->
-> Los mensajes de procesamiento conservan la fecha y no llevan nivel ni flag. `STATUS` es una etiqueta del visor; no se escribe en el log. Los tres puntos finales se reservan para estas líneas; los demás mensajes no llevan punto final.
-
 ```text
-2026-10-17 12:00:00 Joining Lists...
-2026-10-17 12:00:00 Debugging Domains...
+2026-10-17 12:00:00 EVENT: Joining Lists...
+2026-10-17 12:00:00 EVENT: Debugging Domains...
 ```
 
 #### Download Status
@@ -864,7 +856,6 @@ Output:
 ### BLOCKLISTS
 
 - [ABPindo - indonesianadblockrules](https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt)
-- [abuse.ch - hostfile](https://urlhaus.abuse.ch/downloads/hostfile/)
 - [Adaway - host](https://adaway.org/hosts.txt)
 - [adblockplus - advblock Russian](https://easylist-downloads.adblockplus.org/advblock.txt)
 - [adblockplus - antiadblockfilters](https://easylist-downloads.adblockplus.org/antiadblockfilters.txt)
@@ -916,7 +907,7 @@ Output:
 - [gardar - Icelandic ABP List](https://adblock.gardar.net/is.abp.txt)
 - [greatis - Anti-WebMiner](https://raw.githubusercontent.com/greatis/Anti-WebMiner/master/blacklist.txt)
 - [hagezi - dns-blocklists](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/ultimate-onlydomains.txt)
-- [hexxium - threat-list/](https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt)
+- [hexxium - threat-list](https://raw.githubusercontent.com/HexxiumCreations/threat-list/gh-pages/hexxiumthreatlist.txt)
 - [hoshsadiq - adblock-nocoin-list](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt)
 - [jawz101 - potentialTrackers](https://raw.githubusercontent.com/jawz101/potentialTrackers/master/potentialTrackers.csv)
 - [jdlingyu - ad-wars](https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts)
@@ -926,7 +917,6 @@ Output:
 - [malware-filter - URLhaus Malicious URL Blocklist](https://gitlab.com/malware-filter/urlhaus-filter/-/raw/master/urlhaus-filter.txt)
 - [malware-filter.- phishing-filter-hosts](https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt)
 - [Matomo-org - spammers](https://github.com/matomo-org/referrer-spam-blacklist/blob/master/spammers.txt)
-- [MBThreatIntel - malspam](https://github.com/MBThreatIntel/malspam)
 - [mine.nu - hosts0](https://hostsfile.mine.nu/hosts0.txt)
 - [mitchellkrogza - Badd-Boyz-Hosts](https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/domains)
 - [mitchellkrogza - hacked-domains](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/blob/master/hacked-domains.list)
@@ -938,7 +928,6 @@ Output:
 - [notracking - hosts-blocklists](https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt)
 - [Oleksiig - Squid-BlackList](https://raw.githubusercontent.com/oleksiig/Squid-BlackList/master/denied_ext.conf)
 - [openphish - feed](https://openphish.com/feed.txt)
-- [pengelana - domains blocklist](https://github.com/pengelana/blocklist/tree/master/src/blacklist)
 - [phishing.army - phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
 - [piperun - iploggerfilter](https://github.com/piperun/iploggerfilter)
 - [quidsup - notrack-blocklists](https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt)
@@ -977,10 +966,10 @@ Output:
 - [Ultimate Hosts Blacklist - hosts](https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/tree/master/hosts)
 - [Université Toulouse 1 Capitole - Blacklists UT1 - Olbat](https://github.com/olbat/ut1-blacklists/tree/master/blacklists)
 - [Université Toulouse 1 Capitole - Blacklists UT1](https://dsi.ut-capitole.fr/blacklists/index_en.php)
-- [Winhelp2002 - hosts](http://winhelp2002.mvps.org/hosts.txt)
+- [Winhelp2002 - hosts](https://winhelp2002.mvps.org/hosts.txt)
 - [yourduskquibbles - Web Annoyances Ultralist](https://github.com/yourduskquibbles/webannoyances)
 - [yous - YousList](https://raw.githubusercontent.com/yous/YousList/master/youslist.txt)
-- [yoyo - Peter Lowe's Ad and tracking server list](http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
+- [yoyo - Peter Lowe's Ad and tracking server list](https://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml)
 - [zoso - Romanian Adblock List](https://zoso.ro/pages/rolist.txt)
 
 ### DEBUG LISTS
@@ -1252,9 +1241,16 @@ python3 domfilter.py --input mylst.txt --output outlst.txt --removed removelst.t
   </tr>
 </table>
 
-> Before running the script, remove `http://`, `https://`, and `www.` prefixes from the input list.
->
-> Antes de ejecutar el script, quite de la lista los prefijos `http://`, `https://` y `www.`.
+<table width="100%">
+  <tr>
+    <td style="width: 50%; vertical-align: top;">
+      Before running the script, remove <code>http://</code>, <code>https://</code>, and <code>www.</code> prefixes from the input list.
+    </td>
+    <td style="width: 50%; vertical-align: top;">
+      Antes de ejecutar el script, quite de la lista los prefijos <code>http://</code>, <code>https://</code> y <code>www.</code>.
+    </td>
+  </tr>
+</table>
 
 ```bash
 chmod +x domcheck.sh
@@ -1277,17 +1273,12 @@ bash domcheck.sh my_domain_list.txt 50
 ```
 
 ```text
-2026-07-07 13:29:58 domcheck start...
-2026-07-07 13:29:58 Step 1...
-2026-07-07 13:30:17 Step 2...
-2026-07-07 13:30:28 INFO: hit.txt: domains successfully resolved
-2026-07-07 13:30:28 INFO: fault.txt: unresolved domains
-2026-07-07 13:30:28 INFO: Summary:
-2026-07-07 13:30:28 INFO: Input domains : 7896
-2026-07-07 13:30:28 INFO: Resolved      : 7349
-2026-07-07 13:30:28 INFO: Unresolved    : 547
-2026-07-07 13:30:28 INFO: Elapsed time  : 30s
-2026-07-07 13:30:29 domcheck done
+2026-07-07 13:29:58 EVENT: domcheck start...
+2026-07-07 13:29:58 EVENT: Step 1...
+2026-07-07 13:30:17 EVENT: Step 2...
+2026-07-07 13:30:28 INFO: 7349 of 7896 resolved, saved to hit.txt
+2026-07-07 13:30:28 INFO: 547 unresolved, saved to fault.txt (30s)
+2026-07-07 13:30:29 EVENT: domcheck done
 ```
 
 <table width="100%">
@@ -1371,6 +1362,7 @@ bash domcheck.sh my_domain_list.txt 50
       <ul>
         <li>BlackWeb is designed exclusively for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Because of the large number of blocked domains, it is not recommended in other environments, such as DNSMasq or Pi-Hole, nor in the Windows Hosts file, since it could slow them down or crash them. <b>Use it at your own risk</b>. For more information see <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb is NOT a blacklist service itself</b>. It does not independently verify domains. Its purpose is to consolidate and reformat public blacklist sources to make them compatible with Squid.</li>
+        <li>Follows a non-standard workflow. Published commits may be rewritten or removed without notice as part of the debugging and improvement process.</li>
         <li>If your domain appears in Blackweb and you believe this is an error, review the public sources in <b>SOURCES</b> to identify which list includes it, and contact the maintainer of that list to request its removal. Once the domain is removed from the upstream source, it disappears from Blackweb on the next update. You can also use the following script to perform the same check:</li>
       </ul>
     </td>
@@ -1378,6 +1370,7 @@ bash domcheck.sh my_domain_list.txt 50
       <ul>
         <li>BlackWeb está diseñado exclusivamente para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Debido a la gran cantidad de dominios bloqueados, no se recomienda usarlo en otros entornos, como DNSMasq o Pi-Hole, ni en el archivo Hosts de Windows, ya que podría ralentizarlos o bloquearlos. <b>Úselo bajo su propio riesgo</b>. Para más información revise el <a href="https://github.com/maravento/blackweb/issues/10#issuecomment-650834301" target="_blank">Issue 10</a>.</li>
         <li><b>Blackweb NO es un servicio de listas negras como tal</b>. No verifica de forma independiente los dominios. Su función es consolidar y formatear listas negras públicas para hacerlas compatibles con Squid.</li>
+        <li>Utiliza un flujo de trabajo no convencional. Los commits publicados pueden ser reescritos o eliminados sin previo aviso como parte del proceso de depuración y mejora.</li>
         <li>Si su dominio aparece en Blackweb y considera que es un error, revise las fuentes públicas en <b>SOURCES</b> para identificar en cuál lista aparece, y contacte al responsable de esa lista para solicitar su eliminación. Una vez eliminado en la fuente original, el dominio desaparece de Blackweb en la siguiente actualización. También puede usar el siguiente script para hacer la misma comprobación:</li>
       </ul>
     </td>

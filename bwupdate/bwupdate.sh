@@ -189,7 +189,7 @@ check_squid_status
 cd "$script_dir" || { log "ERROR: cannot enter bwupdate path -abort"; exit 1; }
 repo_dir="$script_dir/bwupdate"
 wget_opts="wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
-trap 'rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt; exit 130' INT TERM
+trap 'kill "${progress_pid:-}" 2>/dev/null; rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt; exit 130' INT TERM
 # path to acl (change it to the directory of your preference)
 acl_dir="/etc/acl"
 if [ ! -d "$acl_dir" ]; then
@@ -202,7 +202,7 @@ fi
 log "EVENT: bwupdate start..."
 
 # ------------------------------------------------------------------------------
-# FUNCTIONS
+# DOWNLOAD
 # ------------------------------------------------------------------------------
 
 # check dnslookup1.txt
@@ -430,7 +430,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         extract_dir="bwtmp/$(basename "$download_file" .tar.gz)_$(date +%s)"
         mkdir -p "$extract_dir"
         if ! tar -C "$extract_dir" -zxf "bwtmp/$download_file" >/dev/null 2>&1; then
-            log "WARNING: cannot extract $download_file -fallback"
+            log "WARNING: cannot extract $download_file"
             return 1
         fi
         # clean
@@ -438,12 +438,13 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         return 0
     }
     if ! targz 'http://dsi.ut-capitole.fr/blacklists/download/blacklists.tar.gz'; then
-        log "WARNING: ut-capitole.fr download failed -fallback"
+        log "WARNING: ut-capitole.fr list unavailable -fallback"
         cd bwtmp || { log "ERROR: cannot enter bwtmp path -abort"; exit 1; }
         if $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py >/dev/null 2>&1; then
             log "SAVED: gitfolder.py"
             chmod +x gitfolder.py
-            python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists"
+            python3 gitfolder.py "https://github.com/olbat/ut1-blacklists/tree/master/blacklists" \
+                || log "WARNING: gitfolder.py cannot clone ut1-blacklists -alert"
         else
             log "PARTIAL: https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py"
         fi
@@ -647,6 +648,7 @@ parallel_procs=$(($(nproc) * 4))
 
 stop_progress() {
     kill "$progress_pid" 2>/dev/null
+    progress_pid=""
     echo
 }
 
@@ -791,7 +793,7 @@ fi
 # ------------------------------------------------------------------------------
 
 log "EVENT: Squid Reload..."
-# copy blaclweb to path
+# copy blackweb to path
 sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
     log "ERROR: cannot copy blackweb.txt to $acl_dir -abort"
     exit 1
@@ -876,5 +878,5 @@ cd .. || {
 # END
 # ------------------------------------------------------------------------------
 
-log "EVENT: bwupdate done"
 log "INFO: Check SquidErrors.txt"
+log "EVENT: bwupdate done"
