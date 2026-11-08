@@ -134,7 +134,7 @@ check_internet
 squid_conf="/etc/squid/squid.conf"
 
 # Edit /etc/squid/squid.conf and add lines:
-# acl blackweb dstdomain -i "/path_to/blackweb.txt"
+# acl blackweb dstdomain -i "/etc/squid/acl/blackweb.txt"
 # http_access deny blackweb
 check_squid_acl() {
     if ! grep -qE '^[[:space:]]*acl[[:space:]]+blackweb[[:space:]]+dstdomain([[:space:]]|$)' "$squid_conf"; then
@@ -191,7 +191,7 @@ repo_dir="$script_dir/bwupdate"
 wget_opts="wget -q -c --no-check-certificate --retry-connrefused --timeout=10 --tries=4"
 trap 'kill "${progress_pid:-}" 2>/dev/null; rm -rf bwtmp urls.txt stage1.txt stage2.txt capture.txt cleancapture.txt output.txt removed.txt blackweb_tmp.txt blackweb_tmp2.txt sqerror.txt final.txt gitfolder.py domfilter.py sourcetld.txt; exit 130' INT TERM
 # path to acl (change it to the directory of your preference)
-acl_dir="/etc/acl"
+acl_dir="/etc/squid/acl"
 if [ ! -d "$acl_dir" ]; then
     sudo mkdir -p -m 755 -- "$acl_dir" || {
         log "ERROR: cannot create $(basename "$acl_dir") -abort"

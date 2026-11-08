@@ -183,7 +183,7 @@ LOCAL=$(sha256sum blackweb.txt | awk '{print $1}'); REMOTE=$(awk '{print $1}' bl
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 
 # Block Rule for Blackweb
-acl blackweb dstdomain "/path_to/blackweb.txt"
+acl blackweb dstdomain "/etc/squid/acl/blackweb.txt"
 http_access deny blackweb
 ```
 
@@ -218,7 +218,7 @@ http_access deny blackweb
 </table>
 
 ```bash
-acl allowdomains dstdomain "/path_to/allowdomains.txt"
+acl allowdomains dstdomain "/etc/squid/acl/allowdomains.txt"
 http_access allow allowdomains
 ```
 
@@ -236,7 +236,7 @@ http_access allow allowdomains
 </table>
 
 ```bash
-acl blockdomains dstdomain "/path_to/blockdomains.txt"
+acl blockdomains dstdomain "/etc/squid/acl/blockdomains.txt"
 http_access deny blockdomains
 ```
 
@@ -254,7 +254,7 @@ http_access deny blockdomains
 </table>
 
 ```bash
-acl blocktlds dstdomain "/path_to/blocktlds.txt"
+acl blocktlds dstdomain "/etc/squid/acl/blocktlds.txt"
 http_access deny blocktlds
 ```
 
@@ -326,9 +326,9 @@ ASCII Output:
 
 ```bash
 # Example: Download ACL:
-sudo wget -P /etc/acl/squid https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
+sudo wget -P /etc/squid/acl https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/conf/squid/acl/blockpatterns.txt
 # Squid Rule to Block Patterns (change path):
-acl blockpatterns url_regex -i "/etc/acl/squid/blockpatterns.txt"
+acl blockpatterns url_regex -i "/etc/squid/acl/blockpatterns.txt"
 http_access deny blockpatterns
 ```
 
@@ -363,7 +363,7 @@ https://www.google.com/search?q=mydomain
 </table>
 
 ```bash
-acl streaming dstdomain "/path_to/streaming.txt"
+acl streaming dstdomain "/etc/squid/acl/streaming.txt"
 http_access deny streaming
 ```
 
@@ -409,7 +409,7 @@ http_access deny streaming
 </table>
 
 ```bash
-acl ai dstdomain "/path_to/ai.txt"
+acl ai dstdomain "/etc/squid/acl/ai.txt"
 http_access deny ai
 ```
 
@@ -420,7 +420,7 @@ http_access deny ai
 
 # Allow Rule for Domains
 # https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/allowdomains.txt
-acl allowdomains dstdomain "/path_to/allowdomains.txt"
+acl allowdomains dstdomain "/etc/squid/acl/allowdomains.txt"
 http_access allow allowdomains
 
 # Block Rule for Punycode
@@ -429,22 +429,22 @@ http_access deny punycode
 
 # Block Rule for gTLD, sTLD, ccTLD
 # https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blocktlds.txt
-acl blocktlds dstdomain "/path_to/blocktlds.txt"
+acl blocktlds dstdomain "/etc/squid/acl/blocktlds.txt"
 http_access deny blocktlds
 
 # Block Rule for Domains
 # https://raw.githubusercontent.com/maravento/blackweb/master/bwupdate/lst/blockdomains.txt
-acl blockdomains dstdomain "/path_to/blockdomains.txt"
+acl blockdomains dstdomain "/etc/squid/acl/blockdomains.txt"
 http_access deny blockdomains
 
 # Block Rule for Patterns (Optional)
-# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/acl/squid/blockpatterns.txt
-acl blockpatterns url_regex -i "/path_to/blockpatterns.txt"
+# https://raw.githubusercontent.com/maravento/vault/refs/heads/master/gateproxy/conf/squid/acl/blockpatterns.txt
+acl blockpatterns url_regex -i "/etc/squid/acl/blockpatterns.txt"
 http_access deny blockpatterns
 
 # Block Rule for Blackweb
 # https://raw.githubusercontent.com/maravento/blackweb/master/blackweb.tar.gz
-acl blackweb dstdomain "/path_to/blackweb.txt"
+acl blackweb dstdomain "/etc/squid/acl/blackweb.txt"
 http_access deny blackweb
 ```
 
@@ -832,7 +832,7 @@ Output:
   <tr>
     <td style="width: 50%; vertical-align: top;">
       <ul>
-        <li>The default path of BlackWeb is <code>/etc/acl</code>. You can change it for your preference.</li>
+        <li>The default path of BlackWeb is <code>/etc/squid/acl</code>. You can change it for your preference.</li>
         <li>If you need to interrupt the execution of <code>bwupdate.sh</code> (ctrl + c) and it stopped at the <b>DNS Lookup</b> part, it will restart at that point. If you stop it earlier, you will have to start from the beginning or modify the script manually so that it starts from the desired point.</li>
         <li>If you use <code>aufs</code>, temporarily change it to <code>ufs</code> during the upgrade, to avoid: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
         <li><code>bwupdate.sh</code> uses <code>--no-check-certificate</code> (wget) and <code>-k</code> (curl) because some public blocklist sources have certificate issues. This allows download attempts but weakens verification of the server's identity; keep this in mind when changing or reviewing sources.</li>
@@ -840,7 +840,7 @@ Output:
     </td>
     <td style="width: 50%; vertical-align: top;">
       <ul>
-        <li>La ruta predeterminada para instalar la ACL es <code>/etc/acl</code>; puede cambiarse en <code>bwupdate.sh</code>.</li>
+        <li>La ruta predeterminada para instalar la ACL es <code>/etc/squid/acl</code>; puede cambiarse en <code>bwupdate.sh</code>.</li>
         <li>Si el script se interrumpe durante la etapa <b>DNS Lookup</b>, al volver a ejecutarlo continuará desde esa etapa. Si se interrumpe antes, será necesario iniciarlo de nuevo o modificarlo para reanudar desde otro punto.</li>
         <li>Si se usa <code>aufs</code>, debe cambiarse temporalmente a <code>ufs</code> durante la actualización para evitar: <code>ERROR: Can't change type of existing cache_dir aufs /var/spool/squid to ufs. Restart required</code>.</li>
         <li><code>bwupdate.sh</code> desactiva la verificación estricta de certificados porque algunas fuentes públicas tienen problemas con ellos. Esto permite intentar la descarga, pero reduce la verificación de la identidad del servidor; conviene tenerlo en cuenta al modificar o revisar las fuentes.</li>
@@ -1109,22 +1109,22 @@ bash fpack.sh
 
 # Block Rule for Ransomware Extensions/Patterns (Optional)
 # https://raw.githubusercontent.com/maravento/blackweb/master/fpack/rw/rwext.txt
-acl block_ransomware url_regex -i "/path_to/rwext.txt"
+acl block_ransomware url_regex -i "/etc/squid/acl/rwext.txt"
 http_access deny block_ransomware
 
 # Block Rule for web3 domains (Optional)
 # https://raw.githubusercontent.com/maravento/blackweb/master/fpack/web3/web3domains.txt
-acl web3domains dstdomain "/path_to/web3domains.txt"
+acl web3domains dstdomain "/etc/squid/acl/web3domains.txt"
 http_access deny web3domains
 
 # Block Rule for web3 TLDs (Optional)
 # https://raw.githubusercontent.com/maravento/blackweb/master/fpack/web3/web3tld.txt
-acl web3tld dstdomain "/path_to/web3tld.txt"
+acl web3tld dstdomain "/etc/squid/acl/web3tld.txt"
 http_access deny web3tld
 
 # Block Rule for User-Agents (Optional)
 # https://raw.githubusercontent.com/maravento/blackweb/master/fpack/ua/blockua.txt
-acl bad_useragents browser -i "/path_to/blockua.txt"
+acl bad_useragents browser -i "/etc/squid/acl/blockua.txt"
 http_access deny bad_useragents
 ```
 
