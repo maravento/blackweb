@@ -430,7 +430,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         extract_dir="bwtmp/$(basename "$download_file" .tar.gz)_$(date +%s)"
         mkdir -p "$extract_dir"
         if ! tar -C "$extract_dir" -zxf "bwtmp/$download_file" >/dev/null 2>&1; then
-            log "WARNING: cannot extract $download_file"
+            log "WARNING: cannot extract $download_file -alert"
             return 1
         fi
         # clean

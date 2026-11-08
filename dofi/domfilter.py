@@ -238,6 +238,14 @@ def main():
     if not args.input:
         sys.exit(f"{stamp()} ERROR: --input is required, usage: domfilter.py --input <file> -abort")
 
+    for option, target in (("--output", args.output), ("--removed", args.removed)):
+        if not target:
+            continue
+        same_path = os.path.realpath(args.input) == os.path.realpath(target)
+        same_file = os.path.exists(args.input) and os.path.exists(target) and os.path.samefile(args.input, target)
+        if same_path or same_file:
+            sys.exit(f"{stamp()} ERROR: {option} points to the input file -abort")
+
     verify_ssl = not args.no_verify_ssl
     if not verify_ssl:
         warnings.simplefilter('ignore', InsecureRequestWarning)
