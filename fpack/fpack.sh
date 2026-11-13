@@ -122,7 +122,7 @@ check_ipv4_interfaces
 check_internet
 
 # Start
-log "EVENT: fpack start..."
+log "INFO: fpack start..."
 
 # ------------------------------------------------------------------------------
 # VARIABLES
@@ -352,4 +352,4 @@ log "INFO: ransomware ACL for Squid: rwext.txt"
 # END
 # ------------------------------------------------------------------------------
 
-log "EVENT: fpack done"
+log "INFO: fpack done"

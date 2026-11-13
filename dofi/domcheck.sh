@@ -126,7 +126,7 @@ faultlist="$tmp_dir/faultlist"
 
 # Start
 start_time=$(date +%s)
-log "EVENT: domcheck start..."
+log "INFO: domcheck start..."
 
 # ------------------------------------------------------------------------------
 # DNS LOOKUP
@@ -139,7 +139,7 @@ if ! { sed '/^$/d; /^[[:space:]]*$/d; /#/d' -- "$input_file" |
 fi
 rm -f fault.txt hit.txt
 
-log "EVENT: Step 1..."
+log "INFO: Step 1..."
 if ! xargs -d '\n' -I {} -P "$parallel_procs" sh -c 'd="$1"; case "$d" in *[!a-zA-Z0-9._-]*) printf "FAULT %s\n" "$d"; exit 0 ;; esac; if timeout 5 host "$d" >/dev/null 2>&1; then printf "HIT %s\n" "$d"; else printf "FAULT %s\n" "$d"; fi' _ {} <"$clean" >>"$lookup1"; then
     log "ERROR: $(basename "$input_file"): domain check command failed -abort"
     exit 1
@@ -157,7 +157,7 @@ if ! comm -23 "$faultlist" hit.txt >fault.txt; then
     exit 1
 fi
 
-log "EVENT: Step 2..."
+log "INFO: Step 2..."
 if ! sed 's/^\.//g' fault.txt | sort -u >"$step2"; then
     log "ERROR: cannot prepare fault.txt for DNS recheck -abort"
     exit 1
@@ -197,4 +197,4 @@ fault_count=$(wc -l < fault.txt)
 log "INFO: $hit_count of $total_domains resolved, saved to hit.txt"
 log "INFO: $fault_count unresolved, saved to fault.txt (${elapsed_time}s)"
 
-log "EVENT: domcheck done"
+log "INFO: domcheck done"

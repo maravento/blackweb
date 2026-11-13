@@ -121,7 +121,7 @@ check_internet() {
 check_ipv4_interfaces
 check_internet
 
-log "EVENT: checksources start..."
+log "INFO: checksources start..."
 
 # ------------------------------------------------------------------------------
 # VARIABLES
@@ -273,4 +273,4 @@ done
 # END
 # ------------------------------------------------------------------------------
 
-log "EVENT: checksources done"
+log "INFO: checksources done"

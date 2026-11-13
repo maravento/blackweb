@@ -199,7 +199,7 @@ if [ ! -d "$acl_dir" ]; then
     }
 fi
 
-log "EVENT: bwupdate start..."
+log "INFO: bwupdate start..."
 
 # ------------------------------------------------------------------------------
 # DOWNLOAD
@@ -484,7 +484,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     }
     univ 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json' && sleep 1
 
-    log "EVENT: IDN Capture and Debugging..."
+    log "INFO: IDN Capture and Debugging..."
     grep_err="$(mktemp)" || { log "ERROR: cannot create domain extraction error file -abort"; exit 1; }
     find bwtmp -type f -not -iname "*pdf" \
       -execdir sh -c 'grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" "$1"; [ "$?" -gt 1 ] && printf x >> "$2"; exit 0' _ {} "$grep_err" \; \
@@ -551,7 +551,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
 
-    log "EVENT: Joining Lists..."
+    log "INFO: Joining Lists..."
     sed '/^$/d; /#/d' lst/{debugwl,invalid}.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > urls.txt
     pipe_status=("${PIPESTATUS[@]}")
     if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ] ||
@@ -565,7 +565,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         exit 1
     fi
 
-    log "EVENT: Debugging Domains..."
+    log "INFO: Debugging Domains..."
     grep -Fvxf urls.txt capture.txt | sed 's/[^[:print:]\n]//g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' | sort -u > cleancapture.txt
     pipe_status=("${PIPESTATUS[@]}")
     if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
@@ -654,7 +654,7 @@ stop_progress() {
 
 # step 1:
 if [ ! -e "$repo_dir"/dnslookup2.txt ]; then
-    log "EVENT: 1st DNS Lookup..."
+    log "INFO: 1st DNS Lookup..."
     if ! { sed 's/^\.//g' dnsinput.txt | sort -u > step1.txt; }; then
         log "ERROR: cannot prepare step1.txt -abort"
         exit 1
@@ -694,7 +694,7 @@ fi
 sleep 5
 
 # step 2:
-log "EVENT: 2nd DNS Lookup..."
+log "INFO: 2nd DNS Lookup..."
 if ! { sed 's/^\.//g' fault.txt | sort -u > step2.txt; }; then
     log "ERROR: cannot prepare step2.txt -abort"
     exit 1
@@ -730,7 +730,7 @@ if ! { sed '/^FAULT/d' dnslookup2.txt | awk '{print $2}' | awk '{print "." $1}' 
     exit 1
 fi
 
-log "EVENT: Adding Debug Blacklist..."
+log "INFO: Adding Debug Blacklist..."
 if ! { sed '/^$/d; /#/d' lst/debugbl.txt | sort -u >> hit.txt; }; then
     log "ERROR: cannot read debugbl.txt -abort"
     exit 1
@@ -756,7 +756,7 @@ if [ ! -s blackweb_tmp.txt ]; then
 fi
 
 # TLD final filter (Exclude AllowTLDs .gov, .mil, etc., delete TLDs and NO-ASCII lines)
-log "EVENT: Exclude TLD..."
+log "INFO: Exclude TLD..."
 if ! tld_pattern=$(grep -v '^#' lst/allowtlds.txt | sed 's/\./\\./g; s/$/\$/' | tr '\n' '|'
     pipe_status=("${PIPESTATUS[@]}")
     [ "${pipe_status[0]}" -le 1 ] && [ "${pipe_status[1]}" -eq 0 ] &&
@@ -792,7 +792,7 @@ fi
 # RELOAD
 # ------------------------------------------------------------------------------
 
-log "EVENT: Squid Reload..."
+log "INFO: Squid Reload..."
 # copy blackweb to path
 sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
     log "ERROR: cannot copy blackweb.txt to $acl_dir -abort"
@@ -879,4 +879,4 @@ cd .. || {
 # ------------------------------------------------------------------------------
 
 log "INFO: Check SquidErrors.txt"
-log "EVENT: bwupdate done"
+log "INFO: bwupdate done"
