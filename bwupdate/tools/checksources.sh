@@ -3,11 +3,11 @@
 #
 ################################################################################
 #
-# Check Sources
+# checksources -- BlackWeb sources check
 # FILE: bwupdate/tools/checksources.sh
 #
 # USAGE:
-# ./checksources.sh
+# bash checksources.sh
 #
 # LOG: checksources.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only

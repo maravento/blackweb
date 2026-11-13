@@ -3,11 +3,11 @@
 #
 ################################################################################
 #
-# BlackWeb Update
+# bwupdate -- BlackWeb list update
 # FILE: bwupdate/bwupdate.sh
 #
 # USAGE:
-# ./bwupdate.sh
+# bash bwupdate.sh
 #
 # LOG: bwupdate.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only

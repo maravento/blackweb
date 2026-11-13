@@ -3,8 +3,7 @@
 #
 ################################################################################
 #
-# Filter Pack (fpack)
-# File Extensions/Patterns/User-Agents to Block
+# fpack -- file extensions, patterns and user-agents to block
 # FILE: fpack/fpack.sh
 #
 # USAGE:

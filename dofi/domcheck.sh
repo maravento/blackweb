@@ -3,11 +3,11 @@
 #
 ################################################################################
 #
-# Domains Check with Host
+# domcheck -- domain check with host
 # FILE: dofi/domcheck.sh
 #
 # USAGE:
-# ./domcheck.sh <file> [procs]
+# bash domcheck.sh <file> [procs]
 #
 # LOG: dofi.log, in the directory where this script is located
 #      Emptied at the start of every run, holds the last execution only
