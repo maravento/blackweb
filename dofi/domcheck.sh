@@ -7,10 +7,10 @@
 # FILE: dofi/domcheck.sh
 #
 # USAGE:
-# bash domcheck.sh <file> [procs]
+# COMMAND                          ACTION
+# bash domcheck.sh <file> [procs]  Check domains from the input file
 #
 # LOG: dofi.log, in the directory where this script is located
-#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

@@ -7,10 +7,10 @@
 # FILE: bwupdate/tools/checksources.sh
 #
 # USAGE:
-# bash checksources.sh
+# COMMAND               ACTION
+# bash checksources.sh  (no arguments)
 #
 # LOG: checksources.log, in the directory where this script is located
-#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

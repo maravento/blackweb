@@ -7,10 +7,10 @@
 # FILE: fpack/fpack.sh
 #
 # USAGE:
-# bash fpack.sh
+# COMMAND        ACTION
+# bash fpack.sh  (no arguments)
 #
 # LOG: fpack.log, in the directory where this script is located
-#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

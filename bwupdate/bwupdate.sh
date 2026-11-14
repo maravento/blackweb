@@ -7,10 +7,10 @@
 # FILE: bwupdate/bwupdate.sh
 #
 # USAGE:
-# bash bwupdate.sh
+# COMMAND           ACTION
+# bash bwupdate.sh  (no arguments)
 #
 # LOG: bwupdate.log, in the directory where this script is located
-#      Emptied at the start of every run, holds the last execution only
 #
 ################################################################################
 

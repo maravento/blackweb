@@ -12,10 +12,10 @@ FILE: README.md
 <table width="100%">
   <tr>
     <td style="width: 50%; vertical-align: top;">
-      <b>BlackWeb</b> brings together public domain blocklists and adapts them for use as access control lists (ACLs) in <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. It includes domains related to adult content, downloads, drugs, malware, spyware, trackers, bots, social networks, warez, weapons, and other categories.
+      <b>BlackWeb</b> brings together public domain blocklists and consolidates them into a single access control list (ACL) for <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. The list contains domains associated with adult content, downloads, drugs, malware, spyware, trackers, bots, social networks, warez and weapons.
     </td>
     <td style="width: 50%; vertical-align: top;">
-      <b>BlackWeb</b> reúne listas públicas de dominios y las adapta para usarlas como listas de control de acceso (ACL) en <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. Incluye dominios relacionados con contenido para adultos, descargas, drogas, malware, spyware, rastreadores, bots, redes sociales, warez y armas, entre otras categorías.
+      <b>BlackWeb</b> reúne listas públicas de dominios y las consolida en una única lista de control de acceso (ACL) para <a href="http://www.squid-cache.org/" target="_blank">Squid-Cache</a>. La lista contiene dominios asociados con contenido para adultos, descargas, drogas, malware, spyware, rastreadores, bots, redes sociales, warez y armas.
     </td>
   </tr>
 </table>
