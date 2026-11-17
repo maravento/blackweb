@@ -8,7 +8,7 @@
 #
 # USAGE:
 # COMMAND        ACTION
-# bash fpack.sh  (no arguments)
+# bash fpack.sh  Run (no arguments)
 #
 # LOG: fpack.log, in the directory where this script is located
 #

@@ -8,7 +8,7 @@
 #
 # USAGE:
 # COMMAND               ACTION
-# bash checksources.sh  (no arguments)
+# bash checksources.sh  Run (no arguments)
 #
 # LOG: checksources.log, in the directory where this script is located
 #

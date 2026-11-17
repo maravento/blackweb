@@ -8,7 +8,7 @@
 #
 # USAGE:
 # COMMAND           ACTION
-# bash bwupdate.sh  (no arguments)
+# bash bwupdate.sh  Run (no arguments)
 #
 # LOG: bwupdate.log, in the directory where this script is located
 #
