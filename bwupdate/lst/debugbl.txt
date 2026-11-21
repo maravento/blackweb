@@ -4152,6 +4152,7 @@
 .lntproductions.com
 .loader.to
 .loaditsoft.com
+.loanbixby.com
 .localhost.com
 .locgest.com
 .locogallery.com
@@ -6487,6 +6488,7 @@
 .sragenkab.go.id
 .srca.org
 .srisaioilfield.com
+.srnky.com
 .srns.eu
 .srv-analytics.info
 .srv.crsoo.com
@@ -7709,9 +7711,13 @@
 .xmo.gr
 .xmp3a.com
 .xmx.de
+.xn--80a5aeq0fr0c.com
+.xn--80a6aa68c8d.com
 .xn--divxtotl-fza.com
 .xn--hastabakc-2pbb.net
 .xnkmanhtien.com
+.xn--nie-g6a.com
+.xn--ota-f6a.com
 .xn--pasaer-spb.pl
 .xnxx.com
 .xnxx.es

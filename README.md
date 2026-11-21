@@ -821,9 +821,9 @@ Output:
 |---|---|---|---|
 | `SAVED:` | File name | The transfer completed and the file was written | La descarga terminó y el archivo se guardó |
 | `PARTIAL:` | Full URL | The download started and was cut off before finishing | La descarga comenzó y se interrumpió antes de terminar |
-| `BUSY:` | Full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió con un error 5xx: está disponible, pero no entrega la lista en ese momento |
-| `TIMEOUT:` | Full URL | The server did not answer at all | El servidor no respondió |
-| `BROKEN:` | Full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: el recurso no existe o la URL ya no es válida |
+| `BUSY:` | HTTP code and full URL | The server answered 5xx: it is up but not serving the list right now | El servidor respondió con un error 5xx: está disponible, pero no entrega la lista en ese momento |
+| `TIMEOUT:` | Full URL | No HTTP code was obtained | No se obtuvo un código HTTP |
+| `BROKEN:` | HTTP code and full URL | The server answered 404 or 410: broken or nonexistent URL | El servidor respondió 404 o 410: el recurso no existe o la URL ya no es válida |
 | `HTTP_ERROR:` | HTTP code and full URL | The server returned an HTTP response not covered by the other tags | El servidor devolvió una respuesta HTTP no contemplada por las otras etiquetas |
 
 #### Important about BlackWeb Update
@@ -1026,10 +1026,10 @@ fpack/
 
 #### Requirements
 
-- `wget`, `curl`, `grep`, `sed`, `coreutils`, `util-linux`, `libc-bin`
+- `wget`, `curl`, `grep`, `sed`, `coreutils`, `util-linux`, `libc-bin`, `iproute2`
 
 ```bash
-apt install -y wget curl grep sed coreutils util-linux libc-bin
+apt install -y wget curl grep sed coreutils util-linux libc-bin iproute2
 ```
 
 #### Download
@@ -1156,10 +1156,10 @@ dofi/
 #### Requirements
 
 - Python 3.12.3, Bash 5.2.21
-- `python3-requests` (required by `domfilter.py`), `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux` (required by `domcheck.sh`)
+- `python3-requests` (required by `domfilter.py`), `bind9-host`, `findutils`, `grep`, `sed`, `coreutils`, `util-linux`, `iproute2`, `libc-bin` (required by `domcheck.sh`)
 
 ```bash
-apt install -y python3 python3-requests bind9-host findutils grep sed coreutils util-linux
+apt install -y python3 python3-requests bind9-host findutils grep sed coreutils util-linux iproute2 libc-bin
 ```
 
 #### Download
