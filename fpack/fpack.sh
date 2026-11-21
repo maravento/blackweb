@@ -26,6 +26,9 @@ if [ "$(id -u)" == "0" ]; then
     exit 1
 fi
 
+# awk is a command, not a package: check it before its first use
+command -v awk >/dev/null 2>&1 || { echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: awk not found -abort" >&2; exit 1; }
+
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock") || {

@@ -26,6 +26,9 @@ if [ "$(id -u)" == "0" ]; then
     exit 1
 fi
 
+# awk is a command, not a package: check it before its first use
+command -v awk >/dev/null 2>&1 || { echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: awk not found -abort" >&2; exit 1; }
+
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock") || {
@@ -165,7 +168,6 @@ check_squid_status() {
     }
 
     if ! squid_is_active; then
-        log "INFO: squid is not active, starting it"
         squid_start
         for wait_attempt in $(seq 1 30); do
             squid_is_active && break
@@ -205,6 +207,21 @@ log "INFO: bwupdate start..."
 # DOWNLOAD
 # ------------------------------------------------------------------------------
 
+# Whole names only: a name touching a non-ASCII byte is not cut
+domain_re='(?<![\x80-\xffa-zA-Z0-9-])([a-zA-Z0-9\x80-\xff][a-zA-Z0-9\x80-\xff-]*\.)+[a-zA-Z\x80-\xff]{2,}(?![\x80-\xffa-zA-Z0-9-])'
+# IDN to Punycode; a name IDNA2008 rejects (bad encoding) is dropped
+to_punycode() {
+    # C locale: letter ranges match ASCII bytes only
+    local name LC_ALL=C
+    while IFS= read -r name; do
+        if [[ "$name" == *[^a-zA-Z0-9.-]* ]]; then
+            LC_ALL=C.UTF-8 idn2 --no-tr46 -- "$name" 2>/dev/null || true
+        else
+            printf '%s\n' "$name"
+        fi
+    done
+}
+
 # check dnslookup1.txt
 if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
 
@@ -214,6 +231,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     # download blackweb
     $wget_opts https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py -O gitfolder.py || {
         log "PARTIAL: https://raw.githubusercontent.com/maravento/vault/master/scripts/python/gitfolder.py"
+        log "ERROR: gitfolder.py not available -abort"
         exit 1
     }
     log "SAVED: gitfolder.py"
@@ -472,7 +490,7 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         esac
         # download
         if ! $wget_opts "$source_url" -O - \
-            | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" \
+            | LC_ALL=C grep -aoP "$domain_re" | to_punycode \
             | grep -Pvi '(.htm(l)?|.the|.php(il)?)$' \
             | sed -r 's:(^\.*?(www|ftp|xxx|wvw)[^.]*?\.|^\.\.?)::gi' \
             | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
@@ -487,14 +505,15 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
     log "INFO: IDN Capture and Debugging..."
     grep_err="$(mktemp)" || { log "ERROR: cannot create domain extraction error file -abort"; exit 1; }
     find bwtmp -type f -not -iname "*pdf" \
-      -execdir sh -c 'grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" "$1"; [ "$?" -gt 1 ] && printf x >> "$2"; exit 0' _ {} "$grep_err" \; \
+      -execdir sh -c 'LC_ALL=C grep -aoP "$3" "$1"; [ "$?" -gt 1 ] && printf x >> "$2"; exit 0' _ {} "$grep_err" "$domain_re" \; \
+    | to_punycode \
     | sed -r 's:(^\.*?(www|ftp|ftps|ftpes|sftp|pop|pop3|smtp|imap|http|https)[^.]*?\.|^\.\.)::gi' \
     | sed -r '/[^a-zA-Z0-9.-]/d; /^[^a-zA-Z0-9.]/d; /[^a-zA-Z0-9]$/d; /^[[:space:]]*$/d; /[[:space:]]/d; /^[[:space:]]*#/d; /\.{2,}/d' \
     | sort -u > stage1.txt
     pipe_status=("${PIPESTATUS[@]}")
     if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ] ||
         [ "${pipe_status[2]}" -ne 0 ] || [ "${pipe_status[3]}" -ne 0 ] ||
-        [ -s "$grep_err" ]; then
+        [ "${pipe_status[4]}" -ne 0 ] || [ -s "$grep_err" ]; then
         rm -f "$grep_err"
         log "ERROR: cannot capture domains from bwtmp -abort"
         exit 1
@@ -521,28 +540,9 @@ if [ ! -e "$repo_dir"/dnslookup1.txt ]; then
         log "ERROR: stage2.txt is empty -abort"
         exit 1
     fi
-    # debugging IDN
-    idn_src="$(mktemp)" || { log "ERROR: cannot create temporary for stage2.txt -abort"; exit 1; }
-    LC_ALL=C grep -v '[^[:print:]]' stage2.txt > "$idn_src"
-    if [ "$?" -gt 1 ]; then
-        rm -f "$idn_src"
-        log "ERROR: cannot prepare IDN input from stage2.txt -abort"
-        exit 1
-    fi
-    grep -P "[^[:ascii:]]" stage2.txt | idn2 >> "$idn_src"
+    awk '{if ($1 !~ /^\./) print "." $1; else print $1}' stage2.txt | sort -u > capture.txt
     pipe_status=("${PIPESTATUS[@]}")
-    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ]; then
-        rm -f "$idn_src"
-        log "ERROR: cannot convert IDN entries -abort"
-        exit 1
-    fi
-    grep -P '^[\x00-\x7F]+$' "$idn_src" \
-      | awk '{if ($1 !~ /^\./) print "." $1; else print $1}' \
-      | sort -u > capture.txt
-    pipe_status=("${PIPESTATUS[@]}")
-    rm -f "$idn_src"
-    if [ "${pipe_status[0]}" -gt 1 ] || [ "${pipe_status[1]}" -ne 0 ] ||
-        [ "${pipe_status[2]}" -ne 0 ]; then
+    if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -ne 0 ]; then
         log "ERROR: cannot build capture.txt -abort"
         exit 1
     fi
@@ -793,6 +793,24 @@ fi
 # ------------------------------------------------------------------------------
 
 log "INFO: Squid Reload..."
+# Keep the active list: an abort before the final copy restores it
+acl_backup=""
+if [ -f "$acl_dir"/blackweb.txt ]; then
+    sudo cp -p "$acl_dir"/blackweb.txt "$acl_dir"/blackweb.txt.bak || {
+        log "ERROR: cannot back up $acl_dir/blackweb.txt -abort"
+        exit 1
+    }
+    acl_backup="$acl_dir/blackweb.txt.bak"
+fi
+restore_acl() {
+    [ -n "$acl_backup" ] || return 0
+    if sudo mv -f "$acl_backup" "$acl_dir"/blackweb.txt && sudo bash -c 'squid -k reconfigure' >/dev/null 2>&1; then
+        log "INFO: previous blackweb.txt restored -fixed"
+    else
+        log "WARNING: cannot restore previous blackweb.txt -alert"
+    fi
+}
+trap restore_acl EXIT
 # copy blackweb to path
 sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
     log "ERROR: cannot copy blackweb.txt to $acl_dir -abort"
@@ -801,7 +819,7 @@ sudo install -m 644 -o root -g root blackweb.txt "$acl_dir"/blackweb.txt || {
 # Squid Reload
 check_squid_status
 sudo bash -c 'squid -k reconfigure' 2>sqerror.txt || {
-    log "ERROR: squid reconfigure failed with preview -abort"
+    log "ERROR: squid reconfigure failed with raw blackweb.txt -abort"
     exit 1
 }
 sleep 20
@@ -813,7 +831,7 @@ if [ "$?" -gt 1 ]; then
     exit 1
 fi
 sed -r "/\.(log|conf|crl|js|state)/d" "$cache_today" \
-    | grep -oiE "([a-zA-Z0-9][a-zA-Z0-9-]{1,61}\.){1,}(\.?[a-zA-Z]{2,}){1,}" >> sqerror.txt
+    | LC_ALL=C grep -aoP "$domain_re" | to_punycode >> sqerror.txt
 pipe_status=("${PIPESTATUS[@]}")
 rm -f "$cache_today"
 if [ "${pipe_status[0]}" -ne 0 ] || [ "${pipe_status[1]}" -gt 1 ]; then
@@ -868,11 +886,14 @@ sudo bash -c 'squid -k reconfigure' 2> "$script_dir/SquidErrors.txt" || {
     log "ERROR: squid reconfigure failed with blackweb.txt -abort"
     exit 1
 }
+trap - EXIT
+[ -z "$acl_backup" ] || sudo rm -f "$acl_backup"
 
 cd .. || {
-    log "ERROR: cannot enter bwupdate path -abort"
+    log "ERROR: cannot return to the script directory -abort"
     exit 1
 }
+rm -rf "$repo_dir"
 
 # ------------------------------------------------------------------------------
 # END

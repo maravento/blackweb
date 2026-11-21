@@ -29,7 +29,7 @@ try:
         f.write('\n'.join(sorted(result)) + '\n')
 except FileNotFoundError as e:
     print(
-        "%s ERROR: debugerror.py: %s not found"
+        "%s ERROR: debugerror.py: %s not found -abort"
         % (time.strftime('%Y-%m-%d %H:%M:%S'), e.filename),
         file=sys.stderr,
     )

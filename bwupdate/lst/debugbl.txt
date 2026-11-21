@@ -4152,6 +4152,7 @@
 .lntproductions.com
 .loader.to
 .loaditsoft.com
+.loanbixby.com
 .localhost.com
 .locgest.com
 .locogallery.com
@@ -4195,6 +4196,7 @@
 .ltinvest.de
 .lubrinor.pt
 .lucia179.com
+.luckykraaled.cyou
 .luckyniki.dk
 .luczko.pl
 .ludustickets.com
@@ -5061,6 +5063,7 @@
 .onelink.to
 .onepelis.com
 .onequote.ie
+.one-vv3355.com
 .onewebproxy.com
 .oninstagram.com
 .onion.cab
@@ -5406,6 +5409,7 @@
 .platinumrainbow.com
 .playdede.cc
 .playdede.us
+.playglobal17.com
 .playit.buzz
 .playit.cafe
 .playit.city
@@ -6487,6 +6491,7 @@
 .sragenkab.go.id
 .srca.org
 .srisaioilfield.com
+.srnky.com
 .srns.eu
 .srv-analytics.info
 .srv.crsoo.com
@@ -7703,15 +7708,20 @@
 .xing.com
 .xitesite.com
 .xixiaxianggua.com
+.xl.gl
 .xlr8services.com
 .xm.com
 .xmjietuo.com
 .xmo.gr
 .xmp3a.com
 .xmx.de
+.xn--80a5aeq0fr0c.com
+.xn--80a6aa68c8d.com
 .xn--divxtotl-fza.com
 .xn--hastabakc-2pbb.net
 .xnkmanhtien.com
+.xn--nie-g6a.com
+.xn--ota-f6a.com
 .xn--pasaer-spb.pl
 .xnxx.com
 .xnxx.es

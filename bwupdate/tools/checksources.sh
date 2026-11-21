@@ -26,6 +26,9 @@ if [ "$(id -u)" == "0" ]; then
     exit 1
 fi
 
+# awk is a command, not a package: check it before its first use
+command -v awk >/dev/null 2>&1 || { echo "$(date '+%Y-%m-%d %H:%M:%S') ERROR: awk not found -abort" >&2; exit 1; }
+
 # prevent overlapping runs
 script_lock="/var/lock/$(basename "$0" .sh).lock"
 (umask 077; : >> "$script_lock") || {
@@ -247,6 +250,10 @@ search_lists() {
     echo
 }
 
+# ------------------------------------------------------------------------------
+# MENU
+# ------------------------------------------------------------------------------
+
 if [ ! -d downloaded_lists/lists ] || [ -z "$(ls -A downloaded_lists/lists 2>/dev/null)" ]; then
     download_lists || exit 1
 fi
@@ -257,7 +264,7 @@ while true; do
     echo "    1) Search domain"
     echo "    2) Download all lists again"
     echo "    3) Exit"
-    read -r -p "Choose an option [1/2/3]: " menu_opt || exit 1
+    read -r -p "Choose an option [1/2/3]: " menu_opt || { log "ERROR: no menu option read -abort"; exit 1; }
     echo
     menu_opt="${menu_opt:-3}"
     case "$menu_opt" in
