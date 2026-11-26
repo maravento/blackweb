@@ -21,7 +21,8 @@
 # Optional parameters:
 # By default, output goes to 'output.txt' and removed lines to 'removed.txt'.
 # Customize output with:
-# python3 domfilter.py --input mylst.txt --output outlst.txt --removed removelst.txt
+# python3 domfilter.py --input mylst.txt --output outlst.txt --removed
+# removelst.txt
 # SSL verification can be disabled (not recommended) with --no-verify-ssl
 
 # Important:
@@ -53,14 +54,19 @@ TLDS_FILE = SCRIPT_DIR / "tlds.txt"
 SOURCETLD_FILE = SCRIPT_DIR / "sourcetld.txt"
 MIN_TLD_COUNT = 500
 
+
 def stamp() -> str:
     return time.strftime('%Y-%m-%d %H:%M:%S')
 
+
 # TLD
-def download_public_suffix(url: str, output_file: Path, verify_ssl: bool) -> None:
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
+def download_public_suffix(url: str, output_file: Path,
+                           verify_ssl: bool) -> None:
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'}
     try:
-        response = requests.get(url, timeout=10, verify=verify_ssl, headers=headers)
+        response = requests.get(url, timeout=10, verify=verify_ssl,
+                                headers=headers)
         response.raise_for_status()
         text = response.text
         if text and not text.endswith('\n'):
@@ -71,7 +77,9 @@ def download_public_suffix(url: str, output_file: Path, verify_ssl: bool) -> Non
         print(f"{stamp()} TIMEOUT: {url}")
     except requests.HTTPError as e:
         code = e.response.status_code
-        tag = 'BUSY' if 500 <= code < 600 else 'BROKEN' if code in (404, 410) else 'HTTP_ERROR'
+        tag = ('BUSY' if 500 <= code < 600
+               else 'BROKEN' if code in (404, 410)
+               else 'HTTP_ERROR')
         print(f"{stamp()} {tag}: {code} {url}")
     except (requests.exceptions.ChunkedEncodingError,
             requests.exceptions.ContentDecodingError):
@@ -79,15 +87,17 @@ def download_public_suffix(url: str, output_file: Path, verify_ssl: bool) -> Non
     except requests.RequestException as e:
         print(f"{stamp()} WARNING: {url}: {e} -alert")
 
-def process_tlds_file(input_file: Path = SOURCETLD_FILE, output_file: Path = TLDS_FILE) -> int:
+
+def process_tlds_file(input_file: Path = SOURCETLD_FILE,
+                      output_file: Path = TLDS_FILE) -> int:
     processed_lines = set()
     with open(input_file, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip().lower()
             if (not line or
-                line.startswith('//') or
-                line.startswith('#') or
-                line.startswith('!')):
+                    line.startswith('//') or
+                    line.startswith('#') or
+                    line.startswith('!')):
                 continue
             if line.startswith('*.'):
                 line = line[2:]
@@ -102,6 +112,7 @@ def process_tlds_file(input_file: Path = SOURCETLD_FILE, output_file: Path = TLD
             f.write(line + '\n')
     return len(processed_lines)
 
+
 def generate_tlds(verify_ssl: bool = True):
     if TLDS_FILE.exists() and TLDS_FILE.stat().st_size > 0:
         count = sum(1 for _ in TLDS_FILE.open(encoding='utf-8'))
@@ -109,13 +120,16 @@ def generate_tlds(verify_ssl: bool = True):
             return
 
     target = TLDS_FILE.resolve()
-    tmp_dir = Path(tempfile.mkdtemp(prefix="domfilter_tlds_", dir=target.parent))
+    tmp_dir = Path(tempfile.mkdtemp(prefix="domfilter_tlds_",
+                                    dir=target.parent))
     source_file = tmp_dir / SOURCETLD_FILE.name
     candidate = tmp_dir / TLDS_FILE.name
     urls = [
         'https://data.iana.org/TLD/tlds-alpha-by-domain.txt',
-        'https://raw.githubusercontent.com/maravento/blackweb/refs/heads/master/bwupdate/lst/tldsappx.txt',
-        'https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat',
+        'https://raw.githubusercontent.com/maravento/blackweb/refs/heads/'
+        'master/bwupdate/lst/tldsappx.txt',
+        'https://raw.githubusercontent.com/publicsuffix/list/master/'
+        'public_suffix_list.dat',
         'https://www.whoisxmlapi.com/support/supported_tlds.php?ts=gp',
     ]
     try:
@@ -125,11 +139,13 @@ def generate_tlds(verify_ssl: bool = True):
         count = process_tlds_file(source_file, candidate)
 
         if not candidate.exists() or candidate.stat().st_size == 0:
-            sys.exit(f"{stamp()} ERROR: tlds.txt is empty, all TLD sources failed to download -abort")
+            sys.exit(f"{stamp()} ERROR: tlds.txt is empty, "
+                     "all TLD sources failed to download -abort")
 
         if count < MIN_TLD_COUNT:
             sys.exit(
-                f"{stamp()} ERROR: only {count} TLDs were collected, expected at least "
+                f"{stamp()} ERROR: only {count} TLDs were collected, "
+                "expected at least "
                 f"{MIN_TLD_COUNT} -abort"
             )
 
@@ -142,9 +158,11 @@ def generate_tlds(verify_ssl: bool = True):
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
 
+
 # DOMAINS FILTER
 def should_keep_domain(domain: str, valid_domains: set, tlds: set) -> bool:
-    clean_domain = domain.lstrip('.')  # Remove the dot at the beginning, if it has one
+    # Remove the dot at the beginning, if it has one
+    clean_domain = domain.lstrip('.')
     partial = ''
     tld = ''
     found = False
@@ -166,6 +184,7 @@ def should_keep_domain(domain: str, valid_domains: set, tlds: set) -> bool:
 
     return True
 
+
 def load_tlds(tlds_file) -> set:
     try:
         with open(tlds_file, 'r', encoding='utf-8') as f:
@@ -173,14 +192,18 @@ def load_tlds(tlds_file) -> set:
     except FileNotFoundError:
         sys.exit(f"{stamp()} ERROR: TLD file '{tlds_file}' not found -abort")
 
+
 def load_capture(capture_file) -> list:
     try:
         with open(capture_file, 'r', encoding='utf-8') as f:
             return [line.strip() for line in f if line.strip()]
     except FileNotFoundError:
-        sys.exit(f"{stamp()} ERROR: input file '{capture_file}' not found -abort")
+        sys.exit(f"{stamp()} ERROR: input file '{capture_file}' "
+                 "not found -abort")
 
-# Normalize input to a temporary copy (leaves the user's original file untouched)
+
+# Normalize input to a temporary copy (leaves the user's original file
+# untouched)
 def add_dot_if_missing(filename: str) -> str:
     with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -197,14 +220,17 @@ def add_dot_if_missing(filename: str) -> str:
     return tmp_path
 
 
-def process_domains(input_file: str, tlds: set, output_file: str = None, removed_file: str = None):
+def process_domains(input_file: str, tlds: set, output_file: str = None,
+                    removed_file: str = None):
     if output_file and removed_file:
         if os.path.exists(output_file) and os.path.exists(removed_file):
             same_target = os.path.samefile(output_file, removed_file)
         else:
-            same_target = os.path.realpath(output_file) == os.path.realpath(removed_file)
+            same_target = (os.path.realpath(output_file)
+                           == os.path.realpath(removed_file))
         if same_target:
-            sys.exit(f"{stamp()} ERROR: --output and --removed are the same file -abort")
+            sys.exit(f"{stamp()} ERROR: --output and --removed "
+                     "are the same file -abort")
 
     domains = load_capture(input_file)
     valid_domains = set()
@@ -218,38 +244,54 @@ def process_domains(input_file: str, tlds: set, output_file: str = None, removed
         else:
             other_domains.add(domain)
 
-    with open(output_file, 'w', encoding='utf-8') if output_file else sys.stdout as output:
+    with open(output_file, 'w',
+              encoding='utf-8') if output_file else sys.stdout as output:
         content = "\n".join(sorted(valid_domains))
         output.write(content + "\n" if content else "")
 
-    with open(removed_file, 'w', encoding='utf-8') if removed_file else sys.stderr as output:
+    with open(removed_file, 'w',
+              encoding='utf-8') if removed_file else sys.stderr as output:
         content = "\n".join(sorted(other_domains))
         output.write(content + "\n" if content else "")
 
+
 # MAIN
 def main():
-    parser = argparse.ArgumentParser(description="Generate TLD list and filter domains.")
-    parser.add_argument('--input', required=False, default=None, help="Path to the capture file.")
-    parser.add_argument('--output', help="Path to the output file (optional).", default="output.txt", type=str)
-    parser.add_argument('--removed', help="Path to the output file for removed domains (optional).", default="removed.txt", type=str)
-    parser.add_argument('--no-verify-ssl', action='store_true', help="Disable SSL verification when downloading TLD sources (not recommended).")
+    parser = argparse.ArgumentParser(
+        description="Generate TLD list and filter domains.")
+    parser.add_argument('--input', required=False, default=None,
+                        help="Path to the capture file.")
+    parser.add_argument('--output', help="Path to the output file (optional).",
+                        default="output.txt", type=str)
+    parser.add_argument('--removed',
+                        help="Path to the output file for removed domains "
+                             "(optional).",
+                        default="removed.txt", type=str)
+    parser.add_argument('--no-verify-ssl', action='store_true',
+                        help="Disable SSL verification when downloading "
+                             "TLD sources (not recommended).")
     args = parser.parse_args()
 
     if not args.input:
-        sys.exit(f"{stamp()} ERROR: --input is required, usage: domfilter.py --input <file> -abort")
+        sys.exit(f"{stamp()} ERROR: --input is required, "
+                 "usage: domfilter.py --input <file> -abort")
 
-    for option, target in (("--output", args.output), ("--removed", args.removed)):
+    for option, target in (("--output", args.output), ("--removed",
+                                                       args.removed)):
         if not target:
             continue
         same_path = os.path.realpath(args.input) == os.path.realpath(target)
-        same_file = os.path.exists(args.input) and os.path.exists(target) and os.path.samefile(args.input, target)
+        same_file = (os.path.exists(args.input) and os.path.exists(target)
+                     and os.path.samefile(args.input, target))
         if same_path or same_file:
-            sys.exit(f"{stamp()} ERROR: {option} points to the input file -abort")
+            sys.exit(f"{stamp()} ERROR: {option} "
+                     "points to the input file -abort")
 
     verify_ssl = not args.no_verify_ssl
     if not verify_ssl:
         warnings.simplefilter('ignore', InsecureRequestWarning)
-        print(f"{stamp()} WARNING: SSL verification disabled for TLD downloads -alert")
+        print(f"{stamp()} WARNING: SSL verification disabled "
+              "for TLD downloads -alert")
 
     # add .dot (operates on a temp copy, original input file is never modified)
     tmp_input = add_dot_if_missing(args.input)
@@ -263,6 +305,7 @@ def main():
         process_domains(tmp_input, tlds, args.output, args.removed)
     finally:
         os.remove(tmp_input)
+
 
 if __name__ == "__main__":
     main()
